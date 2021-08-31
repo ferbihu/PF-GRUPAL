@@ -1,7 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors"); // para poder hacer peticiones desde cualquier punto (tambien se puede configurar de donde recibir las peticiones)
-// const { conn } = require("./src/models/index.js");
+const { conn } = require("./src/models/index.js");
 const routes = require("./src/routes/index");
 
 const app = express();
@@ -18,9 +18,9 @@ app.use(setHeaders);
 
 app.use("/", routes);
 
-// conn.sync({ force: false }).then(() => {
-//   console.log("Connect");
-//   app.listen(PORT, () => {
-//     console.log(`Listen on port ${PORT}`);
-//   });
-// });
+conn.sync({ force: false }).then(() => {
+console.log("Connect");
+app.listen(PORT, () => {
+console.log(`Listen on port ${PORT}`);
+});
+});
