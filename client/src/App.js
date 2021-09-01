@@ -8,7 +8,7 @@ import Footer from "./Components/Footer/Footer.jsx";
 import Foro from "./Components/Foro/Foro";
 import Conocenos from "./Pages/Conocenos";
 import IniciaSesion from "./Pages/IniciaSesion";
-import Landing from './Pages/Landing'
+
 import LugaresSeguros from "./Pages/LugaresSeguros";
 import Registrate from "./Pages/Registrate";
 
