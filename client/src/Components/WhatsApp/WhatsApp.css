@@ -3,11 +3,16 @@
      
     height: 40vh;
 }
+.titulo144{
+    margin-top: 50px;
+    margin-left: 480px; 
+}
 .btnayuda{
     background-color: #4A0E79;
     color: #FFFFFF;
     font-weight: bold;
     margin-bottom: 50px;
+    margin-top: 5px;
     width:150px;
     height: 40px;
     border-radius:9px;
@@ -16,4 +21,5 @@
     align-content: center;
     display:fixed;
     right:600px;
+    margin-left: 500px;
  }
