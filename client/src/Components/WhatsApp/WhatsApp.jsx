@@ -1,17 +1,15 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+//import { Link } from "react-router-dom";
 import './WhatsApp.css';
 
 
 export default function Foro(){
    return (
-       <div >
+       <div  className='fondoWhatsapp'>
            <h3>Comunicate con el 144</h3>
-           <Link to='/' >
-               <button className='btnayuda'>
-                   BOTÓN DE AYUDA
-               </button>
-           </Link>
+           <a href="https://api.whatsapp.com/send?phone=5491127716463">
+              <button className='btnayuda' >BOTÓN DE AYUDA</button>
+          </a> 
        </div>
    )
 }
