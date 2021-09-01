@@ -5,6 +5,7 @@ import './Foro.css';
 export default function Foro(){
    return (
     <div className='fondoForo'>
+    <div>
         <div >
            <h2 className='tituloForo'>Foro</h2> 
         </div>
