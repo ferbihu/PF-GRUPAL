@@ -1,0 +1,18 @@
+.fondoWhatsapp{
+    font-family: 'Montserrat', sans-serif;
+    background-color: #878BD9;  
+}
+.btnayuda{
+    background-color: #4A0E79;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin-bottom: 50px;
+    width:150px;
+    height: 40px;
+    border-radius:9px;
+    justify-content:center;
+    align-items:center;
+    align-content: center;
+    display:fixed;
+    right:600px;
+ }
