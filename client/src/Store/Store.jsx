@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, compose } from "redux";
-import rootReducers from "../reducers/reducers";
+import rootReducers from "../Reducers/Reducers";
 import thunk from "redux-thunk";
 
 
@@ -12,4 +12,4 @@ import thunk from "redux-thunk";
    composeEnhancers(applyMiddleware(thunk))
  );
 
-export default store;
+export default Store;
