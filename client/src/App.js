@@ -1,11 +1,15 @@
-import logo from './logo.svg';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Landing from './Pages/Landing'
 import './App.css';
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <Switch>
+      <Route exact path="/" component={Landing}/>
+      {/* <header className="App-header">
+
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -17,8 +21,10 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
+      </Switch>
     </div>
+    </BrowserRouter>
   );
 }
 
