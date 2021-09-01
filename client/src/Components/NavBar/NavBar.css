@@ -1,0 +1,22 @@
+.conteiner {
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+link {
+    text-decoration: none;
+}
+
+.s {
+    text-decoration: none;
+    font-family: Raleway;
+    color: black;
+}
+
+.text {
+    text-decoration: none;
+    font-family: Montserrat;
+    color: black;
+}
