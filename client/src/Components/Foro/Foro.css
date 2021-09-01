@@ -1,23 +1,47 @@
 .fondoForo{
-    font-family: 'Montserrat', sans-serif;
-    
+    font-family: 'Montserrat';
     height: 40vh;
 }
 .tituloForo {
+    font-size: 35px;
     color: #4A0E79;
     font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat';
+    margin-bottom: 20px;
+    margin-left: 150px;
+    text-align: left;
 }
-.parrafoForo{
+.parrafoForo1{
+    font-size: 30px;
+    color: #091531;
+    font-family: 'Montserrat';
+    margin-bottom: 7px;
+    margin-left: 105px;
+    text-align: center;
+}
+.parrafoForo2{
+    font-size: 25px;
+    color: #091531;
+    font-family: 'Montserrat';
+    margin-bottom: 10px;
+    margin-left: 105px;
+    text-align: center;
+}
+.parrafoForo3{
+    font-size: 25px;
     color: #091531;
     font-family: 'Montserrat', sans-serif;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    margin-left: 400px;
+    /* text-align: center; */
 }
 .btnForo{
     font-family: 'Montserrat', sans-serif;
     background-color: #F1EEDE;
     color: #4A0E79;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 0px;
     margin-bottom: 0px;
     width:250px;
     height: 40px;
@@ -27,4 +51,5 @@
     align-content: center;
     display:fixed;
     right:600px;
+    margin-left: 450px;
 }
