@@ -3,6 +3,7 @@ const morgan = require('morgan');
 require('dotenv').config();
 const cors = require('cors');
 const server= express();
+const safe = require('./routes/allRouts.js')
 
 require('./db.js');
 
@@ -19,6 +20,7 @@ server.use(express.json() );
 // rutas
 
 server.use('/auth', require('./routes/auth') );
+server.use('/safe', safe);
 
 
 module.exports = server;
