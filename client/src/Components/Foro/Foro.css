@@ -1,6 +1,7 @@
 .fondoForo{
     font-family: 'Montserrat', sans-serif;
-    background-color: #878BD9;  
+    
+    height: 40vh;
 }
 .tituloForo {
     color: #4A0E79;
