@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import mapa from "../../imgs/wmn (1).png";
+import mapa from '../../imgs/wmn (1).png';
 import "./Mapa.css";
 
 const Mapa = () => {

@@ -5,6 +5,7 @@ const cors = require('cors');
 const server= express();
 const safe = require('./routes/allRouts.js')
 
+
 require('./db.js');
 
 server.use(morgan('dev'));
@@ -21,6 +22,7 @@ server.use(express.json() );
 
 server.use('/auth', require('./routes/auth') );
 server.use('/safe', safe);
+server.use('/safe_place',require ('./routes/safeplace'))
 
 
 module.exports = server;
