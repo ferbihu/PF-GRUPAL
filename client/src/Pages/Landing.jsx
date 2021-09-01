@@ -1,7 +1,7 @@
 // Acá renderizamos los componentes:
 // Header - Mapa - Foro - Boton WhatsApp 144
 import React from 'react';
-import Foro from './Foro';
+import Foro from '../Components/Foro/Foro';
 import Mapa from '../Components/Mapa/Mapa';
 import WhatsApp from '../Components/WhatsApp/WhatsApp';
 
