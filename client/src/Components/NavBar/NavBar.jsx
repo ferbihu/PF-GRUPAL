@@ -9,29 +9,29 @@ const Nav = () => {
                 <h1 className="s">S.</h1>
             </Link>
             <Link to = "/conocenos">
-                <p className="text">
+                <p className="textNav">
                 Conocenos
                 </p>
             </Link>
             <Link to = "/foro">
-                <p className="text">
+                <p className="textNav">
                 Foro
                 </p>
             </Link>
             <Link to = "/lugaresseguros">
-                <p className="text">
+                <p className="textNav">
                 Lugares seguros
                 </p>
             </Link>
             <Link to = "/iniciasesion">
-                <p className="text">
+                <p className="textNav">
                 Iniciar sesión
                 </p>
             </Link>
             <Link to = "/registrate">
-                <p className="text">
+                <button className="btnReg">
                 Registrate
-                </p>
+                </button>
             </Link>
         </div>
     )

@@ -1,11 +1,11 @@
 .conteiner {
-    height: 10vh;
+    height: 20vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-link {
+a {
     text-decoration: none;
 }
 
@@ -15,8 +15,19 @@ link {
     color: black;
 }
 
-.text {
+.textNav {
     text-decoration: none;
     font-family: Montserrat;
+    font-style: bold;
     color: black;
+}
+
+.btnReg {
+    background-color: #878BD9;
+    font-family: Montserrat;
+    font-size: bold;
+    border-color: transparent;
+    width: 90px;
+    height: 30px;
+    border-radius: 20px;
 }
