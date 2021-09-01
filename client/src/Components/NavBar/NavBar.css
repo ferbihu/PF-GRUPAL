@@ -1,0 +1,33 @@
+.conteiner {
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+.s {
+    text-decoration: none;
+    font-family: Raleway;
+    color: black;
+}
+
+.textNav {
+    text-decoration: none;
+    font-family: Montserrat;
+    font-style: bold;
+    color: black;
+}
+
+.btnReg {
+    background-color: #878BD9;
+    font-family: Montserrat;
+    font-size: bold;
+    border-color: transparent;
+    width: 90px;
+    height: 30px;
+    border-radius: 20px;
+}

@@ -9,15 +9,17 @@ export default function Foro() {
                 <div >
                     <h2 className='tituloForo'>Foro</h2>
                 </div>
-                <div className='parrafoForo'>
+                <div className='parrafoForo1'>
                     <h4>
                         Charlamos sobre salud, educación sexual, eventos y más!
                     </h4>
+                </div>
+                <div className='parrafoForo2'>
                     <h4>
                         Podés ser parte de una de las comunidades de mujeres más activas.
                     </h4>
                 </div>
-                <div>
+                <div className='parrafoForo3'>
                     <h3>
                         ¡Nos encantaría conocerte!
                     </h3>

@@ -4,7 +4,8 @@ const  { sequelize } = require('../db');
 // Luego le injectamos la conexion a sequelize.
 
     // defino el modelo
- const User =  sequelize.define('user', {
+ module.exports = function(sequelize) {
+     return sequelize.define('user', {
 
         name: {
             type: DataTypes.STRING,
@@ -20,6 +21,4 @@ const  { sequelize } = require('../db');
         }
     });
 
- module.exports ={
-     User
- };
+ } 
