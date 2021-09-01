@@ -2,13 +2,16 @@
 // Header - Mapa - Foro - Boton WhatsApp 144
 import React from 'react';
 import Foro from '../Components/Foro/Foro';
+import Mapa from '../Components/Mapa/Mapa';
 import WhatsApp from '../Components/WhatsApp/WhatsApp';
 
 
-export default function Landing(){
+export default function Landing() {
     return (
         <div>
-           <Foro></Foro>
-           <WhatsApp></WhatsApp>
+            <Mapa></Mapa>
+            <Foro></Foro>
+            <WhatsApp></WhatsApp>
         </div>
-    )}
+    )
+}
