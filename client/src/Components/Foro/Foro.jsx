@@ -5,8 +5,8 @@ import './Foro.css';
 export default function Foro(){
    return (
     <div>
-        <div className='tituloForo'>
-           <h2>Foro</h2> 
+        <div >
+           <h2 className='tituloForo'>Foro</h2> 
         </div>
         <div className='parrafoForo'>
             <h4>

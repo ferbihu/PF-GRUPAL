@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap');
 *{
 font-family: 'Montserrat', sans-serif;
+background-color: #878BD9;
 }
 .tituloForo {
     color: #4A0E79;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
 }
 .parrafoForo{
     color: #091531;
@@ -11,6 +14,7 @@ font-family: 'Montserrat', sans-serif;
 .btnForo{
     background-color: #F1EEDE;
     color: #4A0E79;
-    margin-top: 30px;
+    margin-top: -10px;
     margin-bottom: 30px;
+
 }
