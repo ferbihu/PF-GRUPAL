@@ -4,6 +4,7 @@ import './Foro.css';
 
 export default function Foro(){
    return (
+    <div className='fondoForo'>
     <div>
         <div >
            <h2 className='tituloForo'>Foro</h2> 
@@ -13,7 +14,7 @@ export default function Foro(){
                 Charlamos sobre salud, educación sexual, eventos y más!
             </h4>
             <h4>
-                Podes ser parte de una de las comunidades de mujeres más activas.
+                Podés ser parte de una de las comunidades de mujeres más activas.
             </h4>
         </div>
         <div>
@@ -24,7 +25,7 @@ export default function Foro(){
         <div>
             <Link to = '/foro'>
             <button className='btnForo'>
-                Ingresá al foro
+                INGRESÁ AL FORO
             </button>
             </Link>
         </div>
