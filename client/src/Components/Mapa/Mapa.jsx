@@ -2,13 +2,11 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import mapa from "../../imgs/wmn (1).png";
 import "./Mapa.css";
+import { MapInit } from './Map';
 
-<<<<<<< HEAD
+
 export default function Mapa() {
-  
-=======
-const Mapa = () => {
->>>>>>> main
+
   return (
     <div className="container">
       <h1>Lugares Seguros</h1>
@@ -19,5 +17,3 @@ const Mapa = () => {
     </div>
   )
 }
-
-export default Mapa;
