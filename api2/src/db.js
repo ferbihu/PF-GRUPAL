@@ -21,7 +21,7 @@ User.hasMany(Comment)
 Comment.belongsTo(User)
 
 User.hasMany(SafePlace)
-SafePlace.belongsTo(User)
+SafePlace.belongsTo(User) 
 
 module.exports = {
     sequelize,
