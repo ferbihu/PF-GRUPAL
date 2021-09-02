@@ -10,7 +10,7 @@ import Conocenos from "./Pages/Conocenos";
 import IniciaSesion from "./Pages/IniciaSesion";
 
 import LugaresSeguros from "./Pages/LugaresSeguros";
-import Registrate from "./Pages/Registrate";
+import Registrate from "./Pages/Registrate/Registrate";
 import Nav from "./Components/NavBar/NavBar";
 
 function App() {
