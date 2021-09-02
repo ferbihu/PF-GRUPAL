@@ -17,10 +17,16 @@ const Comment = commentModel(sequelize);
 const Map = mapModel(sequelize);
 const SafePlace = safePlaceModel(sequelize);
 
+User.hasMany(Comment)
+Comment.belongsTo(User)
+
+User.hasMany(SafePlace) 
+SafePlace.belongsTo(User)
+
 module.exports = {
     sequelize,
     User,
     Comment,
     Map,
     SafePlace
-}
+} 
