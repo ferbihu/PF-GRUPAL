@@ -8,3 +8,4 @@ conn.sync({ force: true }).then(() => {
         console.log("server running " + process.env.PORT)
     })
 })
+

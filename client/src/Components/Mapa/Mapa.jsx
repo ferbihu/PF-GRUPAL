@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import mapa from "../../imgs/wmn (1).png";
+import mapa from '../../imgs/wmn (1).png';
 import "./Mapa.css";
 import { MapInit } from './Map';
 
@@ -9,7 +9,7 @@ export default function Mapa() {
 
   return (
     <div className="container">
-      <h1>Lugares Seguros</h1>
+      <h1 className="txt">LUGARES SEGUROS</h1>
       <Link to="/lugaresseguros">
         <img src={mapa} alt="Not found" className="img" />
       </Link>

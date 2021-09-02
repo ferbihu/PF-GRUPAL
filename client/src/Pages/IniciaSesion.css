@@ -1,0 +1,69 @@
+.txtLog {
+    font-family: Montserrat;
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+}
+
+body {
+  font-family: Montserrat;
+  font-weight: 100;
+}
+
+.p {
+    /* margin-left: 200px; */
+    background-color:rgb(255, 255, 255);
+    /* margin-top: 100px; */
+    display: flex;
+    justify-content: center;
+    border-radius: 90px;
+    margin-top: 20px;
+}
+
+.p2 {
+    /* margin-left: 185px; */
+    display: flex;
+    justify-content: center;
+    background-color:rgb(255, 255, 255);
+    /* margin-top: 150px; */
+}
+
+.login-form {
+    margin: auto;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 0 1rem rgba(128, 128, 128, 0.3);
+    width: 450px;
+    height: 480px;
+    border-radius: 20px;
+}
+
+.login-username, .login-password {
+  background: rgba(200, 200, 200, 0.253);
+  border: 0 solid;
+  color: rgb(0, 0, 0);
+  transition: 250ms;
+  width: 200px;
+  height: 35px;
+  border-radius: 20px;
+  display: flex;
+  margin-top: 120px;
+  margin-left: 125px;
+  text-align: center;
+}
+
+.login-submit {
+  background-color: #FEA166;
+  color: rgb(0, 0, 0);
+  transition: 250ms;
+  box-shadow: #494441b2;
+  border-radius: 20px;
+  width: 150px;
+  height: 40px;
+  font-family: Montserrat;
+  font-size:17px;
+  font-weight: bold;
+  border-color: transparent;
+  margin-top: 30px;
+  margin-left: 150px;
+
+}

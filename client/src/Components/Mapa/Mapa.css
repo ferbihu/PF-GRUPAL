@@ -1,8 +1,18 @@
 .img {
-    width: 50%;
-    height: 50%;
+    width: 70%;
+    height: 50%; 
+    margin-left: 200px;
+}
+
+.txt {
+    font-family: Montserrat;
+    color: #4A0E79;
+    font-style: normal;
+    font-weight: bold;
 }
 
 .container {
     height: 98vh;
+    justify-content: center;
+    display:inline;
 }
