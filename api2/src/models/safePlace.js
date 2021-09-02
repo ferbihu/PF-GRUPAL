@@ -14,11 +14,11 @@ module.exports = function (sequelize) {
             allowNull: false,
         },
         latitude: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.DOUBLE,
             allowNull: false,
         },
         longitude: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.DOUBLE,
             allowNull: false,
         },
         image: {
