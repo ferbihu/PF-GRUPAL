@@ -6,7 +6,7 @@ import "./Mapa.css";
 const Mapa = () => {
   return (
     <div className="container">
-      <h1>Lugares Seguros</h1>
+      <h1 className="txt">LUGARES SEGUROS</h1>
       <Link to="/lugaresseguros">
         <img src={mapa} alt="Not found" className="img" />
       </Link>
