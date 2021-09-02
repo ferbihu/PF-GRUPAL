@@ -20,7 +20,7 @@ const SafePlace = safePlaceModel(sequelize);
 User.hasMany(Comment)
 Comment.belongsTo(User)
 
-User.hasMany(SafePlace)
+User.hasMany(SafePlace) 
 SafePlace.belongsTo(User)
 
 module.exports = {
@@ -29,4 +29,4 @@ module.exports = {
     Comment,
     Map,
     SafePlace
-}
+} 
