@@ -15,7 +15,7 @@ module.exports = function (sequelize) {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        length: {
+        longitude: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
