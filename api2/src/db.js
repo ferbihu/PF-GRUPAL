@@ -24,7 +24,7 @@ User.hasMany(SafePlace)
 SafePlace.belongsTo(User)
 
 module.exports = {
-    sequelize,
+    conn: sequelize,
     User,
     Comment,
     Map,
