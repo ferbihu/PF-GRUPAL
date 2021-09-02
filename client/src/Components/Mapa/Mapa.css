@@ -1,8 +1,49 @@
-.img {
-    width: 50%;
-    height: 50%;
+.box{
+    padding: 5vw;
+    background-color: #a1a4db;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.lugaresseguros{
+    font-family: "Montserrat";
+    font-size: 3.5vw;
+    color: #4A0E79;  
+   /*  background-color: darkgreen; */
+    
+}
+span {
+    font-weight: bolder;
 }
 
-.container {
-    height: 98vh;
+a{
+    display: flex;
+    justify-content: center;
+}
+.imgMapa{
+    width: 70vw;
+    height: auto;
+    border-radius: 30px; 
+     
+
+}
+
+.texto-mapa{
+    font-size: 1.5vw;
+    font-family: "Montserrat";
+    justify-content: center;
+    text-align: justify;
+    font-weight: bold;
+    margin-bottom: 3vw;
+    
+}
+
+.lugaresseguros-line{
+        background: #f17a09;
+        height: 4px;
+        width: 36vw;
+        margin-top: 0.2rem;
+        margin-bottom: 3vw;
+        
+    
 }

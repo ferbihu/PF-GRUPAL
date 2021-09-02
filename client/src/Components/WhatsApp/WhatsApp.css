@@ -1,25 +1,49 @@
 .fondoWhatsapp{
+    background-color: #a1a4db;
+    padding: 3vw;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.contenedor {
     font-family: 'Montserrat', sans-serif;
-     
-    height: 40vh;
+    height: 25vw;
+    display: flex;
+    background-color: #F1EEDE;
+    justify-content: space-around;
+    align-content: center;
+    border-radius: 10px;
+    width: 50%;
+    
 }
 .titulo144{
-    margin-top: 90px;
-    margin-left: 480px; 
+    align-self: center;
+    font-size: 1.5vw;
+    
+    
 }
+
+.pregunta{
+    padding: 1vw;
+    font-size: 1vw;
+}
+
 .btnayuda{
-    background-color: #4A0E79;
-    color: #FFFFFF;
-    font-weight: bold;
-    margin-bottom: 50px;
-    margin-top: 5px;
-    width:150px;
-    height: 40px;
-    border-radius:9px;
-    justify-content:center;
-    align-items:center;
-    align-content: center;
-    display:fixed;
-    right:600px;
-    margin-left: 500px;
+    align-self: center;
+    background-color: #9359c0;
+    border-radius: 15px;
+    width: 20vw;
+    padding: 1vw;
+    text-align: justify;
+    font-size: 1.5vw;
+    color: white;
+    
  }
+
+ .comunicate-line{
+    background: #f17a09;
+        height: 4px;
+        width: 19.7vw;
+        margin-top: 0.8vw;
+}
