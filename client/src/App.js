@@ -8,7 +8,7 @@ import Footer from "./Components/Footer/Footer.jsx";
 import Foro from "../src/Pages/Foro";
 import Conocenos from "./Pages/Conocenos";
 import IniciaSesion from "./Pages/IniciaSesion";
-
+import RegistrateLugaresSeguros from "./Pages/RegistrateLugaresSeguros/RegistrateLugaresSeguros";
 import LugaresSeguros from "./Pages/LugaresSeguros";
 import Registrate from "./Pages/Registrate/Registrate";
 import Nav from "./Components/NavBar/NavBar";
@@ -23,6 +23,7 @@ function App() {
       <Route exact path="/" component={Landing}/>
       <Route exact path="/conocenos" component={Conocenos}/> 
       <Route exact path="/lugaresseguros" component={LugaresSeguros}/>
+      <Route exact path="/registratelugaresseguros" component={RegistrateLugaresSeguros}/>
       <Route exact path="/iniciasesion" component={IniciaSesion}/>
       <Route exact path="/registrate" component={Registrate}/>
       <Route exact path="/foro" component={Foro}/>
