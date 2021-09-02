@@ -14,6 +14,7 @@ export default function IniciaSesion() {
             <div className="contenedor-form">
                 <h1 className="txtLog">Inicia sesión</h1>
                 <form class="login-form">
+                    <br></br>
                     <label className="p">Email</label>
                     <input className="login-username" placeholder="nombre@example.com" />
                     <label className="p2">Contraseña</label>
