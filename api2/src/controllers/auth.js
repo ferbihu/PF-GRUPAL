@@ -56,6 +56,10 @@ const validateToken = async (req, res = response) => {
     const  token = await generateJWT(id, name);
     res.json ({ id:id, name:name, token });
 }
+
+
+
+
  module.exports = {
      createUser,
      loginUser,
