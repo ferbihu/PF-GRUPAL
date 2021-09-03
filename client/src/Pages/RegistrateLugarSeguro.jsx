@@ -89,7 +89,7 @@ export default function Registrate() {
     return (
         <div className='pageregistro'>
             <div className='title'><h1>Registro de lugar seguro</h1></div>
-            <div > <p>Completá el formulario y registrá tu comercio, empresa o entidad.</p> </div>
+            <div className='primerparrafo'> <p>Completá el formulario y registrá tu comercio, empresa o entidad.</p> </div>
            <div className='segundoparrafo' >
            <p>Ayudanos a luchar contra la violencia machista y sexual.</p>
            </div>
