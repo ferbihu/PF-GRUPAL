@@ -4,35 +4,28 @@ import "./NavBar.css";
 
 const Nav = () => {
     return (
-        <div className="conteiner">
-            <Link to="/">
-                <h1 className="s">S.</h1>
-            </Link>
-            <Link to = "/conocenos">
-                <p className="textNav">
-                Conocenos
-                </p>
-            </Link>
-            <Link to = "/foro">
-                <p className="textNav">
-                Foro
-                </p>
-            </Link>
-            <Link to = "/lugaresseguros">
-                <p className="textNav">
-                Lugares seguros
-                </p>
-            </Link>
-            <Link to = "/iniciasesion">
-                <p className="textNav">
-                Iniciar sesión
-                </p>
-            </Link>
-            <Link to = "/registrate">
-                <button className="btnReg">
-                Registrate
-                </button>
-            </Link>
+        <div className="container-nav">
+            <div className="logo">
+                <Link to="/">S.</Link>
+            </div>
+            <ul className="ul-nav">
+                <li>
+                    <Link to="/conocenos">Conocenos</Link>
+                </li>
+                <li>
+                    <Link to="/foro">Foro</Link>
+                </li>
+                <li>
+                    <Link to="/lugaresseguros">Lugares Seguros</Link>
+                    <div className="nav-line"></div>
+                </li>
+                <li>
+                    <Link to="/iniciasesion">Iniciar Sesión</Link>
+                </li>
+                <li>
+                    <Link to="/registrate">Registrate</Link>
+                </li>
+            </ul>
         </div>
     )
 }
