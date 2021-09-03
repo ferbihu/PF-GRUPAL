@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { addUser } from "../../actions/action";
+import { addUser } from "../../actions/actions";
 import { connect } from "react-redux";
 import "./Registrate.css";
 
@@ -49,53 +49,53 @@ function Register({ addUser }) {
   };
 
   return (
-     <div>
-    <h2  className="Registration">Registrate</h2>
-    <div className="card">
-    <form className="LoginForm" onSubmit={(e) => handleSubmit(e)}>
-   
-      <div className="FormInput">
-        <label>Nombre:</label>
-        <input
-          className={`${errors.name && "danger"}`}
-          type="text"
-          name="name"
-          onChange={handleInputChange}
-          value={input.name}
-        />
-        {errors.name && <p className="danger">{errors.name}</p>}
+    <div>
+      <h2 className="Registration">Registrate</h2>
+      <div className="card">
+        <form className="LoginForm" onSubmit={(e) => handleSubmit(e)}>
+
+          <div className="FormInput">
+            <label>Nombre:</label>
+            <input
+              className={`${errors.name && "danger"}`}
+              type="text"
+              name="name"
+              onChange={handleInputChange}
+              value={input.name}
+            />
+            {errors.name && <p className="danger">{errors.name}</p>}
+          </div>
+          <div className="FormInput">
+            <label>Email:</label>
+            <input
+              className={`${errors.email && "danger"}`}
+              type="text"
+              name="email"
+              placeholder="nombre@ejemplo.com"
+              onChange={(e) => handleInputChange(e)}
+              value={input.email}
+            />
+            {errors.email && <p className="danger">{errors.email}</p>}
+          </div>
+          <div className="FormInput">
+            <label>Contraseña:</label>
+            <input
+              className={`${errors.password && "danger"}`}
+              type="password"
+              name="password"
+              placeholder="más de 6 carácteres"
+              onChange={(e) => handleInputChange(e)}
+              value={input.password}
+            />
+            {errors.password && <p className="danger">{errors.password}</p>}
+          </div>
+          <div className="FormInput">
+            <button onClick={() => alert("Registration Successful")} type="submit">
+              Ingresá
+            </button>
+          </div>
+        </form>
       </div>
-      <div className="FormInput">
-        <label>Email:</label>
-        <input
-          className={`${errors.email && "danger"}`}
-          type="text"
-          name="email"
-          placeholder="nombre@ejemplo.com"
-          onChange={(e) => handleInputChange(e)}
-          value={input.email}
-        />
-        {errors.email && <p className="danger">{errors.email}</p>}
-      </div>
-      <div className="FormInput">
-        <label>Contraseña:</label>
-        <input
-          className={`${errors.password && "danger"}`}
-          type="password"
-          name="password"
-          placeholder="más de 6 carácteres"
-          onChange={(e) => handleInputChange(e)}
-          value={input.password}
-        />
-        {errors.password && <p className="danger">{errors.password}</p>}
-      </div>
-      <div className="FormInput">
-        <button onClick={() => alert("Registration Successful")} type="submit">
-          Ingresá
-        </button>
-      </div>
-    </form>
-    </div>
     </div>
   );
 }
