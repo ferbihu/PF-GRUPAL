@@ -44,7 +44,7 @@ const loginUser = async (req, res = response) => {
                 return res.status(200).json({ok:true, msg:"bienvenido",id:logUser.id, name:logUser.name, token})
             }
         } else {
-            return res.status(400).json({ok:false, msg:"this user no  exists"});
+            return res.status(400).json({ok:false, msg:"this user dont exists"});
         }
 
     } catch(e){
