@@ -16,3 +16,14 @@ export function addUser({ name, email, password }) {
   }
 
   export default addUser;
+
+
+  export function renderUserName(payload){
+    console.log("entro a la action : ", payload)
+    return {
+        
+        type: "RENDER_USER_NAME",
+        payload
+    }
+    
+}
