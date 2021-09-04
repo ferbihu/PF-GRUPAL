@@ -2,8 +2,8 @@
 const {Router} = require('express');
 const {check}= require('express-validator');
 const {validateInput}= require('../middlewares/validateInput');
-const { createUser, loginUser, validateToken}= require('../controllers/auth');
-const {validateJwt }= require('../middlewares/validateJwt')
+const {login,createNewUser}= require('../controllers/auth');
+//const {validateJwt }= require('../middlewares/validateJwt');
 
 
 const router = Router();
@@ -17,7 +17,7 @@ router.post(
         check('password', 'El password es obligatoria').isLength({min: 8}),
         validateInput
     ],
-    createUser);
+    createNewUser);
 
 router.post(
     '/login',
@@ -26,9 +26,9 @@ router.post(
         check('password', 'El password es obligatoria').isLength({min: 8}),
         validateInput
     ],
-    loginUser) ;
+    login) ;
 
-router.get('/renew',validateJwt, validateToken);
+// router.get('/renew',validateJwt, validateToken);
 
 
 module.exports = router;
