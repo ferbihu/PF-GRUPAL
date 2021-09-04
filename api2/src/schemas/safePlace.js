@@ -8,9 +8,10 @@ const postSafePlaceSchema = Joi.object({
     direction: Joi.string().required(),
     latitude:Joi.string(),
     longitude:Joi.string(),
-    mail:Joi.string().email({ minDomainSegments: 2 }),
+    email:Joi.string().email({ minDomainSegments: 2 }),
     telephone:Joi.string().required(),
     keyword:Joi.string().required(),
     relation:Joi.string().required(),
+    userId:Joi.number().required()
 });
 module.exports ={postSafePlaceSchema}
