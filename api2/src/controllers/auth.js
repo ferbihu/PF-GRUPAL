@@ -35,20 +35,20 @@ const servicesUser = require('../services/users');
 //     }
 
 
-}
-const loginUser = async (req, res = response) => {
-    const { email, password }= req.body;
-    try {
-        let logUser = await User.findOne({ where: { email } });
-        if (logUser !== null) {
-            const validPassword = bcryptjs.compareSync(password,logUser.password);
-            if(!validPassword ) return res.status(400).json({ok:false, msg:"the password is incorrect"});
-            else {
-                const token = await generateJWT(logUser.id, logUser.name);
-                return res.status(200).json({ok:true, msg:"bienvenido",id:logUser.id, name:logUser.name, token})
-            }
-        } else {
-            return res.status(400).json({ok:false, msg:"this user dont exists"});
+
+// const loginUser = async (req, res = response) => {
+//     const { email, password }= req.body;
+//     try {
+//         let logUser = await User.findOne({ where: { email } });
+//         if (logUser !== null) {
+//             const validPassword = bcryptjs.compareSync(password,logUser.password);
+//             if(!validPassword ) return res.status(400).json({ok:false, msg:"the password is incorrect"});
+//             else {
+//                 const token = await generateJWT(logUser.id, logUser.name);
+//                 return res.status(200).json({ok:true, msg:"bienvenido",id:logUser.id, name:logUser.name, token})
+//             }
+//         } else {
+//             return res.status(400).json({ok:false, msg:"this user dont exists"});
      
 // }
 // const loginUser = async (req, res = response) => {
