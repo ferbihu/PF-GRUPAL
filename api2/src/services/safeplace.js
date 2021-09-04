@@ -1,5 +1,5 @@
 const {SafePlace,User} = require('../db');
-
+const clientId = process.env
 
 
 async function getSafePlaces(){
@@ -21,6 +21,8 @@ async function getSafePlaces(){
 async function postSafePlace(data){
     let createNewSafePlace = await SafePlace.create(data)
 };
+
+
 
 
 module.exports = {getSafePlaces,postSafePlace}
