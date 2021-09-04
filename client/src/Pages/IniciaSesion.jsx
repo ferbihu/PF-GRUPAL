@@ -2,24 +2,26 @@ import React from "react";
 import "./IniciaSesion.css"
 import GoogleLogin from "react-google-login"
 
+import { useDispatch } from "react-redux";
+import { renderUserName } from "../actions/actions";
+
 
 
 export default function IniciaSesion() {
-
+    const dispatch = useDispatch();
 
     const responseGoogle = (response) => {
-        console.log(response);
+        const userName = response.getBasicProfile().Qe;
+        const userID = response.getId();
+
+        console.log(userID);
+        console.log(userName);
+
+        dispatch(renderUserName(userName))
+
     }
 
     return (
-        // <div>
-        //     <h1 className="txtLog">Inicia sesión</h1>
-        //     <label>Email</label>
-        //     <input placeholder="nombre@ejemplo.com"/>
-        //     <label>Contraseña</label>
-        //     <input placeholder="Más de 6 caracteres"/>
-        //     <button>Ingresá</button>
-        // </div>
 
         <div className="contenedor-form">
 
