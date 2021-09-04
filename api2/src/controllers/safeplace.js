@@ -16,7 +16,7 @@ const postSafePlace = async (req,res) =>{
             direction,
             latitude,
             longitude,
-            mail,
+            email,
             telephone,
             keyword,
             relation,

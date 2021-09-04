@@ -37,7 +37,7 @@ module.exports = function (sequelize) {
             type: DataTypes.DOUBLE,
             allowNull: true,
         },
-        mail:{
+        email:{
             type:DataTypes.STRING,
             allowNull:false,
         },
