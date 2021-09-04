@@ -1,4 +1,8 @@
-const jwt = require('jsonwebtoken');
+//const jwt = require('jsonwebtoken');
+const jwt = require('express-jwt');
+const jwksRsa = require('jwks-rsa');
+const domain = process.env.AUTH0_DOMAIN;
+const clientId = process.env.AUTH0_CLIENT_ID;
 
 const generateJWT = (id, name )=>{
 return new Promise((resolve, reject) =>{
@@ -15,6 +19,23 @@ return new Promise((resolve, reject) =>{
 })
 }
 
-module.exports ={
+
+
+
+const config = {
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: `${domain}/.well-known/jwks.json`
+  }),
+
+  audience: clientId,
+  issuer: `${domain}/`,
+  algorithms: ['RS256']
+};
+exports.checkJwt = jwt(config);
+
+exports ={
     generateJWT
 }
