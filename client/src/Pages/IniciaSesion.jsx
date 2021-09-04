@@ -25,17 +25,17 @@ export default function IniciaSesion() {
 
         <div className="contenedor-form">
 
-            <GoogleLogin
-                clientId="58941748087-vv5lmt8hnkri961a7pdrdp9pjsj500vl.apps.googleusercontent.com"
-                buttonText="Login"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                cookiePolicy={'single_host_origin'}
-            />
-
             <h1 className="txtLog">Inicia sesión</h1>
             <form class="login-form">
                 <br></br>
+            <GoogleLogin
+                clientId="58941748087-vv5lmt8hnkri961a7pdrdp9pjsj500vl.apps.googleusercontent.com"
+                buttonText="Ingresá con Google"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                cookiePolicy={'single_host_origin'}
+                className="btnGoogle"
+            ></GoogleLogin>
                 <label className="p">Email</label>
                 <input className="login-username" placeholder="nombre@example.com" />
                 <label className="p2">Contraseña</label>
