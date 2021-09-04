@@ -82,7 +82,7 @@ const login = async(req,res)=>{
         const user = await servicesUser.findUser(email);
         if(!user) return res.status(400).send("user not exist in DB")
         const aunth0Response = await servicesAuth0.login(email,password);
-        res.json(aunth0Response)
+        res.json({...aunth0Response, role:user.role})
     }
     catch(error){
         console.log(error)
