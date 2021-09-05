@@ -38,3 +38,13 @@ export function byCountrys(payload) {
       payload
   };
 };
+
+
+  export function renderUserName(payload){
+    console.log("entro a la action : ", payload)
+    return {
+        
+        type: "RENDER_USER_NAME",
+        payload
+    }
+}

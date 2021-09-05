@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
-import Map from "../Components/Mapa/Map";
+import {Map} from "../Components/Mapa/Map";
 import './LugaresSeguros.css';
 
 export default function LugaresSeguros() {
