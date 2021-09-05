@@ -7,7 +7,7 @@ const {checkJwt} = require('../middlewares/jwt');
 
 const router = Router();
 
-router.get('/',checkJwt,getSafePlaces);
+router.get('/',getSafePlaces);
 router.post('/',checkJwt,validateBody(postSafePlaceSchema),postSafePlace);
 
 
