@@ -84,6 +84,7 @@ const createNewUser = async(req,res)=>{
         const token = await servicesAuth0.getAccessToken();
         const auth0data = {userData: {data:{email,password},metadata:{name}}}
         const createUser = await servicesAuth0.createAuth0User({...auth0data,accessToken: token.data.access_token})
+        if(createUser.error)return res.status(400).json(createUser.msj)
         const saveUserDB = await servicesUser.createNewUser(data)
         res.json({success:true});
     }

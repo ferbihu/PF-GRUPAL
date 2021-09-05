@@ -14,8 +14,30 @@ export function addUser({ name, email, password }) {
         });
     }
   }
-
-  export default addUser;
+  export function postAprobation(payload){ //le paso un payload ya que trae data
+    return async function(dispatch){
+      const res = await axios.post(" http://localhost:3001/safe_place" , payload)
+      return {
+        type: 'POST_SAFEPLACE',
+        res
+    }
+   }
+  }
+  export function getSafeplace(){
+    return async function(dispatch){
+      const json = await axios.get("http://localhost:3001/safe_place");
+       return dispatch({
+       type: 'GET_SAFEPLACE',
+       payload: json.data
+    })
+  }
+}
+export function byCountrys(payload) {
+  return {
+      type: 'Countrys',
+      payload
+  };
+};
 
 
   export function renderUserName(payload){
@@ -25,5 +47,4 @@ export function addUser({ name, email, password }) {
         type: "RENDER_USER_NAME",
         payload
     }
-    
 }
