@@ -10,8 +10,9 @@ import Conocenos from "./Pages/Conocenos";
 import IniciaSesion from "./Pages/IniciaSesion";
 import RegistrateLugarSeguro from "./Pages/RegistrateLugarSeguro";
 import LugaresSeguros from "./Pages/LugaresSeguros";
-import Registrate from "./Pages/Registrate/Registrate";
+import Registrate from "./Pages/Registro-Usuario/Registrate";
 import Nav from "./Components/NavBar/NavBar";
+import Aprobation from "./Pages/Aprobation";
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
       <Route exact path="/registratelugarseguro" component={RegistrateLugarSeguro}/>
       <Route exact path="/iniciasesion" component={IniciaSesion}/>
       <Route exact path="/registrate" component={Registrate}/>
+      <Route exact path="/aprobation" component={Aprobation}/>
       <Route exact path="/foro" component={Foro}/>
       </Switch>
       <Footer/>

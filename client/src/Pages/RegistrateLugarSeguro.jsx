@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
+import { useDispatch} from "react-redux";
+import {postAprobation, byCountrys} from '.././actions/actions';
 import './RegistrateLugarSeguro.css';
-//import { useDispatch} from "react-redux";
 
 
 function validate(input) {
@@ -33,18 +34,18 @@ function validate(input) {
   };
 
 export default function Registrate() {
-   // const dispatch = useDispatch()
+    const dispatch = useDispatch()
     const history = useHistory()
 
-   // const platforms = useSelector((state) => state.platforms)
-    const [errors,setErrors] = useState({});
 
+    const [errors,setErrors] = useState({});
     const [input,setInput] = useState({
         name: "",
         lastname: "",
         country: "",
         town: "",
-        direction: "",
+        street: "",
+        number: 0,
         mail: "",
         telephone: "", 
         keyword: "",
@@ -69,22 +70,25 @@ export default function Registrate() {
             ...input,
             [e.target.name]:e.target.value
         }));
-        //dispatch((input))
+        dispatch(postAprobation(input))
         alert("Registro creado!")
         setInput({
         name: "",
         lastname: "",
         country: "",
         town: "",
-        direction: "",
+        street: "",
+        number: 0,
         mail: "",
-        telephone: "", 
+        telephone: 0, 
         keyword: "",
         relation: "", 
         })
         history.push('/')
     }
-    
+    const handleFilterCountrys = (e) => {
+        dispatch(byCountrys(e.target.value));
+      };
 
     return (
         <div className='pageregistro'>
@@ -117,7 +121,17 @@ export default function Registrate() {
                     {errors.lastname && (
                         <p className='error'>{errors.lastname}</p>
                     )}
-               <input className='formcountry'
+                    <select className='formcountry' onChange={e => handleFilterCountrys(e)}>
+                      <option value="All">País del lugar seguro</option>
+                      <option value="Argentina">Argentina</option>
+                      <option value="Brasil">Brasil</option>
+                      <option value="Chile">Chile</option>
+                      <option value="Colombia">Colombia</option>
+                      <option value="Uruguay">Uruguay</option>
+                      <option value="Venezuela">Venezuela</option>
+                     </select>
+                    
+               {/* <input className='formcountry'
                     autoComplete = 'off'
                     type= "text"
                     value= {input.country}
@@ -127,7 +141,7 @@ export default function Registrate() {
                     />
                      {errors.country && (
                         <p className='error'>{errors.country}</p>
-                    )}
+                    )} */}
                <input className='formtown'
                     autoComplete = 'off'
                     type= "text"
@@ -139,16 +153,27 @@ export default function Registrate() {
                      {errors.town && (
                         <p className='error'>{errors.town}</p>
                     )}
-               <input className='formdirection'
+               <input className='formstreet'
                     autoComplete = 'off'
                     type= "text"
                     value= {input.direction}
-                    name= "direction"
-                    placeholder="Dirección del lugar seguro"
+                    name= "street"
+                    placeholder="Calle del lugar seguro"
                     onChange={(e)=>handleChange(e)} 
                     />
-                     {errors.town && (
-                        <p className='error'>{errors.town}</p>
+                     {errors.street && (
+                        <p className='error'>{errors.street}</p>
+                    )}
+                     <input className='formnumber'
+                    autoComplete = 'off'
+                    type= "text"
+                    value= {input.direction}
+                    name= "number"
+                    placeholder="Número"
+                    onChange={(e)=>handleChange(e)} 
+                    />
+                     {errors.number && (
+                        <p className='error'>{errors.number}</p>
                     )}
                <input className='formmail'
                     autoComplete = 'off'

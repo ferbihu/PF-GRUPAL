@@ -14,3 +14,27 @@ export function addUser({ name, email, password }) {
         });
     }
   }
+  export function postAprobation(payload){ //le paso un payload ya que trae data
+    return async function(dispatch){
+      const res = await axios.post("http://localhost:3001/controllers/safeplace" , payload)
+      return {
+        type: 'POST_SAFEPLACE',
+        res
+    }
+   }
+  }
+  export function getSafeplace(){
+    return async function(dispatch){
+      const json = await axios.get("http://localhost:3001/controllers/safeplace");
+       return dispatch({
+       type: 'GET_SAFEPLACE',
+       payload: json.data
+    })
+  }
+}
+export function byCountrys(payload) {
+  return {
+      type: 'Countrys',
+      payload
+  };
+};

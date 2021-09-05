@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { addUser } from "../../actions/action";
+import { addUser } from "../../actions/actions";
 import { connect } from "react-redux";
 import "./Registrate.css";
 
