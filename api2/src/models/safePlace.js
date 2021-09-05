@@ -13,7 +13,7 @@ module.exports = function (sequelize) {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        lastname:{
+        description:{
             type: DataTypes.STRING,
             allowNull:false,
         },
@@ -25,19 +25,23 @@ module.exports = function (sequelize) {
             type:DataTypes.STRING,
             allowNull:false,
         },
-        direction:{
+        street:{
             type:DataTypes.STRING,
             allowNull:false,
         },
-        latitude: {
+        number:{
+            type:DataTypes.INTEGER,
+            allowNull:false,
+        },
+        lat: {
             type: DataTypes.DOUBLE,
             allowNull: true,
         },
-        longitude: {
+        lng: {
             type: DataTypes.DOUBLE,
             allowNull: true,
         },
-        mail:{
+        email:{
             type:DataTypes.STRING,
             allowNull:false,
         },
