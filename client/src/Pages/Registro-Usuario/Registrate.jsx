@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { addUser } from "../../actions/actions";
 import { connect } from "react-redux";
+import GoogleLogin from "react-google-login";
 import "./Registrate.css";
 
-function Register({ addUser }) {
+function Register({ addUser, responseGoogle }) {
   const [errors, setErrors] = useState({});
   const [input, setInput] = useState({
     name: "",
@@ -51,9 +52,16 @@ function Register({ addUser }) {
   return (
     <div>
       <h2 className="Registration">Registrate</h2>
+      <GoogleLogin
+        clientId="58941748087-vv5lmt8hnkri961a7pdrdp9pjsj500vl.apps.googleusercontent.com"
+        buttonText="Login"
+        onSuccess={responseGoogle}
+        onFailure={responseGoogle}
+        cookiePolicy={"single_host_origin"}
+      />
+      <p className="text">o</p>
       <div className="card">
         <form className="LoginForm" onSubmit={(e) => handleSubmit(e)}>
-
           <div className="FormInput">
             <label>Nombre:</label>
             <input
@@ -90,7 +98,11 @@ function Register({ addUser }) {
             {errors.password && <p className="danger">{errors.password}</p>}
           </div>
           <div className="FormInput">
-            <button onClick={() => alert("Registration Successful")} type="submit">
+            <button
+              className="btn-submit"
+              onClick={() => alert("Registration Successful")}
+              type="submit"
+            >
               Ingresá
             </button>
           </div>

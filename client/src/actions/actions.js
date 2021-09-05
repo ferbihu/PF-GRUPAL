@@ -16,7 +16,7 @@ export function addUser({ name, email, password }) {
   }
   export function postAprobation(payload){ //le paso un payload ya que trae data
     return async function(dispatch){
-      const res = await axios.post("http://localhost:3001/controllers/safeplace" , payload)
+      const res = await axios.post(" http://localhost:3001/safe_place" , payload)
       return {
         type: 'POST_SAFEPLACE',
         res
@@ -25,7 +25,7 @@ export function addUser({ name, email, password }) {
   }
   export function getSafeplace(){
     return async function(dispatch){
-      const json = await axios.get("http://localhost:3001/controllers/safeplace");
+      const json = await axios.get("http://localhost:3001/safe_place");
        return dispatch({
        type: 'GET_SAFEPLACE',
        payload: json.data
