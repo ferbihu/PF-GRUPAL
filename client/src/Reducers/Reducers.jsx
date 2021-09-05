@@ -1,6 +1,8 @@
 const initialState = {
    safeplce:[],
-   user: []
+   user: [],
+   isLogged:false,
+   userId:null
   };
 function reducers(state = initialState, action) {
     switch (action.type) {
@@ -22,6 +24,13 @@ function reducers(state = initialState, action) {
             ...state,
             user: state.user = []
           }
+          case "LOGIN":
+          return {
+            ...state,
+            isLogged: true,
+            userId:action.payload.userId
+          }
+         
         default:
       return state;
   }

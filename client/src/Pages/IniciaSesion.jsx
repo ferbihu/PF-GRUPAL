@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./IniciaSesion.css"
 import GoogleLogin from "react-google-login"
 
 import { useDispatch } from "react-redux";
-import { renderUserName } from "../actions/actions";
+import { renderUserName,login } from "../actions/actions";
+
+
 
 
 
 export default function IniciaSesion() {
     const dispatch = useDispatch();
+    const [input,setInput] = useState({email:"",password:""})
 
     const responseGoogle = (response) => {
         const userName = response.getBasicProfile().Qe;
@@ -21,12 +24,28 @@ export default function IniciaSesion() {
 
     }
 
+    function handleChange(e){
+        setInput({
+            ...input,
+            [e.target.name]: e.target.value
+        })
+    };
+
+
+    
+
+   async function handleSubmit(e){
+    // console.log("SOY HANDLESUBMIT")  
+     e.preventDefault()
+        dispatch(login(input))
+    };
+
     return (
 
         <div className="contenedor-form">
 
             <h1 className="txtLog">Inicia sesión</h1>
-            <form class="login-form">
+            <form class="login-form" onSubmit={e => handleSubmit(e)}>
                 <br></br>
             <GoogleLogin
                 clientId="58941748087-vv5lmt8hnkri961a7pdrdp9pjsj500vl.apps.googleusercontent.com"
@@ -37,10 +56,10 @@ export default function IniciaSesion() {
                 className="btnGoogle"
             ></GoogleLogin>
                 <label className="p">Email</label>
-                <input className="login-username" placeholder="nombre@example.com" />
+                <input onChange={handleChange} name ="email" value ={input.email} className="login-username" placeholder="nombre@example.com" />
                 <label className="p2">Contraseña</label>
-                <input className="login-password" placeholder="Más de 6 caracteres" />
-                <button className="login-submit">Ingresá</button>
+                <input onChange={handleChange} name ="password" value={input.password} className="login-password" placeholder="Más de 6 caracteres" />
+                <button  onSubmit={e => handleSubmit(e)} className="login-submit">Ingresá</button>
             </form>
         </div>
 
