@@ -25,7 +25,8 @@ exports.createAuth0User = async ({ userData: { data, metadata }, accessToken }) 
       
       return resp.data;
     } catch (error) {
-      console.log(error)
+      console.log(error.response.status)
+      if(error.response.status === 409) return {error: true,msj:"Usuario existente en la base"}
       throw error;
     }
 };
