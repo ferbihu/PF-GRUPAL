@@ -25,7 +25,7 @@ function App() {
       <Route exact path="/lugaresseguros" component={LugaresSeguros}/>
       <Route exact path="/registratelugarseguro" component={RegistrateLugarSeguro}/>
       <Route exact path="/iniciasesion" component={IniciaSesion}/>
-      {/* <Route exact path="/registrate" component={Registrate}/> */}
+      <Route exact path="/registrate" component={Registrate}/>
       <Route exact path="/foro" component={Foro}/>
       </Switch>
       <Footer/>

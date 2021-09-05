@@ -14,6 +14,7 @@ export function addUser({ name, email, password }) {
         });
     }
   }
+  
 
   export default addUser;
 
