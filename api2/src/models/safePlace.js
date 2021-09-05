@@ -33,6 +33,10 @@ module.exports = function (sequelize) {
             type:DataTypes.INTEGER,
             allowNull:false,
         },
+        postcode:{
+            type:DataTypes.INTEGER,
+            allowNull:false,
+        },
         lat: {
             type: DataTypes.DOUBLE,
             allowNull: true,
