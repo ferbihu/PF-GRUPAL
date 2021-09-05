@@ -1,41 +1,54 @@
 footer {
     font-family: "Montserrat";
+    height: 15vw;
     display: flex;
-    padding: 4rem 7rem 4rem 7rem;
-    height: 20vh;
-    display: flex;
-    justify-content: space-between;
- 
+   /*  
+    background-color: darkorange; */
+    display: grid;
+    grid-template-columns: 30% 70%;
+    background-color: #F1EEDE;
+    padding: 3vw;
+
+   
 }
 
-ul{
+.footer-ul{
     list-style: none;
-}
-li {
-    padding-bottom: 0.5rem;
-}
+    width: 100%;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    font-size: 0.9vw;
+    
+} 
+
+/*  */
 
 a{
     color: black;
     text-decoration: none;
-    
-   
-    
 }
 
 a:hover {
-    color: blueviolet;
+    color: rgb(74, 22, 122);
+}
+
+
+.safety-footer{
+    font-size: 0.8vw;
+    font-family: "Montserrat";
+    align-self: center;
+    padding-bottom: 2vw;
+      
 }
 
 .logo {
-     font-size: 2.5rem;
-     font-family: "Raleway";
-     
-          
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
 }
 
-h5{
-    margin-top: 10rem;
-   
+.footer-logo {
+    align-self: center;
 }
 

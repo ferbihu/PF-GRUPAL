@@ -13,22 +13,48 @@ module.exports = function (sequelize) {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        lastname:{
+            type: DataTypes.STRING,
+            allowNull:false,
+        },
+        country:{
+            type: DataTypes.STRING,
+            allowNull:false,
+        },
+        town:{
+            type:DataTypes.STRING,
+            allowNull:false,
+        },
+        direction:{
+            type:DataTypes.STRING,
+            allowNull:false,
+        },
         latitude: {
             type: DataTypes.DOUBLE,
-            allowNull: false,
+            allowNull: true,
         },
         longitude: {
             type: DataTypes.DOUBLE,
-            allowNull: false,
+            allowNull: true,
         },
-        image: {
+        mail:{
+            type:DataTypes.STRING,
+            allowNull:false,
+        },
+        telephone:{
+            type: DataTypes.STRING,
+            allowNull:false,
+        },
+        keyword:{
+            type:DataTypes.STRING,
+            allowNull:false,
+        },
+        relation: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        description: {
-            type: DataTypes.STRING,
-            allowNull: false
-        }
-    }, { timestamps: false }
+        
+    }, 
+    { timestamps: false }
     );
 };

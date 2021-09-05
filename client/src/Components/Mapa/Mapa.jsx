@@ -1,19 +1,34 @@
+
+import { MapInit } from './Map';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import mapa from '../../imgs/wmn (1).png';
+import mapa from "../../imgs/mapa-imagen.png"
 import "./Mapa.css";
-import { MapInit } from './Map';
 
-
-export default function Mapa() {
-
+const Mapa = () => {
   return (
-    <div className="container">
-      <h1 className="txt">LUGARES SEGUROS</h1>
+    <div className="box">
+
+      <div className="lugaresseguros">
+        LUGARES <span>SEGUROS</span>
+
+      </div>
+      <div className="lugaresseguros-line"></div>
+
+      <div className="texto-mapa">
+        Encontrá los puntos de la ciudad a los que podes acudir si te encontras en una situacion incómoda o de violencia.
+      </div>
+
       <Link to="/lugaresseguros">
-        <img src={mapa} alt="Not found" className="img" />
+        <img src={mapa} alt="Not found" className="imgMapa" />
       </Link>
-      <p>Encontrá los puntos de la ciudad a los que podes acudir si te encontras en una situación que no te sentis cómoda.</p>
+
+
+
+
     </div>
   )
 }
+
+export default Mapa;
+

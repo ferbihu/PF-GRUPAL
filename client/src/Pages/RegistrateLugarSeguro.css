@@ -8,9 +8,12 @@
     text-decoration: underline;
     text-decoration-color: #FEA166;
 }
+.primerparrafo{
+    margin-top: 20px;
+}
 .segundoparrafo{
 
-    margin-top: -15px;
+    margin-top: 4px;
     line-height: 24px;
     
 }
