@@ -13,10 +13,6 @@ module.exports = function (sequelize) {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        description:{
-            type: DataTypes.STRING,
-            allowNull:false,
-        },
         country:{
             type: DataTypes.STRING,
             allowNull:false,
@@ -30,6 +26,10 @@ module.exports = function (sequelize) {
             allowNull:false,
         },
         number:{
+            type:DataTypes.INTEGER,
+            allowNull:false,
+        },
+          postcode:{
             type:DataTypes.INTEGER,
             allowNull:false,
         },

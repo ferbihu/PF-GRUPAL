@@ -14,11 +14,16 @@ function reducers(state = initialState, action) {
           ...state,
         };
         case "ByCountrys":
+          const allSafeplace = state.safeplace;
+          const countrysFilter = action.payload === 'All' ? allSafeplace :
+          allSafeplace.filter(i => i.status === action.payload)
           return {
               ...state,
+              safeplce: countrysFilter
           }
         default:
       return state;
   }
+}
 
-export default rootReducer;
+export default reducers;

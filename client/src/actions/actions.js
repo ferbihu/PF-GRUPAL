@@ -34,7 +34,7 @@ export function addUser({ name, email, password }) {
 }
 export function byCountrys(payload) {
   return {
-      type: 'Countrys',
+      type: 'byCountrys',
       payload
   };
 };
