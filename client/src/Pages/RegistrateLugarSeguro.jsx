@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
-import { useDispatch} from "react-redux";
+import { useDispatch,useSelector} from "react-redux";
 import {postAprobation, byCountrys} from '.././actions/actions';
 import './RegistrateLugarSeguro.css';
 
@@ -36,6 +36,7 @@ function validate(input) {
 export default function Registrate() {
     const dispatch = useDispatch()
     const history = useHistory()
+    const userId = useSelector((state)=> state.userId);
 
 
     const [errors,setErrors] = useState({});
@@ -46,7 +47,7 @@ export default function Registrate() {
         town: "",
         street: "",
         number: 0,
-        mail: "",
+        email: "",
         telephone: "", 
         keyword: "",
         relation: "",
@@ -70,7 +71,7 @@ export default function Registrate() {
             ...input,
             [e.target.name]:e.target.value
         }));
-        dispatch(postAprobation(input))
+        dispatch(postAprobation(input,userId))
         alert("Registro creado!")
         setInput({
         name: "",
@@ -79,7 +80,7 @@ export default function Registrate() {
         town: "",
         street: "",
         number: 0,
-        mail: "",
+        email: "",
         telephone: 0, 
         keyword: "",
         relation: "", 
@@ -87,6 +88,7 @@ export default function Registrate() {
         history.push('/')
     }
     const handleFilterCountrys = (e) => {
+        setInput({...input,country:e.target.value})
         dispatch(byCountrys(e.target.value));
       };
 
@@ -179,7 +181,7 @@ export default function Registrate() {
                     autoComplete = 'off'
                     type= "email"
                     value= {input.mail}
-                    name= "mail"
+                    name= "email"
                     placeholder="nombre@example.com"
                     onChange={(e)=>handleChange(e)} 
                     />
