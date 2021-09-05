@@ -48,3 +48,10 @@ export function byCountrys(payload) {
         payload
     }
 }
+
+export function logOutGoogle(payload) {
+  return {
+    type: "LOG_OUT_GOOGLE",
+    payload
+  }
+}

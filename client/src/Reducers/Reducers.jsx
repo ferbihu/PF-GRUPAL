@@ -17,8 +17,14 @@ function reducers(state = initialState, action) {
           return {
               ...state,
           }
+        case "LOG_OUT_GOOGLE":
+          return {
+            ...state,
+            user: state.user = []
+          }
         default:
       return state;
   }
+}
 
-export default rootReducer;
+export default reducers;

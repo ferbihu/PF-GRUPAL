@@ -1,15 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { GoogleLogout } from "react-google-login"
+import { logOutGoogle } from "../../actions/actions";
+
 import "./NavBar.css";
 
 const Nav = () => {
 
     const name = useSelector((state) => state.user)
-    console.log(name[0])
+    console.log(name)
+    const dispatch = useDispatch();
 
-    return (
-        <div className="container-nav">
+    // const GoogleLogoutButton = props => (
+    //     <GoogleLogout
+    //     clientId="58941748087-vv5lmt8hnkri961a7pdrdp9pjsj500vl.apps.googleusercontent.com"
+    //     buttonText="Logout"
+    //     onLogoutSuccess={() => props.logout()}
+    //     onLogoutFailure={err => console.log(err)}
+    //     /> && window.location.reload()
+    // )
+
+    function logOut() {
+        dispatch(logOutGoogle());
+    }
+        if (name.length === 0) {
+            return (
+                <div className="container-nav">
             <div className="logo">
                 <Link to="/">S.</Link>
             </div>
@@ -37,22 +54,35 @@ const Nav = () => {
                     <Link to="/registrate">Registrate</Link>
 
                 </li>
-                <li>
-                    {
-                        (name[0]) && <h5>Cerrar Sesión</h5>
-
-                    }
-                </li>
-                <li>
-                    {
-                        name && <h5>{name}</h5>
-                    }
-                </li>
 
             </ul>
 
         </div>
-    )
+        )
+        } else {
+            return (
+                <div>
+                <div className="logo">
+                <Link to="/">S.</Link>
+                </div>
+                <ul>
+                <li>
+                    <Link to="/conocenos">Conocenos</Link>
+                </li>
+                <li>
+                    <Link to="/foro">Foro</Link>
+                </li>
+                <li>
+                    <Link to="/lugaresseguros">Lugares Seguros</Link>
+                    <div className="nav-line"></div>
+
+                </li>
+                <h5>{name}</h5>
+                <button onClick={logOut}>Cerrar sesión</button>
+                </ul>
+                </div>
+            )
+        }
 }
 
 export default Nav;
