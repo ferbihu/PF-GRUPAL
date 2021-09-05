@@ -15,7 +15,7 @@
 
     margin-top: 4px;
     line-height: 24px;
-    
+    margin-bottom: 20px;
 }
 
 .rectangulo {
@@ -26,23 +26,23 @@
     height: 820px; 
     border-radius: 20px;
 }
-
+::placeholder { color: #BBBABA; }
 .formname{
     border: 1px solid #C4C4C4;
     background-color:  #FFFFFF;
-    color: rgb(0, 0, 0);
+    color: #BBBABA;
     transition: 250ms;
     text-align: center;
     border-radius: 20px;
     width: 364px;
     height: 52px;
     margin-top: 40px;
-    font-size: 20px;
-  
+    font-size: 20px; 
 } 
 .formlastname{
     border:  1px solid #C4C4C4;
     background-color:  #FFFFFF;
+    color: #BBBABA;
     text-align: center;
     border-radius: 20px;
     width: 364px;
@@ -53,7 +53,8 @@
 .formcountry{
     border:  1px solid #C4C4C4;
     background-color:  #FFFFFF;
-    text-align: center;
+    color: #BBBABA;
+    text-align-last: center;
     border-radius: 20px;
     width: 364px;
     height: 52px; 
@@ -63,6 +64,7 @@
 .formtown{
     border:  1px solid #C4C4C4;
     background-color:  #FFFFFF;
+    color: #BBBABA;
     text-align: center;
     border-radius: 20px;
     width: 364px;
@@ -70,15 +72,27 @@
     margin-top: 10px;
     font-size: 20px;
 }
-.formdirection{
+.formstreet{
     border:  1px solid #C4C4C4;
     background-color:  #FFFFFF;
+    color: #BBBABA;
     text-align: center;
     border-radius: 20px;
     width: 364px;
     height: 52px;
     margin-top: 10px;
     font-size: 20px;    
+}
+.formnumber{
+    border:  1px solid #C4C4C4;
+    background-color:  #FFFFFF;
+    color: #BBBABA;
+    text-align: center;
+    border-radius: 20px;
+    width: 364px;
+    height: 52px;
+    margin-top: 10px;
+    font-size: 20px;       
 }
 .formmail{
     border:  1px solid #C4C4C4;
@@ -93,6 +107,7 @@
 .formtelephone{
     border:  1px solid #C4C4C4;
     background-color:  #FFFFFF;
+    color: #BBBABA;
     text-align: center;
     border-radius: 20px;
     width: 364px;
@@ -103,6 +118,7 @@
 .formkeyword{
     border:  1px solid #C4C4C4;
     background-color:  #FFFFFF;
+    color: #BBBABA;
     text-align: center;
     border-radius: 20px;
     width: 364px;
@@ -113,8 +129,8 @@
 .formrelation{
     border:  1px solid #C4C4C4;
     background-color:  #FFFFFF;
+    color: #BBBABA;
     text-align: center;
-  
     border-radius: 20px;
     width: 364px;
     height: 132px;
