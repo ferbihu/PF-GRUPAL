@@ -4,7 +4,7 @@ import axios from "axios";
 export function addUser({ name, email, password }) {
     return function (dispatch) {
       const user = { name, email, password };
-      axios.post('http://localhost:3001/auth/createUser', user)
+      axios.post('http://localhost:3001/auth/new', user)
         .then(res => dispatch({
           type: 'ADD_USER',
           payload: res.data
