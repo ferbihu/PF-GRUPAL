@@ -1,60 +1,122 @@
-.card {
-    margin: 490px;
-    width: 335px;
-    margin-top: 75px;
-    display: center;
-    border-radius: 15px;
-    box-shadow: 3px 10px 5px rgb(43, 42, 42);
-    
-  }
+.txtRegistrate {
+  font-family: Montserrat;
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+  font-size: 35px;
+}
+
+body {
+  font-family: Montserrat;
+  font-weight: 100;
+  background-color: #F1EEDE;
+}
   
-  
-  .LoginForm{
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: left;
-      margin: 2rem auto;
-    }
-    
-    .Registration {
-      text-decoration: none;
-      text-align: center;
-    }
-    
-    .FormInput{
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 0.5rem 0;
-      border-radius: 10px;
-      text-align: left !important;
-    }
-    
-    .FormInput input{
-      width: 80%;
-      margin: 1rem 0;
-      border-radius: 10px;
-      padding: 0.5rem 0.75rem;
-      border-color: gray;
-    }
-    
-    .FormInput button {
-      padding: 0.5rem 2rem;
-      border-radius: 10px;
-      border-color: gray;
-      
-    }
-    
-    .RegisterButton {
-      padding: 0.5rem 0.75rem;
-      margin: 1rem 0;
-      border-radius: 10px;
-    }
-    
-    .danger {
-      color: rgb(210, 40, 40);
-    }
-    
+.regis-form {
+  margin: auto;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 0 1rem rgba(128, 128, 128, 0.3);
+  width: 450px;
+  height: 480px;
+  border-radius: 20px;
+}
+
+.p3 {
+  /* margin-left: 200px; */
+  background-color:rgb(255, 255, 255);
+  /* margin-top: 100px; */
+  display: flex;
+  justify-content: center;
+  border-radius: 90px;
+  margin-top: 30px;
+}
+
+.reg-username {
+  background: rgba(200, 200, 200, 0.253);
+  border: 0 solid;
+  color: rgb(0, 0, 0);
+  transition: 250ms;
+  width: 250px;
+  height: 35px;
+  border-radius: 20px;
+  display: flex;
+  margin-top: 10px;
+  margin-left: 100px;
+  text-align: center;
+}
+
+.p4 {
+  /* margin-left: 185px; */
+  display: flex;
+  justify-content: center;
+  background-color:rgb(255, 255, 255);
+  margin-top: 35px;
+}
+
+.reg-email {
+  background: rgba(200, 200, 200, 0.253);
+  border: 0 solid;
+  color: rgb(0, 0, 0);
+  transition: 250ms;
+  width: 250px;
+  height: 35px;
+  border-radius: 20px;
+  display: flex;
+  margin-top: 10px;
+  margin-left: 100px;
+  text-align: center;
+}
+
+.p5 {
+  /* margin-left: 185px; */
+  display: flex;
+  justify-content: center;
+  background-color:rgb(255, 255, 255);
+  margin-top: 35px;
+}
+
+.reg-password {
+  background: rgba(200, 200, 200, 0.253);
+  border: 0 solid;
+  color: rgb(0, 0, 0);
+  transition: 250ms;
+  width: 250px;
+  height: 35px;
+  border-radius: 20px;
+  display: flex;
+  margin-top: 10px;
+  margin-left: 100px;
+  text-align: center;
+}
+
+.reg-submit {
+  background-color: #FEA166;
+  color: rgb(0, 0, 0);
+  transition: 250ms;
+  box-shadow: #494441b2;
+  border-radius: 20px;
+  width: 150px;
+  height: 40px;
+  font-family: Montserrat;
+  font-size:17px;
+  font-weight: bold;
+  border-color: transparent;
+  margin-top: 30px;
+  margin-left: 150px;
+}
+
+.reg-username:hover {
+  transform: scale(1.10);
+}
+
+.reg-email:hover {
+  transform: scale(1.10);
+}
+
+.reg-password:hover {
+  transform: scale(1.10);
+}
+
+.reg-submit:hover {
+  transform: scale(1.10);
+}

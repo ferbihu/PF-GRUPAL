@@ -51,30 +51,26 @@ function Register({ addUser, responseGoogle }) {
 
   return (
     <div>
-      <h2 className="Registration">Registrate</h2>
-      <GoogleLogin
-        clientId="58941748087-vv5lmt8hnkri961a7pdrdp9pjsj500vl.apps.googleusercontent.com"
-        buttonText="Login"
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
-        cookiePolicy={"single_host_origin"}
-      />
-      <p className="text">o</p>
+      <h2 className="txtRegistrate">Registrate</h2>
+      <br/>
       <div className="card">
-        <form className="LoginForm" onSubmit={(e) => handleSubmit(e)}>
-          <div className="FormInput">
-            <label>Nombre:</label>
+        <form className="regis-form" onSubmit={(e) => handleSubmit(e)}>
+          <div>
+            <br/>
+            <label className="p3">Nombre</label>
             <input
               className={`${errors.name && "danger"}`}
               type="text"
               name="name"
               onChange={handleInputChange}
               value={input.name}
+              className="reg-username"
+              placeholder="Ingrese su nombre"
             />
             {errors.name && <p className="danger">{errors.name}</p>}
           </div>
-          <div className="FormInput">
-            <label>Email:</label>
+          <div>
+            <label className="p4">Email</label>
             <input
               className={`${errors.email && "danger"}`}
               type="text"
@@ -82,28 +78,30 @@ function Register({ addUser, responseGoogle }) {
               placeholder="nombre@ejemplo.com"
               onChange={(e) => handleInputChange(e)}
               value={input.email}
+              className="reg-email"
             />
             {errors.email && <p className="danger">{errors.email}</p>}
           </div>
-          <div className="FormInput">
-            <label>Contraseña:</label>
+          <div>
+            <label className="p5">Contraseña</label>
             <input
               className={`${errors.password && "danger"}`}
               type="password"
               name="password"
-              placeholder="más de 6 carácteres"
+              placeholder="Más de 6 carácteres"
               onChange={(e) => handleInputChange(e)}
               value={input.password}
+              className="reg-password"
             />
             {errors.password && <p className="danger">{errors.password}</p>}
           </div>
           <div className="FormInput">
             <button
-              className="btn-submit"
+              className="reg-submit"
               onClick={() => alert("Registration Successful")}
               type="submit"
             >
-              Ingresá
+              Registrate
             </button>
           </div>
         </form>
