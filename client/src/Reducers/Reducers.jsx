@@ -6,6 +6,7 @@ const initialState = {
    stateSitie:[{
     "id": "1",
 	  "name": "Primer Safe",
+    "lastname":"Bar",
 	  "country": "Argentina",
 	  "town": "CABA",
     "street": "Belgrano",
