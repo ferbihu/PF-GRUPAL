@@ -2,10 +2,7 @@ const Joi = require('joi');
 
 const postSafePlaceSchema = Joi.object({
     name:Joi.string().required(),
-<<<<<<< HEAD
     lastname:Joi.string(),
-=======
->>>>>>> nuevaconexion
     country:Joi.string().required(),
     town:Joi.string().required(),
     street: Joi.string().required(),

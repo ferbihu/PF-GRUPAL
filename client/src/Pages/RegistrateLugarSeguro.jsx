@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
-import { useDispatch,useSelector} from "react-redux";
+import { useDispatch} from "react-redux";
 import {postAprobation, byCountrys} from '.././actions/actions';
 import './RegistrateLugarSeguro.css';
 
@@ -18,8 +18,14 @@ function validate(input) {
     else if (!input.town) {
     errors.town = 'Se requiere una ciudad';
     }
-    else if (!input.direction) {
-        errors.direction = 'Se requiere una dirección';
+    else if (!input.street) {
+        errors.street = 'Se requiere una calle';
+    }
+    else if (!input.number) {
+        errors.direction = 'Se requiere un número';
+    }
+    else if (!input.postcode) {
+        errors.postcode = 'Se requiere un código postal';
     }
     else if (!input.mail) {
         errors.mail = 'Se requiere un mail';
@@ -36,7 +42,6 @@ function validate(input) {
 export default function Registrate() {
     const dispatch = useDispatch()
     const history = useHistory()
-    const userId = useSelector((state)=> state.userId);
 
 
     const [errors,setErrors] = useState({});
@@ -46,8 +51,9 @@ export default function Registrate() {
         country: "",
         town: "",
         street: "",
-        number: 0,
-        email: "",
+        number: "",
+        postcode: "",
+        mail: "",
         telephone: "", 
         keyword: "",
         relation: "",
@@ -71,7 +77,7 @@ export default function Registrate() {
             ...input,
             [e.target.name]:e.target.value
         }));
-        dispatch(postAprobation(input,userId))
+        dispatch(postAprobation(input))
         alert("Registro creado!")
         setInput({
         name: "",
@@ -79,22 +85,23 @@ export default function Registrate() {
         country: "",
         town: "",
         street: "",
-        number: 0,
-        email: "",
-        telephone: 0, 
+        number: "",
+        postcode: "",
+        mail: "",
+        telephone: "", 
         keyword: "",
         relation: "", 
         })
         history.push('/')
     }
     const handleFilterCountrys = (e) => {
-        setInput({...input,country:e.target.value})
         dispatch(byCountrys(e.target.value));
       };
 
     return (
         <div className='pageregistro'>
             <div className='title'><h1>Registro de lugar seguro</h1></div>
+            <div className="postlugarSeguro-line"></div>
             <div className='primerparrafo'> <p>Completá el formulario y registrá tu comercio, empresa o entidad.</p> </div>
            <div className='segundoparrafo' >
            <p>Ayudanos a luchar contra la violencia machista y sexual.</p>
@@ -126,9 +133,12 @@ export default function Registrate() {
                     <select className='formcountry' onChange={e => handleFilterCountrys(e)}>
                       <option value="All">País del lugar seguro</option>
                       <option value="Argentina">Argentina</option>
+                      <option value="Bolivia">Bolivia</option>
                       <option value="Brasil">Brasil</option>
                       <option value="Chile">Chile</option>
                       <option value="Colombia">Colombia</option>
+                      <option value="Paraguay">Paraguay</option>
+                      <option value="Perú">Perú</option>
                       <option value="Uruguay">Uruguay</option>
                       <option value="Venezuela">Venezuela</option>
                      </select>
@@ -158,7 +168,7 @@ export default function Registrate() {
                <input className='formstreet'
                     autoComplete = 'off'
                     type= "text"
-                    value= {input.direction}
+                    value= {input.street}
                     name= "street"
                     placeholder="Calle del lugar seguro"
                     onChange={(e)=>handleChange(e)} 
@@ -169,7 +179,7 @@ export default function Registrate() {
                      <input className='formnumber'
                     autoComplete = 'off'
                     type= "text"
-                    value= {input.direction}
+                    value= {input.number}
                     name= "number"
                     placeholder="Número"
                     onChange={(e)=>handleChange(e)} 
@@ -177,11 +187,22 @@ export default function Registrate() {
                      {errors.number && (
                         <p className='error'>{errors.number}</p>
                     )}
+                         <input className='formpostcode'
+                    autoComplete = 'off'
+                    type= "text"
+                    value= {input.postcode}
+                    name= "postcode"
+                    placeholder="Código postal del lugar seguro"
+                    onChange={(e)=>handleChange(e)} 
+                    />
+                     {errors.postcode && (
+                        <p className='error'>{errors.postcode}</p>
+                    )}
                <input className='formmail'
                     autoComplete = 'off'
                     type= "email"
                     value= {input.mail}
-                    name= "email"
+                    name= "mail"
                     placeholder="nombre@example.com"
                     onChange={(e)=>handleChange(e)} 
                     />
