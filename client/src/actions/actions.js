@@ -14,12 +14,18 @@ export function addUser({ name, email, password }) {
         });
     }
   }
-  export function postAprobation(payload){ //le paso un payload ya que trae data
+
+
+  export function postAprobation(payload,userId){ //le paso un payload ya que trae data
     return async function(dispatch){
-      const res = await axios.post(" http://localhost:3001/safe_place" , payload)
+//esta es la manera que se envia el token al backend,se obtiene desde localStorage
+      const config = {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
+      };
+      const res = await axios.post(" http://localhost:3001/safe_place" , {...payload,userId},config)
       return {
         type: 'POST_SAFEPLACE',
-        res
+        payload : res
     }
    }
   }
@@ -34,7 +40,7 @@ export function addUser({ name, email, password }) {
 }
 export function byCountrys(payload) {
   return {
-      type: 'Countrys',
+      type: 'byCountrys',
       payload
   };
 };
@@ -54,4 +60,39 @@ export function logOutGoogle(payload) {
     type: "LOG_OUT_GOOGLE",
     payload
   }
+}
+
+
+export function login({ email, password }) {
+  return function(dispatch){
+  const user = {  email, password };
+  return axios.post('http://localhost:3001/auth/login', user)
+    .then(res => {
+      alert("Loggeado correctamente,userId,token,guardados")  
+      //aca guardamos el token obtenido de backend
+      localStorage.setItem('token',res.data.id_token)
+      return dispatch({
+        type:'LOGIN',
+        payload:{userId:res.data.userId}
+      })
+    })
+    .catch(err => {
+        alert("Usuario o password invalido")
+      console.error(err)
+    })
+  }
+export const getallsafesitie = ()=>{
+ 
+  return function(dispatch){
+        return axios
+         .get(` http://localhost:3001/safe_place`)
+         .then((res)=>{dispatch({ 
+              type:"ALL_SITIES",
+              payload:{info:res.data}})
+         })
+         .catch((err) => {
+           console.log("Falla servidor local", err);
+        });
+};
+}
 }

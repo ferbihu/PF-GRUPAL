@@ -13,7 +13,7 @@ module.exports = function (sequelize) {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        description:{
+        lastname:{
             type: DataTypes.STRING,
             allowNull:false,
         },
@@ -31,6 +31,10 @@ module.exports = function (sequelize) {
         },
         number:{
             type:DataTypes.INTEGER,
+            allowNull:false,
+        },
+        postcode:{
+            type: DataTypes.STRING,
             allowNull:false,
         },
         lat: {
