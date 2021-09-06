@@ -41,7 +41,7 @@ function Maps(props) {
 
   var sitios=[];
 
-if(allsities.length>1){
+if(allsities.length>0){
    
   for(var i=0;i<allsities.length;i++){
      var date=new Object();
