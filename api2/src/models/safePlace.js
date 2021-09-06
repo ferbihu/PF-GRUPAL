@@ -34,7 +34,7 @@ module.exports = function (sequelize) {
             allowNull:false,
         },
         postcode:{
-            type:DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull:false,
         },
         lat: {
