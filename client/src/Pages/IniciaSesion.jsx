@@ -44,7 +44,8 @@ export default function IniciaSesion() {
 
         <div className="contenedor-form">
 
-            <h1 className="txtLog">Inicia sesión</h1>
+            <h2 className="txtLog">Inicia sesión</h2>
+            <br/>
             <form class="login-form" onSubmit={e => handleSubmit(e)}>
                 <br></br>
             <GoogleLogin

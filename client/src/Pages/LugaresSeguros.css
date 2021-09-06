@@ -17,3 +17,11 @@
     display:fixed;
     font-size: 25px;
 }
+
+.parrafo {
+    align-self: center;
+    font-size: 1.05vw;
+    text-align: center;
+    padding: 1vw;
+    line-height: 2.5vw;
+}

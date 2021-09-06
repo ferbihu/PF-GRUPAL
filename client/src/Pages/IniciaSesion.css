@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     margin-top: 0px;
+    font-size: 35px;
 }
 
 body {
@@ -99,7 +100,7 @@ body {
 }
 
 .btnGoogle {
-  margin-top: 80px;
+  margin-top: 60px;
   margin-left: 70px;
   background: white;
   color: rgb(0, 0, 0);
@@ -118,4 +119,8 @@ body {
 
 .btnGoogle:hover {
   transform: scale(1.05);
+}
+
+.login-submit:hover {
+  transform: scale(1.10);
 }
