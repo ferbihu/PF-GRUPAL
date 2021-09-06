@@ -81,6 +81,7 @@ export function login({ email, password }) {
       console.error(err)
     })
   }
+}
 export const getallsafesitie = ()=>{
  
   return function(dispatch){
@@ -94,5 +95,4 @@ export const getallsafesitie = ()=>{
            console.log("Falla servidor local", err);
         });
 };
-}
 }
