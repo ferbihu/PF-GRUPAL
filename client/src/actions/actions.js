@@ -55,3 +55,17 @@ export function logOutGoogle(payload) {
     payload
   }
 }
+export const getallsafesitie = ()=>{
+ 
+  return function(dispatch){
+        return axios
+         .get(` http://localhost:3001/safe_place`)
+         .then((res)=>{dispatch({ 
+              type:"ALL_SITIES",
+              payload:{info:res.data}})
+         })
+         .catch((err) => {
+           console.log("Falla servidor local", err);
+        });
+};
+}

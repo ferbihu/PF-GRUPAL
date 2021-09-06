@@ -1,0 +1,53 @@
+import {
+  GoogleMap,
+  withScriptjs,
+  withGoogleMap,
+  Marker,
+} from "react-google-maps";
+
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {connect} from 'react-redux';
+import {getallsafesitie} from '../../actions/actions.js';
+
+import pin from "./../../imgs/iconmapp.png"
+
+
+function Maps(props) {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getallsafesitie())
+  }, [])
+   const allsities = useSelector((state) => state.stateSitie);
+   console.log('sitios',allsities)
+
+  const coord = {lat:-34.607914 ,lng: -58.370321}
+  const descrip='hola'
+  
+ var locations = [
+    {description:'First Safe',coord:{lat:-34.607914,lng:-58.370321}},
+    {description:'Second Safe',coord:{lat: -34.596152, lng:-58.383100}},
+    {description:'Third Safe', coord:{lat:-34.603972352446355, lng:-58.39045422694449}},
+    {description:'Fourth Safe',coord:{lat: -34.603159908195096,lng:-58.39217084074385}},
+    {description:'Fifth Safe',coord:{lat: -34.60248433708588, lng:-58.386806422620865}},
+    {description:'Sixth Safe',coord:{lat: -34.59992329866319, lng:-58.39455264239046}},
+    {description:'Seventh Safe',coord:{lat: -34.60405624569346, lng:-58.38845866340274}}
+  ];
+var sitios=[];
+
+if(allsities.length>1){
+   
+  for(var i=0;i<allsities.length;i++){
+     var date=new Object();
+     date.description=allsities[i].name;
+     date.coord={lat:allsities[i].lat,lng:allsities[i].lng};
+     sitios.push(date);
+  }
+ 
+}else{
+  console.log("no hizo dispacht")
+}
+
+ console.log('convertido',allsities[0].name)
+ console.log('ver',sitios)
+ 

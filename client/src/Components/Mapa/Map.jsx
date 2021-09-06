@@ -1,14 +1,29 @@
-import React from "react";
 import {
   GoogleMap,
   withScriptjs,
   withGoogleMap,
   Marker,
 } from "react-google-maps";
+
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {connect} from 'react-redux';
+import {getallsafesitie} from '../../actions/actions.js';
+
 import pin from "./../../imgs/iconmapp.png"
 
 
+
 function Maps(props) {
+  
+
+  const dispatch = useDispatch();
+
+  const todo=useEffect(() => {
+    dispatch(getallsafesitie())
+    },[])
+
+  const allsities = useSelector((state) => state.stateSitie);
 
   const coord = {lat:-34.607914 ,lng: -58.370321}
   const descrip='hola'
@@ -23,11 +38,26 @@ function Maps(props) {
     {description:'Seventh Safe',coord:{lat: -34.60405624569346, lng:-58.38845866340274}}
   ];
 
+
+  var sitios=[];
+
+if(allsities.length>1){
+   
+  for(var i=0;i<allsities.length;i++){
+     var date=new Object();
+     date.description=allsities[i].name;
+     date.coord={lat:allsities[i].lat,lng:allsities[i].lng};
+     sitios.push(date);
+  }
+ 
+}else{
+  console.log("no hizo dispacht")
+}
   return (
     <div>
       <GoogleMap defaultZoom={11} defaultCenter={coord} />
       {
-        locations.map((e,i)=>(
+        sitios.map((e,i)=>(
           <Marker key={i}
           position={e.coord} title={e.description} icon={pin}/>
         ))}

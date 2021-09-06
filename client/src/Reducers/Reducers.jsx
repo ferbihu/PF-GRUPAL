@@ -1,6 +1,19 @@
 const initialState = {
    safeplce:[],
-   user: []
+   user: [],
+   stateSitie:[{
+    "id": "1",
+	  "name": "Primer Safe",
+	  "country": "Argentina",
+	  "town": "CABA",
+    "street": "Belgrano",
+  	"number": "992",
+    "postcode":"AA1878",
+  	"lat": -34.61241375774842,
+    "lng":-58.38022418084046,
+    "email":"galicia@gmail.com",
+    "telefhone":+5401123244556,
+    "userid":2}],
   };
 function reducers(state = initialState, action) {
     switch (action.type) {
@@ -22,6 +35,11 @@ function reducers(state = initialState, action) {
             ...state,
             user: state.user = []
           }
+          case "ALL_SITIES":
+            return {
+                ...state,
+                stateSitie: action.payload.info,
+                };
         default:
       return state;
   }
