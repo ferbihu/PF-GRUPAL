@@ -96,3 +96,11 @@ export const getallsafesitie = ()=>{
         });
 };
 }
+
+//Para filtrado por paises en el panel de Admin
+export function filterByCountry(payload){
+  return {
+      type: "FILTER_BY_COUNTRY",
+      payload
+  }
+}
