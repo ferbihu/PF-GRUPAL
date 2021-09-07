@@ -82,7 +82,7 @@ const createNewUser = async(req,res)=>{
         const {name,email,password} = req.body;
         const data = {name, email,role:"regular"}
         const token = await servicesAuth0.getAccessToken();
-        const auth0data = {userData: {data:{email,password},metadata:{name}}}
+        const auth0data = {userData: {data:{email,password},metadata:data}}
         const createUser = await servicesAuth0.createAuth0User({...auth0data,accessToken: token.data.access_token})
         if(createUser.error)return res.status(400).json(createUser.msj)
         const saveUserDB = await servicesUser.createNewUser(data)
@@ -107,6 +107,7 @@ const login = async(req,res)=>{
         throw error 
     }
 };
+
 
 
 
