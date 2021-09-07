@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { addUser } from "../../actions/action";
+import { useDispatch } from "react-redux";
+import { addUser } from "../../actions/actions";
 import { connect } from "react-redux";
+import { sendMailToNewUsers } from "../../actions/actions"; 
 import "./Registrate.css";
 
-function Register({ addUser }) {
+function Register({ addUser, responseGoogle }) {
   const [errors, setErrors] = useState({});
   const [input, setInput] = useState({
     name: "",
@@ -11,8 +13,10 @@ function Register({ addUser }) {
     password: "",
   });
 
+  const dispatch = useDispatch();
+
   const validate = (input) => {
-    let pattern = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%&]).{8,}$/;
+    let pattern = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
     let errors = {};
     if (!input.name) {
       errors.name = "Name is required";
@@ -45,57 +49,69 @@ function Register({ addUser }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    alert("Registration Successful")
     addUser(input);
+    dispatch(sendMailToNewUsers(input.email))
+    console.log("aca email front", input.email)
   };
 
   return (
-     <div>
-    <h2  className="Registration">Registrate</h2>
-    <div className="card">
-    <form className="LoginForm" onSubmit={(e) => handleSubmit(e)}>
-   
-      <div className="FormInput">
-        <label>Nombre:</label>
-        <input
-          className={`${errors.name && "danger"}`}
-          type="text"
-          name="name"
-          onChange={handleInputChange}
-          value={input.name}
-        />
-        {errors.name && <p className="danger">{errors.name}</p>}
+    <div>
+      <h2 className="txtRegistrate">Registrate</h2>
+      <br/>
+      <div className="card">
+        <form className="regis-form" onSubmit={(e) => handleSubmit(e)}>
+          <div>
+            <br/>
+            <label className="p3">Nombre</label>
+            <input
+              className={`${errors.name && "danger"}`}
+              type="text"
+              name="name"
+              onChange={handleInputChange}
+              value={input.name}
+              className="reg-username"
+              placeholder="Ingrese su nombre"
+            />
+            {errors.name && <p className="danger">{errors.name}</p>}
+          </div>
+          <div>
+            <label className="p4">Email</label>
+            <input
+              className={`${errors.email && "danger"}`}
+              type="text"
+              name="email"
+              placeholder="nombre@ejemplo.com"
+              onChange={(e) => handleInputChange(e)}
+              value={input.email}
+              className="reg-email"
+            />
+            {errors.email && <p className="danger">{errors.email}</p>}
+          </div>
+          <div>
+            <label className="p5">Contraseña</label>
+            <input
+              className={`${errors.password && "danger"}`}
+              type="password"
+              name="password"
+              placeholder="Más de 6 carácteres"
+              onChange={(e) => handleInputChange(e)}
+              value={input.password}
+              className="reg-password"
+            />
+            {errors.password && <p className="danger">{errors.password}</p>}
+          </div>
+          <div className="FormInput">
+            <button
+              className="reg-submit"
+              onClick={handleSubmit}
+              type="submit"
+            >
+              Registrate
+            </button>
+          </div>
+        </form>
       </div>
-      <div className="FormInput">
-        <label>Email:</label>
-        <input
-          className={`${errors.email && "danger"}`}
-          type="text"
-          name="email"
-          placeholder="nombre@ejemplo.com"
-          onChange={(e) => handleInputChange(e)}
-          value={input.email}
-        />
-        {errors.email && <p className="danger">{errors.email}</p>}
-      </div>
-      <div className="FormInput">
-        <label>Contraseña:</label>
-        <input
-          className={`${errors.password && "danger"}`}
-          type="password"
-          name="password"
-          placeholder="más de 6 carácteres"
-          onChange={(e) => handleInputChange(e)}
-          value={input.password}
-        />
-        {errors.password && <p className="danger">{errors.password}</p>}
-      </div>
-      <div className="FormInput">
-        <button onClick={() => alert("Registration Successful")} type="submit">
-          Ingresá
-        </button>
-      </div>
-    </form>
-    </div>
     </div>
   );
 }

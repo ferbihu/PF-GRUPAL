@@ -8,17 +8,6 @@ const getSafePlaces = async (_req,res)=>{
 
 const postSafePlace = async (req,res) =>{
     try{
-        const {
-            name,
-            latitude,
-            longitude,
-            description,
-            image,
-            userId
-        } = req.body
-        if(!name || !latitude || !longitude || !description || !image || !userId){
-            return res.status(400)
-        }
         await ServicesSafePlace.postSafePlace(req.body)
             res.status(200).json({success:true})
     }
@@ -28,5 +17,16 @@ const postSafePlace = async (req,res) =>{
     }
 };
 
+const changeStatusSafePlace = async (req,res) =>{
+    console.log(req.user)
+    const {id,status} = req.params;
+    const {description_status = ""} = req.body;
+    const statusChange = await ServicesSafePlace.editSafePlaceByPK({status,description_status},id);
+    res.status(200).json({success:true})
+};
 
-module.exports = {getSafePlaces,postSafePlace}
+
+
+
+
+module.exports = {getSafePlaces,postSafePlace,changeStatusSafePlace}

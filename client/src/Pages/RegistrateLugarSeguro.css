@@ -4,15 +4,24 @@
     text-align: center;
     margin-top: 0px;
 } 
-.title{
+/* .title{
     text-decoration: underline;
     text-decoration-color: #FEA166;
+} */
+.postlugarSeguro-line{
+    background: #f17a09;
+    height: 4px;
+    width: 445px;
+    margin-left: 390px;
+}
+.primerparrafo{
+    margin-top: 20px;
 }
 .segundoparrafo{
 
-    margin-top: -15px;
+    margin-top: 4px;
     line-height: 24px;
-    
+    margin-bottom: 20px;
 }
 
 .rectangulo {
@@ -20,22 +29,20 @@
     margin:auto;
     box-shadow: 0 0 1rem rgba(128, 128, 128, 0.3);
     width: 700px; 
-    height: 820px; 
+    height: 900px; 
     border-radius: 20px;
 }
-
+::placeholder { color: #BBBABA; }
 .formname{
     border: 1px solid #C4C4C4;
     background-color:  #FFFFFF;
-    color: rgb(0, 0, 0);
     transition: 250ms;
     text-align: center;
     border-radius: 20px;
     width: 364px;
     height: 52px;
     margin-top: 40px;
-    font-size: 20px;
-  
+    font-size: 20px; 
 } 
 .formlastname{
     border:  1px solid #C4C4C4;
@@ -50,7 +57,8 @@
 .formcountry{
     border:  1px solid #C4C4C4;
     background-color:  #FFFFFF;
-    text-align: center;
+    color: #BBBABA;
+    text-align-last: center;
     border-radius: 20px;
     width: 364px;
     height: 52px; 
@@ -67,7 +75,7 @@
     margin-top: 10px;
     font-size: 20px;
 }
-.formdirection{
+.formstreet{
     border:  1px solid #C4C4C4;
     background-color:  #FFFFFF;
     text-align: center;
@@ -76,6 +84,26 @@
     height: 52px;
     margin-top: 10px;
     font-size: 20px;    
+}
+.formnumber{
+    border:  1px solid #C4C4C4;
+    background-color:  #FFFFFF;
+    text-align: center;
+    border-radius: 20px;
+    width: 364px;
+    height: 52px;
+    margin-top: 10px;
+    font-size: 20px;       
+}
+.formpostcode{
+    border:  1px solid #C4C4C4;
+    background-color:  #FFFFFF;
+    text-align: center;
+    border-radius: 20px;
+    width: 364px;
+    height: 52px;
+    margin-top: 10px;
+    font-size: 20px;       
 }
 .formmail{
     border:  1px solid #C4C4C4;
@@ -111,7 +139,6 @@
     border:  1px solid #C4C4C4;
     background-color:  #FFFFFF;
     text-align: center;
-  
     border-radius: 20px;
     width: 364px;
     height: 132px;
