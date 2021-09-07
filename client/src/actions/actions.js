@@ -98,7 +98,7 @@ export const getallsafesitie = ()=>{
 }
 
 export const sendMailToNewUsers = (email) => {
-  return async function(dispatch) {
+  return async function() {
     try {
       console.log(email)
       return axios.post(`http://localhost:3001/email/welcome`, email)
