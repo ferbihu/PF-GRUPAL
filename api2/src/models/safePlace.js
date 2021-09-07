@@ -13,10 +13,6 @@ module.exports = function (sequelize) {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        lastname:{
-            type: DataTypes.STRING,
-            allowNull:false,
-        },
         country:{
             type: DataTypes.STRING,
             allowNull:false,
@@ -61,7 +57,14 @@ module.exports = function (sequelize) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        
+        status:{
+            type:DataTypes.ENUM("accepted","pending","warning","rejected"),
+            allowNull: false
+        },
+        description_status:{
+            type:DataTypes.STRING,
+            allowNull:true
+        }
     }, 
     { timestamps: false }
     );

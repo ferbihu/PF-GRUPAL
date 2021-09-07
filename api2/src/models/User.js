@@ -14,6 +14,7 @@ const  { sequelize } = require('../db');
         email: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique:true
         },
         role:{
             type:DataTypes.STRING,

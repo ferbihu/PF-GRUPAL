@@ -17,5 +17,16 @@ const postSafePlace = async (req,res) =>{
     }
 };
 
+const changeStatusSafePlace = async (req,res) =>{
+    console.log(req.user)
+    const {id,status} = req.params;
+    const {description_status = ""} = req.body;
+    const statusChange = await ServicesSafePlace.editSafePlaceByPK({status,description_status},id);
+    res.status(200).json({success:true})
+};
 
-module.exports = {getSafePlaces,postSafePlace}
+
+
+
+
+module.exports = {getSafePlaces,postSafePlace,changeStatusSafePlace}
