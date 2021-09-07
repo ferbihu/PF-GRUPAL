@@ -97,11 +97,11 @@ export const getallsafesitie = ()=>{
 };
 }
 
-export const sendMailToNewUsers = (user) => {
+export const sendMailToNewUsers = (email) => {
   return async function(dispatch) {
     try {
-      console.log(user)
-      return axios.post(`http://localhost:3001/email/welcome`, user)
+      console.log(email)
+      return axios.post(`http://localhost:3001/email/welcome`, email)
       
     } catch(err) {
       console.log(err.message);
