@@ -37,6 +37,6 @@ async function editSafePlaceByPK(body,id){
 };
 
 
-
+//que un lugar seguro sea borrado solo por la persona que lo creo 
 
 module.exports = {getSafePlaces,postSafePlace,editSafePlaceByPK}
