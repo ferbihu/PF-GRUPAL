@@ -44,7 +44,12 @@ export function byCountrys(payload) {
       payload
   };
 };
-
+export function coordenadas(payload) {
+  return {
+      type: 'COORDENADAS',
+      payload
+  };
+};
 
   export function renderUserName(payload){
     console.log("entro a la action : ", payload)

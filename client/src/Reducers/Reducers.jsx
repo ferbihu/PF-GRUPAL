@@ -17,6 +17,8 @@ const initialState = {
     "email":"galicia@gmail.com",
     "telefhone":+5401123244556,
     "userid":2}],
+    statecoord:[],
+
   };
 function reducers(state = initialState, action) {
     switch (action.type) {
@@ -37,6 +39,13 @@ function reducers(state = initialState, action) {
               ...state,
               safeplce: countrysFilter
           }
+          case "COORDENADAS":
+            return {
+                ...state,
+                statecoord:action.payload
+
+              
+            }
         case "LOG_OUT_GOOGLE":
           return {
             ...state,

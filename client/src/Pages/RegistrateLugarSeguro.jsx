@@ -1,11 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import { useDispatch,useSelector} from "react-redux";
-import {postAprobation, byCountrys} from '.././actions/actions';
+import {postAprobation, byCountrys,coordenadas} from '.././actions/actions';
 import './RegistrateLugarSeguro.css';
 
 
+
 function validate(input) {
+
     let errors = {};
     if (!input.name) {
       errors.name = 'Se requiere un nombre';
@@ -40,10 +42,14 @@ function validate(input) {
   };
 
 export default function Registrate() {
+
+
+
+    const [sitie,setsitie] =useState ([]);
     const dispatch = useDispatch()
     const history = useHistory()
-    const userId = useSelector((state)=> state.userId);
-
+    //const userId = useSelector((state)=> state.userId);
+    const userId = 1;
 
 
     const [errors,setErrors] = useState({});
@@ -55,6 +61,8 @@ export default function Registrate() {
         street: "",
         number: "",
         postcode: "",
+        lat:1,
+        lng:1,
         email: "",
         telephone: "", 
         keyword: "",
@@ -72,13 +80,36 @@ export default function Registrate() {
        }));
         console.log(input)
     }
+
+
+       // `https://maps.googleapis.com/maps/api/geocode/json?address=${input.number}+${input.street}+${input.town}+${input.country}+View,+CA&key=AIzaSyDclWfFnp7AQpJjZQj7E9fsD7j6M9vPhTk`
+  
+ 
+       function camelize(text) {
+        return text.replace(/^([A-Z])|[\s-_]+(\w)/g, function(match, p1, p2, offset) {
+            if (p2) return p2.toUpperCase();
+            return p1.toLowerCase();        
+        });
+        }
+    const traductor=useEffect(()=>{
+        var street=camelize(input.street)
+        var town=camelize(input.town)
+        var country=camelize(input.country)
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${input.number}+${street}+${town}+${input.country}+View,+CA&key=AIzaSyDclWfFnp7AQpJjZQj7E9fsD7j6M9vPhTk`)
+        .then(resp => resp.json())
+        .then((json)=>setsitie(json));
+         },[sitie])        
+
+     
+
     function handleSubmit(e){
         e.preventDefault();
-        console.log(input)
+
         setErrors(validate({
             ...input,
             [e.target.name]:e.target.value
         }));
+        
         dispatch(postAprobation(input,userId))
         alert("Registro creado!")
         setInput({
@@ -89,6 +120,8 @@ export default function Registrate() {
         street: "",
         number: "",
         postcode: "",
+        lat:0,
+        lng:0,
         email: "",
         telephone: "", 
         keyword: "",
@@ -96,10 +129,22 @@ export default function Registrate() {
         })
         history.push('/')
     }
-    const handleFilterCountrys = (e) => {
+    const handleFilterCountrys = (e,) => {
         setInput({...input,country:e.target.value})
         dispatch(byCountrys(e.target.value));
+
+
+        var lat=parseFloat(sitie.results[0].geometry.location.lat)
+        var lng=parseFloat(sitie.results[0].geometry.location.lng)
+
+       console.log("conversion",lng);
+       console.log("conversion",lat); 
+
+        setInput({...input,lat:lat,lng:lng})
+        dispatch(coordenadas(lat,lng));
+
       };
+
 
     return (
         <div className='pageregistro'>

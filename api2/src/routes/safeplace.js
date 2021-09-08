@@ -9,7 +9,7 @@ const router = Router();
 
 router.get('/',getSafePlaces);
 //router.post('/',checkJwt,validateBody(postSafePlaceSchema),postSafePlace);
-router.post('/',checkJwt,validateBody(postSafePlaceSchema),postSafePlace);
+router.post('/',validateBody(postSafePlaceSchema),postSafePlace);
 
 
 module.exports = router;
