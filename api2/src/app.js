@@ -25,4 +25,5 @@ server.use('/auth', require('./routes/auth') );
 server.use('/safe_place',require ('./routes/safeplace'))
 
 
+
 module.exports = server;

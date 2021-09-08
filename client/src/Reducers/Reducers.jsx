@@ -15,7 +15,7 @@ function reducers(state = initialState, action) {
         return {
           ...state,
         };
-        case "ByCountrys":
+        case "BY_COUNTRYS":
           return {
               ...state,
           }
@@ -30,7 +30,13 @@ function reducers(state = initialState, action) {
             isLogged: true,
             userId:action.payload.userId
           }
-         
+          case "DELETE_SAFEPLACE":
+          return {
+            ...state,
+            isLogged: true,
+            userId:action.payload.userId
+            }
+  
         default:
       return state;
   }

@@ -16,7 +16,7 @@ export function addUser({ name, email, password }) {
   }
 
 
-  export function postAprobation(payload,userId){ //le paso un payload ya que trae data
+  export function postAprobation(payload,userId){
     return async function(dispatch){
 //esta es la manera que se envia el token al backend,se obtiene desde localStorage
       const config = {
@@ -40,7 +40,7 @@ export function addUser({ name, email, password }) {
 }
 export function byCountrys(payload) {
   return {
-      type: 'Countrys',
+      type: 'BY_COUNTRYS',
       payload
   };
 };
@@ -81,4 +81,13 @@ export function login({ email, password }) {
       console.error(err)
     })
   }
+}
+export function deleteSafePlace(payload,userId){
+  return async function(dispatch){
+    const json = await axios.get("http://localhost:3001/safe_place" , {...payload,userId} );
+    return dispatch({
+      type: 'DELETE_SAFEPLACE',
+      payload: json.data
+   })
+ }
 }
