@@ -96,15 +96,3 @@ export const getallsafesitie = ()=>{
         });
 };
 }
-
-export const sendMailToNewUsers = (email) => {
-  return async function() {
-    try {
-      console.log(email)
-      return axios.post(`http://localhost:3001/email/welcome`, email)
-      
-    } catch(err) {
-      console.log(err.message);
-    }
-  }
-}

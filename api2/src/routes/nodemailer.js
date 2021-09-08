@@ -7,7 +7,7 @@ const { GMAIL } = process.env;
 
 router.post("/welcome", async (req, res, next) => {
     try {
-        var {email} = req.body;
+        var {email }= req.body;
         console.log("aca esta email", email)
         await transporter.sendMail({
             from: `"Safety" <${GMAIL}>`,
@@ -18,7 +18,23 @@ router.post("/welcome", async (req, res, next) => {
         })
         res.json({ success: "Email sent" });
     } catch(err) {
-        console.log(err.message);
+        next(err);
+    }
+})
+
+router.post("/registroSafePlace", async (req, res, next) => {
+    try{   
+        var { email } = req.body;
+        await transporter.sendMail({
+            from: `"Safety" <${GMAIL}>`,
+            to: email,
+            subject: "Registrá tu lugar seguro",
+            text: "Hola! Muchas gracias por sumarte a nuestra plataforma. En los próximos días estaremos revisando tu solicitud para sumar tu lugar seguro al mapa de Safety. Saludos!",
+            html: `<p>Hola! Muchas gracias por sumarte a nuestro movimiento. En los próximos días estaremos revisando tu solicitud para sumar tu lugar seguro al mapa de Safety. Saludos!</p>`
+        })
+
+    } catch(err) {
+        next(err)
     }
 })
 
