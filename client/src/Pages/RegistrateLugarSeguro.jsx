@@ -128,7 +128,7 @@ export default function Registrate() {
                       {input.country}</select>
                      <select className='formtown' onChange={e => handleFilterTown(e)}>
                       <option value="All">Ciudad Del lugar seguro</option>
-                      <option value="CiudadDeBAs">Ciudad autónoma de Buenos Aires</option>
+                      <option value="CiudadDeBAs">Ciudad Autónoma de Buenos Aires</option>
                       {input.town}</select>
                <input className='formstreet'
                     autoComplete = 'off'

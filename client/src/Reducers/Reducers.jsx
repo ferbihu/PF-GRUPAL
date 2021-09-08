@@ -56,7 +56,12 @@ function reducers(state = initialState, action) {
         filtered_safePlaces: statusFiltered
 
       }
-
+      case "DELETE_SAFEPLACE":
+        return {
+          ...state,
+          isLogged: true,
+          userId:action.payload.userId
+          }
 
 
     default:
