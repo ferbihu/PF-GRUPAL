@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../actions/actions";
 import { connect } from "react-redux";
-import { sendMailToNewUsers } from "../../actions/actions"; 
+import axios from "axios";
 import "./Registrate.css";
 
 function Register({ addUser, responseGoogle }) {
@@ -47,12 +47,16 @@ function Register({ addUser, responseGoogle }) {
     );
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     alert("Registration Successful")
     addUser(input);
-    dispatch(sendMailToNewUsers(input.email))
-    console.log("aca email front", input.email)
+    await axios.post('http://localhost:3001/email/welcome', input)
+    setInput({
+      name: "",
+      email: "",
+      password: "",
+    });
   };
 
   return (
