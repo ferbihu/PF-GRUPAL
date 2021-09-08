@@ -40,11 +40,16 @@ export function addUser({ name, email, password }) {
 }
 export function byCountrys(payload) {
   return {
-      type: 'byCountrys',
+      type: 'BY_COUNTRYS',
       payload
   };
 };
-
+export function byTown(payload) {
+  return {
+      type: 'BY_TOWN',
+      payload
+  };
+};
 
   export function renderUserName(payload){
     console.log("entro a la action : ", payload)
