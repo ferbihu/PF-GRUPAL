@@ -57,10 +57,8 @@ module.exports = function (sequelize) {
             type: DataTypes.STRING,
             allowNull: false
         },
-<<<<<<< HEAD
         
         
-=======
         status:{
             type:DataTypes.ENUM("accepted","pending","warning","rejected"),
             allowNull: false
@@ -69,7 +67,6 @@ module.exports = function (sequelize) {
             type:DataTypes.STRING,
             allowNull:true
         }
->>>>>>> ffb20043a4b0f42ecaba1c12c0b3941c026199c1
     }, 
     { timestamps: false }
     );
