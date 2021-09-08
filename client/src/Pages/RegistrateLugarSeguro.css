@@ -68,7 +68,8 @@
 .formtown{
     border:  1px solid #C4C4C4;
     background-color:  #FFFFFF;
-    text-align: center;
+    color: #BBBABA;
+    text-align-last: center;
     border-radius: 20px;
     width: 364px;
     height: 52px; 
@@ -158,3 +159,33 @@
     display:fixed;
     font-size: 25px;
 }
+.caja {
+    position: relative; /*Para poder ubicar la info dentro de la caja*/
+    margin: 10px auto;
+    }
+    .caja img {
+    border:2px solid black;
+    }
+    .info {
+    font-family: Montserrat;
+    font-size: 12px;
+    text-align: center;
+    width: 90px;
+    height:150px;
+    /* position: absolute; Info sobre la imagen */
+    /* top: 5%; */
+    left: 10%; /*Desplazamos a partir de la esquina superior izquierda*/
+    zoom: 1;
+    filter: alpha(opacity=0); 
+    opacity: 0; 
+    padding: 5px;
+    color: white;
+    background: rgb(139, 129, 129);
+    -moz-transition:all ease .8s; /*Aplicamos una ligera transición*/
+    -webkit-transition:all ease .8s ;
+    transition:all ease .8s;
+    }
+    .caja:hover .info {
+    filter: alpha(opacity=80);
+    opacity: .8;
+    }

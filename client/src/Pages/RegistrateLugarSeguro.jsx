@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import { useDispatch,useSelector} from "react-redux";
-import {postAprobation, byCountrys} from '.././actions/actions';
+import {postAprobation, byCountrys, byTown} from '.././actions/actions';
 import './RegistrateLugarSeguro.css';
 
 
@@ -9,35 +9,37 @@ function validate(input) {
     let errors = {};
     if (!input.name) {
       errors.name = 'Se requiere un nombre';
-    } else if (!input.lastname) {
-      errors.lastname = 'Se requiere un apellido';
     }
-     else if (!input.country) {
-    errors.country = 'Se requiere un pais';
-    }
+    else if (!input.country) {
+        errors.country = 'Se requiere seleccionar un país';
+        }
     else if (!input.town) {
     errors.town = 'Se requiere una ciudad';
     }
     else if (!input.street) {
         errors.street = 'Se requiere una calle';
-    }
+        }
     else if (!input.number) {
-        errors.direction = 'Se requiere un número';
+        errors.number = 'Se requiere un número';
     }
     else if (!input.postcode) {
         errors.postcode = 'Se requiere un código postal';
     }
-    else if (!input.mail) {
+    else if (!input.email) {
         errors.mail = 'Se requiere un mail';
-    }  
+    }
     else if (!input.telephone) {
         errors.telephone = 'Se requiere un teléfono';
     }
     else if (!input.keyword) {
         errors.keyword = 'Se requiere una palabra clave';
     }
-    return errors;
-  };
+    else if (!input.relation) {
+        errors.relation= 'Se requiere una relación con el lugar seguro';
+    }
+   return errors;
+};
+
 
 export default function Registrate() {
     const dispatch = useDispatch()
@@ -49,7 +51,6 @@ export default function Registrate() {
     const [errors,setErrors] = useState({});
     const [input,setInput] = useState({
         name: "",
-        lastname: "",
         country: "",
         town: "",
         street: "",
@@ -83,7 +84,6 @@ export default function Registrate() {
         alert("Registro creado!")
         setInput({
         name: "",
-        lastname: "",
         country: "",
         town: "",
         street: "",
@@ -99,6 +99,10 @@ export default function Registrate() {
     const handleFilterCountrys = (e) => {
         setInput({...input,country:e.target.value})
         dispatch(byCountrys(e.target.value));
+      };
+      const handleFilerTown = (e) => {
+        setInput({...input,town:e.target.value})
+        dispatch(byTown(e.target.value));
       };
 
     return (
@@ -122,42 +126,23 @@ export default function Registrate() {
                      {errors.name && (
                         <p className='error'>{errors.name}</p>
                         )}  
-               <input className='formlastname'
-                    autoComplete = 'off'
-                    type= "text"
-                    value= {input.lastname}
-                    name= "lastname"
-                    placeholder="Apellido"
-                    onChange={(e)=>handleChange(e)} 
-                    />
-                    {errors.lastname && (
-                        <p className='error'>{errors.lastname}</p>
-                    )}
                     <select className='formcountry' onChange={e => handleFilterCountrys(e)}>
                       <option value="All">País del lugar seguro</option>
                       <option value="Argentina">Argentina</option>
-                      <option value="Bolivia">Bolivia</option>
+                      {/* <option value="Bolivia">Bolivia</option>
                       <option value="Brasil">Brasil</option>
                       <option value="Chile">Chile</option>
                       <option value="Colombia">Colombia</option>
                       <option value="Paraguay">Paraguay</option>
                       <option value="Perú">Perú</option>
                       <option value="Uruguay">Uruguay</option>
-                      <option value="Venezuela">Venezuela</option>
-                     </select>
-                    
-               {/* <input className='formcountry'
-                    autoComplete = 'off'
-                    type= "text"
-                    value= {input.country}
-                    name= "country"
-                    placeholder="Pais del lugar seguro"
-                    onChange={(e)=>handleChange(e)} 
-                    />
-                     {errors.country && (
-                        <p className='error'>{errors.country}</p>
-                    )} */}
-               <input className='formtown'
+                      <option value="Venezuela">Venezuela</option> */}
+                   {input.country}</select>
+                   <select className='formtown' onChange={e => handleFilerTown(e)}>
+                      <option value="All">Ciudad del lugar seguro</option>
+                      <option value="CiudadBsAS">Ciudad Autónoma de Buenos Aires</option>
+                      {input.town}</select>
+               {/* <input className='formtown'
                     autoComplete = 'off'
                     type= "text"
                     value= {input.town}
@@ -167,7 +152,7 @@ export default function Registrate() {
                     />
                      {errors.town && (
                         <p className='error'>{errors.town}</p>
-                    )}
+                    )} */}
                <input className='formstreet'
                     autoComplete = 'off'
                     type= "text"
@@ -234,6 +219,7 @@ export default function Registrate() {
                      {errors.keyword && (
                         <p className='error'>{errors.keyword}</p>
                     )}
+                     <div className="caja"><a href='#' className='signo'>?</a><span className="info">La palabra clave la utilizarán para pedir ayuda cuando recurran al lugar. Elegí algo representativo de tu establecimiento.</span></div>
                <input className='formrelation'
                     autoComplete = 'off'
                     type= "text"
@@ -245,7 +231,7 @@ export default function Registrate() {
                     {errors.relation && (
                         <p className='error'>{errors.relation}</p>
                     )}
-               <button className="btninput" type='submit'>Registrar</button>
+               <button className="btninput" type='submit' disabled={!input.name || !input.town || !input.street  || !input.number || !input.postcode  || !input.email || !input.telephone || !input.keyword || !input.relation || !input.country }>Registrar</button>
            </form>
            </div>
         </div>

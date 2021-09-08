@@ -17,7 +17,7 @@ function reducers(state = initialState, action) {
       return {
         ...state,
       };
-    case "ByCountrys":
+    case "BY_COUNTRYS":
       const allSafeplace = state.safeplace;
       const countrysFilter = action.payload === 'All' ? allSafeplace :
         allSafeplace.filter(i => i.status === action.payload)
@@ -25,6 +25,14 @@ function reducers(state = initialState, action) {
         ...state,
         safeplce: countrysFilter
       }
+      case "BY_TOWN":
+        const allTownSafeplace = state.safeplace;
+        const townsFilter = action.payload === 'All' ? allTownSafeplace :
+          allTownSafeplace.filter(i => i.status === action.payload)
+        return {
+          ...state,
+          safeplce: townsFilter
+        }
     case "LOG_OUT_GOOGLE":
       return {
         ...state,
@@ -54,9 +62,6 @@ function reducers(state = initialState, action) {
         filtered_safePlaces: statusFiltered
 
       }
-
-
-
     default:
       return state;
   }
