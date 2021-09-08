@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import { useDispatch,useSelector} from "react-redux";
-import {postAprobation, byCountrys} from '.././actions/actions';
+import {postAprobation, byCountrys, byTown} from '.././actions/actions';
 import './RegistrateLugarSeguro.css';
 
 
@@ -9,8 +9,6 @@ function validate(input) {
     let errors = {};
     if (!input.name) {
       errors.name = 'Se requiere un nombre';
-    } else if (!input.lastname) {
-      errors.lastname = 'Se requiere un apellido';
     }
      else if (!input.country) {
     errors.country = 'Se requiere un pais';
@@ -49,7 +47,6 @@ export default function Registrate() {
     const [errors,setErrors] = useState({});
     const [input,setInput] = useState({
         name: "",
-        lastname: "",
         country: "",
         town: "",
         street: "",
@@ -83,7 +80,6 @@ export default function Registrate() {
         alert("Registro creado!")
         setInput({
         name: "",
-        lastname: "",
         country: "",
         town: "",
         street: "",
@@ -99,6 +95,10 @@ export default function Registrate() {
     const handleFilterCountrys = (e) => {
         setInput({...input,country:e.target.value})
         dispatch(byCountrys(e.target.value));
+      };
+      const handleFilterTown = (e) => {
+        setInput({...input,town: e.target.value})
+        dispatch(byTown(e.target.value));
       };
 
     return (
@@ -121,53 +121,15 @@ export default function Registrate() {
                     />
                      {errors.name && (
                         <p className='error'>{errors.name}</p>
-                        )}  
-               <input className='formlastname'
-                    autoComplete = 'off'
-                    type= "text"
-                    value= {input.lastname}
-                    name= "lastname"
-                    placeholder="Apellido"
-                    onChange={(e)=>handleChange(e)} 
-                    />
-                    {errors.lastname && (
-                        <p className='error'>{errors.lastname}</p>
                     )}
                     <select className='formcountry' onChange={e => handleFilterCountrys(e)}>
                       <option value="All">País del lugar seguro</option>
                       <option value="Argentina">Argentina</option>
-                      <option value="Bolivia">Bolivia</option>
-                      <option value="Brasil">Brasil</option>
-                      <option value="Chile">Chile</option>
-                      <option value="Colombia">Colombia</option>
-                      <option value="Paraguay">Paraguay</option>
-                      <option value="Perú">Perú</option>
-                      <option value="Uruguay">Uruguay</option>
-                      <option value="Venezuela">Venezuela</option>
-                     </select>
-                    
-               {/* <input className='formcountry'
-                    autoComplete = 'off'
-                    type= "text"
-                    value= {input.country}
-                    name= "country"
-                    placeholder="Pais del lugar seguro"
-                    onChange={(e)=>handleChange(e)} 
-                    />
-                     {errors.country && (
-                        <p className='error'>{errors.country}</p>
-                    )} */}
-               <input className='formtown'
-                    autoComplete = 'off'
-                    type= "text"
-                    value= {input.town}
-                    name= "town"
-                    placeholder="Ciudad del lugar seguro"
-                    onChange={(e)=>handleChange(e)} 
-                    />
-                     {errors.town && (
-                        <p className='error'>{errors.town}</p>
-                    )}
+                      {input.country}</select>
+                     <select className='formtown' onChange={e => handleFilterTown(e)}>
+                      <option value="All">Ciudad Del lugar seguro</option>
+                      <option value="CiudadDeBAs">Ciudad autónoma de Buenos Aires</option>
+                      {input.town}</select>
                <input className='formstreet'
                     autoComplete = 'off'
                     type= "text"
@@ -234,6 +196,7 @@ export default function Registrate() {
                      {errors.keyword && (
                         <p className='error'>{errors.keyword}</p>
                     )}
+                     <div className="caja"><a href='#' className='signo'>?</a><span className="info">La palabra clave la utilizarán para pedir ayuda cuando recurran al lugar. Elegí algo representativo de tu establecimiento.</span></div>
                <input className='formrelation'
                     autoComplete = 'off'
                     type= "text"
@@ -245,7 +208,7 @@ export default function Registrate() {
                     {errors.relation && (
                         <p className='error'>{errors.relation}</p>
                     )}
-               <button className="btninput" type='submit'>Registrar</button>
+               <button className="btninput" type='submit' disabled={!input.name || !input.town || !input.street  || !input.number || !input.postcode  || !input.email || !input.telephone || !input.keyword || !input.relation || !input.country } >Registrar</button>
            </form>
            </div>
         </div>
