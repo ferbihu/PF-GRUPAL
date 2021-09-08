@@ -4,7 +4,7 @@ const { postSafePlace,changeStatusSafePlace } = require('../controllers/safeplac
 const {postSafePlaceSchema} = require('../schemas/safePlace');
 const {validateBody} =require('../middlewares/validateSchema');
 const {checkJwt} = require('../middlewares/jwt');
-const {isAdminUser} = require('../middlewares/safePlace');
+const {isAdminUser} = require('../middlewares/user');
 
 const router = Router();
 
