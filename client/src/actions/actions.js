@@ -97,10 +97,24 @@ export const getallsafesitie = ()=>{
 };
 }
 
+
 //Para filtrado por paises en el panel de Admin
 export function filterByCountry(payload){
   return {
       type: "FILTER_BY_COUNTRY",
       payload
+  }
+}
+   
+export const sendMailToNewUsers = (user) => {
+  return async function(dispatch) {
+    try {
+      console.log(user)
+      return axios.post(`http://localhost:3001/email/welcome`, user)
+      
+    } catch(err) {
+      console.log(err.message);
+    }
+
   }
 }
