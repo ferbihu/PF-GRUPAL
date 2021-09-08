@@ -12,6 +12,7 @@ import RegistrateLugarSeguro from "./Pages/RegistrateLugarSeguro";
 import LugaresSeguros from "./Pages/LugaresSeguros";
 import Registrate from "./Pages/Registro-Usuario/Registrate";
 import Nav from "./Components/NavBar/NavBar";
+import Panel from "./Pages/Panel-Admin/Panel";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
       <Route exact path="/iniciasesion" component={IniciaSesion}/>
       <Route exact path="/registrate" component={Registrate}/>
       <Route exact path="/foro" component={Foro}/>
+      <Route exact path="/panel" component={Panel}/>
       </Switch>
       <Footer/>
     </div>
