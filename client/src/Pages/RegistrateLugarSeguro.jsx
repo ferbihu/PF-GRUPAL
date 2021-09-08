@@ -97,7 +97,7 @@ export default function Registrate() {
         dispatch(byCountrys(e.target.value));
       };
       const handleFilterTown = (e) => {
-        setInput({...input,town: e.target.value})
+        setInput({...input,town:e.target.value})
         dispatch(byTown(e.target.value));
       };
 
@@ -128,7 +128,7 @@ export default function Registrate() {
                       {input.country}</select>
                      <select className='formtown' onChange={e => handleFilterTown(e)}>
                       <option value="All">Ciudad Del lugar seguro</option>
-                      <option value="CiudadDeBAs">Ciudad Autónoma de Buenos Aires</option>
+                      <option value="Ciudad Autónoma de Bs As">Ciudad Autónoma de Buenos Aires</option>
                       {input.town}</select>
                <input className='formstreet'
                     autoComplete = 'off'
@@ -192,11 +192,12 @@ export default function Registrate() {
                     name= "keyword"
                     placeholder="Palabra clave"
                     onChange={(e)=>handleChange(e)} 
-                    />
+                    /> <div className="caja"><a href='#' className='cuadradito'>?</a><span className="info">La palabra clave la utilizarán para pedir ayuda cuando recurran al lugar. Elegí algo representativo de tu establecimiento.</span></div>
                      {errors.keyword && (
                         <p className='error'>{errors.keyword}</p>
                     )}
-                     <div className="caja"><a href='#' className='signo'>?</a><span className="info">La palabra clave la utilizarán para pedir ayuda cuando recurran al lugar. Elegí algo representativo de tu establecimiento.</span></div>
+                   
+                    
                <input className='formrelation'
                     autoComplete = 'off'
                     type= "text"

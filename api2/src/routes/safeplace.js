@@ -1,6 +1,6 @@
 const {Router} = require ('express');
 const {getSafePlaces} = require ('../controllers/safeplace');
-const { postSafePlace,changeStatusSafePlace } = require('../controllers/safeplace');
+const { postSafePlace,changeStatusSafePlace, deleteSafePlace } = require('../controllers/safeplace');
 const {postSafePlaceSchema} = require('../schemas/safePlace');
 const {validateBody} =require('../middlewares/validateSchema');
 const {checkJwt} = require('../middlewares/jwt');
