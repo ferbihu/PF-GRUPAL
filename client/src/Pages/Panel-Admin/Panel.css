@@ -1,0 +1,91 @@
+.fondopanel{
+    margin: 5vw;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    height: 120vh;
+    padding: 1vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: fit-content;
+    flex-direction: column;
+      
+}
+.cards-panel{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.filtrados-panel {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1vw 25vw 1vw 25vw;
+}
+.titular {
+ display: flex;
+ flex-direction: column;
+
+}
+.titulo-panel{
+    align-self: center;
+    text-transform: uppercase;
+    font-size: 2vw;
+
+
+}
+.linea-panel{
+    height: 0.1vw;
+    background-color: orange;
+    width: 21vw;
+    align-self: center;
+    
+}
+button {
+    
+        border: none;
+        border-radius: 10px;
+        
+        padding: 0.5vw;
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 1vw;
+           
+} 
+
+.Pendientes{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 8px rgba(224, 173, 78, 0.959);
+}
+.Pendientes:hover {
+    background-color:rgba(253, 206, 119, 0.959);
+    
+    
+} 
+.Denunciados{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 8px rgba(252, 0, 0, 0.664);
+}
+.Denunciados:hover {
+    
+    background-color: rgba(252, 0, 0, 0.87);
+    
+    
+} 
+
+select {
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    padding: 0.2vw;
+    font-size: 1vw;
+}
+
+option{
+    font-weight: 800;
+    padding: 0.5vw;
+    font-size: 1vw;
+    margin: 1vw;
+}
