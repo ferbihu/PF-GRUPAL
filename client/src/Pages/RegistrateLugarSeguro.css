@@ -14,8 +14,6 @@
     width: 445px;
     margin-top: 10px;
     justify-content: center;
-    /* width: 445px;
-    margin-left: 390px; */
 }
 .primerparrafo{
     margin-top: 20px;
@@ -39,7 +37,6 @@
 .formname{
     border: 1px solid #C4C4C4;
     background-color:  #FFFFFF;
-    color: #BBBABA;
     transition: 250ms;
     text-align: center;
     border-radius: 20px;
@@ -62,7 +59,6 @@
 .formtown{
     border:  1px solid #C4C4C4;
     background-color:  #FFFFFF;
-    color: #BBBABA;
     text-align: center;
     border-radius: 20px;
     width: 364px;
@@ -73,7 +69,6 @@
 .formstreet{
     border:  1px solid #C4C4C4;
     background-color:  #FFFFFF;
-    color: #BBBABA;
     text-align: center;
     border-radius: 20px;
     width: 364px;
@@ -84,7 +79,16 @@
 .formnumber{
     border:  1px solid #C4C4C4;
     background-color:  #FFFFFF;
-    color: #BBBABA;
+    text-align: center;
+    border-radius: 20px;
+    width: 364px;
+    height: 52px;
+    margin-top: 10px;
+    font-size: 20px;       
+}
+.formpostcode{
+    border:  1px solid #C4C4C4;
+    background-color:  #FFFFFF;
     text-align: center;
     border-radius: 20px;
     width: 364px;
@@ -105,7 +109,6 @@
 .formtelephone{
     border:  1px solid #C4C4C4;
     background-color:  #FFFFFF;
-    color: #BBBABA;
     text-align: center;
     border-radius: 20px;
     width: 364px;
@@ -116,7 +119,6 @@
 .formkeyword{
     border:  1px solid #C4C4C4;
     background-color:  #FFFFFF;
-    color: #BBBABA;
     text-align: center;
     border-radius: 20px;
     width: 364px;
@@ -127,7 +129,6 @@
 .formrelation{
     border:  1px solid #C4C4C4;
     background-color:  #FFFFFF;
-    color: #BBBABA;
     text-align: center;
     border-radius: 20px;
     width: 364px;

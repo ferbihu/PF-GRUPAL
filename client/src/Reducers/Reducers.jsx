@@ -1,9 +1,11 @@
 const initialState = {
-   safeplce:[],
-   user: [],
-   isLogged:false,
-   userId:null
-  };
+  safeplce: [],
+  user: [],
+  isLogged: false,
+  userId: null,
+  stateSitie: [],
+  filtered_safePlaces: [],
+};
 function reducers(state = initialState, action) {
     switch (action.type) {
        case "RENDER_USER_NAME":
@@ -36,8 +38,23 @@ function reducers(state = initialState, action) {
             isLogged: true,
             userId:action.payload.userId
             }
-  
-        default:
+    case "ALL_SITIES":
+      return {
+        ...state,
+        filtered_safePlaces: action.payload.info, //recipes
+        stateSitie: action.payload.info,          //allRecipes
+
+      };
+    case "FILTER_BY_COUNTRY":
+      const lugares = state.stateSitie;
+      const statusFiltered = lugares.filter(e => e.country.includes(action.payload))
+
+      return {
+       ...state,
+        filtered_safePlaces: statusFiltered
+
+      }
+     default:
       return state;
   }
 }

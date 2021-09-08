@@ -44,8 +44,6 @@ export function byCountrys(payload) {
       payload
   };
 };
-
-
   export function renderUserName(payload){
     console.log("entro a la action : ", payload)
     return {
@@ -89,5 +87,41 @@ export function deleteSafePlace(payload,userId){
       type: 'DELETE_SAFEPLACE',
       payload: json.data
    })
+ }
+export const getallsafesitie = ()=>{
+ 
+  return function(dispatch){
+        return axios
+         .get(` http://localhost:3001/safe_place`)
+         .then((res)=>{dispatch({ 
+              type:"ALL_SITIES",
+              payload:{info:res.data}})
+         })
+         .catch((err) => {
+           console.log("Falla servidor local", err);
+        });
+};
+}
+
+
+//Para filtrado por paises en el panel de Admin
+export function filterByCountry(payload){
+  return {
+      type: "FILTER_BY_COUNTRY",
+      payload
+  }
+}
+   
+export const sendMailToNewUsers = (user) => {
+  return async function(dispatch) {
+    try {
+      console.log(user)
+      return axios.post(`http://localhost:3001/email/welcome`, user)
+      
+    } catch(err) {
+      console.log(err.message);
+    }
+
+  }
  }
 }

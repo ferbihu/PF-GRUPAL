@@ -1,0 +1,95 @@
+.titulo {
+    font-size: 2vw;
+    align-self: center; 
+    margin-bottom: 0.5vw;
+    
+}
+
+.titulo-desarrollada {
+    font-size: 2vw;
+    align-self: center; 
+    margin-top: 4vw;
+    margin-bottom: 0.5vw;
+}
+
+.parrafo-conocenos{
+    
+    align-self: center;
+    font-size: 1.5vw;
+    text-align: center;
+    padding: 1vw;
+    line-height: 2.5vw;
+    
+}
+
+
+.container-conocenos {
+    display: flex;
+    flex-direction: column;
+    padding: 2vw 5vw 5vw 5vw;
+}
+
+
+.foto-conocenos{
+    height: 7.5vw;
+    padding-right: 2vw;
+}
+
+.icono {
+    height: 2vw;
+    padding-left: 1vw;
+}
+
+.integrantes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+
+.perfil {
+ display: flex;
+ padding: 2vw;
+ margin: 2vw;
+ align-self: center;
+ background-color: cornsilk;
+ border-radius: 20px;
+}
+
+.nombre{
+    
+    padding-top: 2vw;
+}
+.iconos{
+    display: flex;
+    padding-top: 1vw;
+    justify-content: center;
+}
+
+.conocenos-line{
+    background: #f17a09;
+    height: 4px;
+    width: 11vw;
+    margin-top: 0;
+    align-self: center; 
+    margin-bottom: 2vw;
+}
+
+.conocenos-line2{
+    background: #f17a09;
+    height: 4px;
+    width: 16vw;
+    margin-top: 0;
+    align-self: center; 
+}
+
+.span-conocenos{
+    font-weight: 900;
+    
+}
+
+.violeta {
+    font-size: x-large;
+    font-weight: 900;
+    color: #7f31b3;
+}
