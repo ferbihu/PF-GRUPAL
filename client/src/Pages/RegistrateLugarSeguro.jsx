@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import { useDispatch,useSelector} from "react-redux";
 import {postAprobation, byCountrys, byTown} from '.././actions/actions';
+import axios from "axios";
 import './RegistrateLugarSeguro.css';
 
 
@@ -69,7 +70,7 @@ export default function Registrate() {
        }));
         console.log(input)
     }
-    function handleSubmit(e){
+    async function handleSubmit(e){
         e.preventDefault();
         console.log(input)
         setErrors(validate({
@@ -77,6 +78,7 @@ export default function Registrate() {
             [e.target.name]:e.target.value
         }));
         dispatch(postAprobation(input,userId))
+        await axios.post('http://localhost:3001/email/registroSafePlace', input)
         alert("Registro creado!")
         setInput({
         name: "",
@@ -97,7 +99,7 @@ export default function Registrate() {
         dispatch(byCountrys(e.target.value));
       };
       const handleFilterTown = (e) => {
-        setInput({...input,town:e.target.value})
+        setInput({...input,town:e.target.value}
         dispatch(byTown(e.target.value));
       };
 
@@ -110,7 +112,7 @@ export default function Registrate() {
            <p>Ayudanos a luchar contra la violencia machista y sexual.</p>
            </div>
            <div >
-           <form className='rectangulo' onSubmit={(e)=>handleSubmit(e)}>
+           <form className='rectangulo'>
                <input  className='formname'
                     autoComplete = 'off'
                     type= "text"
@@ -128,8 +130,9 @@ export default function Registrate() {
                       {input.country}</select>
                      <select className='formtown' onChange={e => handleFilterTown(e)}>
                       <option value="All">Ciudad Del lugar seguro</option>
-                      <option value="Ciudad Autónoma de Bs As">Ciudad Autónoma de Buenos Aires</option>
-                      {input.town}</select>
+
+                      <option value="Ciudad Autónoma de Buenos Airess">Ciudad Autónoma de Buenos Aires</option>
+                     {input.town}</select>
                <input className='formstreet'
                     autoComplete = 'off'
                     type= "text"
@@ -192,12 +195,11 @@ export default function Registrate() {
                     name= "keyword"
                     placeholder="Palabra clave"
                     onChange={(e)=>handleChange(e)} 
-                    /> <div className="caja"><a href='#' className='cuadradito'>?</a><span className="info">La palabra clave la utilizarán para pedir ayuda cuando recurran al lugar. Elegí algo representativo de tu establecimiento.</span></div>
+                    /> 
                      {errors.keyword && (
                         <p className='error'>{errors.keyword}</p>
                     )}
-                   
-                    
+                     <div className="caja"><a href='#' className='signo'>?</a><span className="info">La palabra clave la utilizarán para pedir ayuda cuando recurran al lugar. Elegí algo representativo de tu establecimiento.</span></div>
                <input className='formrelation'
                     autoComplete = 'off'
                     type= "text"
@@ -209,7 +211,8 @@ export default function Registrate() {
                     {errors.relation && (
                         <p className='error'>{errors.relation}</p>
                     )}
-               <button className="btninput" type='submit' disabled={!input.name || !input.town || !input.street  || !input.number || !input.postcode  || !input.email || !input.telephone || !input.keyword || !input.relation || !input.country } >Registrar</button>
+
+               <button className="btninput" type='submit' disabled={!input.name || !input.town || !input.street  || !input.number || !input.postcode  || !input.email || !input.telephone || !input.keyword || !input.relation || !input.country } onClick={(e) => handleSubmit(e)}>Registrar</button>
            </form>
            </div>
         </div>
