@@ -109,7 +109,6 @@ export function filterByCountry(payload){
       type: "FILTER_BY_COUNTRY",
       payload
   }
-}
    
 export const sendMailToNewUsers = (user) => {
   return async function(dispatch) {
@@ -132,3 +131,5 @@ export function deleteSafePlace(payload,userId){
    })
   }
 }
+
+   
