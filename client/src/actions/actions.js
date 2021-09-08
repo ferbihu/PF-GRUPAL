@@ -111,15 +111,3 @@ export function filterByCountry(payload){
   }
 }
    
-export const sendMailToNewUsers = (user) => {
-  return async function(dispatch) {
-    try {
-      console.log(user)
-      return axios.post(`http://localhost:3001/email/welcome`, user)
-      
-    } catch(err) {
-      console.log(err.message);
-    }
-
-  }
-}
