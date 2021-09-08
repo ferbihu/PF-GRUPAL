@@ -100,7 +100,7 @@ body {
 }
 
 .btnGoogle {
-  margin-top: 60px;
+  margin-top: 40px;
   margin-left: 70px;
   background: white;
   color: rgb(0, 0, 0);
@@ -123,4 +123,11 @@ body {
 
 .login-submit:hover {
   transform: scale(1.10);
+}
+
+.danger {
+  color: rgb(179, 7, 7);
+  font-size: 15px;
+  text-align: center;
+  margin-top: 5px;
 }
