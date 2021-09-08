@@ -35,8 +35,22 @@ async function editSafePlaceByPK(body,id){
         throw error
     }
 };
-
+async function deleteSafePlace(req, res) {
+    const id = req.params.id;
+    try{
+     return await SafePlace.destroy({
+         where: {
+            name: {id: id}
+        }
+    });
+}
+ catch(error){
+        console.log(error)
+        throw error
+       };
+  
+    }
 
 //que un lugar seguro sea borrado solo por la persona que lo creo 
 
-module.exports = {getSafePlaces,postSafePlace,editSafePlaceByPK}
+module.exports = {getSafePlaces,postSafePlace,editSafePlaceByPK, deleteSafePlace}

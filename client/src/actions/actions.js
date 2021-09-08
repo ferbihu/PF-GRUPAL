@@ -109,5 +109,27 @@ export function filterByCountry(payload){
       type: "FILTER_BY_COUNTRY",
       payload
   }
+   
+export const sendMailToNewUsers = (user) => {
+  return async function(dispatch) {
+    try {
+      console.log(user)
+      return axios.post(`http://localhost:3001/email/welcome`, user)
+      
+    } catch(err) {
+      console.log(err.message);
+    }
+
+  }
 }
+export function deleteSafePlace(payload,userId){
+  return async function(dispatch){
+    const json = await axios.get("http://localhost:3001/safe_place" , {...payload,userId} );
+    return dispatch({
+      type: 'DELETE_SAFEPLACE',
+      payload: json.data
+   })
+  }
+}
+
    
