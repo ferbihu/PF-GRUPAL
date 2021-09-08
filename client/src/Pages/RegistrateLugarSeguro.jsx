@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import { useDispatch,useSelector} from "react-redux";
 import {postAprobation, byCountrys, byTown} from '.././actions/actions';
+import axios from "axios";
 import './RegistrateLugarSeguro.css';
 
 
@@ -69,7 +70,7 @@ export default function Registrate() {
        }));
         console.log(input)
     }
-    function handleSubmit(e){
+    async function handleSubmit(e){
         e.preventDefault();
         console.log(input)
         setErrors(validate({
@@ -77,6 +78,7 @@ export default function Registrate() {
             [e.target.name]:e.target.value
         }));
         dispatch(postAprobation(input,userId))
+        await axios.post('http://localhost:3001/email/registroSafePlace', input)
         alert("Registro creado!")
         setInput({
         name: "",
@@ -110,7 +112,7 @@ export default function Registrate() {
            <p>Ayudanos a luchar contra la violencia machista y sexual.</p>
            </div>
            <div >
-           <form className='rectangulo' onSubmit={(e)=>handleSubmit(e)}>
+           <form className='rectangulo'>
                <input  className='formname'
                     autoComplete = 'off'
                     type= "text"
@@ -208,7 +210,7 @@ export default function Registrate() {
                     {errors.relation && (
                         <p className='error'>{errors.relation}</p>
                     )}
-               <button className="btninput" type='submit' disabled={!input.name || !input.town || !input.street  || !input.number || !input.postcode  || !input.email || !input.telephone || !input.keyword || !input.relation || !input.country } >Registrar</button>
+               <button className="btninput" type='submit' disabled={!input.name || !input.town || !input.street  || !input.number || !input.postcode  || !input.email || !input.telephone || !input.keyword || !input.relation || !input.country } onClick={(e) => handleSubmit(e)}>Registrar</button>
            </form>
            </div>
         </div>
