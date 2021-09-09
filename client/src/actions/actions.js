@@ -96,3 +96,16 @@ export const getallsafesitie = ()=>{
         });
 };
 }
+
+export function logout() {
+  return function (dispatch) {
+    axios.post('/auth/logout')
+      .then(res => dispatch({
+        type: 'LOGOUT',
+        payload: {}
+      })
+      ).catch(err => {
+        console.error(err)
+      });
+  }
+}
