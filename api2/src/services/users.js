@@ -22,3 +22,24 @@ exports.findUser = async(email) =>{
         throw error 
     }
 };
+
+exports.userById = async(id) =>{
+    try{
+        return User.findOne({where:{id}})
+    }
+    catch(error){
+        console.log(error)
+        throw error
+    }
+};
+
+
+exports.updateUserData = async(body,id) =>{
+    try{
+        return User.update({...body},{where:{id}})
+    }
+    catch(error){
+        console.log(error)
+        throw error 
+    }
+};
