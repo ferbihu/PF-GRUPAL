@@ -1,7 +1,7 @@
 import React from "react";
 import "../sities/PageSitie.css"
 
-export default function Foro() {
+export default function Sities() {
     return (
     <div>
       <div class="app-container">
