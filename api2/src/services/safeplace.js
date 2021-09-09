@@ -43,14 +43,30 @@ async function deleteSafePlace(req, res) {
             name: {id: id}
         }
     });
-}
+    }
  catch(error){
         console.log(error)
         throw error
        };
   
+};
+
+async function getAllSafePlaces(){
+    try{
+    return await SafePlace.findAll({
+        include:[{
+            model:User,
+            as: 'safePlaceCreator',
+            attributes : ['name','id','email']
+        }]
+    })
     }
+    catch(error){
+        console.log(error)
+        throw error 
+    }
+};
 
-//que un lugar seguro sea borrado solo por la persona que lo creo 
 
-module.exports = {getSafePlaces,postSafePlace,editSafePlaceByPK, deleteSafePlace}
+
+module.exports = {getSafePlaces,postSafePlace,editSafePlaceByPK, deleteSafePlace,getAllSafePlaces}
