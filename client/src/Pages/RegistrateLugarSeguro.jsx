@@ -99,7 +99,7 @@ export default function Registrate() {
         dispatch(byCountrys(e.target.value));
       };
       const handleFilterTown = (e) => {
-        setInput({...input,town: e.target.value})
+        setInput({...input,town:e.target.value}
         dispatch(byTown(e.target.value));
       };
 
@@ -130,8 +130,9 @@ export default function Registrate() {
                       {input.country}</select>
                      <select className='formtown' onChange={e => handleFilterTown(e)}>
                       <option value="All">Ciudad Del lugar seguro</option>
-                      <option value="CiudadDeBAs">Ciudad Autónoma de Buenos Aires</option>
-                      {input.town}</select>
+
+                      <option value="Ciudad Autónoma de Buenos Airess">Ciudad Autónoma de Buenos Aires</option>
+                     {input.town}</select>
                <input className='formstreet'
                     autoComplete = 'off'
                     type= "text"
@@ -194,7 +195,7 @@ export default function Registrate() {
                     name= "keyword"
                     placeholder="Palabra clave"
                     onChange={(e)=>handleChange(e)} 
-                    />
+                    /> 
                      {errors.keyword && (
                         <p className='error'>{errors.keyword}</p>
                     )}
@@ -210,6 +211,7 @@ export default function Registrate() {
                     {errors.relation && (
                         <p className='error'>{errors.relation}</p>
                     )}
+
                <button className="btninput" type='submit' disabled={!input.name || !input.town || !input.street  || !input.number || !input.postcode  || !input.email || !input.telephone || !input.keyword || !input.relation || !input.country } onClick={(e) => handleSubmit(e)}>Registrar</button>
            </form>
            </div>

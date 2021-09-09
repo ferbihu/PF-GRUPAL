@@ -15,3 +15,4 @@ router.post('/:id/:status',checkJwt,isAdminUser,changeStatusSafePlace);
 router.get('/:id/',deleteSafePlace);
 
 module.exports = router;
+
