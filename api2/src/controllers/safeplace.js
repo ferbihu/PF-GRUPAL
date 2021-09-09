@@ -27,8 +27,9 @@ const changeStatusSafePlace = async (req,res) =>{
 
 const deleteSafePlace = async (req, res)=> {
     try{
-   res.json(await ServicesSafePlace.deleteSafeplace());
-    return res.status(200).send(deleteSafePlace)
+   const {id} = req.params;
+   const safePlaceDelete = await ServicesSafePlace.deleteSafePlace(id);
+   return res.status(200).send("ok")
    }
    catch(error){
        console.log(error)
