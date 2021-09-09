@@ -26,14 +26,17 @@ function validate(input) {
     else if (!input.postcode) {
         errors.postcode = 'Se requiere un código postal';
     }
-    else if (!input.mail) {
-        errors.mail = 'Se requiere un mail';
+    else if (!input.email) {
+        errors.email = 'Se requiere un mail';
     }  
     else if (!input.telephone) {
         errors.telephone = 'Se requiere un teléfono';
     }
     else if (!input.keyword) {
         errors.keyword = 'Se requiere una palabra clave';
+    }
+    else if (!input.relation) {
+        errors.relation = 'Se requiere una relación';
     }
     return errors;
   };
@@ -99,7 +102,7 @@ export default function Registrate() {
         dispatch(byCountrys(e.target.value));
       };
       const handleFilterTown = (e) => {
-        setInput({...input,town:e.target.value}
+        setInput({...input,town:e.target.value})
         dispatch(byTown(e.target.value));
       };
 
@@ -131,7 +134,7 @@ export default function Registrate() {
                      <select className='formtown' onChange={e => handleFilterTown(e)}>
                       <option value="All">Ciudad Del lugar seguro</option>
 
-                      <option value="Ciudad Autónoma de Buenos Airess">Ciudad Autónoma de Buenos Aires</option>
+                      <option value="Ciudad Autónoma de Buenos Aires">Ciudad Autónoma de Buenos Aires</option>
                      {input.town}</select>
                <input className='formstreet'
                     autoComplete = 'off'
@@ -199,7 +202,7 @@ export default function Registrate() {
                      {errors.keyword && (
                         <p className='error'>{errors.keyword}</p>
                     )}
-                     <div className="caja"><a href='#' className='signo'>?</a><span className="info">La palabra clave la utilizarán para pedir ayuda cuando recurran al lugar. Elegí algo representativo de tu establecimiento.</span></div>
+                     <div className="caja"><a href='#' className='cuadradito'>?</a><span className="info">La palabra clave la utilizarán para pedir ayuda cuando recurran al lugar. Elegí algo representativo de tu establecimiento.</span></div>
                <input className='formrelation'
                     autoComplete = 'off'
                     type= "text"
