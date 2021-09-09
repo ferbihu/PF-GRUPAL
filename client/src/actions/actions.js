@@ -40,11 +40,16 @@ export function addUser({ name, email, password }) {
 }
 export function byCountrys(payload) {
   return {
-      type: 'byCountrys',
+      type: 'BY_COUNTRYS',
       payload
   };
 };
-
+export function byTown(payload) {
+  return {
+      type: 'BY_TOWN',
+      payload
+  };
+};
 
   export function renderUserName(payload){
     console.log("entro a la action : ", payload)
@@ -106,15 +111,14 @@ export function filterByCountry(payload){
   }
 }
    
-export const sendMailToNewUsers = (user) => {
-  return async function(dispatch) {
-    try {
-      console.log(user)
-      return axios.post(`http://localhost:3001/email/welcome`, user)
-      
-    } catch(err) {
-      console.log(err.message);
-    }
-
+export function deleteSafePlace(payload,userId){
+  return async function(dispatch){
+    const json = await axios.get("http://localhost:3001/safe_place" , {...payload,userId} );
+    return dispatch({
+      type: 'DELETE_SAFEPLACE',
+      payload: json.data
+   })
   }
 }
+
+   
