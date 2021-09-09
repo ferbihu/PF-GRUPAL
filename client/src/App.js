@@ -13,6 +13,7 @@ import LugaresSeguros from "./Pages/LugaresSeguros";
 import Registrate from "./Pages/Registro-Usuario/Registrate";
 import Nav from "./Components/NavBar/NavBar";
 import Panel from "./Pages/Panel-Admin/Panel";
+import MapAny from "./Components/MapaAny/Map.jsx";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
       <Route exact path="/registrate" component={Registrate}/>
       <Route exact path="/foro" component={Foro}/>
       <Route exact path="/panel" component={Panel}/>
+      <Route exact path="/mapAny" component={MapAny}/>
       </Switch>
       <Footer/>
     </div>
