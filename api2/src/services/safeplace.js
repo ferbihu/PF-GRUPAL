@@ -35,13 +35,10 @@ async function editSafePlaceByPK(body,id){
         throw error
     }
 };
-async function deleteSafePlace(req, res) {
-    const id = req.params.id;
+async function deleteSafePlace(id) {
     try{
      return await SafePlace.destroy({
-         where: {
-            name: {id: id}
-        }
+         where: { id: id }    
     });
     }
  catch(error){
