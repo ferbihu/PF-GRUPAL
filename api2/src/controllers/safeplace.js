@@ -6,6 +6,11 @@ const getSafePlaces = async (_req,res)=>{
 
 };
 
+const getAllSafePlaces = async(req,res) =>{
+    res.json(await ServicesSafePlace.getAllSafePlaces());
+};
+
+
 const postSafePlace = async (req,res) =>{
     try{
         await ServicesSafePlace.postSafePlace(req.body)
@@ -38,4 +43,4 @@ const deleteSafePlace = async (req, res)=> {
 
 
 
-module.exports = {getSafePlaces,postSafePlace,changeStatusSafePlace, deleteSafePlace}
+module.exports = {getSafePlaces,postSafePlace,changeStatusSafePlace, deleteSafePlace,getAllSafePlaces}
