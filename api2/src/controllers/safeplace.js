@@ -23,7 +23,7 @@ const postSafePlace = async (req,res) =>{
 };
 
 const changeStatusSafePlace = async (req,res) =>{
-    console.log(req.user)
+    //console.log(req.user)
     const {id,status} = req.params;
     const {description_status = ""} = req.body;
     const statusChange = await ServicesSafePlace.editSafePlaceByPK({status,description_status},id);
