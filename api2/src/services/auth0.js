@@ -64,8 +64,7 @@ exports.login = async (email,password) => {
       return resp.data;
     } catch (error) {
       console.log('auth0 error: ', error.message);
-      if (error.internalCode) throw error;
-      throw externalServiceForbiddenError(error.message);
+      throw error
     }
 };
 
