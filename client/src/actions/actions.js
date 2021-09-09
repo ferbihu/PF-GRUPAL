@@ -121,13 +121,13 @@ export function deleteSafePlace(payload,userId){
   }
 }
 
-export function deleteSafePlace(payload,userId){
-  return async function(dispatch){
-    const json = await axios.get("http://localhost:3001/safe_place" , {...payload,userId} );
-    return dispatch({
-      type: 'DELETE_SAFEPLACE',
-      payload: json.data
-   })
-  }
-}
+// export function deleteSafePlace(payload,userId){
+//   return async function(dispatch){
+//     const json = await axios.get("http://localhost:3001/safe_place" , {...payload,userId} );
+//     return dispatch({
+//       type: 'DELETE_SAFEPLACE',
+//       payload: json.data
+//    })
+//   }
+// }
 

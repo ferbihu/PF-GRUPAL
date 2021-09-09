@@ -13,11 +13,15 @@ router.post("/welcome", async (req, res, next) => {
             to: email,
             subject: "Bienvenido a Safety!",
             text: "Hola! Nos alegra que te hayas incorporado a la comunidad Safety. A continuación te enviamos un PDF con información sobre nuestro sitio. Podes ponerte en contacto con nosotras escribiendonos a women4women@gmail.com en caso de necesitar ayuda con algo.",
-            html: `<p>Hola! Nos alegra que te hayas incorporado a la comunidad Safety. A continuación te enviamos un PDF con información sobre nuestro sitio. Podes ponerte en contacto con nosotras escribiendonos a women4women@gmail.com en caso de necesitar ayuda con algo.</p>`
+            html: `<p>Hola! Nos alegra que te hayas incorporado a la comunidad Safety. A continuación te enviamos un PDF con información sobre nuestro sitio. Podes ponerte en contacto con nosotras escribiendonos a women4women@gmail.com en caso de necesitar ayuda con algo.</p>`,
+            attachments: [{
+                filename: 'Bienvenida.pdf',
+                path: `/home/mora/Escritorio/PF-GRUPAL/api2/src/pdfs/Bienvenida.pdf`,
+            }]
         })
         res.json({ success: "Email sent" });
     } catch(err) {
-        console.log(err.message);
+        next(err);
     }
 })
 

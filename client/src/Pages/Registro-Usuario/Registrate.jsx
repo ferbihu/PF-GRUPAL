@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../actions/actions";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Registrate.css";
 
@@ -105,15 +106,11 @@ function Register({ addUser, responseGoogle }) {
             />
             {errors.password && <p className="danger">{errors.password}</p>}
           </div>
-          <div className="FormInput">
-            <button
-              className="reg-submit"
-              onClick={handleSubmit}
-              type="submit"
-            >
+            <Link to="/iniciasesion">
+            <button className="reg-submit" onClick={handleSubmit}>
               Registrate
             </button>
-          </div>
+            </Link>
         </form>
       </div>
     </div>

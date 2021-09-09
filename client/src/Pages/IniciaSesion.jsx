@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./IniciaSesion.css"
 import GoogleLogin from "react-google-login"
-
+import {Link} from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { renderUserName,login } from "../actions/actions";
 
@@ -74,9 +74,11 @@ export default function IniciaSesion() {
                 <input onChange={handleChange} name ="email" value ={input.email} className="login-username" placeholder="nombre@example.com" />
                 <p className="danger">{errors.email}</p>
                 <label className="p2">Contraseña</label>
-                <input onChange={handleChange} name ="password" value={input.password} className="login-password" placeholder="Más de 6 caracteres" />
+                <input onChange={handleChange} type="password" name ="password" value={input.password} className="login-password" placeholder="Más de 6 caracteres" />
                 <p className="danger">{errors.password}</p>
+                <Link to="/">
                 <button  onSubmit={e => handleSubmit(e)} className="login-submit">Ingresá</button>
+                </Link>
             </form>
         </div>
 
