@@ -1,5 +1,5 @@
 const initialState = {
-  safeplce: [],
+  safeplace: [],
   user: [],
   isLogged: false,
   userId: null,

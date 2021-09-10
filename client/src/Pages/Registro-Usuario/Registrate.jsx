@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { addUser } from "../../actions/actions";
 import { connect } from "react-redux";
-import GoogleLogin from "react-google-login";
 import "./Registrate.css";
 
-function Register({ addUser, responseGoogle }) {
+function Register({ addUser }) {
   const [errors, setErrors] = useState({});
   const [input, setInput] = useState({
     name: "",
@@ -13,7 +12,7 @@ function Register({ addUser, responseGoogle }) {
   });
 
   const validate = (input) => {
-    let pattern = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%&]).{8,}$/;
+    let pattern =/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%&]).{8,}$/;
     let errors = {};
     if (!input.name) {
       errors.name = "Name is required";
