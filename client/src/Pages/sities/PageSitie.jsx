@@ -39,10 +39,7 @@ export default function Sities() {
                         <path d="M13.73 21a2 2 0 0 1-3.46 0" />
                     </svg>
                     </button>
-                    <button className="profile-btn">
-                    <img src="https://assets.codepen.io/3306515/IMG_2025.jpg" className="img"/>
-                    <span className="spn">Bruno Selene.</span>
-                    </button>
+
             </div>
                 <button className="messages-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-message-circle">
@@ -144,15 +141,8 @@ export default function Sities() {
                            Dec, 12
                         </p>
                       </div>
-                    
                     </div>
-                    
-                    
                     </div>
-                     
-
-
-                    
                     </div>
                 </div>
                 
@@ -167,16 +157,16 @@ export default function Sities() {
           <div className="projects-section-line">
              <div className="projects-status">
                    <div className="item-status">
-                     <span className="status-number">45</span>
-                     <span className="status-type">In Progress</span>
+                     <span className="status-number">10</span>
+                     <span className="status-type">In Caba</span>
                    </div>
                    <div className="item-status">
-                     <span className="status-number">24</span>
-                     <span className="status-type">Upcoming</span>
+                     <span className="status-number">50</span>
+                     <span className="status-type">Buenos Aires</span>
                   </div>
                   <div className="item-status">
-                        <span className="status-number">62</span>
-                        <span className="status-type">Total Projects</span>
+                        <span className="status-number">120</span>
+                        <span className="status-type">Total Argentina</span>
                   </div>
              </div>
           <div className="view-actions">
