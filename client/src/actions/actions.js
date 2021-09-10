@@ -87,6 +87,9 @@ export function login({ email, password }) {
     })
   }
 }
+
+
+
 export const getallsafesitie = ()=>{
  
   return function(dispatch){
@@ -103,14 +106,7 @@ export const getallsafesitie = ()=>{
 }
 
 
-//Para filtrado por paises en el panel de Admin
-export function filterByCountry(payload){
-  return {
-      type: "FILTER_BY_COUNTRY",
-      payload
-  }
-}
-   
+
 export const sendMailToNewUsers = (user) => {
   return async function(dispatch) {
     try {
@@ -132,3 +128,80 @@ export function deleteSafePlace(payload,userId){
    })
   }
 }
+
+
+//------> PARA PANEL DE CONTROL <-------
+
+//Filtrado por paises en el panel de Admin
+export function filterByCountry(payload){
+  return {
+      type: "FILTER_BY_COUNTRY",
+      payload
+  }
+}
+
+export function filterPlacesByStatus(payload){
+  return {
+      type: "FILTER_BY_STATUS",
+      payload
+  }
+}
+
+
+//GET TODOS LOS LUGARES SEGUROS (ACCEPTED-PENDING-WARNING-REJECTED)
+export function getSafePlacePanel(){
+  console.log("------------------- >entro a get safe places panel")
+  return async function(dispatch){
+    const config = {
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
+    };
+    const json = await axios.get("http://localhost:3001/safe_place/admin/all_safe_place", config);
+     return dispatch({
+     type: 'GET_SAFEPLACE_PANEL',
+     payload: json.data
+  })
+}
+}
+
+//CAMBIA EL STATUS A ACCEPTED
+
+export function acceptedStatus(id){
+  return async function (dispatch){
+    const config = {
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
+    };
+    try {
+      const response = await axios.post(`http://localhost:3001/safe_place/${id}/accepted`, {}, config)
+      return dispatch ({
+        type: "ACCEPTED_STATUS",
+        payload: response,
+      }, alert("aceptado"))
+      
+    } catch (error) {
+      console.log(error)
+      
+    }
+         
+}}
+
+//CAMBIA STATUS A REJECTED
+export function rejectedStatus(id, payload){
+  console.log("hola action rejected")
+  return async function (dispatch){
+    const config = {
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
+    };
+    try {
+      const response = await axios.post(`http://localhost:3001/safe_place/${id}/rejected`, {payload}, config)
+      return dispatch ({
+        type: "REJECTED_STATUS",
+        payload: response
+      }, alert("Rechazado"+ " ID: " + id))
+    } catch (error) {
+      console.log(error)
+      
+    }
+         
+}}
+
+
