@@ -28,4 +28,7 @@ server.use("/email", require("./routes/nodemailer"))
 
 server.use("/delete_safe_place", require("./routes/safeplace"))
 
+server.use('/user', require('./routes/user'));
+
+
 module.exports = server;
