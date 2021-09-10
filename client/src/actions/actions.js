@@ -99,7 +99,7 @@ export const getallsafesitie = ()=>{
 
 export function logout() {
   return function (dispatch) {
-    axios.post('/auth/logout')
+    axios.post('http://localhost:3001/auth/logout')
       .then(res => dispatch({
         type: 'LOGOUT',
         payload: {}
@@ -107,5 +107,16 @@ export function logout() {
       ).catch(err => {
         console.error(err)
       });
+  }
+}
+
+export function updateDataUser({name, lastname, email, phone, town, country}) {
+  return function(dispatch) {
+    const updateData ={name, lastname, email, phone, town, country}
+    axios.post('http://localhost:3001/:id', updateData)
+    .then(res => dispatch({
+      type: 'UPDATE_DATA_USER',
+      payload: res.data
+    }))
   }
 }

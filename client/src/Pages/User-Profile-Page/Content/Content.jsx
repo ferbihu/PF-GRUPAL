@@ -1,12 +1,11 @@
 import { Box, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
 
 import AccountSettings from './AccountSettings';
-import Notifications from './Notifications';
-import Update from "./Update";
+import UpdateBtn from "./Update";
 import Logout from "../LogoutBtn/LogoutBtn";
 
 const Content = () => {
-  const tabs = ['Account Settings', 'Notifications'];
+  const tabs = ['Account Settings'];
 
   return (
     <Box
@@ -45,12 +44,9 @@ const Content = () => {
           <TabPanel>
             <AccountSettings />
           </TabPanel>
-          <TabPanel>
-            <Notifications />
-          </TabPanel>
         </TabPanels>
       </Tabs>
-      <Update />
+      <UpdateBtn />
       <Logout />
     </Box>
   )

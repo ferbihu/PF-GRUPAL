@@ -1,6 +1,8 @@
 import { FormControl, FormLabel, Grid, Input, Select } from '@chakra-ui/react'
+import UpdateBtn from './Update'
 
-function AccountSettings() {
+
+export default function AccountSettings() {
   return (
     <Grid
       templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}
@@ -60,4 +62,5 @@ function AccountSettings() {
   )
 }
 
-export default AccountSettings;
+
+
