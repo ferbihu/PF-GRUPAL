@@ -8,7 +8,6 @@ import "./Mapa.css";
 const Mapa = () => {
   return (
     <div className="box">
-
       <div className="lugaresseguros">
         LUGARES <span>SEGUROS</span>
 
@@ -22,10 +21,6 @@ const Mapa = () => {
       <Link to="/lugaresseguros">
         <img src={mapa} alt="Not found" className="imgMapa" />
       </Link>
-
-
-
-
     </div>
   )
 }
