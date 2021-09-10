@@ -99,7 +99,7 @@ export default function Registrate() {
         dispatch(byCountrys(e.target.value));
       };
       const handleFilterTown = (e) => {
-        setInput({...input,town:e.target.value}
+        setInput({...input,town:e.target.value})
         dispatch(byTown(e.target.value));
       };
 
