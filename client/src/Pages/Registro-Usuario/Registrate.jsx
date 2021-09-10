@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { addUser } from "../../actions/actions";
 import { connect } from "react-redux";
+import { sendMailToNewUsers } from "../../actions/actions"; 
 import "./Registrate.css";
 
 function Register({ addUser }) {
@@ -11,8 +13,10 @@ function Register({ addUser }) {
     password: "",
   });
 
+  const dispatch = useDispatch();
+
   const validate = (input) => {
-    let pattern =/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%&]).{8,}$/;
+    let pattern = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
     let errors = {};
     if (!input.name) {
       errors.name = "Name is required";
@@ -45,7 +49,10 @@ function Register({ addUser }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    alert("Registration Successful")
     addUser(input);
+    dispatch(sendMailToNewUsers(input.email))
+    console.log("aca email front", input.email)
   };
 
   return (
@@ -97,7 +104,7 @@ function Register({ addUser }) {
           <div className="FormInput">
             <button
               className="reg-submit"
-              onClick={() => alert("Registration Successful")}
+              onClick={handleSubmit}
               type="submit"
             >
               Registrate
