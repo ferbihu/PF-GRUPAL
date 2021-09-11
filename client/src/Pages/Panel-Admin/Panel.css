@@ -20,7 +20,7 @@
 .filtrados-panel {
     display: flex;
     justify-content: space-evenly;
-    margin: 1vw 25vw 1vw 25vw;
+    margin: 1vw 20vw 1vw 20vw;
 }
 .titular {
  display: flex;
@@ -57,10 +57,10 @@ button {
 
 .Pendientes{
     background-color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 8px rgba(224, 173, 78, 0.959);
+    box-shadow: 0px 0px 8px rgba(158, 78, 224, 0.959);
 }
 .Pendientes:hover {
-    background-color:rgba(253, 206, 119, 0.959);
+    background-color:rgba(174, 123, 216, 0.705);
     
     
 } 
@@ -69,11 +69,28 @@ button {
     box-shadow: 0px 0px 8px rgba(252, 0, 0, 0.664);
 }
 .Denunciados:hover {
-    
-    background-color: rgba(252, 0, 0, 0.87);
-    
+
+    background-color: rgba(252, 0, 0, 0.575);
     
 } 
+.Aceptados{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 8px rgba(129, 172, 12, 0.664);
+}
+.Aceptados:hover { 
+    background-color: rgba(161, 197, 62, 0.534);
+} 
+
+.Rechazados{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 8px rgba(78, 3, 6, 0.664);
+}
+
+.Rechazados:hover {
+    background-color: rgba(78, 3, 5, 0.466);
+    
+} 
+
 
 select {
     border: none;
