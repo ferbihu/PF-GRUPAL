@@ -3,6 +3,7 @@ import {
   withScriptjs,
   withGoogleMap,
   Marker,
+  InfoWindow,
 } from "react-google-maps";
 
 import { compose, withProps } from "recompose";
@@ -131,6 +132,35 @@ if(allsities.length>0){
 }else{
   console.log("no hizo dispacht")
 }
+
+
+const contentString =
+'<div id="content">' +
+'<div id="siteNotice">' +
+"</div>" +
+'<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
+'<div id="bodyContent">' +
+"<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large " +
+"sandstone rock formation in the southern part of the " +
+"Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
+"south west of the nearest large town, Alice Springs; 450&#160;km " +
+'<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
+"https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
+"(last visited June 22, 2009).</p>" +
+"</div>" +
+"</div>";
+
+
+const [stateOpen,setState] = useState({isOpen:false});
+
+
+function handleChangeOpen(markerId){
+  setState({
+      ...stateOpen,
+      isOpen : true
+  })
+}
+
   return (
     <div>
       
@@ -153,7 +183,23 @@ if(allsities.length>0){
           />
         ))}
         <Marker key={i}
-          position={statecoord} title="aqui#" icon={pin}/>
+          position={statecoord} title="aqui#" icon={pin}>
+                 <InfoWindow >    
+                     <div id="content">
+                        <div id="siteNotice"></div>
+                              <h1 id="firstHeading" class="firstHeading">Uluru</h1>
+                              <div id="bodyContent">
+                              <p>
+                              <button onclick="miFunc()">Denuncia</button>
+                              <button onclick="miFunc()">Comentario</button>
+                              <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">
+                              https://en.wikipedia.org/w/index.php?title=Uluru</a> 
+                              last visited June 22, 2009).</p>
+                         </div>
+                     </div>
+             </InfoWindow>
+
+          </Marker>
     </div>
   );
 }
