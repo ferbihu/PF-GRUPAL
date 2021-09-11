@@ -81,7 +81,7 @@ export function login({ email, password }) {
         type:'LOGIN',
 
         payload:{userId:res.data.userId},
-        dataUser: user
+        dataUser: user,
 
         payload:{userId:res.data.userId, role:res.data.role}
 
