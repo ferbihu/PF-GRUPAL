@@ -12,6 +12,8 @@ export default function Panel() {
 
     const dispatch = useDispatch();
 
+    console.log(window.location)
+
     useEffect(() => {
         dispatch(getSafePlacePanel())
     }, [dispatch]);

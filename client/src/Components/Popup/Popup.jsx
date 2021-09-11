@@ -27,6 +27,7 @@ function Popup(props) {
         let id = props.id;
         let payload = input.description_status
         dispatch(rejectedStatus(id, payload))
+        window.location.reload();
 
 
     }
