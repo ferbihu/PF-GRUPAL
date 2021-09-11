@@ -132,3 +132,10 @@ export function deleteSafePlace(payload,userId){
    })
   }
 }
+
+export function coordenadas(payload) {
+  return {
+      type: 'COORDENADAS',
+      payload
+  };
+};
