@@ -19,7 +19,11 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
 function UserProfile() {
+  const rol = useSelector((state) => state.role)
   const [profile, setProfile] = useState(null);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -96,7 +100,9 @@ function UserProfile() {
           Math Teacher
         </Text>
       </VStack>
+      {rol === "admin" && <Link to="/panel">Panel Admin</Link>}
     </VStack>
+
   );
 }
 

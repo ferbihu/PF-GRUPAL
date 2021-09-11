@@ -22,6 +22,7 @@ export default function Panel() {
     const user = useSelector((state) => state.user)
 
 
+
     function handleFilterCountry(e) {
         dispatch(filterByCountry(e.target.value))
     }

@@ -12,10 +12,8 @@ const Header = () => {
 
     return (
         <div className="conteinerImg">
-            {rol === "admin" && <Link to="/panel">Panel Admin</Link>}
-            <h1 className="textS">Safety</h1>
 
-            {rol === "admin" && <Link to="/panel">Panel Admin</Link>}
+            <h1 className="textS">Safety</h1>
 
             <img src={mujeres} alt="Not found" className="imgMujeres" />
         </div>
