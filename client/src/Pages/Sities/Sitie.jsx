@@ -21,18 +21,6 @@ export default function Sities() {
                     </div>
                 </div>    
                 <div className="app-header">
-                    <button className="mode-switch" title="Switch Theme">
-                    <svg className="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
-                        <defs></defs>
-                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-                    </svg>
-                    </button>
-                    <button className="add-btn" title="Add New Project">
-                    <svg className="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" className="feather feather-plus">
-                        <line x1="12" y1="5" x2="12" y2="19" />
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                    </svg>
-                    </button>
                     <button className="notification-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-bell">
                         <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
@@ -50,7 +38,7 @@ export default function Sities() {
             <div className="app-content">
                 
               <div className="app-sidebar">
-                  <a href="" className="app-sidebar-link-active">
+                  <a href="/conocenos" className="app-sidebar-link-active">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-home">
                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
                        <polyline points="9 22 9 12 15 12 15 22" />
@@ -153,23 +141,7 @@ export default function Sities() {
           <div className="projects-section-header">
                <p>Projects</p>
                <p className="time">Septiembre, 12</p>
-          </div>
-          <div className="projects-section-line">
-             <div className="projects-status">
-                   <div className="item-status">
-                     <span className="status-number">10</span>
-                     <span className="status-type">In Caba</span>
-                   </div>
-                   <div className="item-status">
-                     <span className="status-number">50</span>
-                     <span className="status-type">Buenos Aires</span>
-                  </div>
-                  <div className="item-status">
-                        <span className="status-number">120</span>
-                        <span className="status-type">Total Argentina</span>
-                  </div>
-             </div>
-          <div className="view-actions">
+               <div className="view-actions">
                    <button className="view-btn list-view" title="List View">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-list">
                             <line x1="8" y1="6" x2="21" y2="6" />
@@ -189,6 +161,23 @@ export default function Sities() {
                         </svg>
                     </button>
           </div>
+          </div>
+          <div className="projects-section-line">
+             <div className="projects-status">
+                   <div className="item-status">
+                     <span className="status-number">10</span>
+                     <span className="status-type">In Caba</span>
+                   </div>
+                   <div className="item-status">
+                     <span className="status-number">50</span>
+                     <span className="status-type">Buenos Aires</span>
+                  </div>
+                  <div className="item-status">
+                        <span className="status-number">120</span>
+                        <span className="status-type">Total Argentina</span>
+                  </div>
+             </div>
+         
           </div> 
       </div>
             <div className="jsGridView">
@@ -208,15 +197,15 @@ export default function Sities() {
                   </div>
                </div>
                <div className="project-box-content-header">
-                  <p className="box-content-header">Web Designing</p>
-                  <p className="box-content-subheader">Prototyping</p>
+                  <p className="box-content-header">El Gato Negro</p>
+                  <p className="box-content-subheader">CABA</p>
                </div>
                <div className="box-progress-wrapper">
-                  <p className="box-progress-header">Progress</p>
+                  <p className="box-progress-header">Recomendacion</p>
                     <div className="box-progress-bar">
                       <span className="box-progress"></span>
                     </div>
-                  <p className="box-progress-percentage">60%</p>
+                  <p className="box-progress-percentage">80%</p>
                </div>
                <div className="project-box-footer">
                 <div className="participants">
@@ -249,15 +238,15 @@ export default function Sities() {
                   </div>
                   <div className="project-box-content-header">
 
-                     <p className="box-content-header">Testing</p>
-                     <p className="box-content-subheader">Prototyping</p>
+                     <p className="box-content-header">Museo Ciudad</p>
+                     <p className="box-content-subheader">CABA</p>
                   </div>
                   <div className="box-progress-wrapper">
-                    <p className="box-progress-header">Progress</p>
+                    <p className="box-progress-header">Recomendacion</p>
                       <div className="box-progress-bar">
                            <span className="box-progress"></span>
                       </div>
-                    <p className="box-progress-percentage">50%</p>
+                    <p className="box-progress-percentage">75%</p>
                   </div>
                   <div className="project-box-footer">
                     <div className="participants">
