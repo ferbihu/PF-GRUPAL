@@ -2,7 +2,7 @@ import { Box, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
 
 import AccountSettings from './AccountSettings';
 import UpdateBtn from "./Update";
-import Logout from "../LogoutBtn/LogoutBtn";
+// import Logout from "../LogoutBtn/LogoutBtn";
 
 const Content = () => {
   const tabs = ['Account Settings'];
@@ -47,7 +47,7 @@ const Content = () => {
         </TabPanels>
       </Tabs>
       <UpdateBtn />
-      <Logout />
+      {/* <Logout /> */}
     </Box>
   )
 }

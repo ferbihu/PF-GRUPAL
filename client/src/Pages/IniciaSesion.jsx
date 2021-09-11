@@ -4,6 +4,7 @@ import GoogleLogin from "react-google-login";
 import { useDispatch } from "react-redux";
 import { renderUserName, login } from "../actions/actions";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const validate = (input) => {
   let pattern = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%&]).{8,}$/;
@@ -61,12 +62,18 @@ export default function IniciaSesion() {
     }
   }
 
+  function handleGoogleLogin(e) {
+    e.preventDefault();
+    history.push("/")
+  }
+
   return (
-    <div className="contenedor-form">
+    <div className="back">
       <h2 className="txtLog">Inicia sesión</h2>
       <br />
       <form class="login-form" onSubmit={(e) => handleSubmit(e)}>
         <br></br>
+        <button onClick={(e) => handleGoogleLogin(e)}>
         <GoogleLogin
           clientId="58941748087-vv5lmt8hnkri961a7pdrdp9pjsj500vl.apps.googleusercontent.com"
           buttonText="Ingresá con Google"
@@ -75,6 +82,7 @@ export default function IniciaSesion() {
           cookiePolicy={"single_host_origin"}
           className="btnGoogle"
         ></GoogleLogin>
+        </button>
         <label className="p">Email</label>
         <input
           onChange={handleChange}
@@ -91,6 +99,7 @@ export default function IniciaSesion() {
           value={input.password}
           className="login-password"
           placeholder="Más de 6 caracteres"
+          type="password"
         />
         <p className="danger">{errors.password}</p>
         <button

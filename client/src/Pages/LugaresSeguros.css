@@ -24,4 +24,14 @@
     text-align: center;
     padding: 1vw;
     line-height: 2.5vw;
+    background-color: #F1EEDE;
+}
+
+.back {
+    background-color: #F1EEDE;
+}
+
+.titleLS {
+    font-size: 50px;
+    font-family: Montserrat;
 }
