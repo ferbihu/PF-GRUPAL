@@ -92,7 +92,7 @@ export default function Sities() {
                     <img className="imagebox" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80" alt="profile image"/>                        
                     <div className="message-content">
                     <div className="message-header">
-                        <div className="name">Stephanie</div>
+                        <div className="name">Lorena</div>
                            <div className="star-checkbox">
                              <input type="checkbox" id="star-1"/>
                                 <label for="star-1">
@@ -112,7 +112,7 @@ export default function Sities() {
                     <img className="imagebox"src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80" alt="profile image"/>
                       <div className="message-content">
                          <div className="message-header">
-                            <div className="name">Mark</div>
+                            <div className="name">Marcos</div>
                             <div className="star-checkbox">
                                 <input type="checkbox" id="star-2"/>
                                 <label for="star-2">

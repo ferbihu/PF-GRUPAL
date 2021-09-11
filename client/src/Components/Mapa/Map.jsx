@@ -170,7 +170,16 @@ function handleChangeOpen(markerId){
         <GoogleMap defaultZoom={11} defaultCenter={myLatiLngi} />
         <Marker key={100}
           position={myLatiLngi} icon={pin}
-        ></Marker> 
+        >
+            <InfoWindow >    
+                     <div id="content">
+                        <div id="siteNotice"></div>
+                              <h1 id="firstHeading" class="firstHeading">AQUI</h1>
+                              <div id="bodyContent">
+                         </div>
+                     </div>
+             </InfoWindow>
+        </Marker> 
         </div> :
         <div>
         <Marker></Marker> 
@@ -187,18 +196,17 @@ function handleChangeOpen(markerId){
                  <InfoWindow >    
                      <div id="content">
                         <div id="siteNotice"></div>
-                              <h1 id="firstHeading" class="firstHeading">Uluru</h1>
+                              <h1 id="firstHeading" class="firstHeading">{e.name}</h1>
                               <div id="bodyContent">
                               <p>
                               <button onclick="miFunc()">Denuncia</button>
                               <button onclick="miFunc()">Comentario</button>
-                              <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">
-                              https://en.wikipedia.org/w/index.php?title=Uluru</a> 
-                              last visited June 22, 2009).</p>
+                              <a href="https://www.argentina.gob.ar/generos/linea-144">
+                              https://www.argentina.gob.ar/generos/linea-144</a> 
+                              {e.keyword}{e.telephone}</p>
                          </div>
                      </div>
              </InfoWindow>
-
           </Marker>
     </div>
   );
