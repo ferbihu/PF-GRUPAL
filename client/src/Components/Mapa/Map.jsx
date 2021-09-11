@@ -15,6 +15,8 @@ import {getallsafesitie} from '../../actions/actions.js';
 
 import pin from "./../../imgs/iconmapp.png"
 
+import mapa from "./Mapa.css"
+
 
 
 export default function Maps(props) {
@@ -199,8 +201,8 @@ function handleChangeOpen(markerId){
                               <h1 id="firstHeading" class="firstHeading">{e.name}</h1>
                               <div id="bodyContent">
                               <p>
-                              <button onclick="miFunc()">Denuncia</button>
-                              <button onclick="miFunc()">Comentario</button>
+                              <button onclick="miFunc()" href="" className="button-24">Denuncia</button>
+                              <button onclick="miFunc()" href="" className="button-24">Comentario</button>
                               <a href="https://www.argentina.gob.ar/generos/linea-144">
                               https://www.argentina.gob.ar/generos/linea-144</a> 
                               {e.keyword}{e.telephone}</p>
