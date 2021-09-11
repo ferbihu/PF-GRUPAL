@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "./Popup.css"
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { rejectedStatus } from "../../actions/actions"
+import axios from "axios";
+const{ REACT_APP_BACK_BASE_URL} = process.env
 
 
 function Popup(props) {
 
     const dispatch = useDispatch();
+
+    const user = useSelector((state) => state.userData)
+
 
     const [input, setInput] = useState({
         description_status: "",
@@ -22,13 +27,12 @@ function Popup(props) {
         console.log(input)
     }
 
-    function rejectedStatusHandler() {
+    async function rejectedStatusHandler() {
         console.log(input.description_status, props.id)
         let id = props.id;
         let payload = input.description_status
         dispatch(rejectedStatus(id, payload))
-
-
+        await axios.post(`${REACT_APP_BACK_BASE_URL}/email/rejected`, user)
     }
 
     return (props.trigger) ? (

@@ -5,7 +5,8 @@ const initialState = {
   userId: null,
   stateSitie: [],
   filtered_safePlaces: [],
-  allSafePlacesPanel: []
+  allSafePlacesPanel: [],
+  userData: []
 };
 function reducers(state = initialState, action) {
   switch (action.type) {
@@ -37,7 +38,8 @@ function reducers(state = initialState, action) {
       return {
         ...state,
         isLogged: true,
-        userId: action.payload.userId
+        userId: action.payload.userId,
+        userData: action.dataUser
       }
 
     case "ALL_SITIES":
