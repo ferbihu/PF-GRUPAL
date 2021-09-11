@@ -1,6 +1,7 @@
 const initialState = {
   safeplce: [],
   user: [],
+  role: [],
   isLogged: false,
   userId: null,
   stateSitie: [],
@@ -37,7 +38,8 @@ function reducers(state = initialState, action) {
       return {
         ...state,
         isLogged: true,
-        userId: action.payload.userId
+        userId: action.payload.userId,
+        role: action.payload.role
       }
 
     case "ALL_SITIES":
