@@ -1,4 +1,5 @@
 const initialState = {
+  statecoord:[],
   safeplce: [],
   user: [],
   isLogged: false,
@@ -86,7 +87,13 @@ function reducers(state = initialState, action) {
           isLogged: true,
           userId:action.payload.userId
           }
+   case "COORDENADAS":
+            return {
+                ...state,
+                statecoord:action.payload
 
+              
+            }
 
     default:
       return state;

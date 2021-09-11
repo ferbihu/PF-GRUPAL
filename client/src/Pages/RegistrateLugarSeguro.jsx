@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import { useDispatch,useSelector} from "react-redux";
-import {postAprobation, byCountrys, byTown} from '.././actions/actions';
+import {postAprobation, byCountrys, byTown,coordenadas} from '.././actions/actions';
 import axios from "axios";
 import './RegistrateLugarSeguro.css';
+
 
 
 function validate(input) {
@@ -47,7 +48,7 @@ export default function Registrate() {
     const userId = useSelector((state)=> state.userId);
 
 
-
+    const [sitie,setsitie] =useState ([]);
     const [errors,setErrors] = useState({});
     const [input,setInput] = useState({
         name: "",
@@ -56,11 +57,28 @@ export default function Registrate() {
         street: "",
         number: "",
         postcode: "",
+        lat:1,
+        lng:1,
         email: "",
         telephone: "", 
         keyword: "",
         relation: "",
     })
+
+    function camelize(text) {
+        return text.replace(/^([A-Z])|[\s-_]+(\w)/g, function(match, p1, p2, offset) {
+            if (p2) return p2.toUpperCase();
+            return p1.toLowerCase();        
+        });
+        }
+    const traductor=useEffect(()=>{
+        var street=camelize(input.street)
+        var town=camelize(input.town)
+        var country=camelize(input.country)
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${input.number}+${street}+${town}+${input.country}+View,+CA&key=AIzaSyDclWfFnp7AQpJjZQj7E9fsD7j6M9vPhTk`)
+        .then(resp => resp.json())
+        .then((json)=>setsitie(json));
+         },[sitie])        
 
     function handleChange(e){
         setInput({
@@ -90,6 +108,8 @@ export default function Registrate() {
         street: "",
         number: "",
         postcode: "",
+        lat:0,
+        lng:0,
         email: "",
         telephone: "", 
         keyword: "",
@@ -100,6 +120,14 @@ export default function Registrate() {
     const handleFilterCountrys = (e) => {
         setInput({...input,country:e.target.value})
         dispatch(byCountrys(e.target.value));
+        var lat=parseFloat(sitie.results[0].geometry.location.lat)
+        var lng=parseFloat(sitie.results[0].geometry.location.lng)
+
+       console.log("conversion",lng);
+       console.log("conversion",lat); 
+
+        setInput({...input,lat:lat,lng:lng})
+        dispatch(coordenadas(lat,lng));
       };
       const handleFilterTown = (e) => {
         setInput({...input,town:e.target.value})
