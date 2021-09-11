@@ -14,6 +14,7 @@ import {connect} from 'react-redux';
 import {getSafeplace} from '../../actions/actions.js';
 
 import pin from "./../../imgs/iconmapp.png"
+import Mapa from "./Mapa.css"
 
 
 

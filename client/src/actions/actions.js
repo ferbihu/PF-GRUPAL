@@ -32,7 +32,7 @@ export function addUser({ name, email, password }) {
   export function getSafeplace(){
     return function(dispatch){
       return axios
-       .get(`http://localhost:3001/safe_place`)
+       .get(`${REACT_APP_BACK_BASE_URL}/safe_place`)
        .then((res)=>{dispatch({ 
             type:"GET_SAFEPLACE",
             payload:{info:res.data}})
