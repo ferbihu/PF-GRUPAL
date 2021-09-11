@@ -3,11 +3,14 @@ import { useState } from 'react';
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { acceptedStatus, getSafePlacePanel } from '../../actions/actions';
-
-
-
+import axios from 'axios';
 import "./Cards-Panel.css";
 import Popup from '../Popup/Popup';
+const{ REACT_APP_BACK_BASE_URL} = process.env
+
+
+
+
 
 export default function Card({ name, country, street, number, town, email, telephone, postcode, status, id }) {
     const dispatch = useDispatch();
@@ -15,12 +18,17 @@ export default function Card({ name, country, street, number, town, email, telep
     const [buttonPopup, setButtonPopup] = useState(false)
 
     const lugaresSeguros = useSelector((state) => state.filtered_safePlaces)
+    const user = useSelector((state) => state.userData)
 
-    const acceptedStatusHandler = () => {
+    const acceptedStatusHandler = async () => {
         console.log("entro al accepted handler" + id)
         dispatch(acceptedStatus(id))
 
+        await axios.post(`${REACT_APP_BACK_BASE_URL}/email/accepted`, user)
+
+
         window.location.reload();
+
 
     }
     return (

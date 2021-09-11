@@ -19,7 +19,6 @@ export default function Panel() {
     }, [dispatch]);
 
     const lugaresSeguros = useSelector((state) => state.filtered_safePlaces)
-    const user = useSelector((state) => state.user)
 
 
 
@@ -27,7 +26,7 @@ export default function Panel() {
         dispatch(filterByCountry(e.target.value))
     }
 
-    function handleClick(e) {
+    async function handleClick(e) {
         e.preventDefault();
         console.log(e.target.value)
         dispatch(filterPlacesByStatus(e.target.value))

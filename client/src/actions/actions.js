@@ -71,7 +71,7 @@ export function logOutGoogle(payload) {
 export function login({ email, password }) {
   return function(dispatch){
   const user = {  email, password };
-  console.log(REACT_APP_BACK_BASE_URL);
+  console.log(user);
   return axios.post(`${REACT_APP_BACK_BASE_URL}/auth/login`, user)
     .then(res => {
       alert("Loggeado correctamente,userId,token,guardados")  
@@ -79,7 +79,12 @@ export function login({ email, password }) {
       localStorage.setItem('token',res.data.id_token)
       return dispatch({
         type:'LOGIN',
+
+        payload:{userId:res.data.userId},
+        dataUser: user
+
         payload:{userId:res.data.userId, role:res.data.role}
+
       })
     })
     .catch(err => {
