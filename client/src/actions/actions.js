@@ -1,5 +1,5 @@
 import axios from "axios";
-const{ REACT_APP_BACK_BASE_URL} = process.env
+const {REACT_APP_BACK_BASE_URL} = process.env
 
 export function addUser({ name, email, password }) {
     return function (dispatch) {
