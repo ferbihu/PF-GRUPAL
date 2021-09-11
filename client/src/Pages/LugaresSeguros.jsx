@@ -6,14 +6,18 @@ import './LugaresSeguros.css';
 export default function LugaresSeguros() {
     return (
         <div className='pagelugarseguro'>
-            <div className='titleLugarSeguro'>
-            <h1>Lugares seguros</h1>
+            <div className="back">
+            <div className='titleLS'>
+            <h1>LUGARES SEGUROS</h1>
+            </div>
             </div>
             <Map/>
+            <div className="back">
             <br/>
             <Link to='/registratelugarseguro'><button className="btnainput">Registrá un lugar seguro</button></Link>
             <br/>
             <br/>
+            </div>
             <div className="parrafo">
                 <h2>Qué es un lugar seguro?</h2>
                 <br/>

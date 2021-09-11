@@ -12,15 +12,6 @@ const Nav = () => {
     console.log(name)
     const dispatch = useDispatch();
 
-    // const GoogleLogoutButton = props => (
-    //     <GoogleLogout
-    //     clientId="58941748087-vv5lmt8hnkri961a7pdrdp9pjsj500vl.apps.googleusercontent.com"
-    //     buttonText="Logout"
-    //     onLogoutSuccess={() => props.logout()}
-    //     onLogoutFailure={err => console.log(err)}
-    //     /> && window.location.reload()
-    // )
-
     function logOut() {
         dispatch(logOutGoogle());
     }
@@ -61,7 +52,7 @@ const Nav = () => {
         )
         } else {
             return (
-                <div>
+                <div className="container-nav">
                 <div className="logo">
                 <Link to="/">S.</Link>
                 </div>

@@ -1,10 +1,10 @@
 import axios from "axios";
-
+const{ REACT_APP_BACK_BASE_URL} = process.env
 
 export function addUser({ name, email, password }) {
     return function (dispatch) {
       const user = { name, email, password };
-      axios.post('/auth/new', user)
+      axios.post(`${REACT_APP_BACK_BASE_URL}/auth/new`, user)
         .then(res => dispatch({
           type: 'ADD_USER',
           payload: res.data
@@ -22,7 +22,7 @@ export function addUser({ name, email, password }) {
       const config = {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
       };
-      const res = await axios.post("/safe_place" , {...payload,userId},config)
+      const res = await axios.post(`${REACT_APP_BACK_BASE_URL}/safe_place` , {...payload,userId},config)
       return {
         type: 'POST_SAFEPLACE',
         payload : res
@@ -31,7 +31,7 @@ export function addUser({ name, email, password }) {
   }
   export function getSafeplace(){
     return async function(dispatch){
-      const json = await axios.get("/safe_place");
+      const json = await axios.get(`${REACT_APP_BACK_BASE_URL}/safe_place`);
        return dispatch({
        type: 'GET_SAFEPLACE',
        payload: json.data
@@ -71,7 +71,8 @@ export function logOutGoogle(payload) {
 export function login({ email, password }) {
   return function(dispatch){
   const user = {  email, password };
-  return axios.post('/auth/login', user)
+  console.log(REACT_APP_BACK_BASE_URL);
+  return axios.post(`${REACT_APP_BACK_BASE_URL}/auth/login`, user)
     .then(res => {
       alert("Loggeado correctamente,userId,token,guardados")  
       //aca guardamos el token obtenido de backend
@@ -91,7 +92,7 @@ export const getallsafesitie = ()=>{
  
   return function(dispatch){
         return axios
-         .get(`/safe_place`)
+         .get(`${REACT_APP_BACK_BASE_URL}/safe_place`)
          .then((res)=>{dispatch({ 
               type:"ALL_SITIES",
               payload:{info:res.data}})
@@ -115,7 +116,7 @@ export const sendMailToNewUsers = (user) => {
   return async function(dispatch) {
     try {
       console.log(user)
-      return axios.post(`/email/welcome`, user)
+      return axios.post(`${REACT_APP_BACK_BASE_URL}/email/welcome`, user)
       
     } catch(err) {
       console.log(err.message);
@@ -125,7 +126,7 @@ export const sendMailToNewUsers = (user) => {
 }
 export function deleteSafePlace(payload,userId){
   return async function(dispatch){
-    const json = await axios.get("/delete_safe_place" , {...payload,userId} );
+    const json = await axios.get(`${REACT_APP_BACK_BASE_URL}/delete_safe_place` , {...payload,userId} );
     return dispatch({
       type: 'DELETE_SAFEPLACE',
       payload: json.data
