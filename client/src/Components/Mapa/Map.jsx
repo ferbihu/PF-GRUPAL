@@ -5,7 +5,9 @@ import {
   Marker,
 } from "react-google-maps";
 
+import { compose, withProps } from "recompose";
 import React, { useEffect, useState } from "react";
+import ReactDOM from "react-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {connect} from 'react-redux';
 import {getallsafesitie} from '../../actions/actions.js';
@@ -68,6 +70,29 @@ export default function Maps(props) {
   }    
   
 
+const [statecoord,setCoord]=useState({lat:0,long:0});
+
+
+function componentWillMount(){
+  if (!!navigator.geolocation) {
+    navigator.geolocation.watchPosition((position) => {
+      setCoord({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      });
+    },
+    (err) => console.log(err),
+    { enableHighAccuracy: true, timeout: 10000, maximumAge: 10000 },
+    );
+  } else {
+    //  // No Support Web
+    alert('El navegador no soporta la geolocalización,')
+  }
+}
+
+componentWillMount();
+
+
   const dispatch = useDispatch();
 
   const todo=useEffect(async() => {
@@ -127,6 +152,8 @@ if(allsities.length>0){
           position={e.coord} title={e.description} icon={pin}
           />
         ))}
+        <Marker key={i}
+          position={statecoord} title="aqui#" icon={pin}/>
     </div>
   );
 }

@@ -34,11 +34,11 @@ module.exports = function (sequelize) {
             allowNull:false,
         },
         lat: {
-            type: DataTypes.DOUBLE,
+            type: DataTypes.FLOAT,
             allowNull: true,
         },
         lng: {
-            type: DataTypes.DOUBLE,
+            type: DataTypes.FLOAT,
             allowNull: true,
         },
         email:{
