@@ -300,6 +300,8 @@
   align-items: center;
   margin-bottom: 24px;
   color: var(--main-color);
+  padding-left:40px;
+  padding-to:40px;
 }
 
 .time {
@@ -601,5 +603,3 @@
       color: var(--main-color);
        margin: 0;
     }
-
-  
