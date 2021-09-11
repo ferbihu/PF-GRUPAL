@@ -3,11 +3,35 @@ const initialState = {
   user: [],
   isLogged: false,
   userId: null,
-  stateSitie: [],
   filtered_safePlaces: [],
+  stateSitie:[{
+    "id": "1",
+	  "name": "Primer Safe",
+	  "country": "Argentina",
+	  "town": "CABA",
+    "street": "Belgrano",
+  	"number": "992",
+    "postcode":"AA1878",
+  	"lat": -34.61241375774842,
+    "lng":-58.38022418084046,
+    "email":"galicia@gmail.com",
+    "telefhone":+5401123244556,
+    "keyword":"LATON",
+    "relation":"dueño",
+    "status":"accepted",
+    "description_status":"Prueba",
+    "userid":2}],
 };
 function reducers(state = initialState, action) {
   switch (action.type) {
+    case "GET_SAFEPLACE":
+      return {
+          ...state,
+          stateSitie: action.payload.info,
+          
+      }
+    
+
     case "RENDER_USER_NAME":
       return {
         ...state,

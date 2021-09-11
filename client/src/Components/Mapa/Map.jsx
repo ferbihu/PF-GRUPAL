@@ -11,7 +11,7 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {connect} from 'react-redux';
-import {getallsafesitie} from '../../actions/actions.js';
+import {getSafeplace} from '../../actions/actions.js';
 
 import pin from "./../../imgs/iconmapp.png"
 
@@ -99,7 +99,7 @@ componentWillMount();
   const todo=useEffect(async() => {
     console.log(props)
     await initMap()
-    dispatch(getallsafesitie())
+    dispatch(getSafeplace())
     },[])
 
   const allsities = useSelector((state) => state.stateSitie);
