@@ -23,7 +23,13 @@ export default function Card({ name, country, street, number, town, email, telep
     const acceptedStatusHandler = async () => {
         console.log("entro al accepted handler" + id)
         dispatch(acceptedStatus(id))
+
         await axios.post(`${REACT_APP_BACK_BASE_URL}/email/accepted`, user)
+
+
+        window.location.reload();
+
+
     }
     return (
 

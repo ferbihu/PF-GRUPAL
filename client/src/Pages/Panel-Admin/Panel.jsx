@@ -12,11 +12,14 @@ export default function Panel() {
 
     const dispatch = useDispatch();
 
+    console.log(window.location)
+
     useEffect(() => {
         dispatch(getSafePlacePanel())
     }, [dispatch]);
 
     const lugaresSeguros = useSelector((state) => state.filtered_safePlaces)
+
 
 
     function handleFilterCountry(e) {

@@ -79,8 +79,12 @@ export function login({ email, password }) {
       localStorage.setItem('token',res.data.id_token)
       return dispatch({
         type:'LOGIN',
+
         payload:{userId:res.data.userId},
         dataUser: user
+
+        payload:{userId:res.data.userId, role:res.data.role}
+
       })
     })
     .catch(err => {
