@@ -19,7 +19,9 @@ export default function Card({ name, country, street, number, town, email, telep
     const acceptedStatusHandler = () => {
         console.log("entro al accepted handler" + id)
         dispatch(acceptedStatus(id))
+
         window.location.reload();
+
     }
     return (
 
