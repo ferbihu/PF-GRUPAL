@@ -145,16 +145,9 @@ export function deleteSafePlace(payload, userId) {
   };
 }
 
-export function updateDataUser({
-  name,
-  lastname,
-  email,
-  phone,
-  town,
-  country,
-}) {
+export function updateDataUser(id, data) {
   return function  (dispatch) {
-    const updateData = { name, lastname, email, phone, town, country };
+    const updateData = { id, data };
     axios.patch("http://localhost:3001/user/:id", updateData).then((res) =>
       dispatch({
         type: "UPDATE_DATA_USER",

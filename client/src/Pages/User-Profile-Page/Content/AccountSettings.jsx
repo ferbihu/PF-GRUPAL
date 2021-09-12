@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { updateDataUser } from "../../../actions/actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector  } from "react-redux";
 import { useHistory } from "react-router-dom";
+
 import {
   FormControl,
   FormLabel,
@@ -31,14 +32,11 @@ const dispatch = useDispatch();
 const history = useHistory();
 const [isLogged, setIsLogged] = useState(true);
 const [errors, setErrors] = useState({});
-const [input, setInput] = useState({
-  name: '', 
-  lastname:'', 
-  email:'', 
-  phone:'', 
-  town:'', 
-  country:'',
-});
+const [input, setInput] = useState('');
+
+
+//const {userId} = useSelector((state) => state.userId)
+
 
 const handleInputChange = (e) => {
   setInput({
@@ -47,25 +45,22 @@ const handleInputChange = (e) => {
   })
 }
 
-const handleSubmit = (e) => {
+
+ const handleSubmit = (e) => {
   e.preventDefault();
+  console.log(input)
   setErrors(validate({
       ...input,
       [e.target.name]:e.target.value
   }));
   if(input.name && input.lastname && input.email) {
     dispatch(updateDataUser(input));
-    setInput({ 
-    name: '', 
-    lastname:'', 
-    email:'', 
-    phone:'', 
-    town:'', 
-    country:'',
-  });
+    
+    alert('Se han actualizados sus datos')
+   
+    
   }
-}
-
+}  
 
 const handleLogout = (e) => {
   e.preventDefault();
@@ -81,14 +76,24 @@ return (
   >
     <FormControl id="firstName">
       <FormLabel>Nombres</FormLabel>
-      <Input focusBorderColor="brand.blue"  type="text" value= {input.name} placeholder="nombre"  onChange={handleInputChange} />
+      <Input focusBorderColor="brand.blue"  
+      type="text" 
+      name='name'
+      placeholder="nombre"  
+      value={input.name}
+      onChange={handleInputChange} />
       {errors.name && (
                       <p className='error'>{errors.name}</p>
                   )}
     </FormControl>
     <FormControl id="lastName">
       <FormLabel>Apellidos</FormLabel>
-      <Input focusBorderColor="brand.blue" type="text" value= {input.lastname} placeholder="apellido"  onChange={handleInputChange} />
+      <Input focusBorderColor="brand.blue" 
+      type="text"
+      name='lastname' 
+      placeholder="apellido" 
+      value={input.lastname}
+      onChange={handleInputChange} />
       {errors.lastname && (
                       <p className='error'>{errors.lastname}</p>
                   )}
@@ -98,7 +103,8 @@ return (
       <Input
         focusBorderColor="brand.blue"
         type="tel"
-        value= {input.phone} 
+        name='phone'
+        value={input.phone}
         placeholder="número de telefóno"
         onChange={handleInputChange}
       />
@@ -108,7 +114,8 @@ return (
       <Input
         focusBorderColor="brand.blue"
         type="email"
-        value= {input.email} 
+        name='email'
+        value={input.email}
         placeholder="suemail@email.com"
         onChange={handleInputChange}
       />
@@ -125,9 +132,6 @@ return (
         <option value="..." selected>
           Buenos Aires
         </option>
-        <option value="Caracas">Caracas</option>
-        <option value="Bogotá">Bogotá</option>
-        <option value="Lima">Lima</option>
       </Select>
     </FormControl>
     <FormControl id="country">
@@ -136,14 +140,12 @@ return (
         <option value="america" selected>
           Argentina
         </option>
-        <option value="venezuela">Venezuela</option>
-        <option value="colombia">Colombia</option>
-        <option value="perú">Perú</option>
-        <option value="chile">Chile</option>
       </Select>
     </FormControl>
     <Box mt={5} py={5} px={8} borderTopWidth={1} borderColor="brand.light">
-    <Button  type='submit' disabled={ !input.name || !input.lastname || !input.email } onSubmit={handleSubmit} > Update</Button>
+    <Button onClick={handleSubmit}>
+      Update
+    </Button>
   </Box>
   <Box mt={5} py={5} px={8} borderTopWidth={1} borderColor="brand.light">
     <Button  onClick={handleLogout}>
