@@ -76,7 +76,7 @@ export default function Registrate() {
         var street=camelize(input.street)
         var town=camelize(input.town)
         var country=camelize(input.country)
-        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${input.number}+${street}+${town}+${input.country}+View,+CA&key=AIzaSyDclWfFnp7AQpJjZQj7E9fsD7j6M9vPhTk`)
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${input.number}+${street}+${town}+${country}+View,+CA&key=AIzaSyDclWfFnp7AQpJjZQj7E9fsD7j6M9vPhTk`)
         .then(resp => resp.json())
         .then((json)=>setsitie(json));
          },[sitie])        
@@ -119,15 +119,15 @@ export default function Registrate() {
         history.push('/')
     }
     const handleFilterCountrys = (e) => {
-        setInput({...input,country:e.target.value})
+        //setInput({...input,country:e.target.value})
         dispatch(byCountrys(e.target.value));
         var lat=parseFloat(sitie.results[0].geometry.location.lat)
         var lng=parseFloat(sitie.results[0].geometry.location.lng)
 
-       console.log("conversion",lng);
-       console.log("conversion",lat); 
+       //console.log("conversion",lng);
+       //console.log("conversion",lat); 
 
-        setInput({...input,lat:lat,lng:lng})
+        setInput({...input,lat:lat,lng:lng,country:e.target.value})
         dispatch(coordenadas(lat,lng));
       };
       const handleFilterTown = (e) => {
@@ -244,7 +244,7 @@ export default function Registrate() {
                         <p className='error'>{errors.relation}</p>
                     )}
 
-               <button className="btninput" type='submit' disabled={!input.name || !input.town || !input.street  || !input.number || !input.postcode  || !input.email || !input.telephone || !input.keyword || !input.relation || !input.country } onClick={(e) => handleSubmit(e)}>Registrar</button>
+               <button className="btninput" type='submit'  onClick={(e) => handleSubmit(e)}>Registrar</button>
            </form>
            </div>
         </div>
