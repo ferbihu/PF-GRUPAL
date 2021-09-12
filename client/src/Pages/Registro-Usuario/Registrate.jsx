@@ -13,7 +13,7 @@ function Register({ addUser, responseGoogle }) {
     email: "",
     password: "",
   });
-
+        //eslint-disable-next-line
   const dispatch = useDispatch();
 
   const validate = (input) => {
@@ -76,6 +76,7 @@ function Register({ addUser, responseGoogle }) {
               name="name"
               onChange={handleInputChange}
               value={input.name}
+                      //eslint-disable-next-line
               className="reg-username"
               placeholder="Ingrese su nombre"
             />
@@ -90,6 +91,7 @@ function Register({ addUser, responseGoogle }) {
               placeholder="nombre@ejemplo.com"
               onChange={(e) => handleInputChange(e)}
               value={input.email}
+                      //eslint-disable-next-line
               className="reg-email"
             />
             {errors.email && <p className="danger">{errors.email}</p>}
@@ -103,6 +105,7 @@ function Register({ addUser, responseGoogle }) {
               placeholder="Más de 6 carácteres"
               onChange={(e) => handleInputChange(e)}
               value={input.password}
+                      //eslint-disable-next-line
               className="reg-password"
             />
             {errors.password && <p className="danger">{errors.password}</p>}

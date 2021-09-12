@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { GoogleLogout } from "react-google-login"
+// import { GoogleLogout } from "react-google-login"
 import { logOutGoogle } from "../../actions/actions";
 
 import "./NavBar.css";

@@ -5,15 +5,18 @@ import {
   Marker,
   InfoWindow,
 } from "react-google-maps";
-
+// eslint-disable-next-line
 import { compose, withProps } from "recompose";
 import React, { useEffect, useState } from "react";
+// eslint-disable-next-line
 import ReactDOM from "react-dom";
 import { useSelector, useDispatch } from "react-redux";
+// eslint-disable-next-line
 import {connect} from 'react-redux';
 import {getSafeplace} from '../../actions/actions.js';
 
 import pin from "./../../imgs/iconmapp.png"
+// eslint-disable-next-line
 import Mapa from "./Mapa.css"
 
 
@@ -24,6 +27,7 @@ export default function Maps(props) {
 
   let map;
   let marker;
+  // eslint-disable-next-line
   let watchID;
   let geoLoc;
 
@@ -64,14 +68,16 @@ export default function Maps(props) {
   }
 
   function errorHandler(err) {
+    // eslint-disable-next-line
       if(err.code == 1) {
           alert("Error: Acceso denegado");
+          // eslint-disable-next-line
       } else if(err.code == 2) {
           alert("Error: Position no existe o no se encuentra");
       }
   }    
   
-
+// eslint-disable-next-line
 const [statecoord,setCoord]=useState({lat:0,long:0});
 
 
@@ -96,18 +102,21 @@ const [statecoord,setCoord]=useState({lat:0,long:0});
 
 
   const dispatch = useDispatch();
-
+// eslint-disable-next-line
   const todo=useEffect(async() => {
     console.log(props)
     await initMap()
     dispatch(getSafeplace())
-    },[])
+    },
+    // eslint-disable-next-line
+    [])
 
   const allsities = useSelector((state) => state.stateSitie);
-
+// eslint-disable-next-line
   const coord = {lat:-34.607914 ,lng: -58.370321}
+  // eslint-disable-next-line
   const descrip='hola'
-  
+  // eslint-disable-next-line
   var locations = [
     {description:'First Safe',coord:{lat:-34.607914,lng:-58.370321}},
     {description:'Second Safe',coord:{lat: -34.596152, lng:-58.383100}},
@@ -124,6 +133,7 @@ const [statecoord,setCoord]=useState({lat:0,long:0});
 if(allsities.length>0){
    
   for(var i=0;i<allsities.length;i++){
+    // eslint-disable-next-line
      var date=new Object();
      date.description=allsities[i].name;
      date.coord={lat:allsities[i].lat,lng:allsities[i].lng};
@@ -134,7 +144,7 @@ if(allsities.length>0){
   console.log("no hizo dispacht")
 }
 
-
+// eslint-disable-next-line
 const contentString =
 '<div id="content">' +
 '<div id="siteNotice">' +
@@ -154,7 +164,7 @@ const contentString =
 
 const [stateOpen,setState] = useState({isOpen:false});
 
-
+// eslint-disable-next-line
 function handleChangeOpen(markerId){
   setState({
       ...stateOpen,

@@ -37,7 +37,9 @@ export default function Conocenos() {
                     <div className="nombre">
                         <h3>Anyel Lopez</h3>
                         <div className="iconos">
+                        {/* eslint-disable-next-line */}
                             <a href="https://github.com/any-18" target="_blank"><img src={github} alt="" className="icono" /></a>
+                                                    {/* eslint-disable-next-line */}
                             <a href="https://www.linkedin.com/in/anyel-lopez-fullstack-dev/" target="_blank"><img src={linkedin} alt="" className="icono" /></a>
                         </div>
                     </div>
@@ -47,7 +49,9 @@ export default function Conocenos() {
                     <div className="nombre">
                         <h3>Agustina Martinez</h3>
                         <div className="iconos">
+                                                    {/* eslint-disable-next-line */}
                             <a href="https://github.com/AgustinaMartinez4" target="_blank"><img src={github} alt="" className="icono" /></a>
+                                                    {/* eslint-disable-next-line */}
                             <a href="https://www.linkedin.com/in/agustina-martinez-it/" target="_blank"><img src={linkedin} alt="" className="icono" /></a>
                         </div>
                     </div>
@@ -56,7 +60,9 @@ export default function Conocenos() {
                     <div className="nombre">
                         <h3>Carolina Altamiranda</h3>
                         <div className="iconos">
+                                                    {/* eslint-disable-next-line */}
                             <a href="https://github.com/Qarola" target="_blank"><img src={github} alt="" className="icono" /></a>
+                                                    {/* eslint-disable-next-line */}
                             <a href="https://www.linkedin.com/in/carolina-altamiranda-n-dev/" target="_blank"><img src={linkedin} alt="" className="icono" /></a>
                         </div>
                     </div>
@@ -65,7 +71,9 @@ export default function Conocenos() {
                     <div className="nombre">
                         <h3>Fernanda Bihurriet</h3>
                         <div className="iconos">
+                                                    {/* eslint-disable-next-line */}
                             <a href="https://github.com/ferbihu" target="_blank"><img src={github} alt="" className="icono" /></a>
+                                                    {/* eslint-disable-next-line */}
                             <a href="https://www.linkedin.com/in/fernanda-nahir-bihurriet-a92a13192/" target="_blank"><img src={linkedin} alt="" className="icono" /></a>
                         </div>
                     </div>
@@ -74,7 +82,9 @@ export default function Conocenos() {
                     <div className="nombre">
                         <h3>Florencia Ferrari</h3>
                         <div className="iconos">
+                                                    {/* eslint-disable-next-line */}
                             <a href="https://github.com/FlorFerrari" target="_blank"><img src={github} alt="" className="icono" /></a>
+                                                    {/* eslint-disable-next-line */}
                             <a href="https://www.linkedin.com/in/florencia-ferrari-9614a2182/" target="_blank"><img src={linkedin} alt="" className="icono" /></a>
                         </div>
                     </div>
@@ -83,7 +93,9 @@ export default function Conocenos() {
                     <div className="nombre">
                         <h3>Mora Bessone</h3>
                         <div className="iconos">
+                                                    {/* eslint-disable-next-line */}
                             <a href="https://github.com/morabessone" target="_blank"><img src={github} alt="" className="icono" /></a>
+                                                    {/* eslint-disable-next-line */}
                             <a href="https://www.linkedin.com/in/mora-bessone-705a651bb/" target="_blank"><img src={linkedin} alt="" className="icono" /></a>
                         </div>
                     </div>
@@ -92,7 +104,9 @@ export default function Conocenos() {
                     <div className="nombre">
                         <h3>Verónica Cardozo</h3>
                         <div className="iconos">
+                                                    {/* eslint-disable-next-line */}
                             <a href="https://github.com/V33RO" target="_blank"><img src={github} alt="" className="icono" /></a>
+                                                    {/* eslint-disable-next-line */}
                             <a href="https://www.linkedin.com/in/verocardozojujuy/" target="_blank"><img src={linkedin} alt="" className="icono" /></a>
                         </div>
                     </div>

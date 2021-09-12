@@ -4,7 +4,6 @@ import GoogleLogin from "react-google-login";
 import { useDispatch } from "react-redux";
 import { renderUserName, login } from "../actions/actions";
 import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 const validate = (input) => {
   let pattern = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%&]).{8,}$/;

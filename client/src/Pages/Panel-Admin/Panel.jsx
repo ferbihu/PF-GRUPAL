@@ -1,8 +1,7 @@
 import React from 'react';
-import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterByCountry, getallsafesitie, getSafePlacePanel, filterPlacesByStatus } from '../../actions/actions';
+import { filterByCountry, getSafePlacePanel, filterPlacesByStatus } from '../../actions/actions';
 import "./Panel.css"
 import Card from '../../Components/Cards-Panel/Cards-Panel';
 
