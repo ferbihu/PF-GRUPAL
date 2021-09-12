@@ -22,6 +22,7 @@ export function addUser({ name, email, password }) {
       const config = {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
       };
+      
       const res = await axios.post(`${REACT_APP_BACK_BASE_URL}/safe_place` , {...payload,userId},config)
       return {
         type: 'POST_SAFEPLACE',
