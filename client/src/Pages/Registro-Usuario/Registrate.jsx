@@ -4,6 +4,7 @@ import { addUser } from "../../actions/actions";
 import { connect } from "react-redux";
 import axios from "axios";
 import "./Registrate.css";
+const{ REACT_APP_BACK_BASE_URL} = process.env
 
 function Register({ addUser, responseGoogle }) {
   const [errors, setErrors] = useState({});
@@ -51,7 +52,7 @@ function Register({ addUser, responseGoogle }) {
     e.preventDefault();
     alert("Registration Successful")
     addUser(input);
-    await axios.post('http://localhost:3001/email/welcome', input)
+    await axios.post(`${REACT_APP_BACK_BASE_URL}/email/welcome`, input)
     setInput({
       name: "",
       email: "",
@@ -60,13 +61,14 @@ function Register({ addUser, responseGoogle }) {
   };
 
   return (
-    <div>
+    <div className="fondo-registrate">
       <h2 className="txtRegistrate">Registrate</h2>
-      <br/>
+
+      <div className="line-registrate"></div>
       <div className="card">
         <form className="regis-form" onSubmit={(e) => handleSubmit(e)}>
           <div>
-            <br/>
+            <br />
             <label className="p3">Nombre</label>
             <input
               className={`${errors.name && "danger"}`}
