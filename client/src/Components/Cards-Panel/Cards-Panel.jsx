@@ -1,8 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { acceptedStatus, getSafePlacePanel } from '../../actions/actions';
+import { acceptedStatus } from '../../actions/actions';
 import axios from 'axios';
 import "./Cards-Panel.css";
 import Popup from '../Popup/Popup';
@@ -17,10 +16,14 @@ export default function Card({ name, country, street, number, town, email, telep
 
     const [buttonPopup, setButtonPopup] = useState(false)
 
+
+    // const lugaresSeguros = useSelector((state) => state.filtered_safePlaces)
+
     let [statusOriginal, setstatusOriginal] = useState(1)
 
 
-    const lugaresSeguros = useSelector((state) => state.filtered_safePlaces)
+    //const lugaresSeguros = useSelector((state) => state.filtered_safePlaces)
+
     const user = useSelector((state) => state.userData)
 
     const acceptedStatusHandler = async () => {

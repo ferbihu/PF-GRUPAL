@@ -89,7 +89,7 @@ export function login({ email, password }) {
         payload:{userId:res.data.userId},
         dataUser: user,
 
-        payload:{userId:res.data.userId, role:res.data.role}
+        payload2:{userId:res.data.userId, role:res.data.role}
 
       })
     })
@@ -209,7 +209,7 @@ export function rejectedStatus(id, payload){
       return dispatch ({
         type: "REJECTED_STATUS",
         payload: response
-      }, alert("Rechazado"+ " ID: " + id))
+      })
     } catch (error) {
       console.log(error)
       

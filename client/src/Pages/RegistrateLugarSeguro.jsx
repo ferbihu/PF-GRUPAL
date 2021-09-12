@@ -72,6 +72,8 @@ export default function Registrate() {
             return p1.toLowerCase();        
         });
         }
+
+        //eslint-disable-next-line
     const traductor=useEffect(()=>{
         var street=camelize(input.street)
         var town=camelize(input.town)
@@ -79,7 +81,9 @@ export default function Registrate() {
         fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${input.number}+${street}+${town}+${country}+View,+CA&key=AIzaSyDclWfFnp7AQpJjZQj7E9fsD7j6M9vPhTk`)
         .then(resp => resp.json())
         .then((json)=>setsitie(json));
-         },[sitie])        
+         },
+                 //eslint-disable-next-line
+         [sitie])        
 
     function handleChange(e){
         setInput({
@@ -237,6 +241,7 @@ export default function Registrate() {
                      {errors.keyword && (
                         <p className='error'>{errors.keyword}</p>
                     )}
+                            {/* eslint-disable-next-line */}
                      <div className="caja"><a href='#' className='cuadradito'>?</a><span className="info">La palabra clave la utilizarán para pedir ayuda cuando recurran al lugar. Elegí algo representativo de tu establecimiento.</span></div>
                <input className='formrelation'
                     autoComplete = 'off'

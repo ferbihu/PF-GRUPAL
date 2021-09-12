@@ -93,8 +93,7 @@ function reducers(state = initialState, action) {
         ...state,
         filtered_safePlaces: statusFiltered
       };
-
-    case "DELETE_SAFEPLACE":
+          case "DELETE_SAFEPLACE":
       return {
         ...state,
         isLogged: true,

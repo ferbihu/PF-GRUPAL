@@ -5,8 +5,8 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from 'react-router-dom'
 import Store from "./Store/Store.jsx"
 import reportWebVitals from './reportWebVitals';
-import axios from "axios";
-import dotenv from "dotenv";
+// import axios from "axios";
+// import dotenv from "dotenv";
 
 // dotenv.config();
 

@@ -11,7 +11,7 @@ import Foro from "../src/Pages/Foro";
 import Conocenos from "./Pages/Conocenos";
 import IniciaSesion from "./Pages/IniciaSesion";
 import RegistrateLugarSeguro from "./Pages/RegistrateLugarSeguro";
-import LugaresSeguros from "./Pages/LugaresSeguros";
+// import LugaresSeguros from "./Pages/LugaresSeguros";
 import MainProfile from "./Pages/User-Profile-Page/MainProfile";
 import Registrate from "./Pages/Registro-Usuario/Registrate";
 import Nav from "./Components/NavBar/NavBar";

@@ -44,12 +44,15 @@ export default function Sities() {
                        <polyline points="9 22 9 12 15 12 15 22" />
                     </svg>
                   </a>
+                  {/* eslint-disable-next-line */}
                   <a href="" className="app-sidebar-link">
+                  {/* eslint-disable-next-line */}
                     <svg className="link-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="feather feather-pie-chart" viewBox="0 0 24 24">
                         <defs />
                         <path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z" />
                     </svg>
                   </a>
+                                    {/* eslint-disable-next-line */}
                   <a href="" className="app-sidebar-link">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-calendar">
                         <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
@@ -58,7 +61,9 @@ export default function Sities() {
                         <line x1="3" y1="10" x2="21" y2="10" />
                     </svg>
                   </a>
+                                    {/* eslint-disable-next-line */}
                   <a href="" className="app-sidebar-link">
+                                      {/* eslint-disable-next-line */}
                     <svg className="link-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="feather feather-settings" viewBox="0 0 24 24">
                         <defs />
                         <circle cx="12" cy="12" r="3" />
@@ -89,6 +94,7 @@ export default function Sities() {
                 </div>
                 <div className="messages">
                     <div className="message-box">
+                                        {/* eslint-disable-next-line */}
                     <img className="imagebox" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80" alt="profile image"/>                        
                     <div className="message-content">
                     <div className="message-header">
@@ -109,6 +115,7 @@ export default function Sities() {
                            Dec, 12
                          </p>
                     <div className="message-box">
+                                        {/* eslint-disable-next-line */}
                     <img className="imagebox"src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80" alt="profile image"/>
                       <div className="message-content">
                          <div className="message-header">

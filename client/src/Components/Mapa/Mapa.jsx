@@ -1,5 +1,5 @@
 
-import { MapInit } from './Map';
+// import { MapInit } from './Map';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import mapa from "../../imgs/mapa-imagen.png"
