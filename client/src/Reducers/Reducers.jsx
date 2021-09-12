@@ -11,8 +11,8 @@ function reducers(state = initialState, action) {
     case "RENDER_USER_NAME":
       return {
         ...state,
-        user: action.payload
-      }
+        user: action.payload,
+      };
     case "POST_SAFEPLACE":
       return {
         ...state,
@@ -20,49 +20,53 @@ function reducers(state = initialState, action) {
     case "BY_COUNTRYS":
       return {
         ...state,
-        safeplce: action.payload
-      }
-      case "BY_TOWN":
-        return {
-          ...state,
-          safeplce: action.payload
-        }
+        safeplce: action.payload,
+      };
+    case "BY_TOWN":
+      return {
+        ...state,
+        safeplce: action.payload,
+      };
     case "LOG_OUT_GOOGLE":
       return {
         ...state,
-        user: state.user = []
-      }
+        user: (state.user = []),
+      };
     case "LOGIN":
       return {
         ...state,
         isLogged: true,
-        userId: action.payload.userId
-      }
+        userId: action.payload.userId,
+      };
 
     case "ALL_SITIES":
       return {
         ...state,
         filtered_safePlaces: action.payload.info, //recipes
-        stateSitie: action.payload.info,          //allRecipes
-
+        stateSitie: action.payload.info, //allRecipes
       };
     case "FILTER_BY_COUNTRY":
       const lugares = state.stateSitie;
-      const statusFiltered = lugares.filter(e => e.country.includes(action.payload))
+      const statusFiltered = lugares.filter((e) =>
+        e.country.includes(action.payload)
+      );
 
       return {
-
         ...state,
-        filtered_safePlaces: statusFiltered
-
-      }
-      case "DELETE_SAFEPLACE":
-        return {
-          ...state,
-          isLogged: true,
-          userId:action.payload.userId
-          }
-
+        filtered_safePlaces: statusFiltered,
+      };
+    case "DELETE_SAFEPLACE":
+      return {
+        ...state,
+        isLogged: true,
+        userId: action.payload.userId,
+      };
+    case "LOGOUT":
+      return {
+        ...state,
+        isLogged: true,
+        userId: action.payload.userId,
+      };
 
     default:
       return state;
