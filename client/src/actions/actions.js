@@ -199,7 +199,7 @@ export function acceptedStatus(id){
 
 //CAMBIA STATUS A REJECTED
 export function rejectedStatus(id, payload){
-  console.log("hola action rejected")
+  //console.log("hola action rejected")
   return async function (dispatch){
     const config = {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }

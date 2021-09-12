@@ -2,6 +2,7 @@
 .fondo-panel-principal {
     background-color: #F1EEDE;
     font-family: Montserrat;
+    min-height: 40vw;
 }
 .fondopanel{
     margin: 5vw;
@@ -14,6 +15,7 @@
     justify-content: space-around;
     height: fit-content;
     flex-direction: column;
+    min-height: 20vw;
       
 }
 .cards-panel{

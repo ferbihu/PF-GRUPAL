@@ -5,7 +5,7 @@ import { acceptedStatus } from '../../actions/actions';
 import axios from 'axios';
 import "./Cards-Panel.css";
 import Popup from '../Popup/Popup';
-const{ REACT_APP_BACK_BASE_URL} = process.env
+const { REACT_APP_BACK_BASE_URL } = process.env
 
 
 
@@ -16,20 +16,32 @@ export default function Card({ name, country, street, number, town, email, telep
 
     const [buttonPopup, setButtonPopup] = useState(false)
 
+
     // const lugaresSeguros = useSelector((state) => state.filtered_safePlaces)
+
+    let [statusOriginal, setstatusOriginal] = useState(1)
+
+
+    //const lugaresSeguros = useSelector((state) => state.filtered_safePlaces)
+
     const user = useSelector((state) => state.userData)
 
     const acceptedStatusHandler = async () => {
-        console.log("entro al accepted handler" + id)
+        console.log("entro al accepted handler" + id + statusOriginal)
+        console.log(statusOriginal + " estado original")
         dispatch(acceptedStatus(id))
-
+        //dispatch(getSafePlacePanel())
+        setstatusOriginal(statusOriginal += 2)
+        console.log(statusOriginal + " estadonuevo")
         await axios.post(`${REACT_APP_BACK_BASE_URL}/email/accepted`, user)
 
 
-        window.location.reload();
-
-
     }
+    useEffect(() => {
+        dispatch(getSafePlacePanel())
+    }, [statusOriginal]);
+
+
     return (
 
         <>
