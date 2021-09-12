@@ -225,3 +225,16 @@ export function filterSafePlacesById(payload, userId){
    })
   }
 }
+
+export function updateDataUser(id, data) {
+  return function  (dispatch) {
+    const updateData = { id, data };
+    axios.patch("http://localhost:3001/user/:id", updateData).then((res) =>
+      dispatch({
+        type: "UPDATE_DATA_USER",
+        payload: res.data,
+      })
+    );
+  };
+}
+
