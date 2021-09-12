@@ -2,6 +2,7 @@ const initialState = {
   statecoord:[],
   safeplce: [],
   user: [],
+  role: [],
   isLogged: false,
   userId: null,
   filtered_safePlaces: [],
@@ -22,6 +23,8 @@ const initialState = {
     "status":"accepted",
     "description_status":"Prueba",
     "userid":2}],
+  allSafePlacesPanel: [],
+  userData: []
 };
 function reducers(state = initialState, action) {
   switch (action.type) {
@@ -47,11 +50,11 @@ function reducers(state = initialState, action) {
         ...state,
         safeplce: action.payload
       }
-      case "BY_TOWN":
-        return {
-          ...state,
-          safeplce: action.payload
-        }
+    case "BY_TOWN":
+      return {
+        ...state,
+        safeplce: action.payload
+      }
     case "LOG_OUT_GOOGLE":
       return {
         ...state,
@@ -61,7 +64,12 @@ function reducers(state = initialState, action) {
       return {
         ...state,
         isLogged: true,
-        userId: action.payload.userId
+        userId: action.payload.userId,
+
+        userData: action.dataUser,
+
+        role: action.payload.role
+
       }
 
     case "ALL_SITIES":
@@ -71,15 +79,27 @@ function reducers(state = initialState, action) {
         stateSitie: action.payload.info,          //allRecipes
 
       };
-    case "FILTER_BY_COUNTRY":
-      const lugares = state.stateSitie;
-      const statusFiltered = lugares.filter(e => e.country.includes(action.payload))
-
+    /* case "FILTER_BY_COUNTRY":
+      let lugares = state.stateSitie;
+      let statusFiltered = lugares.filter(e => e.country.includes(action.payload))
       return {
 
         ...state,
         filtered_safePlaces: statusFiltered
+      }; */
+    case "FILTER_BY_STATUS":
+      let lugares = state.allSafePlacesPanel
+      let statusFiltered = lugares.filter(e => e.status.includes(action.payload))
+      return {
+        ...state,
+        filtered_safePlaces: statusFiltered
+      };
 
+    case "DELETE_SAFEPLACE":
+      return {
+        ...state,
+        isLogged: true,
+        userId: action.payload.userId
       }
       case "DELETE_SAFEPLACE":
         return {
@@ -94,6 +114,17 @@ function reducers(state = initialState, action) {
 
               
             }
+    case "GET_SAFEPLACE_PANEL":
+      return {
+        ...state,
+        filtered_safePlaces: action.payload, //recipes
+        allSafePlacesPanel: action.payload  //allrecipes
+
+      }
+    case "ACCEPTED_STATUS":
+      return {
+        ...state,
+      };
 
     default:
       return state;

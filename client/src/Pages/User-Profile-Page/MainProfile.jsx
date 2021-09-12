@@ -3,7 +3,9 @@ import Content from './Content/Content';
 import Sidebar from './SideBar/SideBar';
 import "./MainProfile.css";
 
+
 export default function MainProfile() {
+
   return (
     <div className="background">
       <br></br>
@@ -11,8 +13,9 @@ export default function MainProfile() {
       <br></br>
       <Container display={{ base: 'block', md: 'flex' }} maxW="container.xl">
         <Sidebar />
+
         <Content />
       </Container>
     </div>
-    )
+  )
 }
