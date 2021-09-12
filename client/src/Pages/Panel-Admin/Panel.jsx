@@ -34,7 +34,7 @@ export default function Panel() {
     }
 
     return (
-        <>
+        <div className="fondo-panel-principal">
             <div className="titular">
                 <div className="titulo-panel">
                     Panel de control
@@ -79,7 +79,7 @@ export default function Panel() {
 
 
             </div>
-        </>
+        </div>
 
 
     )

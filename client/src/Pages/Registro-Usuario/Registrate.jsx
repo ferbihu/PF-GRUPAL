@@ -60,13 +60,14 @@ function Register({ addUser, responseGoogle }) {
   };
 
   return (
-    <div>
+    <div className="fondo-registrate">
       <h2 className="txtRegistrate">Registrate</h2>
-      <br/>
+
+      <div className="line-registrate"></div>
       <div className="card">
         <form className="regis-form" onSubmit={(e) => handleSubmit(e)}>
           <div>
-            <br/>
+            <br />
             <label className="p3">Nombre</label>
             <input
               className={`${errors.name && "danger"}`}

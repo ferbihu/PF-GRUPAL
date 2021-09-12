@@ -14,6 +14,7 @@
     border: gray;
     display: flex;
     flex-direction: column;
+    
     text-align: center;
     height: fit-content;
     padding: 2vw;
@@ -52,9 +53,11 @@
 .Aceptar{
     background-color: rgb(117, 197, 117);
     margin: 1vw;
+    width: auto;
 }
 
 .Rechazar{
     background-color: rgb(248, 110, 110);
     margin: 0.1vw 1vw 0.1vw 1vw;
+    width: auto;
 }

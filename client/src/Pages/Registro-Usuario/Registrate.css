@@ -1,3 +1,16 @@
+.fondo-registrate{
+  background-color: #F1EEDE;
+  font-family: Montserrat;
+  display: flex;
+  flex-direction: column;
+}
+.line-registrate{
+  background: #f17a09;
+    height: 0.1vw;
+    width: 11vw;
+    align-self: center;
+    margin-bottom: 2vw;
+}
 .txtRegistrate {
   font-family: Montserrat;
   display: flex;
