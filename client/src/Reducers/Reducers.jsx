@@ -100,17 +100,12 @@ function reducers(state = initialState, action) {
         isLogged: true,
         userId: action.payload.userId
       }
-      case "DELETE_SAFEPLACE":
-        return {
-          ...state,
-          isLogged: true,
-          userId:action.payload.userId
-          }
    case "COORDENADAS":
             return {
                 ...state,
                 statecoord:action.payload
-        
+
+              
             }
     case "GET_SAFEPLACE_PANEL":
       return {
@@ -122,19 +117,23 @@ function reducers(state = initialState, action) {
     case "ACCEPTED_STATUS":
       return {
         ...state,
-      }
-        case "LOGOUT":
-      return {
-        ...state,
-        isLogged: true,
-        userId: action.payload.userId,
       };
-      case "UPDATE_DATA_USER":
+    case 'FILTER_SAFEPLACE_BY_ID':
+    const allSafePlace = state.allSafePlacesPanel
+    const id = state.userId
+    const filterSafePlace = allSafePlace.filter(i => i.status.includes(id))
+    return {
+      ...state,
+      isLogged: true,
+      allSafePlacesPanel: filterSafePlace
+    }
+      
+        case "UPDATE_DATA_USER":
         return {
           ...state,
-          userId: state.userId.map((user) => user._id === action.payload)
+          userId: state.userId.map((user) => user.id === action.payload.user.id)
         };
-
+      
     default:
       return state;
   }
