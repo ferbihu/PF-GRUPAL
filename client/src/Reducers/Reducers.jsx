@@ -41,7 +41,7 @@ function reducers(state = initialState, action) {
         isLogged: true,
         userId: action.payload.userId,
 
-        userData: action.dataUser
+        userData: action.dataUser,
 
         role: action.payload.role
 
