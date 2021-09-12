@@ -4,10 +4,8 @@ import GoogleLogin from "react-google-login";
 import { useDispatch } from "react-redux";
 import { renderUserName, login } from "../actions/actions";
 import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 const validate = (input) => {
-  let pattern = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%&]).{8,}$/;
   let errors = {};
   if (!input.email) {
     errors.email = "email is required";
@@ -16,8 +14,6 @@ const validate = (input) => {
   }
   if (!input.password) {
     errors.password = "Password is required";
-  } else if (!pattern.test(input.password)) {
-    errors.password = "Password is invalid";
   }
   return errors;
 };
