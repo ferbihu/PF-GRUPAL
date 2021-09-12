@@ -83,7 +83,6 @@ function reducers(state = initialState, action) {
       let lugares = state.stateSitie;
       let statusFiltered = lugares.filter(e => e.country.includes(action.payload))
       return {
-
         ...state,
         filtered_safePlaces: statusFiltered
       }; */
@@ -94,19 +93,12 @@ function reducers(state = initialState, action) {
         ...state,
         filtered_safePlaces: statusFiltered
       };
-
-    // case "DELETE_SAFEPLACE":
-    //   return {
-    //     ...state,
-    //     isLogged: true,
-    //     userId: action.payload.userId
-    //   }
-      case "DELETE_SAFEPLACE":
-        return {
-          ...state,
-          isLogged: true,
-          userId:action.payload.userId
-          }
+          case "DELETE_SAFEPLACE":
+      return {
+        ...state,
+        isLogged: true,
+        userId: action.payload.userId
+      }
    case "COORDENADAS":
             return {
                 ...state,
@@ -125,7 +117,22 @@ function reducers(state = initialState, action) {
       return {
         ...state,
       };
-
+    case 'FILTER_SAFEPLACE_BY_ID':
+    const allSafePlace = state.allSafePlacesPanel
+    const id = state.userId
+    const filterSafePlace = allSafePlace.filter(i => i.status.includes(id))
+    return {
+      ...state,
+      isLogged: true,
+      allSafePlacesPanel: filterSafePlace
+    }
+      
+        case "UPDATE_DATA_USER":
+        return {
+          ...state,
+          userId: state.userId.map((user) => user.id === action.payload.user.id)
+        };
+      
     default:
       return state;
   }

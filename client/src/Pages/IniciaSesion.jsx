@@ -6,7 +6,6 @@ import { renderUserName, login } from "../actions/actions";
 import { useHistory } from "react-router-dom";
 
 const validate = (input) => {
-  let pattern = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%&]).{8,}$/;
   let errors = {};
   if (!input.email) {
     errors.email = "email is required";
@@ -15,8 +14,6 @@ const validate = (input) => {
   }
   if (!input.password) {
     errors.password = "Password is required";
-  } else if (!pattern.test(input.password)) {
-    errors.password = "Password is invalid";
   }
   return errors;
 };
@@ -26,7 +23,7 @@ export default function IniciaSesion() {
   const [input, setInput] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
   const history = useHistory();
-
+ 
   const responseGoogle = (response) => {
     const userName = response.getBasicProfile().Qe;
     const userID = response.getId();
@@ -54,7 +51,7 @@ export default function IniciaSesion() {
     e.preventDefault();
     if (!errors.email && !errors.password) {
       dispatch(login(input));
-      console.log(input)
+
       history.push("/profile");
     } else {
       alert("Algo salió mal...");
@@ -69,19 +66,18 @@ export default function IniciaSesion() {
   return (
     <div className="back">
       <h2 className="txtLog">Inicia sesión</h2>
-      <div className="line-iniciasesion"></div>
       <br />
       <form class="login-form" onSubmit={(e) => handleSubmit(e)}>
         <br></br>
         <button onClick={(e) => handleGoogleLogin(e)}>
-          <GoogleLogin
-            clientId="58941748087-vv5lmt8hnkri961a7pdrdp9pjsj500vl.apps.googleusercontent.com"
-            buttonText="Ingresá con Google"
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}
-            cookiePolicy={"single_host_origin"}
-            className="btnGoogle"
-          ></GoogleLogin>
+        <GoogleLogin
+          clientId="58941748087-vv5lmt8hnkri961a7pdrdp9pjsj500vl.apps.googleusercontent.com"
+          buttonText="Ingresá con Google"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={"single_host_origin"}
+          className="btnGoogle"
+        ></GoogleLogin>
         </button>
         <label className="p">Email</label>
         <input
@@ -113,3 +109,4 @@ export default function IniciaSesion() {
     </div>
   );
 }
+
