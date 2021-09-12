@@ -216,4 +216,12 @@ export function rejectedStatus(id, payload){
     }
          
 }}
-
+export function filterSafePlacesById(payload, userId){
+  return async function (dispatch){
+    const json = await axios.get("http://localhost:3001/safe_place/admin/all_safe_place",  {...payload,userId});
+    return dispatch({
+      type: 'FILTER_SAFEPLACE_BY_ID',
+      payload: json.data
+   })
+  }
+}

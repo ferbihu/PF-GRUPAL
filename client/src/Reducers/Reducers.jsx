@@ -101,12 +101,6 @@ function reducers(state = initialState, action) {
         isLogged: true,
         userId: action.payload.userId
       }
-      case "DELETE_SAFEPLACE":
-        return {
-          ...state,
-          isLogged: true,
-          userId:action.payload.userId
-          }
    case "COORDENADAS":
             return {
                 ...state,
@@ -125,6 +119,16 @@ function reducers(state = initialState, action) {
       return {
         ...state,
       };
+    case 'FILTER_SAFEPLACE_BY_ID':
+    const allSafePlace = state.allSafePlacesPanel
+    const id = state.userId
+    const filterSafePlace = allSafePlace.filter(i => i.status.includes(id))
+    return {
+      ...state,
+      isLogged: true,
+      allSafePlacesPanel: filterSafePlace
+    }
+
 
     default:
       return state;
