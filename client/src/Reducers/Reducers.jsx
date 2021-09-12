@@ -68,7 +68,7 @@ function reducers(state = initialState, action) {
 
         userData: action.dataUser,
 
-        role: action.payload2.role
+        role: action.payload.role
 
       }
 
@@ -94,6 +94,13 @@ function reducers(state = initialState, action) {
         ...state,
         filtered_safePlaces: statusFiltered
       };
+
+    // case "DELETE_SAFEPLACE":
+    //   return {
+    //     ...state,
+    //     isLogged: true,
+    //     userId: action.payload.userId
+    //   }
       case "DELETE_SAFEPLACE":
         return {
           ...state,
