@@ -55,7 +55,7 @@ export default function IniciaSesion() {
     e.preventDefault();
     if (!errors.email && !errors.password) {
       dispatch(login(input));
-
+      console.log(input)
       history.push("/profile");
     } else {
       alert("Algo salió mal...");

@@ -30,13 +30,18 @@ export function addUser({ name, email, password }) {
    }
   }
   export function getSafeplace(){
-    return async function(dispatch){
-      const json = await axios.get(`${REACT_APP_BACK_BASE_URL}/safe_place`);
-       return dispatch({
-       type: 'GET_SAFEPLACE',
-       payload: json.data
-    })
-  }
+    return function(dispatch){
+      return axios
+       .get(`${REACT_APP_BACK_BASE_URL}/safe_place`)
+       .then((res)=>{dispatch({ 
+            type:"GET_SAFEPLACE",
+            payload:{info:res.data}})
+       })
+       .catch((err) => {
+         console.log("Falla servidor local", err);
+      });
+};
+
 }
 export function byCountrys(payload) {
   return {
@@ -71,7 +76,7 @@ export function logOutGoogle(payload) {
 export function login({ email, password }) {
   return function(dispatch){
   const user = {  email, password };
-  console.log(REACT_APP_BACK_BASE_URL);
+  console.log(user);
   return axios.post(`${REACT_APP_BACK_BASE_URL}/auth/login`, user)
     .then(res => {
       alert("Loggeado correctamente,userId,token,guardados")  
@@ -79,7 +84,12 @@ export function login({ email, password }) {
       localStorage.setItem('token',res.data.id_token)
       return dispatch({
         type:'LOGIN',
+
+        payload:{userId:res.data.userId},
+        dataUser: user,
+
         payload:{userId:res.data.userId, role:res.data.role}
+
       })
     })
     .catch(err => {
@@ -134,6 +144,12 @@ export function deleteSafePlace(payload,userId){
   }
 }
 
+export function coordenadas(payload) {
+  return {
+      type: 'COORDENADAS',
+      payload
+  };
+};
 
 
 export function filterPlacesByStatus(payload){

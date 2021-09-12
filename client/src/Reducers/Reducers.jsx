@@ -1,15 +1,41 @@
 const initialState = {
+  statecoord:[],
   safeplce: [],
   user: [],
   role: [],
   isLogged: false,
   userId: null,
-  stateSitie: [],
   filtered_safePlaces: [],
-  allSafePlacesPanel: []
+  stateSitie:[{
+    "id": "1",
+	  "name": "Primer Safe",
+	  "country": "Argentina",
+	  "town": "CABA",
+    "street": "Belgrano",
+  	"number": "992",
+    "postcode":"AA1878",
+  	"lat": -34.61241375774842,
+    "lng":-58.38022418084046,
+    "email":"galicia@gmail.com",
+    "telefhone":+5401123244556,
+    "keyword":"LATON",
+    "relation":"dueño",
+    "status":"accepted",
+    "description_status":"Prueba",
+    "userid":2}],
+  allSafePlacesPanel: [],
+  userData: []
 };
 function reducers(state = initialState, action) {
   switch (action.type) {
+    case "GET_SAFEPLACE":
+      return {
+          ...state,
+          stateSitie: action.payload.info,
+          
+      }
+    
+
     case "RENDER_USER_NAME":
       return {
         ...state,
@@ -39,7 +65,11 @@ function reducers(state = initialState, action) {
         ...state,
         isLogged: true,
         userId: action.payload.userId,
+
+        userData: action.dataUser,
+
         role: action.payload.role
+
       }
 
     case "ALL_SITIES":
@@ -71,6 +101,19 @@ function reducers(state = initialState, action) {
         isLogged: true,
         userId: action.payload.userId
       }
+      case "DELETE_SAFEPLACE":
+        return {
+          ...state,
+          isLogged: true,
+          userId:action.payload.userId
+          }
+   case "COORDENADAS":
+            return {
+                ...state,
+                statecoord:action.payload
+
+              
+            }
     case "GET_SAFEPLACE_PANEL":
       return {
         ...state,
