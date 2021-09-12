@@ -32,6 +32,7 @@ export default function Panel() {
         dispatch(filterPlacesByStatus(e.target.value))
     }
 
+
     return (
         <div className="fondo-panel-principal">
             <div className="titular">
