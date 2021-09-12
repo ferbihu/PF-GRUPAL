@@ -75,24 +75,24 @@ export default function Maps(props) {
 const [statecoord,setCoord]=useState({lat:0,long:0});
 
 
-function componentWillMount(){
-  if (!!navigator.geolocation) {
-    navigator.geolocation.watchPosition((position) => {
-      setCoord({
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-      });
-    },
-    (err) => console.log(err),
-    { enableHighAccuracy: true, timeout: 10000, maximumAge: 10000 },
-    );
-  } else {
-    //  // No Support Web
-    alert('El navegador no soporta la geolocalización,')
-  }
-}
+// function componentWillMount(){
+//   if (!!navigator.geolocation) {
+//     navigator.geolocation.watchPosition((position) => {
+//       setCoord({
+//         lat: position.coords.latitude,
+//         lng: position.coords.longitude,
+//       });
+//     },
+//     (err) => console.log(err),
+//     { enableHighAccuracy: true, timeout: 10000, maximumAge: 10000 },
+//     );
+//   } else {
+//     //  // No Support Web
+//     alert('El navegador no soporta la geolocalización,')
+//   }
+// }
 
-componentWillMount();
+// componentWillMount();
 
 
   const dispatch = useDispatch();

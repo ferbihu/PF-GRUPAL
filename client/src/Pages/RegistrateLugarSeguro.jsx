@@ -99,7 +99,13 @@ export default function Registrate() {
             ...input,
             [e.target.name]:e.target.value
         }));
-        dispatch(postAprobation(input,userId))
+        var street=camelize(input.street)
+        var town=camelize(input.town)
+        var country=camelize(input.country)
+        const { data } = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${input.number}+${street}+${town}+${country}+View,+CA&key=AIzaSyDclWfFnp7AQpJjZQj7E9fsD7j6M9vPhTk`)
+        const lat = data.results[0].geometry.location.lat;
+        const lng = data.results[0].geometry.location.lng;
+        dispatch(postAprobation({...input,lat,lng},userId))
         await axios.post(`${REACT_APP_BACK_BASE_URL}/email/registroSafePlace`, input)
         alert("Registro creado!")
         setInput({
