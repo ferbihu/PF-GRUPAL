@@ -204,7 +204,7 @@ export function rejectedStatus(id, payload){
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
     };
     try {
-      const response = await axios.post(`http://localhost:3001/safe_place/${id}/rejected`, {payload}, config)
+      const response = await axios.post(`http://localhost:3001/safe_place/${id}/rejected`, {description_status: payload}, config)
       return dispatch ({
         type: "REJECTED_STATUS",
         payload: response

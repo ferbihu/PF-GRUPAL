@@ -1,6 +1,11 @@
+
+.fondo-panel-principal {
+    background-color: #F1EEDE;
+    font-family: Montserrat;
+}
 .fondopanel{
     margin: 5vw;
-    background-color: rgb(255, 255, 255);
+    background-color: white;
     border-radius: 20px;
     height: 120vh;
     padding: 1vw;
@@ -25,6 +30,7 @@
 .titular {
  display: flex;
  flex-direction: column;
+ 
 
 }
 .titulo-panel{
@@ -45,7 +51,7 @@ button {
     
         border: none;
         border-radius: 10px;
-        
+        width: 7vw;
         padding: 0.5vw;
         cursor: pointer;
         font-family: 'Montserrat', sans-serif;
