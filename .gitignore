@@ -6,8 +6,8 @@ client/node_modules
 /.pnp
 .pnp.js
 
-/api2/package-lock.json
-/client/package-lock.json
+api2/package-lock.json
+client/package-lock.json
 # misc
 .env
 api2/.env
