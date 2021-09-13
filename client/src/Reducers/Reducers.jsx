@@ -97,7 +97,8 @@ function reducers(state = initialState, action) {
       return {
         ...state,
         isLogged: true,
-        userId: action.payload.userId
+        userId: action.payload.userId,
+        stateSitie : state.stateSitie.filter(sitie => sitie.id !== action.payload)
       }
    case "COORDENADAS":
             return {

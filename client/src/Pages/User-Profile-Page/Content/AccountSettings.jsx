@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { updateDataUser, getallsafesitie } from "../../../actions/actions";
+import { updateDataUser, getallsafesitie, deleteSafePlace } from "../../../actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import MySafePlace from "../../../Components/PlaceAprobation/MySafePlace";
@@ -77,6 +77,11 @@ const handleLogout = (e) => {
   }
 }
 
+const handleDelete = (e) => {
+  e.preventDefault();
+dispatch(deleteSafePlace(lugaresSegurosFiltrados.id))
+
+}
 
 return (
   <Grid 

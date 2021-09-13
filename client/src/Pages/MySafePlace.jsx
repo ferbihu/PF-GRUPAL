@@ -1,42 +1,24 @@
-// import React from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { useEffect } from "react";
-// import {filterSafePlacesById} from "../actions/actions";
-// import MySafePlace from "../Components/PlaceAprobation/MyPlaceSafe";
+import React from "react";
+import {handleDelete} from "./User-Profile-Page/Content/AccountSettings";
+import './MySafePlace.css';
 
-// export default function PerfilSafePlace() {
-//     const dispatch = useDispatch();
-//     const safeplace = useSelector((state) => state.filtered_safePlaces);
-//     const userId = useSelector((state)=> state.userId);
-//     useEffect(() => {
-//         dispatch(filterSafePlacesById(userId));  
-//       }, [userId, dispatch]);
-//     return (
-//         <div>
-//             <h1>Mis lugares seguros</h1>
-                 
-//       <div>
-//         {safeplace &&
-//           safeplace.map((i) => {
-//             return (
-//             <div key={i.id}>  
-//                 <MySafePlace
-//                   name={i.name}
-//                   country={i.country}
-//                   town={i.town}
-//                   telephone={i.telephone}
-//                   mail={i.mail}
-//                   street={i.street}
-//                   postcode={i.postcode}
-//                   number={i.number}
-//                   keyword={i.keyword}
-//                   relation={i.relation}
-//                   key={i.id}
-//                ></MySafePlace>
-//                </div>
-//            );
-//           })}
-//       </div>
-//         </div>
-//     )
-// }
+ export default function MySafePlace({ name, country, town, street, number, postcode, email, telephone, keyword, relation}) {
+ 
+  return (
+        <div>
+       <div className='card-style'>
+       <div className="status-card" value={name}>{name}</div>
+       <div className="linea-card"></div>
+                <div className="country-card"><span className="span-card">{town}, {country}</span></div>
+                <div className="country-card"><span className="span-card">Dirección:</span> {street} {number}</div>
+                <div className="country-card"><span className="span-card">Código postal:</span> {postcode}</div>
+                <div className="country-card"><span className="span-card">E-mail: </span>{email}</div>
+                <div className="country-card"><span className="span-card">Celular:</span> {telephone}</div>
+                <div className="country-card"><span className="span-card">Palabra clave: </span>{keyword}</div>
+                <div className="country-card"><span className="span-card">Relación:</span> {relation}</div>
+        <button className="btnmysp" type='submit' onClick={handleDelete}>Eliminar mi lugar seguro</button>
+       </div>
+    
+      </div>
+    );
+  }
