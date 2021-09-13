@@ -8,7 +8,7 @@ import { acceptedStatus } from '../../actions/actions';
 import axios from 'axios';
 import "./Cards-Panel.css";
 import Popup from '../Popup/Popup';
-import {getSafePlacePanel} from '../../actions/actions'
+import { getSafePlacePanel } from '../../actions/actions'
 const { REACT_APP_BACK_BASE_URL } = process.env
 
 
@@ -43,7 +43,9 @@ export default function Card({ name, country, street, number, town, email, telep
     }
     useEffect(() => {
         dispatch(getSafePlacePanel())
-    }, [statusOriginal]);
+    },
+        // eslint-disable-next-line
+        [statusOriginal]);
 
 
     return (

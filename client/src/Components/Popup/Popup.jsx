@@ -5,7 +5,7 @@ import "./Popup.css"
 import { useDispatch, useSelector } from "react-redux";
 import { rejectedStatus, getSafePlacePanel } from "../../actions/actions"
 import axios from "axios";
-import { Link } from "react-router-dom";
+
 const { REACT_APP_BACK_BASE_URL } = process.env
 
 
@@ -47,7 +47,9 @@ function Popup(props) {
 
     useEffect(() => {
         dispatch(getSafePlacePanel())
-    }, [estadoOriginal]);
+    },
+        // eslint-disable-next-line
+        [estadoOriginal]);
 
     return (props.trigger) ? (
         <div className="popup">
