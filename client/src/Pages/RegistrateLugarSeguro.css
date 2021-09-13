@@ -210,3 +210,16 @@
         border-radius: 5px;
     }
 
+    .btnvolver{
+        text-decoration: underline red;
+        width: 10px;
+        height: 10px; 
+        border-radius:20px;
+        margin-top: 20px;
+        justify-content:center;
+        align-items:center;
+        align-content: center;
+        display:fixed;
+        font-size: 18px;
+        margin-left:200px;
+    }

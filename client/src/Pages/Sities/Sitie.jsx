@@ -41,7 +41,7 @@ export default function Sities() {
                 #
                       <div className="mapa">
                           <Map/>
-                          <Link to='/registratelugarseguro'><button className="btnainput">Registrá un lugar seguro</button></Link>
+                          <Link to='/registratelugarseguro'><button className="btninput">Registrá un lugar seguro</button></Link>
                       </div>
                       
                 </div>

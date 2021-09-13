@@ -152,6 +152,7 @@ export default function Registrate() {
 
     return (
         <div className='pageregistro'>
+            <a href="/lugaresseguros" className="btnvolver">VOLVER</a>
             <div className='title'><h1>Registro de lugar seguro</h1></div>
             <div className="postlugarSeguro-line"></div>
             <div className='primerparrafo'> <p>Completá el formulario y registrá tu comercio, empresa o entidad.</p> </div>
