@@ -1,7 +1,9 @@
-import React, { useState } from "react";
-import { updateDataUser } from "../../../actions/actions";
-import { useDispatch, useSelector  } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { updateDataUser, getallsafesitie } from "../../../actions/actions";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import MySafePlace from "../../../Components/PlaceAprobation/MySafePlace";
+
 
 import {
   FormControl,
@@ -13,32 +15,34 @@ import {
   Button,
 } from "@chakra-ui/react";
 
-function validate(input) {
-  let errors = {};
-  if (!input.name) {
-    errors.name = 'Se requiere un nombre';
-  }
-   else if (!input.lastname) {
-  errors.lastname = 'Se requiere un apellido';
-  }
-  else if (!input.email) {
-  errors.email = 'Se requiere un email';
-  }
-  return errors;
-};
 
 export default function AccountSettings() {
 const dispatch = useDispatch();
-const history = useHistory();
+const history = useHistory(); 
+// const id = useSelector((state)=> state.userId);
 const [isLogged, setIsLogged] = useState(true);
-const [errors, setErrors] = useState({});
-const [input, setInput] = useState('');
+// const [errors, setErrors] = useState({});
+// const [input, setInput] = useState('');
+const[name, setName] = React.useState('')
+const[lastname, setLastname] = React.useState('')
+const[email, setEmail] = React.useState('')
+const[phone, setPhone] = React.useState('')
+const handleChangeName = (event) => setName(event.target.value)
+const handleChangeLastname = (event) => setLastname(event.target.value)
+const handleChangeEmail = (event) => setEmail(event.target.value)
 
-
-//const {userId} = useSelector((state) => state.userId)
-
+    const [input,setInput] = useState({
+        name: "",
+        lastname: "",
+        email: "",
+        country: "",
+        town: "",
+        phone: "",
+       
+    })
 
 const handleInputChange = (e) => {
+  e.preventDefault()
   setInput({
     ...input,
     [e.target.name]: e.target.value
@@ -47,20 +51,23 @@ const handleInputChange = (e) => {
 
 
  const handleSubmit = (e) => {
-  e.preventDefault();
-  console.log(input)
-  setErrors(validate({
-      ...input,
-      [e.target.name]:e.target.value
-  }));
-  if(input.name && input.lastname && input.email) {
-    dispatch(updateDataUser(input));
-    
-    alert('Se han actualizados sus datos')
-   
-    
-  }
-}  
+  e.preventDefault()
+   if(name && lastname && email) {
+    dispatch(updateDataUser());
+    alert('Se han actualizados sus datos')  
+ }
+} 
+// history.push('/')
+let lugaresSeguros = useSelector((state) => state.stateSitie) //estado con todos los lugares seguros aceptados
+let id_usuario = useSelector((state) => state.userId) // me traigo el id del usuario que esta registrado
+
+let lugaresSegurosFiltrados = lugaresSeguros.filter(e => e.userId === id_usuario)
+console.log(lugaresSegurosFiltrados)
+
+useEffect(() => {
+  dispatch(getallsafesitie())
+}, [dispatch]);
+
 
 const handleLogout = (e) => {
   e.preventDefault();
@@ -69,61 +76,53 @@ const handleLogout = (e) => {
     history.push('/iniciasesion')
   }
 }
+
+
 return (
   <Grid 
     templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}
     gap={6}
   >
-    <FormControl id="firstName">
+    <FormControl method='POST' onSubmmit={(e)=>handleChangeName(e)} id="firstName">
       <FormLabel>Nombres</FormLabel>
       <Input focusBorderColor="brand.blue"  
+      required
       type="text" 
       name='name'
       placeholder="nombre"  
-      value={input.name}
-      onChange={handleInputChange} />
-      {errors.name && (
-                      <p className='error'>{errors.name}</p>
-                  )}
+      value={name}
+      onChange={({target}) => setName(target.value)}/>
     </FormControl>
-    <FormControl id="lastName">
+    <FormControl id="lastName"  onSubmmit={(e)=>handleChangeLastname(e)}>
       <FormLabel>Apellidos</FormLabel>
       <Input focusBorderColor="brand.blue" 
       type="text"
       name='lastname' 
       placeholder="apellido" 
-      value={input.lastname}
-      onChange={handleInputChange} />
-      {errors.lastname && (
-                      <p className='error'>{errors.lastname}</p>
-                  )}
+      value={lastname}
+      onChange={({target}) => setLastname(target.value)}/>
     </FormControl>
-    <FormControl id="phoneNumber">
+    <FormControl id="phoneNumber"  onSubmmit={(e)=>handleInputChange(e)}>
       <FormLabel>Número de teléfono</FormLabel>
       <Input
         focusBorderColor="brand.blue"
         type="tel"
         name='phone'
-        value={input.phone}
+        value={phone}
         placeholder="número de telefóno"
-        onChange={handleInputChange}
-      />
+        onChange={({target}) => setPhone(target.value)}/>
     </FormControl>
-    <FormControl id="emailAddress">
+    <FormControl id="emailAddress"  onSubmmit={(e)=>handleChangeEmail(e)}>
       <FormLabel>Email</FormLabel>
       <Input
         focusBorderColor="brand.blue"
         type="email"
         name='email'
-        value={input.email}
+        value={email}
         placeholder="suemail@email.com"
-        onChange={handleInputChange}
-      />
-       {errors.email && (
-                      <p className='error'>{errors.email}</p>
-                  )}
+        onChange={({target}) => setEmail(target.value)}/>
     </FormControl>
-    <FormControl id="city">
+    <FormControl id="city"  onSubmmit={(e)=>handleInputChange(e)}>
       <FormLabel>Ciudad</FormLabel>
       <Select focusBorderColor="brand.blue" placeholder="Select city">
         <option value="palermo">Palermo</option>
@@ -134,7 +133,7 @@ return (
         </option>
       </Select>
     </FormControl>
-    <FormControl id="country">
+    <FormControl id="country ">
       <FormLabel>País</FormLabel>
       <Select focusBorderColor="brand.blue" placeholder="Select country">
         <option value="america" selected>
@@ -143,7 +142,7 @@ return (
       </Select>
     </FormControl>
     <Box mt={5} py={5} px={8} borderTopWidth={1} borderColor="brand.light">
-    <Button onClick={handleSubmit}>
+    <Button type="submit"  onClick={(e) => handleSubmit(e)}>
       Update
     </Button>
   </Box>
@@ -152,7 +151,30 @@ return (
      Logout
     </Button>
     </Box>
+    <Box>
+      <h1>Mis lugares seguros</h1>
+            {lugaresSegurosFiltrados.map(i => {
+            return (
+            <Box>  
+                <MySafePlace
+                  name={i.name}
+                  country={i.country}
+                  town={i.town}
+                  telephone={i.telephone}
+                  email={i.email}
+                  street={i.street}
+                  postcode={i.postcode}
+                  number={i.number}
+                  keyword={i.keyword}
+                  relation={i.relation}
+                  id={i.id}
+               ></MySafePlace>
+              
+               </Box>
+
+           );
+          })}
+      </Box>
   </Grid>
 )
 }
-
