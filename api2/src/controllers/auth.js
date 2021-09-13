@@ -4,6 +4,7 @@ const bcryptjs = require('bcryptjs');
 // const{ generateJWT }= require('../middlewares/jwt');
 const servicesAuth0 = require('../services/auth0');
 const servicesUser = require('../services/users');
+const {User} = require('../db')
 
 
 // const createUser = async (req, res = response) => {
@@ -86,7 +87,7 @@ const createNewUser = async(req,res)=>{
         const createUser = await servicesAuth0.createAuth0User({...auth0data,accessToken: token.data.access_token})
         if(createUser.error)return res.status(400).json(createUser.msj)
         const saveUserDB = await servicesUser.createNewUser(data)
-        res.json({success:true});
+        return res.json({success:true});
     }
     catch(error){
         console.log(error)

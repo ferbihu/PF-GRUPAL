@@ -20,7 +20,7 @@ router.post('/', async(req, res) => {
         }
     });
 
-    addComment.addUser(createComment)
+    await addComment.setUser(createComment.id)
     return res.status(200).send('Gracias por dejar tu comentario <3') 
 });
 
