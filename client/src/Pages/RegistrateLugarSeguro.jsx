@@ -94,6 +94,8 @@ export default function Registrate() {
          ...input,
          [e.target.name]: e.target.value
        }));
+
+
         console.log(input)
     }
     async function handleSubmit(e){
@@ -106,9 +108,10 @@ export default function Registrate() {
         var street=camelize(input.street)
         var town=camelize(input.town)
         var country=camelize(input.country)
-        const { data } = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${input.number}+${street}+${town}+${country}+View,+CA&key=AIzaSyDclWfFnp7AQpJjZQj7E9fsD7j6M9vPhTk`)
+        const { data } = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${input.number}+${street}+${town}+${country}+View,+CA&key=AIzaSyAbMjLYFsoiuJmlFydaakLeC6uhqYh1iL0`)
         const lat = data.results[0].geometry.location.lat;
         const lng = data.results[0].geometry.location.lng;
+        console.log("info",data)
         dispatch(postAprobation({...input,lat,lng},userId))
         await axios.post(`${REACT_APP_BACK_BASE_URL}/email/registroSafePlace`, input)
         alert("Registro creado!")
@@ -129,16 +132,8 @@ export default function Registrate() {
         history.push('/')
     }
     const handleFilterCountrys = (e) => {
-        //setInput({...input,country:e.target.value})
+        setInput({...input,country:e.target.value})
         dispatch(byCountrys(e.target.value));
-        var lat=parseFloat(sitie.results[0].geometry.location.lat)
-        var lng=parseFloat(sitie.results[0].geometry.location.lng)
-
-       //console.log("conversion",lng);
-       //console.log("conversion",lat); 
-
-        setInput({...input,lat:lat,lng:lng,country:e.target.value})
-        dispatch(coordenadas(lat,lng));
       };
       const handleFilterTown = (e) => {
         setInput({...input,town:e.target.value})
@@ -173,7 +168,7 @@ export default function Registrate() {
                      <select className='formtown' onChange={e => handleFilterTown(e)}>
                       <option value="All">Ciudad Del lugar seguro</option>
 
-                      <option value="Ciudad Autónoma de Buenos Aires">Ciudad Autónoma de Buenos Aires</option>
+                      <option value="CABA">Ciudad Autónoma de Buenos Aires</option>
                      {input.town}</select>
                <input className='formstreet'
                     autoComplete = 'off'
