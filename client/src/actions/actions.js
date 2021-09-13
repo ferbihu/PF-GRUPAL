@@ -168,7 +168,7 @@ export function getSafePlacePanel(){
     const config = {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
     };
-    const json = await axios.get("http://localhost:3001/safe_place/admin/all_safe_place", config);
+    const json = await axios.get(`${REACT_APP_BACK_BASE_URL}/safe_place/admin/all_safe_place`, config);
      return dispatch({
      type: 'GET_SAFEPLACE_PANEL',
      payload: json.data
@@ -184,7 +184,7 @@ export function acceptedStatus(id){
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
     };
     try {
-      const response = await axios.post(`http://localhost:3001/safe_place/${id}/accepted`, {}, config)
+      const response = await axios.post(`${REACT_APP_BACK_BASE_URL}/safe_place/${id}/accepted`, {}, config)
       return dispatch ({
         type: "ACCEPTED_STATUS",
         payload: response,
@@ -205,7 +205,7 @@ export function rejectedStatus(id, payload){
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
     };
     try {
-      const response = await axios.post(`http://localhost:3001/safe_place/${id}/rejected`, {description_status: payload}, config)
+      const response = await axios.post(`${REACT_APP_BACK_BASE_URL}/safe_place/${id}/rejected`, {description_status: payload}, config)
       return dispatch ({
         type: "REJECTED_STATUS",
         payload: response
@@ -218,7 +218,7 @@ export function rejectedStatus(id, payload){
 }}
 export function filterSafePlacesById(payload, userId){
   return async function (dispatch){
-    const json = await axios.get("http://localhost:3001/safe_place/admin/all_safe_place",  {...payload,userId});
+    const json = await axios.get(`${REACT_APP_BACK_BASE_URL}/safe_place/admin/all_safe_place`,  {...payload,userId});
     return dispatch({
       type: 'FILTER_SAFEPLACE_BY_ID',
       payload: json.data
@@ -233,7 +233,7 @@ export function updateDataUser(id, data) {
     };
     const updateData = { id, data };
     console.log(updateData)
-    axios.patch(`http://localhost:3001/user/${id}`, updateData,config).then((res) =>
+    axios.patch(`${REACT_APP_BACK_BASE_URL}/user/${id}`, updateData,config).then((res) =>
       dispatch({
         type: "UPDATE_DATA_USER",
         payload: res.data,
