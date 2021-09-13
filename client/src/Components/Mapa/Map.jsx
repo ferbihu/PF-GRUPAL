@@ -99,10 +99,16 @@ export default function Maps(props) {
     {description:'Seventh Safe',coord:{lat: -34.60405624569346, lng:-58.38845866340274}}
   ];
 
+  var har = [
+    {description:'Sixth Safe',coord:{lat: -34.59992329866319, lng:-58.39455264239046}},
+    {description:'Seventh Safe',coord:{lat: -34.60405624569346, lng:-58.38845866340274}}
+  ];
 
   var sitios=[];
+  var bandera=false;
 
 if(allsities.length>0){
+  bandera=true;
    
   for(var i=0;i<allsities.length;i++){
     // eslint-disable-next-line
@@ -140,6 +146,7 @@ if(allsities.length>0){
         </div>
       }
       {
+        bandera?
         sitios.map((e,i)=>(
           <Marker key={i}
           position={e.coord} title={e.keyword} icon={pin}
@@ -161,7 +168,29 @@ if(allsities.length>0){
                      </div>
              </InfoWindow>
           </Marker>
-        ))}
+        )): har.map((e,i)=>(
+          <Marker key={i}
+          position={e.coord} title={e.keyword} icon={pin}
+          >
+             <InfoWindow key={i}>    
+                     <div id="content">
+                        <div id="siteNotice"></div>
+                              <h1 id="firstHeading" class="firstHeading">KEY</h1>
+                              <div id="bodyContent">
+                              <p>
+                              <a href="https://www.argentina.gob.ar/generos/linea-144">
+                              https://www.argentina.gob.ar/generos/linea-144</a> 
+                              {e.keyword}{e.telephone}</p>
+                          <div>
+                             <button onclick="miFunc()" href="" className="button-24">Denuncia</button>
+                              <button onclick="miFunc()" href="" className="button-25">Comentario</button>
+                          </div>
+                         </div>
+                     </div>
+             </InfoWindow>
+          </Marker>
+        ))
+        }
 
         {/* <Marker key={i}
           position={statecoord} title="aqui#" icon={pin}>
