@@ -162,6 +162,11 @@ if(allsities.length>0){
              </InfoWindow>
           </Marker>
         ))}
+
+        {/* <Marker key={i}
+          position={statecoord} title="aqui#" icon={pin}>
+          </Marker> */}
+
     </div>
   );
 }

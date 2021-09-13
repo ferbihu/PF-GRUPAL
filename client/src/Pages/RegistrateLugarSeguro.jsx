@@ -72,18 +72,14 @@ export default function Registrate() {
             return p1.toLowerCase();        
         });
         }
-
-        //eslint-disable-next-line
-    const traductor=useEffect(()=>{
-        var street=camelize(input.street)
-        var town=camelize(input.town)
-        var country=camelize(input.country)
-        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${input.number}+${street}+${town}+${country}+View,+CA&key=AIzaSyDclWfFnp7AQpJjZQj7E9fsD7j6M9vPhTk`)
-        .then(resp => resp.json())
-        .then((json)=>setsitie(json));
-         },
-                 //eslint-disable-next-line
-         [sitie])        
+    // const traductor=useEffect(()=>{
+    //     var street=camelize(input.street)
+    //     var town=camelize(input.town)
+    //     var country=camelize(input.country)
+    //     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${input.number}+${street}+${town}+${country}+View,+CA&key=AIzaSyDclWfFnp7AQpJjZQj7E9fsD7j6M9vPhTk`)
+    //     .then(resp => resp.json())
+    //     .then((json)=>setsitie(json));
+    //      },[sitie])        
 
     function handleChange(e){
         setInput({
@@ -109,9 +105,11 @@ export default function Registrate() {
         var town=camelize(input.town)
         var country=camelize(input.country)
         const { data } = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${input.number}+${street}+${town}+${country}+View,+CA&key=AIzaSyAbMjLYFsoiuJmlFydaakLeC6uhqYh1iL0`)
+
         const lat = data.results[0].geometry.location.lat;
         const lng = data.results[0].geometry.location.lng;
         console.log("info",data)
+
         dispatch(postAprobation({...input,lat,lng},userId))
         await axios.post(`${REACT_APP_BACK_BASE_URL}/email/registroSafePlace`, input)
         alert("Registro creado!")
@@ -134,6 +132,18 @@ export default function Registrate() {
     const handleFilterCountrys = (e) => {
         setInput({...input,country:e.target.value})
         dispatch(byCountrys(e.target.value));
+
+
+        // var lat=parseFloat(sitie.results[0].geometry.location.lat)
+        // var lng=parseFloat(sitie.results[0].geometry.location.lng)
+
+       //console.log("conversion",lng);
+       //console.log("conversion",lat); 
+        let lat = 0;
+        let lng = 0;
+        setInput({...input,lat:lat,lng:lng,country:e.target.value})
+        dispatch(coordenadas(lat,lng));
+
       };
       const handleFilterTown = (e) => {
         setInput({...input,town:e.target.value})
