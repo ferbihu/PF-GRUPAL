@@ -77,7 +77,7 @@ export function logOutGoogle(payload) {
 export function login({ email, password }) {
   return function(dispatch){
   const user = {  email, password };
-  console.log(user);
+  //console.log(user);
   return axios.post(`${REACT_APP_BACK_BASE_URL}/auth/login`, user)
     .then(res => {
       alert("Loggeado correctamente,userId,token,guardados")  
