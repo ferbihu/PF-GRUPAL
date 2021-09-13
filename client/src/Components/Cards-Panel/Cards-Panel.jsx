@@ -1,7 +1,10 @@
 import React from 'react';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
+
+
 import { useDispatch, useSelector } from "react-redux";
 import { acceptedStatus } from '../../actions/actions';
+import { getSafePlacePanel } from '../../actions/actions';
 import axios from 'axios';
 import "./Cards-Panel.css";
 import Popup from '../Popup/Popup';
