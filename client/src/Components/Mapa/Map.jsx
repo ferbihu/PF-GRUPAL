@@ -219,9 +219,9 @@ function handleChangeOpen(markerId){
 
           </Marker>
         ))}
-        <Marker key={i}
+        {/* <Marker key={i}
           position={statecoord} title="aqui#" icon={pin}>
-          </Marker>
+          </Marker> */}
     </div>
   );
 }
@@ -232,7 +232,7 @@ export function Map() {
   return (
     <div>
       <WrappedMap
-        googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&language=en&key=AIzaSyDclWfFnp7AQpJjZQj7E9fsD7j6M9vPhTk`}
+        googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&language=en&key=AIzaSyAbMjLYFsoiuJmlFydaakLeC6uhqYh1iL0`}
         containerElement={<div style={{ height: "500px", width: "100%" }} />}
         mapElement={<div style={{ height: "100%", width: "100%" }} />}
         loadingElement={<div style={{ height: `100%` }} />}
