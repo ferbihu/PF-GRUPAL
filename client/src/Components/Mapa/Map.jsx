@@ -113,7 +113,9 @@ if(allsities.length>0){
   for(var i=0;i<allsities.length;i++){
     // eslint-disable-next-line
      var date=new Object();
-     date.description=allsities[i].name;
+     date.name=allsities[i].name;
+     date.keyword=allsities[i].keyword;
+     date.telephone=allsities[i].telephone;
      date.coord={lat:allsities[i].lat,lng:allsities[i].lng};
      sitios.push(date);
   }
@@ -154,12 +156,10 @@ if(allsities.length>0){
              <InfoWindow key={i}>    
                      <div id="content">
                         <div id="siteNotice"></div>
-                              <h1 id="firstHeading" class="firstHeading">KEY</h1>
+                              <h1 id="firstHeading" class="firstHeading">{e.keyword}</h1>
                               <div id="bodyContent">
                               <p>
-                              <a href="https://www.argentina.gob.ar/generos/linea-144">
-                              https://www.argentina.gob.ar/generos/linea-144</a> 
-                              {e.keyword}{e.telephone}</p>
+                              {e.name}    {e.telephone}</p>
                           <div>
                              <button onclick="miFunc()" href="" className="button-24">Denuncia</button>
                               <button onclick="miFunc()" href="" className="button-25">Comentario</button>
