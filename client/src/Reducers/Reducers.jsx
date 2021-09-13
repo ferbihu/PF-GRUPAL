@@ -68,7 +68,7 @@ function reducers(state = initialState, action) {
 
         userData: action.dataUser,
 
-        role: action.payload.role
+        role: action.payload2.role
 
       }
 

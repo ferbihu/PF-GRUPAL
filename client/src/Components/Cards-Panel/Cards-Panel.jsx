@@ -1,10 +1,14 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
+
 import { useDispatch, useSelector } from "react-redux";
 import { acceptedStatus } from '../../actions/actions';
+import { getSafePlacePanel } from '../../actions/actions';
 import axios from 'axios';
 import "./Cards-Panel.css";
 import Popup from '../Popup/Popup';
+import {getSafePlacePanel} from '../../actions/actions'
 const { REACT_APP_BACK_BASE_URL } = process.env
 
 
