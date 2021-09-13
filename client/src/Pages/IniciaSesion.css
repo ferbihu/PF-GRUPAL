@@ -134,4 +134,14 @@ body {
 
 .back {
   background-color: #F1EEDE;
+  display: flex;
+  flex-direction: column;
+}
+
+.line-iniciasesion{
+  background: #f17a09;
+    height: 0.1vw;
+    width: 13vw;
+    align-self: center;
+  
 }

@@ -1,9 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import { useDispatch,useSelector} from "react-redux";
-import {postAprobation, byCountrys, byTown} from '.././actions/actions';
+import {postAprobation, byCountrys, byTown,coordenadas} from '.././actions/actions';
 import axios from "axios";
 import './RegistrateLugarSeguro.css';
+const{ REACT_APP_BACK_BASE_URL} = process.env
+
 
 
 function validate(input) {
@@ -47,7 +49,7 @@ export default function Registrate() {
     const userId = useSelector((state)=> state.userId);
 
 
-
+    const [sitie,setsitie] =useState ([]);
     const [errors,setErrors] = useState({});
     const [input,setInput] = useState({
         name: "",
@@ -56,11 +58,32 @@ export default function Registrate() {
         street: "",
         number: "",
         postcode: "",
+        lat:1,
+        lng:1,
         email: "",
         telephone: "", 
         keyword: "",
         relation: "",
     })
+
+    function camelize(text) {
+        return text.replace(/^([A-Z])|[\s-_]+(\w)/g, function(match, p1, p2, offset) {
+            if (p2) return p2.toUpperCase();
+            return p1.toLowerCase();        
+        });
+        }
+
+        //eslint-disable-next-line
+    const traductor=useEffect(()=>{
+        var street=camelize(input.street)
+        var town=camelize(input.town)
+        var country=camelize(input.country)
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${input.number}+${street}+${town}+${country}+View,+CA&key=AIzaSyDclWfFnp7AQpJjZQj7E9fsD7j6M9vPhTk`)
+        .then(resp => resp.json())
+        .then((json)=>setsitie(json));
+         },
+                 //eslint-disable-next-line
+         [sitie])        
 
     function handleChange(e){
         setInput({
@@ -80,8 +103,14 @@ export default function Registrate() {
             ...input,
             [e.target.name]:e.target.value
         }));
-        dispatch(postAprobation(input,userId))
-        await axios.post('http://localhost:3001/email/registroSafePlace', input)
+        var street=camelize(input.street)
+        var town=camelize(input.town)
+        var country=camelize(input.country)
+        const { data } = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${input.number}+${street}+${town}+${country}+View,+CA&key=AIzaSyDclWfFnp7AQpJjZQj7E9fsD7j6M9vPhTk`)
+        const lat = data.results[0].geometry.location.lat;
+        const lng = data.results[0].geometry.location.lng;
+        dispatch(postAprobation({...input,lat,lng},userId))
+        await axios.post(`${REACT_APP_BACK_BASE_URL}/email/registroSafePlace`, input)
         alert("Registro creado!")
         setInput({
         name: "",
@@ -90,6 +119,8 @@ export default function Registrate() {
         street: "",
         number: "",
         postcode: "",
+        lat:0,
+        lng:0,
         email: "",
         telephone: "", 
         keyword: "",
@@ -98,8 +129,16 @@ export default function Registrate() {
         history.push('/')
     }
     const handleFilterCountrys = (e) => {
-        setInput({...input,country:e.target.value})
+        //setInput({...input,country:e.target.value})
         dispatch(byCountrys(e.target.value));
+        var lat=parseFloat(sitie.results[0].geometry.location.lat)
+        var lng=parseFloat(sitie.results[0].geometry.location.lng)
+
+       //console.log("conversion",lng);
+       //console.log("conversion",lat); 
+
+        setInput({...input,lat:lat,lng:lng,country:e.target.value})
+        dispatch(coordenadas(lat,lng));
       };
       const handleFilterTown = (e) => {
         setInput({...input,town:e.target.value})
@@ -202,6 +241,7 @@ export default function Registrate() {
                      {errors.keyword && (
                         <p className='error'>{errors.keyword}</p>
                     )}
+                            {/* eslint-disable-next-line */}
                      <div className="caja"><a href='#' className='cuadradito'>?</a><span className="info">La palabra clave la utilizarán para pedir ayuda cuando recurran al lugar. Elegí algo representativo de tu establecimiento.</span></div>
                <input className='formrelation'
                     autoComplete = 'off'
@@ -215,7 +255,7 @@ export default function Registrate() {
                         <p className='error'>{errors.relation}</p>
                     )}
 
-               <button className="btninput" type='submit' disabled={!input.name || !input.town || !input.street  || !input.number || !input.postcode  || !input.email || !input.telephone || !input.keyword || !input.relation || !input.country } onClick={(e) => handleSubmit(e)}>Registrar</button>
+               <button className="btninput" type='submit'  onClick={(e) => handleSubmit(e)}>Registrar</button>
            </form>
            </div>
         </div>

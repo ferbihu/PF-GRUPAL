@@ -49,15 +49,8 @@
 .country-card{
     font-size: 1vw;
 }
-
-.Aceptar{
+.btnmysp{
     background-color: rgb(117, 197, 117);
     margin: 1vw;
-    width: auto;
-}
-
-.Rechazar{
-    background-color: rgb(248, 110, 110);
-    margin: 0.1vw 1vw 0.1vw 1vw;
     width: auto;
 }

@@ -4,6 +4,7 @@ import { addUser } from "../../actions/actions";
 import { connect } from "react-redux";
 import axios from "axios";
 import "./Registrate.css";
+const{ REACT_APP_BACK_BASE_URL} = process.env
 
 function Register({ addUser, responseGoogle }) {
   const [errors, setErrors] = useState({});
@@ -12,7 +13,7 @@ function Register({ addUser, responseGoogle }) {
     email: "",
     password: "",
   });
-
+        //eslint-disable-next-line
   const dispatch = useDispatch();
 
   const validate = (input) => {
@@ -51,7 +52,7 @@ function Register({ addUser, responseGoogle }) {
     e.preventDefault();
     alert("Registration Successful")
     addUser(input);
-    await axios.post('http://localhost:3001/email/welcome', input)
+    await axios.post(`${REACT_APP_BACK_BASE_URL}/email/welcome`, input)
     setInput({
       name: "",
       email: "",
@@ -60,13 +61,14 @@ function Register({ addUser, responseGoogle }) {
   };
 
   return (
-    <div>
+    <div className="fondo-registrate">
       <h2 className="txtRegistrate">Registrate</h2>
-      <br/>
+
+      <div className="line-registrate"></div>
       <div className="card">
         <form className="regis-form" onSubmit={(e) => handleSubmit(e)}>
           <div>
-            <br/>
+            <br />
             <label className="p3">Nombre</label>
             <input
               className={`${errors.name && "danger"}`}
@@ -74,6 +76,7 @@ function Register({ addUser, responseGoogle }) {
               name="name"
               onChange={handleInputChange}
               value={input.name}
+                      //eslint-disable-next-line
               className="reg-username"
               placeholder="Ingrese su nombre"
             />
@@ -88,6 +91,7 @@ function Register({ addUser, responseGoogle }) {
               placeholder="nombre@ejemplo.com"
               onChange={(e) => handleInputChange(e)}
               value={input.email}
+                      //eslint-disable-next-line
               className="reg-email"
             />
             {errors.email && <p className="danger">{errors.email}</p>}
@@ -101,6 +105,7 @@ function Register({ addUser, responseGoogle }) {
               placeholder="Más de 6 carácteres"
               onChange={(e) => handleInputChange(e)}
               value={input.password}
+                      //eslint-disable-next-line
               className="reg-password"
             />
             {errors.password && <p className="danger">{errors.password}</p>}

@@ -1,21 +1,46 @@
 import React from 'react';
 import { useState } from 'react';
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getallsafesitie } from '../../actions/actions';
+import { acceptedStatus } from '../../actions/actions';
+import axios from 'axios';
 import "./Cards-Panel.css";
 import Popup from '../Popup/Popup';
+const { REACT_APP_BACK_BASE_URL } = process.env
 
-export default function Card({ name, country, street, number, town, email, telephone, postcode }) {
+
+
+
+
+export default function Card({ name, country, street, number, town, email, telephone, postcode, status, id }) {
     const dispatch = useDispatch();
+
     const [buttonPopup, setButtonPopup] = useState(false)
-    /* 
-        useEffect(() => {
-            dispatch(getallsafesitie())
-        }, [dispatch]);
-    
-        const lugaresSeguros = useSelector((state) => state.stateSitie)
-        console.log(lugaresSeguros) */
+
+
+    // const lugaresSeguros = useSelector((state) => state.filtered_safePlaces)
+
+    let [statusOriginal, setstatusOriginal] = useState(1)
+
+
+    //const lugaresSeguros = useSelector((state) => state.filtered_safePlaces)
+
+    const user = useSelector((state) => state.userData)
+
+    const acceptedStatusHandler = async () => {
+        console.log("entro al accepted handler" + id + statusOriginal)
+        console.log(statusOriginal + " estado original")
+        dispatch(acceptedStatus(id))
+        //dispatch(getSafePlacePanel())
+        setstatusOriginal(statusOriginal += 2)
+        console.log(statusOriginal + " estadonuevo")
+        await axios.post(`${REACT_APP_BACK_BASE_URL}/email/accepted`, user)
+
+
+    }
+    useEffect(() => {
+        dispatch(getSafePlacePanel())
+    }, [statusOriginal]);
+
 
     return (
 
@@ -23,18 +48,20 @@ export default function Card({ name, country, street, number, town, email, telep
 
             {<div className="card-style">
 
-                <div className="status-card">Pendiente</div>
+                <div className="status-card" value={status}>{status}</div>
                 <div className="name-card"><span className="span-card">{name}</span></div>
                 <div className="linea-card"></div>
                 <div className="country-card"><span className="span-card">{town}, {country}</span></div>
                 <div className="country-card"><span className="span-card">Dirección:</span> {street} {number}</div>
                 <div className="country-card"><span className="span-card">E-mail: </span>{email}</div>
                 <div className="country-card"><span className="span-card">Celular:</span> {telephone}</div>
-                <button className="Aceptar">Aceptar</button>
-                <button onClick={() => setButtonPopup(true)} className="Rechazar">Rechazar</button>
+
+                {status !== "accepted" && <button className="Aceptar" onClick={() => acceptedStatusHandler(id)}>Aceptar</button>}
+                {status !== "rejected" && <button onClick={() => setButtonPopup(true)} className="Rechazar">Rechazar</button>}
+
             </div>
             }
-            <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+            <Popup trigger={buttonPopup} setTrigger={setButtonPopup} id={id}>
             </Popup>
         </>
 

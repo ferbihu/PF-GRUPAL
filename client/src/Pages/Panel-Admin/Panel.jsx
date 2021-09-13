@@ -1,8 +1,7 @@
 import React from 'react';
-import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterByCountry, getallsafesitie } from '../../actions/actions';
+import { filterByCountry, getSafePlacePanel, filterPlacesByStatus } from '../../actions/actions';
 import "./Panel.css"
 import Card from '../../Components/Cards-Panel/Cards-Panel';
 
@@ -12,19 +11,29 @@ export default function Panel() {
 
     const dispatch = useDispatch();
 
+    console.log(window.location)
+
     useEffect(() => {
-        dispatch(getallsafesitie())
+        dispatch(getSafePlacePanel())
     }, [dispatch]);
 
     const lugaresSeguros = useSelector((state) => state.filtered_safePlaces)
-    const user = useSelector((state) => state.user)
+
 
 
     function handleFilterCountry(e) {
         dispatch(filterByCountry(e.target.value))
     }
+
+    async function handleClick(e) {
+        e.preventDefault();
+        console.log(e.target.value)
+        dispatch(filterPlacesByStatus(e.target.value))
+    }
+
+
     return (
-        <>
+        <div className="fondo-panel-principal">
             <div className="titular">
                 <div className="titulo-panel">
                     Panel de control
@@ -34,8 +43,10 @@ export default function Panel() {
             {/* <div className="nombre">{user}</div> */}
             <div className="fondopanel">
                 <div className="filtrados-panel">
-                    <button className="Pendientes">Pendientes</button>
-                    <button className="Denunciados">Denunciados</button>
+                    <button className="Pendientes" value="pending" onClick={(e) => handleClick(e)}>Pendientes</button>
+                    <button className="Denunciados" value="warning" onClick={(e) => handleClick(e)}>Denunciados</button>
+                    <button className="Aceptados" value="accepted" onClick={(e) => handleClick(e)}>Aceptados</button>
+                    <button className="Rechazados" value="rejected" onClick={(e) => handleClick(e)}>Rechazados</button>
 
                     <select onChange={e => handleFilterCountry(e)}>
                         <option value="Argentina">Argentina</option>
@@ -57,14 +68,17 @@ export default function Panel() {
                             email={e.email}
                             telephone={e.telephone}
                             town={e.town}
-                            postcode={e.postcode} />
+                            postcode={e.postcode}
+                            status={e.status}
+                            id={e.id}
+                        />
                     ))
                     }
                 </div>
 
 
             </div>
-        </>
+        </div>
 
 
     )

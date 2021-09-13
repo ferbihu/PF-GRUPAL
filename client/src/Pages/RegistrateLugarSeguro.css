@@ -1,27 +1,34 @@
 .pageregistro{
-    font-family: Montserrat;
+    font-family: 'Montserrat', sans-serif;
     justify-content: center;
     text-align: center;
     margin-top: 0px;
-} 
-/* .title{
-    text-decoration: underline;
-    text-decoration-color: #FEA166;
-} */
+   background-color: #F1EEDE;
+   display: flex;
+   flex-direction: column;
+}
+.title{
+    font-size: 2vw;
+    align-self: center; 
+    margin-bottom: 0.5vw;
+}
 .postlugarSeguro-line{
     background: #f17a09;
-    height: 4px;
-    width: 490px;
-    margin-left: 430px;
+    height: 0.1vw;
+    width: 24vw;
+    align-self: center;
+    
 }
 .primerparrafo{
     margin-top: 20px;
+    font-weight: 900;
 }
 .segundoparrafo{
 
     margin-top: 4px;
     line-height: 24px;
     margin-bottom: 20px;
+    font-weight: 900;
 }
 
 .rectangulo {

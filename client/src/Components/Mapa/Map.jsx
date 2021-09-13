@@ -5,15 +5,19 @@ import {
   Marker,
   InfoWindow,
 } from "react-google-maps";
-
+// eslint-disable-next-line
 import { compose, withProps } from "recompose";
 import React, { useEffect, useState } from "react";
+// eslint-disable-next-line
 import ReactDOM from "react-dom";
 import { useSelector, useDispatch } from "react-redux";
+// eslint-disable-next-line
 import {connect} from 'react-redux';
-import {getallsafesitie} from '../../actions/actions.js';
+import {getSafeplace} from '../../actions/actions.js';
 
 import pin from "./../../imgs/iconmapp.png"
+// eslint-disable-next-line
+import Mapa from "./Mapa.css"
 
 
 
@@ -23,6 +27,7 @@ export default function Maps(props) {
 
   let map;
   let marker;
+  // eslint-disable-next-line
   let watchID;
   let geoLoc;
 
@@ -63,50 +68,55 @@ export default function Maps(props) {
   }
 
   function errorHandler(err) {
+    // eslint-disable-next-line
       if(err.code == 1) {
           alert("Error: Acceso denegado");
+          // eslint-disable-next-line
       } else if(err.code == 2) {
           alert("Error: Position no existe o no se encuentra");
       }
   }    
   
-
+// eslint-disable-next-line
 const [statecoord,setCoord]=useState({lat:0,long:0});
 
 
-function componentWillMount(){
-  if (!!navigator.geolocation) {
-    navigator.geolocation.watchPosition((position) => {
-      setCoord({
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-      });
-    },
-    (err) => console.log(err),
-    { enableHighAccuracy: true, timeout: 10000, maximumAge: 10000 },
-    );
-  } else {
-    //  // No Support Web
-    alert('El navegador no soporta la geolocalización,')
-  }
-}
+// function componentWillMount(){
+//   if (!!navigator.geolocation) {
+//     navigator.geolocation.watchPosition((position) => {
+//       setCoord({
+//         lat: position.coords.latitude,
+//         lng: position.coords.longitude,
+//       });
+//     },
+//     (err) => console.log(err),
+//     { enableHighAccuracy: true, timeout: 10000, maximumAge: 10000 },
+//     );
+//   } else {
+//     //  // No Support Web
+//     alert('El navegador no soporta la geolocalización,')
+//   }
+// }
 
-componentWillMount();
+// componentWillMount();
 
 
   const dispatch = useDispatch();
-
+// eslint-disable-next-line
   const todo=useEffect(async() => {
     console.log(props)
     await initMap()
-    dispatch(getallsafesitie())
-    },[])
+    dispatch(getSafeplace())
+    },
+    // eslint-disable-next-line
+    [])
 
   const allsities = useSelector((state) => state.stateSitie);
-
+// eslint-disable-next-line
   const coord = {lat:-34.607914 ,lng: -58.370321}
+  // eslint-disable-next-line
   const descrip='hola'
-  
+  // eslint-disable-next-line
   var locations = [
     {description:'First Safe',coord:{lat:-34.607914,lng:-58.370321}},
     {description:'Second Safe',coord:{lat: -34.596152, lng:-58.383100}},
@@ -123,6 +133,7 @@ componentWillMount();
 if(allsities.length>0){
    
   for(var i=0;i<allsities.length;i++){
+    // eslint-disable-next-line
      var date=new Object();
      date.description=allsities[i].name;
      date.coord={lat:allsities[i].lat,lng:allsities[i].lng};
@@ -133,7 +144,7 @@ if(allsities.length>0){
   console.log("no hizo dispacht")
 }
 
-
+// eslint-disable-next-line
 const contentString =
 '<div id="content">' +
 '<div id="siteNotice">' +
@@ -153,7 +164,7 @@ const contentString =
 
 const [stateOpen,setState] = useState({isOpen:false});
 
-
+// eslint-disable-next-line
 function handleChangeOpen(markerId){
   setState({
       ...stateOpen,
@@ -170,7 +181,16 @@ function handleChangeOpen(markerId){
         <GoogleMap defaultZoom={11} defaultCenter={myLatiLngi} />
         <Marker key={100}
           position={myLatiLngi} icon={pin}
-        ></Marker> 
+        >
+          <InfoWindow >    
+                     <div id="content">
+                        <div id="siteNotice"></div>
+                              <h1 id="firstHeading" class="firstHeading">AQUI</h1>
+                              <div id="bodyContent">
+                         </div>
+                     </div>
+             </InfoWindow>
+          </Marker> 
         </div> :
         <div>
         <Marker></Marker> 
@@ -179,26 +199,28 @@ function handleChangeOpen(markerId){
       {
         sitios.map((e,i)=>(
           <Marker key={i}
-          position={e.coord} title={e.description} icon={pin}
-          />
-        ))}
-        <Marker key={i}
-          position={statecoord} title="aqui#" icon={pin}>
-                 <InfoWindow >    
+          position={e.coord} title={e.description} icon={pin}>
+             <InfoWindow key={i}>    
                      <div id="content">
                         <div id="siteNotice"></div>
-                              <h1 id="firstHeading" class="firstHeading">Uluru</h1>
+                              <h1 id="firstHeading" class="firstHeading">El gato</h1>
                               <div id="bodyContent">
                               <p>
-                              <button onclick="miFunc()">Denuncia</button>
-                              <button onclick="miFunc()">Comentario</button>
-                              <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">
-                              https://en.wikipedia.org/w/index.php?title=Uluru</a> 
-                              last visited June 22, 2009).</p>
+                              <a href="https://www.argentina.gob.ar/generos/linea-144">
+                              https://www.argentina.gob.ar/generos/linea-144</a> 
+                              {e.keyword}{e.telephone}</p>
+                          <div>
+                             <button onclick="miFunc()" href="" className="button-24">Denuncia</button>
+                              <button onclick="miFunc()" href="" className="button-25">Comentario</button>
+                          </div>
                          </div>
                      </div>
              </InfoWindow>
 
+          </Marker>
+        ))}
+        <Marker key={i}
+          position={statecoord} title="aqui#" icon={pin}>
           </Marker>
     </div>
   );
