@@ -228,8 +228,12 @@ export function filterSafePlacesById(payload, userId){
 
 export function updateDataUser(id, data) {
   return function  (dispatch) {
+    const config = {
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
+    };
     const updateData = { id, data };
-    axios.patch("http://localhost:3001/user/:id", updateData).then((res) =>
+    console.log(updateData)
+    axios.patch(`http://localhost:3001/user/${id}`, updateData,config).then((res) =>
       dispatch({
         type: "UPDATE_DATA_USER",
         payload: res.data,
