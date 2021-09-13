@@ -5,19 +5,14 @@ import {
   Marker,
   InfoWindow,
 } from "react-google-maps";
-// eslint-disable-next-line
-import { compose, withProps } from "recompose";
+
 import React, { useEffect, useState } from "react";
-// eslint-disable-next-line
-import ReactDOM from "react-dom";
 import { useSelector, useDispatch } from "react-redux";
 // eslint-disable-next-line
 import {connect} from 'react-redux';
 import {getSafeplace} from '../../actions/actions.js';
 
 import pin from "./../../imgs/iconmapp.png"
-// eslint-disable-next-line
-import Mapa from "./Mapa.css"
 
 
 
@@ -77,29 +72,6 @@ export default function Maps(props) {
       }
   }    
   
-// eslint-disable-next-line
-const [statecoord,setCoord]=useState({lat:0,long:0});
-
-
-// function componentWillMount(){
-//   if (!!navigator.geolocation) {
-//     navigator.geolocation.watchPosition((position) => {
-//       setCoord({
-//         lat: position.coords.latitude,
-//         lng: position.coords.longitude,
-//       });
-//     },
-//     (err) => console.log(err),
-//     { enableHighAccuracy: true, timeout: 10000, maximumAge: 10000 },
-//     );
-//   } else {
-//     //  // No Support Web
-//     alert('El navegador no soporta la geolocalización,')
-//   }
-// }
-
-// componentWillMount();
-
 
   const dispatch = useDispatch();
 // eslint-disable-next-line
@@ -143,35 +115,6 @@ if(allsities.length>0){
 }else{
   console.log("no hizo dispacht")
 }
-
-// eslint-disable-next-line
-const contentString =
-'<div id="content">' +
-'<div id="siteNotice">' +
-"</div>" +
-'<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
-'<div id="bodyContent">' +
-"<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large " +
-"sandstone rock formation in the southern part of the " +
-"Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
-"south west of the nearest large town, Alice Springs; 450&#160;km " +
-'<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
-"https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
-"(last visited June 22, 2009).</p>" +
-"</div>" +
-"</div>";
-
-
-const [stateOpen,setState] = useState({isOpen:false});
-
-// eslint-disable-next-line
-function handleChangeOpen(markerId){
-  setState({
-      ...stateOpen,
-      isOpen : true
-  })
-}
-
   return (
     <div>
       
@@ -199,11 +142,12 @@ function handleChangeOpen(markerId){
       {
         sitios.map((e,i)=>(
           <Marker key={i}
-          position={e.coord} title={e.description} icon={pin}>
+          position={e.coord} title={e.keyword} icon={pin}
+          >
              <InfoWindow key={i}>    
                      <div id="content">
                         <div id="siteNotice"></div>
-                              <h1 id="firstHeading" class="firstHeading">El gato</h1>
+                              <h1 id="firstHeading" class="firstHeading">KEY</h1>
                               <div id="bodyContent">
                               <p>
                               <a href="https://www.argentina.gob.ar/generos/linea-144">
@@ -216,12 +160,13 @@ function handleChangeOpen(markerId){
                          </div>
                      </div>
              </InfoWindow>
-
           </Marker>
         ))}
+
         {/* <Marker key={i}
           position={statecoord} title="aqui#" icon={pin}>
           </Marker> */}
+
     </div>
   );
 }
