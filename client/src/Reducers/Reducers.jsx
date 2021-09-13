@@ -132,7 +132,6 @@ function reducers(state = initialState, action) {
         case "UPDATE_DATA_USER":
         return {
           ...state,
-          userId: state.userId.map((user) => user.id === action.payload.user.id)
         };
       
     default:
