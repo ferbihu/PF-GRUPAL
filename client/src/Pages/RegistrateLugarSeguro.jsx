@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { postAprobation, byCountrys, byTown, coordenadas } from '.././actions/actions';
 import axios from "axios";
 import './RegistrateLugarSeguro.css';
+import swal from "sweetalert";
 const { REACT_APP_BACK_BASE_URL } = process.env
 
 
@@ -112,7 +113,7 @@ export default function Registrate() {
 
         dispatch(postAprobation({ ...input, lat, lng }, userId))
         await axios.post(`${REACT_APP_BACK_BASE_URL}/email/registroSafePlace`, input)
-        alert("Registro creado!")
+        swal("Tu lugar fue registrado", "Verficá tu mail para continuar", "success");    
         setInput({
             name: "",
             country: "",

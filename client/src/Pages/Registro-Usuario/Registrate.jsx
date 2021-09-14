@@ -4,6 +4,8 @@ import { addUser } from "../../actions/actions";
 import { connect } from "react-redux";
 import axios from "axios";
 import "./Registrate.css";
+import swal from "sweetalert";
+
 const{ REACT_APP_BACK_BASE_URL} = process.env
 
 function Register({ addUser, responseGoogle }) {
@@ -50,7 +52,7 @@ function Register({ addUser, responseGoogle }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Registration Successful")
+    swal("Usuario creado", "Ya podes iniciar sesión!", "success");    
     addUser(input);
     await axios.post(`${REACT_APP_BACK_BASE_URL}/email/welcome`, input)
     setInput({
