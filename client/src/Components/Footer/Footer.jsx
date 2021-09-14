@@ -7,29 +7,21 @@ export default function Footer() {
         <footer>
 
             <div className="logo">
-                <h3 className="footer-logo">S.</h3>
+                <h3 className="footer-logo">Safety</h3>
                 <h5 className="safety-footer">Safety, 2021</h5>
             </div>
 
             <ul className="footer-ul">
                 <li className="footer-li">
-                    <Link to="/">Home</Link>
+                    <Link to="/elproyecto">Sobre el proyecto</Link>
                 </li>
                 <li className="footer-li">
-                    <Link to="/conocenos">Conocenos</Link>
+                    <Link to="/registratelugarseguro">Registrá un lugar seguro</Link>
                 </li>
                 <li className="footer-li">
-                    <Link to="/foro">Foro</Link>
+                    <Link to="/conocenos">¿Quiénes somos?</Link>
                 </li>
-                <li className="footer-li">
-                    <Link to="/lugaresseguros">Lugares Seguros</Link>
-                </li>
-                <li className="footer-li">
-                    <Link to="/iniciasesion">Iniciar Sesión</Link>
-                </li>
-                <li className="footer-li">
-                    <Link to="/registrate">Registrate</Link>
-                </li>
+
             </ul>
 
         </footer>
