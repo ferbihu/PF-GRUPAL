@@ -12,18 +12,9 @@
     margin-bottom: 0.5vw;
 }
 
-.parrafo-conocenos{
-    
-    align-self: center;
-    font-size: 1.5vw;
-    text-align: center;
-    padding: 1vw;
-    line-height: 2.5vw;
-    
-}
 
 
-.container-conocenos {
+.container-desarrolladoras {
     display: flex;
     flex-direction: column;
     padding: 2vw 5vw 5vw 5vw;
@@ -56,6 +47,10 @@
  align-self: center;
  background-color: cornsilk;
  border-radius: 20px;
+}
+.perfil:hover{
+    background-color: rgb(243, 224, 182);
+    transition: 0.5s ease;
 }
 
 .nombre{

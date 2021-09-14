@@ -15,11 +15,18 @@ footer {
 .footer-ul{
     list-style: none;
     width: 100%;
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
+    display: flex;
+    flex-direction: column;
     font-size: 0.9vw;
     
+    width: 20vw;
+    margin-left: 40vw;
+    font-weight: 700;
+    
 } 
+li{
+    align-self: flex-start;
+}
 
 /*  */
 

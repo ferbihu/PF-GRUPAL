@@ -10,7 +10,7 @@ import github from "../../imgs/github.png"
 
 export default function Conocenos() {
     return (
-        <div className="container-conocenos">
+        <div className="container-desarrolladoras">
 
 
             <div className="titulo-desarrollada">Desarrollada por</div>
