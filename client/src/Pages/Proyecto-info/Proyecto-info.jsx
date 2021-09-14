@@ -3,7 +3,7 @@ import "./Proyecto-info.css"
 import Toggle from '../../Components/Toggle'
 
 import { AnimateSharedLayout } from "framer-motion"
-import home from "../../imgs/home.png"
+
 import gps from "../../imgs/gps.png"
 
 
