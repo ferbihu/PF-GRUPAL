@@ -4,7 +4,7 @@ import GoogleLogin from "react-google-login";
 import { useDispatch } from "react-redux";
 import { renderUserName, login } from "../actions/actions";
 import { useHistory } from "react-router-dom";
-
+import swal from "sweetalert";
 const validate = (input) => {
   let errors = {};
   if (!input.email) {
@@ -54,7 +54,7 @@ export default function IniciaSesion() {
 
       history.push("/profile");
     } else {
-      alert("Algo salió mal...");
+      swal("Oh oh, algo salió mal", "Inténtelo nuevamente", "warning");    
     }
   }
 
