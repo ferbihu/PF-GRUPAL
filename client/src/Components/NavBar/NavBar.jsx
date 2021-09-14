@@ -24,7 +24,7 @@ const Nav = () => {
                 </div>
                 <ul className="ul-nav">
                     <li>
-                        <Link to="/conocenos">Conocenos</Link>
+                        <Link to="/elproyecto">Sobre el proyecto</Link>
                     </li>
                     <li>
                         <Link to="/foro">Foro</Link>

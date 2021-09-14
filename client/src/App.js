@@ -8,7 +8,7 @@ import './App.css';
 //Import Pages
 import Footer from "./Components/Footer/Footer.jsx";
 import Foro from "../src/Pages/Foro";
-import Conocenos from "./Pages/Conocenos";
+import Conocenos from "../src/Pages/Conocenos/Conocenos.jsx"
 import IniciaSesion from "./Pages/IniciaSesion";
 import RegistrateLugarSeguro from "./Pages/RegistrateLugarSeguro";
 // import LugaresSeguros from "./Pages/LugaresSeguros";
@@ -17,6 +17,7 @@ import Registrate from "./Pages/Registro-Usuario/Registrate";
 import Nav from "./Components/NavBar/NavBar";
 import Panel from "./Pages/Panel-Admin/Panel";
 import Sities from "./Pages/Sities/Sitie";
+import ProyectoInfo from "./Pages/Proyecto-info/Proyecto-info";
 
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
       <Nav/>
       <Switch>
       <Route exact path="/" component={Landing}/>
-      <Route exact path="/conocenos" component={Conocenos}/> 
+      <Route exact path="/elproyecto" component={ProyectoInfo}/> 
       <Route exact path="/lugaresseguros" component={Sities}/>
       <Route exact path="/registratelugarseguro" component={RegistrateLugarSeguro}/>
       <Route exact path="/iniciasesion" component={IniciaSesion}/>
@@ -36,6 +37,8 @@ function App() {
       <Route exact path="/registrate" component={Registrate}/>
       <Route exact path="/foro" component={Foro}/>
       <Route exact path="/panel" component={Panel}/>
+      <Route exact path="/conocenos" component={Conocenos}/>
+
       </Switch>
       <Footer/>
     </div>
