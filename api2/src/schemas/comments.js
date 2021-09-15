@@ -1,6 +1,7 @@
 const Joi = require('joi');
 
 const postCommentSchema = Joi.object({
+    title:Joi.string().required(),
     description:Joi.string().required(),
     date:Joi.date().required(),
     status:Joi.string(),

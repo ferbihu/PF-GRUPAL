@@ -4,6 +4,10 @@ const  { sequelize } = require('../db');
 
 module.exports = function (sequelize) {
     return sequelize.define('comments', {
+        title: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+        },
         description: {
             type: DataTypes.TEXT,
             allowNull: false,
