@@ -11,7 +11,7 @@ export default function LugaresSeguros() {
             <h1>LUGARES SEGUROS</h1>
             </div>
             </div>
-            <Map/>
+            <Map style="z-index: -5"/>
             <div className="back">
             <br/>
             <Link to='/registratelugarseguro'><button className="btnainput">Registrá un lugar seguro</button></Link>
