@@ -1,4 +1,6 @@
 const { DataTypes } = require('sequelize');
+const  { sequelize } = require('../db');
+
 
 module.exports = function (sequelize) {
     return sequelize.define('comments', {
@@ -9,7 +11,11 @@ module.exports = function (sequelize) {
         date: {
             type: DataTypes.DATEONLY,
             allowNull: false
-        }
+        },
+        status:{
+            type:DataTypes.ENUM("accepted","delete"),
+            allowNull: false
+        },
     }, { timestamps: false }
     );
 };
