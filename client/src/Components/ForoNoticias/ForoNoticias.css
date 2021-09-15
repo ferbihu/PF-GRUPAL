@@ -1,3 +1,4 @@
+
 .proyectocontainer{
     padding: 1vw 5vw 1vw 5vw;
     background-color: #F1EEDE;
@@ -7,6 +8,7 @@
 }
 .tituloforo{
     font-size: 3vw;
+
     text-align: center;
     align-self: center; 
     margin-bottom: 0.5vw;
@@ -33,13 +35,14 @@
     font-size: 1.8vw;
     margin-left: -350px;
     align-self: center;
-    margin-top: 1vw; 
+    margin-top: 1vw;
     margin-bottom: 0.5vw;
 }
 .rectangulonoticia {
     background-color: #FFFFFF;
     margin:auto;
     box-shadow: 0 0 1rem rgba(128, 128, 128, 0.3);
+
     width: 1000px; 
     height: 500px; 
     border-radius: 20px;
@@ -142,6 +145,7 @@
     margin-top: 10px;
     font-size: 12px; 
 }
+
 .btnmascomentarios{
     border:  1px solid #FEA166;
     background-color: #FEA166;
