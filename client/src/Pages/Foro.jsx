@@ -1,9 +1,9 @@
 import React from "react";
-
+import ForoPortada from '../Components/ForoPortada/ForoPortada';
 export default function Foro() {
     return (
         <div>
-            <h1>Hola, soy el Foro</h1>
+            <ForoPortada></ForoPortada>
         </div>
     )
 }
