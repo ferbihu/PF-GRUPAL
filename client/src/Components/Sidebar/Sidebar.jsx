@@ -4,18 +4,12 @@ import React, { useState } from "react";
 //import react pro sidebar components
 import {
   ProSidebar,
-  Menu,
-  MenuItem,
   SidebarHeader,
-  SidebarFooter,
   SidebarContent,
 } from "react-pro-sidebar";
 
 //import icons from react icons
-import { FaList, FaRegHeart } from "react-icons/fa";
-import { FiHome, FiLogOut, FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
-import { RiPencilLine } from "react-icons/ri";
-import { BiCog } from "react-icons/bi";
+import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 
 
 //import sidebar css from react-pro-sidebar module and our custom css 
@@ -60,11 +54,6 @@ const Sidebar = ({id, name, telephone, street, number, keyword, handleMarkerClic
             <h3> Este no es un lugar seguro? Denuncialo</h3>
             <button>Dejar una reseña</button>
           </SidebarContent>
-          <SidebarFooter>
-            <Menu iconShape="square">
-              <MenuItem icon={<FiLogOut />}>Logout</MenuItem>
-            </Menu>
-          </SidebarFooter>
         </ProSidebar>
       </div>
     </>
