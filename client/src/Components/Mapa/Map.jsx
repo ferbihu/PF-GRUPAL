@@ -11,9 +11,11 @@ import { useSelector, useDispatch } from "react-redux";
 // eslint-disable-next-line
 import {connect} from 'react-redux';
 import {getSafeplace} from '../../actions/actions.js';
-
+import Sidebar from "../Sidebar/Sidebar.jsx";
 import pin from "./../../imgs/iconmapp.png"
-
+// import { Component } from "react-addons";
+// const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
+// import "../Sidebar/Sidebar.css";
 
 
 export default function Maps(props) {
@@ -84,6 +86,15 @@ export default function Maps(props) {
     [])
 
   const allsities = useSelector((state) => state.stateSitie);
+  console.log(allsities);
+  const [input, setInput] = useState(false);
+  const handleMarkerClick = (e) => {
+    if (input === false) {
+      setInput(true)
+    } else {
+      setInput(false)
+    }
+  }
 // eslint-disable-next-line
   const coord = {lat:-34.607914 ,lng: -58.370321}
   // eslint-disable-next-line
@@ -116,9 +127,12 @@ if(allsities.length>0){
      date.name=allsities[i].name;
      date.keyword=allsities[i].keyword;
      date.telephone=allsities[i].telephone;
+     date.street=allsities[i].street;
+     date.number=allsities[i].number;
      date.coord={lat:allsities[i].lat,lng:allsities[i].lng};
      sitios.push(date);
   }
+  console.log(sitios, "aca sitios")
  
 }else{
   console.log("no hizo dispacht")
@@ -129,7 +143,7 @@ if(allsities.length>0){
       {
         myLatiLngi.lat? 
         <div>
-        <GoogleMap defaultZoom={11} defaultCenter={myLatiLngi} />
+        <GoogleMap defaultZoom={11} defaultCenter={myLatiLngi}/>
         <Marker key={100}
           position={myLatiLngi} icon={pin}
         >
@@ -151,15 +165,19 @@ if(allsities.length>0){
         bandera?
         sitios.map((e,i)=>(
           <Marker key={i}
-          position={e.coord} title={e.keyword} icon={pin}
+          position={e.coord} title={e.keyword} icon={pin} id={e.id} onClick={() => handleMarkerClick(e)}
           >
+              {
+                  input && <Sidebar id={e.id} name={e.name} telephone={e.telephone} street={e.street} number={e.number} keyword={e.keyword} handleMarkerClick={handleMarkerClick}/>
+              }
              <InfoWindow key={i}>    
                      <div id="content">
                         <div id="siteNotice"></div>
                               <h1 id="firstHeading" class="firstHeading">{e.keyword}</h1>
                               <div id="bodyContent">
                               <p>
-                              {e.name}    {e.telephone}</p>
+                              {e.name}</p>
+                              <p>{e.telephone}</p>
                           <div>
                              <button onclick="miFunc()" href="" className="button-24">Denuncia</button>
                               <button onclick="miFunc()" href="" className="button-25">Comentario</button>
@@ -207,7 +225,7 @@ export function Map() {
     <div>
       <WrappedMap
         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&language=en&key=AIzaSyAbMjLYFsoiuJmlFydaakLeC6uhqYh1iL0`}
-        containerElement={<div style={{ height: "500px", width: "100%" }} />}
+        containerElement={<div style={{ height: "100vh", width: "100%"}} />}
         mapElement={<div style={{ height: "100%", width: "100%" }} />}
         loadingElement={<div style={{ height: `100%` }} />}
       />
