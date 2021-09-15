@@ -45,8 +45,8 @@ const Comment = commentModel(sequelize);
 const Map = mapModel(sequelize);
 const SafePlace = safePlaceModel(sequelize);
 //uno a muchos, viaja el id del usuario que hizo el comentario
-Comment.belongsTo(User)
-User.hasMany(Comment)
+Comment.belongsTo(User,{as:"commentCreator",foreignKey:"userId"})
+User.hasMany(Comment,{as:"commentUser",foreignKey:"userId"})
 
 User.hasMany(SafePlace,{as:"safePlaceUser",foreignKey:"userId"});
 //un lugar seguro pertenece a un usuario 

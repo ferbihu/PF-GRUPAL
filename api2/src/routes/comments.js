@@ -1,27 +1,15 @@
-const { Router } = require('express');
+const {Router} = require ('express');
+const { getComments,postComments,changeStatusComments } = require('../controllers/comments');
+const {postCommentSchema} = require('../schemas/comments');
+const {validateBody} =require('../middlewares/validateSchema');
+const {checkJwt} = require('../middlewares/jwt');
+const {isAdminUser} = require('../middlewares/user');
+
 const router = Router();
-const { Comment, User } = require('../db.js');
 
-router.post('/', async(req, res) => {
-    let {
-        id,
-        description,
-        date
-    } = req.body;
+router.get('/',getComments);
+router.post('/',checkJwt,validateBody(postCommentSchema),postComments);
+router.post('/:id/:status',checkJwt,isAdminUser,changeStatusComments);
 
-    const addComment = await Comment.create({
-        description,
-        date
-    });
+module.exports = router;
 
-    const createComment = await User.findAll({
-        where: {
-            id
-        }
-    });
-
-    await addComment.setUser(createComment.id)
-    return res.status(200).send('Gracias por dejar tu comentario <3') 
-});
-
-module.exports = router; 
