@@ -1,0 +1,110 @@
+.tituloforo{
+    font-size: 2vw;
+    text-align: center;
+    align-self: center; 
+    margin-bottom: 0.5vw;
+}
+.foroNoticiasSeguro-line{
+    background: #f17a09;
+    height: 0.1vw;
+    width: 10vw;
+    align-self: center;
+    
+}
+.titulonoti{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2vw;
+    text-align:start;
+    align-self: center; 
+    margin-bottom: 0.5vw;
+}
+.rectangulonoticia {
+    background-color: #FFFFFF;
+    margin:auto;
+    box-shadow: 0 0 1rem rgba(128, 128, 128, 0.3);
+    width: 900px; 
+    height: 600px; 
+    border-radius: 20px;
+}
+.btnnotianterior{ 
+    border:  1px solid #FEA166;
+    background-color: #FEA166;
+    width: 140px;
+    height: 30px; 
+    border-radius:20px;
+    margin-left: 340px;
+    margin-top: 20px;
+    justify-content:center;
+    align-items:center;
+    align-content: center;
+    display:fixed;
+    font-size: 14px;
+   
+
+}
+.btnnotisiguiente{
+    border:  1px solid #FEA166;
+    background-color: #FEA166;
+    width: 140px;
+    height: 30px; 
+    border-radius:20px;
+    margin-left: 400px;
+    margin-top: 20px;
+    justify-content:center;
+    align-items:center;
+    align-content: center;
+    display:fixed;
+    font-size: 14px;
+}
+.comentariosforo{
+    font-size: 2vw;
+    color: #4A0E79;
+    text-align:start;
+    margin-left: 100px;
+    margin-top: 40px;
+    align-self: center; 
+    margin-bottom: 0.5vw;  
+} 
+.inputcomentario{
+    /* border:  1px solid #C4C4C4; */
+    background-color: #FFFFFF;
+    box-shadow: 0 0 1rem rgba(128, 128, 128, 0.3);
+    background-color:  #FFFFFF;
+    text-align:center;
+    border-radius: 20px;
+    width: 750px;
+    height: 80px;
+    margin-left: 300px;
+    margin-top: 10px;
+    font-size: 20px;  
+}
+.btnenviarcomentario{
+    border:  1px solid #FEA166;
+    background-color: #FEA166;
+    width: 150px;
+    height: 45px; 
+    border-radius:20px;
+    margin-left: 900px;
+    margin-top: 15px;
+    justify-content:center;
+    align-items:center;
+    align-content: center;
+    display:fixed;
+    font-size: 14px;
+}
+.btnmascomentarios{
+    border:  1px solid #FEA166;
+    background-color: #FEA166;
+    width: 190px;
+    height: 30px; 
+    border-radius:20px;
+    margin-right: 90px;
+    margin-left: 90px;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    justify-content:center;
+    align-items:center;
+    align-content: center;
+    display:fixed;
+    font-size: 14px;
+}

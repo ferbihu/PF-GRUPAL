@@ -18,6 +18,7 @@ import Nav from "./Components/NavBar/NavBar";
 import Panel from "./Pages/Panel-Admin/Panel";
 import Sities from "./Pages/Sities/Sitie";
 import ProyectoInfo from "./Pages/Proyecto-info/Proyecto-info";
+import ForoNoticias from './Pages/ForoNoticias/ForoNoticias';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
       <Route exact path="/profile" component={MainProfile} />
       <Route exact path="/registrate" component={Registrate}/>
       <Route exact path="/foro" component={Foro}/>
+      <Route exact path="/foroNoticias" component={ForoNoticias}/>
       <Route exact path="/panel" component={Panel}/>
       <Route exact path="/conocenos" component={Conocenos}/>
 
