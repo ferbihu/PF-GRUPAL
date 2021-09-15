@@ -33,7 +33,7 @@ module.exports = function(sequelize) {
             allowNull:true
         },
         role:{
-            type:DataTypes.BOOLEAN,
+            type:DataTypes.STRING,
             allowNull:true,
         },
     });

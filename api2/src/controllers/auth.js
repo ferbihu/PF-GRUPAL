@@ -80,7 +80,7 @@ const {User} = require('../db')
 
 const createNewUser = async(req,res)=>{
     try{
-        const {name,email,password, role} = req.body;
+        const {name,email,password} = req.body;
         const data = {name, email,role:req.userRole}
         const token = await servicesAuth0.getAccessToken();
         const auth0data = {userData: {data:{email,password},metadata:data}}
