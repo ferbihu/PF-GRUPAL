@@ -82,6 +82,7 @@
     font-size: 14px;
 }
 .comentariosforo{
+    font-weight: bold;
     font-size: 2vw;
     color: #4A0E79;
     text-align:start;
@@ -109,13 +110,37 @@
     width: 150px;
     height: 45px; 
     border-radius:20px;
-    margin-left: 900px;
+    margin-left: 830px;
     margin-top: 15px;
     justify-content:center;
     align-items:center;
     align-content: center;
     display:fixed;
     font-size: 14px;
+}
+.inputpalabra{
+    background-color: #FFFFFF;
+    box-shadow: 0 0 1rem rgba(128, 128, 128, 0.3);
+    background-color:  #FFFFFF;
+    text-align:center;
+    border-radius: 20px;
+    width: 180px;
+    height: 30px; 
+    margin-left: 140px;
+    margin-top: 10px;
+    font-size: 12px;  
+}
+.inputfecha{
+    background-color: #FFFFFF;
+    box-shadow: 0 0 1rem rgba(128, 128, 128, 0.3);
+    background-color:  #FFFFFF;
+    text-align:center;
+    border-radius: 20px;
+    width: 180px;
+    height: 30px; 
+    margin-left: 140px;
+    margin-top: 10px;
+    font-size: 12px; 
 }
 .btnmascomentarios{
     border:  1px solid #FEA166;
@@ -124,7 +149,7 @@
     height: 30px; 
     border-radius:20px;
     margin-right: 90px;
-    margin-left: 90px;
+    margin-left: 40px;
     margin-top: 60px;
     margin-bottom: 40px;
     justify-content:center;

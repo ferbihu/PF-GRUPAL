@@ -78,7 +78,7 @@ export default function Foro() {
         </button>
       </div>
       <div className="comentariosforo">
-        <h1>Comentarios</h1>
+        Comentarios
       </div>
       <input
         className="inputcomentario"
@@ -91,6 +91,22 @@ export default function Foro() {
       <button className="btnenviarcomentario" type="submit">
         Envíar
       </button>
+      <input
+        className="inputpalabra"
+        autoComplete="off"
+        type="text"
+        //  value={input.description}
+        name="description"
+        placeholder="Buscar por palabra clave"
+      />
+       <input
+        className="inputfecha"
+        autoComplete="off"
+        type="text"
+        //  value={input.date}
+        name="date"
+        placeholder="Filtrar por fecha"
+      />
       <div>
         <button className="btnmascomentarios" type="submit">
           Ver más comentarios
