@@ -18,7 +18,7 @@ export default function Foro() {
   return (
     <div className='proyectocontainer'>
       <div className="tituloforo"> Foro </div>
-        <div className="foroNoticiasSeguro-line"></div>
+        <div className="foroNoticias-line"></div>
      
       <img src={notamujeres} alt="Not found" className="imgNotamujeres" />
       <div className="titulonoti">

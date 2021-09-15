@@ -1,6 +1,22 @@
+.proyectocontainer{
+    padding: 1vw 5vw 1vw 5vw;
+    background-color: #F1EEDE;
+    font-family: Montserrat;
+    display: flex;
+    flex-direction: column;
+}
 .tittleforo{
-    font-size: 2vw;
+    font-size: 3vw;
     text-align: center;
     align-self: center; 
     margin-bottom: 0.5vw;
+}
+.foroPortada-line{
+    background: #f17a09;
+    height: 0.2vw;
+    width: 8vw;
+    margin-top: 0;
+    align-self: center; 
+    margin-bottom: 2vw;
+    
 }
