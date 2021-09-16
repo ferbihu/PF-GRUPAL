@@ -9,7 +9,6 @@ import {
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // eslint-disable-next-line
-import {connect} from 'react-redux';
 import {getSafeplace} from '../../actions/actions.js';
 import Sidebar from "../Sidebar/Sidebar.jsx";
 import pin from "./../../imgs/iconmapp.png"
@@ -20,70 +19,44 @@ import pin from "./../../imgs/iconmapp.png"
 
 export default function Maps(props) {
 
-  const [myLatiLngi, setLatiLngi] = useState({})
+//ubicacion actual
 
-  let map;
-  let marker;
-  // eslint-disable-next-line
-  let watchID;
-  let geoLoc;
+function uno(){
+navigator.geolocation.getCurrentPosition(function(position) {
+// guardo una version simplificada de la posicion en local storage
+localStorage.setItem('ultimaPosicion', JSON.stringify({lat: position.coords.latitude, lng: position.coords.longitude}));
+console.log("adentro",position)
+  });
+}
+uno();
 
-  function initMap() {
-      const myLatLng = {lat: -25.363, lng: 131.044};
-      map = new window.google.maps.Map(document.getElementById("map"), {
-          zoom: 4,
-          center: myLatLng
-      });
-      marker = new window.google.maps.Marker({
-          position: myLatLng,
-          map,
-          title: "Hello Word"
-      });
-      getPosition();
+
+var ultimaPosicion = localStorage.getItem('ultimaPosicion');
+let coordinate =JSON.parse(ultimaPosicion);
+console.log("store",coordinate)
+
+if(/*false && */'geolocation' in navigator) {
+  if(ultimaPosicion) {
+    var objPosicion = JSON.parse(ultimaPosicion);
+    let dire = 'Tu última visita fue desde: longitud:' + objPosicion.latitude + ' - longitud: ' + objPosicion.longitude;
+  } else {
+    let ult = 'No tenemos tu última ubicación';
   }
+} else {
+ let not = 'Tu navegador no soporta geolocalización';
+}
 
-  function getPosition() {
-      if(navigator.geolocation) {
-          var options = {timeout:60000};
-          geoLoc = navigator.geolocation; 
-          watchID = geoLoc.watchPosition(showLocationOnMap, errorHandler, options)
-      } else {
-          alert("Lo sentimos, el explorador no soporta geolocalizacion");
-      }
-  }
-
-  function showLocationOnMap(position) {
-      var latitud = position.coords.latitude;
-      var longitud = position.coords.longitude;
-      console.log("latitud: " + latitud + " Longitud: " + longitud);
-
-      const myLatLng = {  lat: latitud, lng: longitud};
-      marker.setPosition(myLatLng);
-      map.setCenter(myLatLng);
-
-      setLatiLngi(myLatLng);
-  }
-
-  function errorHandler(err) {
-    // eslint-disable-next-line
-      if(err.code == 1) {
-          alert("Error: Acceso denegado");
-          // eslint-disable-next-line
-      } else if(err.code == 2) {
-          alert("Error: Position no existe o no se encuentra");
-      }
-  }    
-  
+//datos de la base//
+let [state, setState] = useState([]);
 
   const dispatch = useDispatch();
 // eslint-disable-next-line
-  const todo=useEffect(async() => {
-    console.log(props)
-    await initMap()
-    dispatch(getSafeplace())
-    },
-    // eslint-disable-next-line
-    [])
+
+  useEffect(() => {
+  dispatch(getSafeplace())
+  },
+  // eslint-disable-next-line
+  [state]);
 
   const allsities = useSelector((state) => state.stateSitie);
   console.log(allsities);
@@ -139,13 +112,12 @@ if(allsities.length>0){
 }
   return (
     <div>
-      
       {
-        myLatiLngi.lat? 
+        bandera? 
         <div>
-        <GoogleMap defaultZoom={11} defaultCenter={myLatiLngi}/>
+        <GoogleMap defaultZoom={11} defaultCenter={coordinate}/>
         <Marker key={100}
-          position={myLatiLngi} icon={pin}
+          position={coordinate} icon={pin}
         >
           <InfoWindow >    
                      <div id="content">
