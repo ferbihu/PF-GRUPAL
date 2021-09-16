@@ -242,3 +242,10 @@ export function updateDataUser(id, data) {
   };
 }
 
+export function changePopupState(payload){
+  console.log("entro a la action change popup")
+  return {
+      type: "UPDATE_POPUP_STATE",
+      payload
+  }
+}

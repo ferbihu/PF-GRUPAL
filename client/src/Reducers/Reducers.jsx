@@ -1,40 +1,42 @@
 const initialState = {
-  statecoord:[],
+  statecoord: [],
   safeplce: [],
   user: [],
   role: [],
   isLogged: false,
   userId: null,
   filtered_safePlaces: [],
-  stateSitie:[{
+  stateSitie: [{
     "id": "1",
-	  "name": "Primer Safe",
-	  "country": "Argentina",
-	  "town": "CABA",
+    "name": "Primer Safe",
+    "country": "Argentina",
+    "town": "CABA",
     "street": "Belgrano",
-  	"number": "992",
-    "postcode":"AA1878",
-  	"lat": -34.61241375774842,
-    "lng":-58.38022418084046,
-    "email":"galicia@gmail.com",
-    "telefhone":+5401123244556,
-    "keyword":"LATON",
-    "relation":"dueño",
-    "status":"accepted",
-    "description_status":"Prueba",
-    "userid":2}],
+    "number": "992",
+    "postcode": "AA1878",
+    "lat": -34.61241375774842,
+    "lng": -58.38022418084046,
+    "email": "galicia@gmail.com",
+    "telefhone": +5401123244556,
+    "keyword": "LATON",
+    "relation": "dueño",
+    "status": "accepted",
+    "description_status": "Prueba",
+    "userid": 2
+  }],
   allSafePlacesPanel: [],
-  userData: []
+  userData: [],
+  popup: false
 };
 function reducers(state = initialState, action) {
   switch (action.type) {
     case "GET_SAFEPLACE":
       return {
-          ...state,
-          stateSitie: action.payload.info,
-          
+        ...state,
+        stateSitie: action.payload.info,
+
       }
-    
+
 
     case "RENDER_USER_NAME":
       return {
@@ -99,15 +101,15 @@ function reducers(state = initialState, action) {
         ...state,
         isLogged: true,
         userId: action.payload.userId,
-        stateSitie : state.stateSitie.filter(sitie => sitie.id !== action.payload)
+        stateSitie: state.stateSitie.filter(sitie => sitie.id !== action.payload)
       }
-   case "COORDENADAS":
-            return {
-                ...state,
-                statecoord:action.payload
+    case "COORDENADAS":
+      return {
+        ...state,
+        statecoord: action.payload
 
-              
-            }
+
+      }
     case "GET_SAFEPLACE_PANEL":
       return {
         ...state,
@@ -120,23 +122,31 @@ function reducers(state = initialState, action) {
         ...state,
       };
     case 'FILTER_SAFEPLACE_BY_ID':
-    const allSafePlace = state.allSafePlacesPanel
-    const id = state.userId
-    const filterSafePlace = allSafePlace.filter(i => i.status.includes(id))
-    return {
-      ...state,
-      isLogged: true,
-      allSafePlacesPanel: filterSafePlace
-    }
-      
-        case "UPDATE_DATA_USER":
-        return {
-          ...state,
-        };
-      
+      const allSafePlace = state.allSafePlacesPanel
+      const id = state.userId
+      const filterSafePlace = allSafePlace.filter(i => i.status.includes(id))
+      return {
+        ...state,
+        isLogged: true,
+        allSafePlacesPanel: filterSafePlace
+      }
+
+    case "UPDATE_DATA_USER":
+      return {
+        ...state,
+      };
+
+    case "UPDATE_POPUP_STATE":
+      const popup_state = state.popup === false ? true : false
+      return {
+        ...state,
+        popup: popup_state
+      }
+
     default:
       return state;
   }
+
 }
 
 export default reducers;

@@ -1,0 +1,8 @@
+.popup-container-map{
+    z-index: 10;
+    position: absolute;
+    background-color: aqua;
+    top: 500px;
+    left: 500px;
+    
+}

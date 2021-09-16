@@ -1,7 +1,8 @@
 //import useState hook to create menu collapse state
-import React, { useState } from "react";
+import React, { useState, useSelector } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { HiLocationMarker } from "react-icons/hi"
+
 
 //import react pro sidebar components
 import {
@@ -18,13 +19,25 @@ import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 import "react-pro-sidebar/dist/css/styles.css";
 import "./Sidebar.css";
 
+import { changePopupState } from "../../actions/actions";
+import { useDispatch } from "react-redux";
 
-const Sidebar = ({id, name, telephone, street, number, keyword, handleMarkerClick}) => {
-  
-    //create initial menuCollapse state using useState hook
-    const [menuCollapse, setMenuCollapse] = useState(false)
 
-    //create a custom function that will change menucollapse state from false to true and true to false
+export default function Sidebar({ id, name, telephone, street, number, keyword, handleMarkerClick }) {
+
+  //create initial menuCollapse state using useState hook
+  const [menuCollapse, setMenuCollapse] = useState(false)
+
+  const dispatch = useDispatch();
+
+  function HandleWarningClick() {
+    dispatch(changePopupState())
+
+  }
+
+
+
+  //create a custom function that will change menucollapse state from false to true and true to false
   const menuIconClick = () => {
     //condition checking to change state from true to false and vice versa
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
@@ -33,47 +46,47 @@ const Sidebar = ({id, name, telephone, street, number, keyword, handleMarkerClic
   return (
     <>
       <div id="Sidebar">
-          {/* collapsed props to change menu size using menucollapse state */}
+        {/* collapsed props to change menu size using menucollapse state */}
         <ProSidebar collapsed={menuCollapse}>
           <SidebarHeader>
-          <div className="logotext">
+            <div className="logotext">
               <button className="btnSide" onClick={() => handleMarkerClick(false)}>x</button>
               <p>{name}</p>
               <div className="titleLine"></div>
             </div>
             <div className="closemenu" onClick={menuIconClick}>
-                {/* changing menu collapse icon on click */}
+              {/* changing menu collapse icon on click */}
               {menuCollapse ? (
-                <FiArrowRightCircle/>
+                <FiArrowRightCircle />
               ) : (
-                <FiArrowLeftCircle/>
+                <FiArrowLeftCircle />
               )}
             </div>
           </SidebarHeader>
           <SidebarContent>
-            <br/>
-            <br/>
-            <h3 className="txt1"><FaPhoneAlt className="iconnn"/> {telephone}</h3>
-            <br/>
-            <h3 className="txt1"><HiLocationMarker className="iconnn"/>{street} {number}</h3>
-            <br/>
+            <br />
+            <br />
+            <h3 className="txt1"><FaPhoneAlt className="iconnn" /> {telephone}</h3>
+            <br />
+            <h3 className="txt1"><HiLocationMarker className="iconnn" />{street} {number}</h3>
+            <br />
             <div className="cont">
-            <h2 className="kw">PALABRA CLAVE</h2>
-            <h2 className="txt1">{keyword}</h2>
+              <h2 className="kw">PALABRA CLAVE</h2>
+              <h2 className="txt1">{keyword}</h2>
             </div>
-            <br/>
-            <br/>
-            <br/>
+            <br />
+            <br />
+            <br />
             <h3 className="denunciaTit"> Este no es un lugar seguro?</h3>
-            <h3 className="denuncia">Denuncialo</h3>
-            <br/>
-            <br/>
-            <button className="btnRes">Dejar una reseña</button>
+            <button className="denuncia" onClick={() => HandleWarningClick()} >Denuncialo</button>
+            {/* {popup && <PopupsSideBar title="Por favor, explica el motivo de denuncia"></PopupsSideBar>} */}
+            <br />
+            <br />
+            <button className="btnRes" onClick={() => HandleWarningClick()}>Dejar una reseña</button>
+            {/* {popup2 && <PopupsSideBar title="Contá tu experiencia en etse lugar"></PopupsSideBar>} */}
           </SidebarContent>
         </ProSidebar>
       </div>
     </>
   );
 };
-
-export default Sidebar;

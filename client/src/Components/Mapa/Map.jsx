@@ -9,18 +9,20 @@ import {
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // eslint-disable-next-line
-import {connect} from 'react-redux';
-import {getSafeplace} from '../../actions/actions.js';
+import { connect } from 'react-redux';
+import { getSafeplace } from '../../actions/actions.js';
 import Sidebar from "../Sidebar/Sidebar.jsx";
 import pin from "./../../imgs/iconmapp.png"
 // import { Component } from "react-addons";
 // const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
 // import "../Sidebar/Sidebar.css";
+import PopupsSideBar from "../Sidebar/PopupsSideBar.jsx";
 
 
 export default function Maps(props) {
 
   const [myLatiLngi, setLatiLngi] = useState({})
+  const state_popup = useSelector(state => state.popup)
 
   let map;
   let marker;
@@ -29,59 +31,59 @@ export default function Maps(props) {
   let geoLoc;
 
   function initMap() {
-      const myLatLng = {lat: -25.363, lng: 131.044};
-      map = new window.google.maps.Map(document.getElementById("map"), {
-          zoom: 4,
-          center: myLatLng
-      });
-      marker = new window.google.maps.Marker({
-          position: myLatLng,
-          map,
-          title: "Hello Word"
-      });
-      getPosition();
+    const myLatLng = { lat: -25.363, lng: 131.044 };
+    map = new window.google.maps.Map(document.getElementById("map"), {
+      zoom: 4,
+      center: myLatLng
+    });
+    marker = new window.google.maps.Marker({
+      position: myLatLng,
+      map,
+      title: "Hello Word"
+    });
+    getPosition();
   }
 
   function getPosition() {
-      if(navigator.geolocation) {
-          var options = {timeout:60000};
-          geoLoc = navigator.geolocation; 
-          watchID = geoLoc.watchPosition(showLocationOnMap, errorHandler, options)
-      } else {
-          alert("Lo sentimos, el explorador no soporta geolocalizacion");
-      }
+    if (navigator.geolocation) {
+      var options = { timeout: 60000 };
+      geoLoc = navigator.geolocation;
+      watchID = geoLoc.watchPosition(showLocationOnMap, errorHandler, options)
+    } else {
+      alert("Lo sentimos, el explorador no soporta geolocalizacion");
+    }
   }
 
   function showLocationOnMap(position) {
-      var latitud = position.coords.latitude;
-      var longitud = position.coords.longitude;
-      console.log("latitud: " + latitud + " Longitud: " + longitud);
+    var latitud = position.coords.latitude;
+    var longitud = position.coords.longitude;
+    console.log("latitud: " + latitud + " Longitud: " + longitud);
 
-      const myLatLng = {  lat: latitud, lng: longitud};
-      marker.setPosition(myLatLng);
-      map.setCenter(myLatLng);
+    const myLatLng = { lat: latitud, lng: longitud };
+    marker.setPosition(myLatLng);
+    map.setCenter(myLatLng);
 
-      setLatiLngi(myLatLng);
+    setLatiLngi(myLatLng);
   }
 
   function errorHandler(err) {
     // eslint-disable-next-line
-      if(err.code == 1) {
-          alert("Error: Acceso denegado");
-          // eslint-disable-next-line
-      } else if(err.code == 2) {
-          alert("Error: Position no existe o no se encuentra");
-      }
-  }    
-  
+    if (err.code == 1) {
+      alert("Error: Acceso denegado");
+      // eslint-disable-next-line
+    } else if (err.code == 2) {
+      alert("Error: Position no existe o no se encuentra");
+    }
+  }
+
 
   const dispatch = useDispatch();
-// eslint-disable-next-line
-  const todo=useEffect(async() => {
+  // eslint-disable-next-line
+  const todo = useEffect(async () => {
     console.log(props)
     await initMap()
     dispatch(getSafeplace())
-    },
+  },
     // eslint-disable-next-line
     [])
 
@@ -95,122 +97,126 @@ export default function Maps(props) {
       setInput(false)
     }
   }
-// eslint-disable-next-line
-  const coord = {lat:-34.607914 ,lng: -58.370321}
   // eslint-disable-next-line
-  const descrip='hola'
+  const coord = { lat: -34.607914, lng: -58.370321 }
+  // eslint-disable-next-line
+  const descrip = 'hola'
   // eslint-disable-next-line
   var locations = [
-    {description:'First Safe',coord:{lat:-34.607914,lng:-58.370321}},
-    {description:'Second Safe',coord:{lat: -34.596152, lng:-58.383100}},
-    {description:'Third Safe', coord:{lat:-34.603972352446355, lng:-58.39045422694449}},
-    {description:'Fourth Safe',coord:{lat: -34.603159908195096,lng:-58.39217084074385}},
-    {description:'Fifth Safe',coord:{lat: -34.60248433708588, lng:-58.386806422620865}},
-    {description:'Sixth Safe',coord:{lat: -34.59992329866319, lng:-58.39455264239046}},
-    {description:'Seventh Safe',coord:{lat: -34.60405624569346, lng:-58.38845866340274}}
+    { description: 'First Safe', coord: { lat: -34.607914, lng: -58.370321 } },
+    { description: 'Second Safe', coord: { lat: -34.596152, lng: -58.383100 } },
+    { description: 'Third Safe', coord: { lat: -34.603972352446355, lng: -58.39045422694449 } },
+    { description: 'Fourth Safe', coord: { lat: -34.603159908195096, lng: -58.39217084074385 } },
+    { description: 'Fifth Safe', coord: { lat: -34.60248433708588, lng: -58.386806422620865 } },
+    { description: 'Sixth Safe', coord: { lat: -34.59992329866319, lng: -58.39455264239046 } },
+    { description: 'Seventh Safe', coord: { lat: -34.60405624569346, lng: -58.38845866340274 } }
   ];
 
   var har = [
-    {description:'Sixth Safe',coord:{lat: -34.59992329866319, lng:-58.39455264239046}},
-    {description:'Seventh Safe',coord:{lat: -34.60405624569346, lng:-58.38845866340274}}
+    { description: 'Sixth Safe', coord: { lat: -34.59992329866319, lng: -58.39455264239046 } },
+    { description: 'Seventh Safe', coord: { lat: -34.60405624569346, lng: -58.38845866340274 } }
   ];
 
-  var sitios=[];
-  var bandera=false;
+  var sitios = [];
+  var bandera = false;
 
-if(allsities.length>0){
-  bandera=true;
-   
-  for(var i=0;i<allsities.length;i++){
-    // eslint-disable-next-line
-     var date=new Object();
-     date.name=allsities[i].name;
-     date.keyword=allsities[i].keyword;
-     date.telephone=allsities[i].telephone;
-     date.street=allsities[i].street;
-     date.number=allsities[i].number;
-     date.coord={lat:allsities[i].lat,lng:allsities[i].lng};
-     sitios.push(date);
+  if (allsities.length > 0) {
+    bandera = true;
+
+    for (var i = 0; i < allsities.length; i++) {
+      // eslint-disable-next-line
+      var date = new Object();
+      date.name = allsities[i].name;
+      date.keyword = allsities[i].keyword;
+      date.telephone = allsities[i].telephone;
+      date.street = allsities[i].street;
+      date.number = allsities[i].number;
+      date.coord = { lat: allsities[i].lat, lng: allsities[i].lng };
+      sitios.push(date);
+    }
+    console.log(sitios, "aca sitios")
+
+  } else {
+    console.log("no hizo dispacht")
   }
-  console.log(sitios, "aca sitios")
- 
-}else{
-  console.log("no hizo dispacht")
-}
   return (
     <div>
-      
+
       {
-        myLatiLngi.lat? 
-        <div>
-        <GoogleMap defaultZoom={11} defaultCenter={myLatiLngi}/>
-        <Marker key={100}
-          position={myLatiLngi} icon={pin}
-        >
-          <InfoWindow >    
-                     <div id="content">
-                        <div id="siteNotice"></div>
-                              <h1 id="firstHeading" class="firstHeading">AQUI</h1>
-                              <div id="bodyContent">
-                         </div>
-                     </div>
-             </InfoWindow>
-          </Marker> 
-        </div> :
-        <div>
-        <Marker></Marker> 
-        </div>
+        myLatiLngi.lat ?
+          <div>
+            <GoogleMap defaultZoom={11} defaultCenter={myLatiLngi} />
+            <Marker key={100}
+              position={myLatiLngi} icon={pin}
+            >
+              <InfoWindow >
+                <div id="content">
+                  <div id="siteNotice"></div>
+                  <h1 id="firstHeading" class="firstHeading">AQUI</h1>
+                  <div id="bodyContent">
+                  </div>
+                </div>
+              </InfoWindow>
+            </Marker>
+          </div> :
+          <div>
+            <Marker></Marker>
+          </div>
       }
       {
-        bandera?
-        sitios.map((e,i)=>(
-          <Marker key={i}
-          position={e.coord} title={e.keyword} icon={pin} id={e.id} onClick={() => handleMarkerClick(e)}
-          >
+        bandera ?
+          sitios.map((e, i) => (
+            <Marker key={i}
+              position={e.coord} title={e.keyword} icon={pin} id={e.id} onClick={() => handleMarkerClick(e)}
+            >
               {
-                  input && <Sidebar id={e.id} name={e.name} telephone={e.telephone} street={e.street} number={e.number} keyword={e.keyword} handleMarkerClick={handleMarkerClick}/>
-              }
-             <InfoWindow key={i}>    
-                     <div id="content">
-                        <div id="siteNotice"></div>
-                              <h1 id="firstHeading" class="firstHeading">{e.keyword}</h1>
-                              <div id="bodyContent">
-                              <p>
-                              {e.name}</p>
-                              <p>{e.telephone}</p>
-                          <div>
-                             <button onclick="miFunc()" href="" className="button-24">Denuncia</button>
-                              <button onclick="miFunc()" href="" className="button-25">Comentario</button>
-                          </div>
-                         </div>
-                     </div>
-             </InfoWindow>
-          </Marker>
-        )): har.map((e,i)=>(
-          <Marker key={i}
-          position={e.coord} title={e.keyword} icon={pin}
-          >
-             <InfoWindow key={i}>    
-                     <div id="content">
-                        <div id="siteNotice"></div>
-                              <h1 id="firstHeading" class="firstHeading">KEY</h1>
-                              <div id="bodyContent">
-                              <p>
-                              <a href="https://www.argentina.gob.ar/generos/linea-144">
-                              https://www.argentina.gob.ar/generos/linea-144</a> 
-                              {e.keyword}{e.telephone}</p>
-                          <div>
-                             <button onclick="miFunc()" href="" className="button-24">Denuncia</button>
-                              <button onclick="miFunc()" href="" className="button-25">Comentario</button>
-                          </div>
-                         </div>
-                     </div>
-             </InfoWindow>
-          </Marker>
-        ))
-        }
+                input && <Sidebar id={e.id} name={e.name} telephone={e.telephone} street={e.street} number={e.number} keyword={e.keyword} handleMarkerClick={handleMarkerClick} />
 
-        {/* <Marker key={i}
+              }
+              {
+                state_popup && <PopupsSideBar></PopupsSideBar>
+              }
+              <InfoWindow key={i}>
+                <div id="content">
+                  <div id="siteNotice"></div>
+                  <h1 id="firstHeading" class="firstHeading">{e.keyword}</h1>
+                  <div id="bodyContent">
+                    <p>
+                      {e.name}</p>
+                    <p>{e.telephone}</p>
+                    <div>
+                      <button onclick="miFunc()" href="" className="button-24">Denuncia</button>
+                      <button onclick="miFunc()" href="" className="button-25">Comentario</button>
+                    </div>
+                  </div>
+                </div>
+              </InfoWindow>
+            </Marker>
+          )) : har.map((e, i) => (
+            <Marker key={i}
+              position={e.coord} title={e.keyword} icon={pin}
+            >
+              <InfoWindow key={i}>
+                <div id="content">
+                  <div id="siteNotice"></div>
+                  <h1 id="firstHeading" class="firstHeading">KEY</h1>
+                  <div id="bodyContent">
+                    <p>
+                      <a href="https://www.argentina.gob.ar/generos/linea-144">
+                        https://www.argentina.gob.ar/generos/linea-144</a>
+                      {e.keyword}{e.telephone}</p>
+                    <div>
+                      <button onclick="miFunc()" href="" className="button-24">Denuncia</button>
+                      <button onclick="miFunc()" href="" className="button-25">Comentario</button>
+                    </div>
+                  </div>
+                </div>
+              </InfoWindow>
+            </Marker>
+          ))
+      }
+
+      {/* <Marker key={i}
           position={statecoord} title="aqui#" icon={pin}>
           </Marker> */}
 
@@ -225,7 +231,7 @@ export function Map() {
     <div>
       <WrappedMap
         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&language=en&key=AIzaSyAbMjLYFsoiuJmlFydaakLeC6uhqYh1iL0`}
-        containerElement={<div style={{ height: "100vh", width: "100%"}} />}
+        containerElement={<div style={{ height: "100vh", width: "100%" }} />}
         mapElement={<div style={{ height: "100%", width: "100%" }} />}
         loadingElement={<div style={{ height: `100%` }} />}
       />
