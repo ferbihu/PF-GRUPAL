@@ -47,7 +47,9 @@ const User_Notice = commentModel(sequelize);
 User.belongsToMany(Notice, { through: User_Notice });
 Notice.belongsToMany(User, { through: User_Notice });
 
-
+User.hasMany(SafePlace,{as:"safePlaceUser",foreignKey:"userId"});
+//un lugar seguro pertenece a un usuario 
+SafePlace.belongsTo(User,{as:"safePlaceCreator",foreignKey:"userId"});
 
 module.exports = {
     conn: sequelize,
