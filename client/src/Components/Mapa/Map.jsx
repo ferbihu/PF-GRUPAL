@@ -24,7 +24,7 @@ import PopupsSideBarWarning from "../Sidebar/PopupsSideBarWarning.jsx";
 export default function Maps(props) {
 
 
-  const [myLatiLngi, setLatiLngi] = useState({})
+  //const [myLatiLngi, setLatiLngi] = useState({})
   const state_popup = useSelector(state => state.popup)
   const state_popup_warning = useSelector(state => state.popup_warning)
 
