@@ -33,21 +33,21 @@ uno();
 
 var ultimaPosicion = localStorage.getItem('ultimaPosicion');
 let coordinate =JSON.parse(ultimaPosicion);
-console.log("store",coordinate)
 
 if(/*false && */'geolocation' in navigator) {
   if(ultimaPosicion) {
-    var objPosicion = JSON.parse(ultimaPosicion);
-    let dire = 'Tu última visita fue desde: longitud:' + objPosicion.latitude + ' - longitud: ' + objPosicion.longitude;
+    
+    console.log("store",coordinate)
   } else {
-    let ult = 'No tenemos tu última ubicación';
+    alert ('No tenemos tu última ubicación');
   }
 } else {
- let not = 'Tu navegador no soporta geolocalización';
+     alert('Tu navegador no soporta geolocalización');
 }
 
-//datos de la base//
+ // eslint-disable-next-line 
 let [state, setState] = useState([]);
+ // eslint-disable-next-line 
 
   const dispatch = useDispatch();
 // eslint-disable-next-line
@@ -181,11 +181,6 @@ if(allsities.length>0){
           </Marker>
         ))
         }
-
-        {/* <Marker key={i}
-          position={statecoord} title="aqui#" icon={pin}>
-          </Marker> */}
-
     </div>
   );
 }
