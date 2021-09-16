@@ -249,3 +249,19 @@ export function changePopupState(payload){
       payload
   }
 }
+
+export function changePopupStateWarning(payload){
+  console.log("entro a la action change popup warning")
+  return {
+      type: "UPDATE_POPUP_STATE_WARNING",
+      payload
+  }
+}
+
+export function closePopup(payload){
+  console.log("entro a la action change popup warning")
+  return {
+      type: "CLOSE_POPUP",
+      payload
+  }
+}

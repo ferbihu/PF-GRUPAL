@@ -26,7 +26,8 @@ const initialState = {
   }],
   allSafePlacesPanel: [],
   userData: [],
-  popup: false
+  popup: false,
+  popup_warning: false
 };
 function reducers(state = initialState, action) {
   switch (action.type) {
@@ -141,6 +142,18 @@ function reducers(state = initialState, action) {
       return {
         ...state,
         popup: popup_state
+      }
+    case "UPDATE_POPUP_STATE_WARNING":
+      const popup_state_warning = state.popup_warning === false ? true : false
+      return {
+        ...state,
+        popup_warning: popup_state_warning
+      }
+    case "CLOSE_POPUP":
+      return {
+        ...state,
+        popup_warning: false,
+        popup: false
       }
 
     default:

@@ -16,13 +16,17 @@ import pin from "./../../imgs/iconmapp.png"
 // import { Component } from "react-addons";
 // const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
 // import "../Sidebar/Sidebar.css";
-import PopupsSideBar from "../Sidebar/PopupsSideBar.jsx";
+
+import PopupsSideBarWarning from "../Sidebar/PopupsSideBarWarning.jsx";
 
 
 export default function Maps(props) {
 
   const [myLatiLngi, setLatiLngi] = useState({})
   const state_popup = useSelector(state => state.popup)
+  const state_popup_warning = useSelector(state => state.popup_warning)
+
+
 
   let map;
   let marker;
@@ -152,9 +156,8 @@ export default function Maps(props) {
               <InfoWindow >
                 <div id="content">
                   <div id="siteNotice"></div>
-                  <h1 id="firstHeading" class="firstHeading">AQUI</h1>
-                  <div id="bodyContent">
-                  </div>
+                  <h1 id="firstHeading" class="firstHeading">Tu ubicación</h1>
+
                 </div>
               </InfoWindow>
             </Marker>
@@ -174,21 +177,20 @@ export default function Maps(props) {
 
               }
               {
-                state_popup && <PopupsSideBar></PopupsSideBar>
+                state_popup && <PopupsSideBarWarning text="Dejá una reseña del lugar! Recordá que el comentario será publico y todos podran verlo."></PopupsSideBarWarning>
+              }
+              {
+                state_popup_warning && <PopupsSideBarWarning text="Por favor, explicanos el motivo de la denuncia.  Si denuncias un lugar, automáticamente
+                aparecerá de color amarillo en el mapa y será revisado por las administradoras de la página."></PopupsSideBarWarning>
               }
               <InfoWindow key={i}>
                 <div id="content">
                   <div id="siteNotice"></div>
-                  <h1 id="firstHeading" class="firstHeading">{e.keyword}</h1>
-                  <div id="bodyContent">
-                    <p>
-                      {e.name}</p>
-                    <p>{e.telephone}</p>
-                    <div>
-                      <button onclick="miFunc()" href="" className="button-24">Denuncia</button>
-                      <button onclick="miFunc()" href="" className="button-25">Comentario</button>
-                    </div>
+                  <div id="firstHeading">
+                    <p>{e.name}</p>
                   </div>
+                  <h1 id="bodyContent" >{e.street} {e.number}</h1>
+
                 </div>
               </InfoWindow>
             </Marker>

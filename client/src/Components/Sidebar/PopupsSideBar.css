@@ -1,8 +1,49 @@
 .popup-container-map{
     z-index: 10;
-    position: absolute;
-    background-color: aqua;
-    top: 500px;
-    left: 500px;
+    background-color: rgb(237, 243, 243);
+    justify-content: center;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    padding: 2vw;
+    font-family: 'Montserrat', sans-serif; 
+    border-radius: 5px;  
+    height: fit-content;
+    width: 30vw;
     
+}
+
+.popup-map-text{
+    resize: none;
+    padding: 1vw;
+}
+.text-popup-map{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-bottom: 2vw;
+}
+.fondo-popup{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(122, 124, 124, 0.514);
+    z-index: 12;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+.popup-map-bt{
+    background-color: #e47f21c7;
+    margin: 0.5vw;
+    width: auto;
+    padding: 0.3vw;
+}
+
+.popup-map-bt[disabled]{
+ background: rgb(170, 163, 163);
 }

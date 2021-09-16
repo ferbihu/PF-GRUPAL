@@ -1,7 +1,8 @@
 //import useState hook to create menu collapse state
-import React, { useState, useSelector } from "react";
+import React, { useState } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { HiLocationMarker } from "react-icons/hi"
+
 
 
 //import react pro sidebar components
@@ -19,8 +20,8 @@ import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 import "react-pro-sidebar/dist/css/styles.css";
 import "./Sidebar.css";
 
-import { changePopupState } from "../../actions/actions";
-import { useDispatch } from "react-redux";
+import { changePopupState, changePopupStateWarning } from "../../actions/actions";
+import { useDispatch, useSelector } from "react-redux";
 
 
 export default function Sidebar({ id, name, telephone, street, number, keyword, handleMarkerClick }) {
@@ -30,10 +31,17 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
 
   const dispatch = useDispatch();
 
-  function HandleWarningClick() {
+  function HandleCommentClick() {
     dispatch(changePopupState())
 
   }
+  function HandleWarningClick() {
+    dispatch(changePopupStateWarning())
+
+  }
+
+  const state_popup_warning2 = useSelector(state => state.popup_warning)
+  const state_popup2 = useSelector(state => state.popup)
 
 
 
@@ -56,11 +64,11 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
             </div>
             <div className="closemenu" onClick={menuIconClick}>
               {/* changing menu collapse icon on click */}
-              {menuCollapse ? (
+              {/* {menuCollapse ? (
                 <FiArrowRightCircle />
               ) : (
                 <FiArrowLeftCircle />
-              )}
+              )} */}
             </div>
           </SidebarHeader>
           <SidebarContent>
@@ -74,16 +82,14 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
               <h2 className="kw">PALABRA CLAVE</h2>
               <h2 className="txt1">{keyword}</h2>
             </div>
-            <br />
-            <br />
-            <br />
-            <h3 className="denunciaTit"> Este no es un lugar seguro?</h3>
-            <button className="denuncia" onClick={() => HandleWarningClick()} >Denuncialo</button>
-            {/* {popup && <PopupsSideBar title="Por favor, explica el motivo de denuncia"></PopupsSideBar>} */}
-            <br />
-            <br />
-            <button className="btnRes" onClick={() => HandleWarningClick()}>Dejar una reseña</button>
-            {/* {popup2 && <PopupsSideBar title="Contá tu experiencia en etse lugar"></PopupsSideBar>} */}
+
+            <div className="sidebar-align">
+              <h3 className="denunciaTit"> Este no es un lugar seguro?</h3>
+              <button className="denuncia" type="submit" disabled={state_popup2 === true || state_popup_warning2 === true} onClick={() => HandleWarningClick()} >Denuncialo</button>
+            </div>
+
+            <button className="btnRes" type="submit" disabled={state_popup2 === true || state_popup_warning2 === true} onClick={() => HandleCommentClick()}>Dejar una reseña</button>
+
           </SidebarContent>
         </ProSidebar>
       </div>

@@ -7,19 +7,18 @@ Map {
     justify-content: center;
     text-align: center;
     margin-top: 0px;
+    display: flex;
+    flex-direction: column;
 } 
 .btnainput{
-    border:  1px solid #FEA166;
     background-color: #FEA166;
-    width: 388px;
-    height: 52px; 
-    border-radius:20px;
-    margin-top: 20px;
-    justify-content:center;
-    align-items:center;
-    align-content: center;
-    display:fixed;
-    font-size: 25px;
+    z-index: 10;
+    position: absolute;
+    top: 400px;
+    left: 80vw;
+    width: fit-content;
+    padding: 0.5vw;
+
 }
 
 .parrafo {
@@ -32,10 +31,45 @@ Map {
 }
 
 .back {
-    background-color: #F1EEDE;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
 }
 
-.titleLS {
-    font-size: 50px;
-    font-family: Montserrat;
+.titulo-lugaresseguros {
+    font-size: 3vw;
+    justify-self: center;
+    
+    
+}
+
+.subtitulo{
+    display: flex;
+    font-size: 1.4vw;
+    justify-content: center;
+    justify-self: center;
+}
+
+.subtitulo2{
+    justify-self: center;
+    font-size: 1.3vw;
+    padding: 1vw;
+
+}
+
+.imagen-casa{
+    height: 2.5vw;
+    margin-left: 1vw;
+}
+
+
+.lugares-line2{
+    background: #f17a09;
+    height: 0.2vw;
+    width: 24vw;
+    margin-top: 0;
+    align-self: center; 
+    margin-bottom: 2vw;
 }
