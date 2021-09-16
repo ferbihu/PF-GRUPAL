@@ -1,14 +1,14 @@
-const {commentModel} = require('../db');
+const {User_Notice} = require('../db');
 const clientId = process.env
 
 
 async function getComments(){
     try{
-        return await Comment.findAll({
+        return await User_Notice.findAll({
             where:{status: "accepted"},
             include:[{
                 model:User,
-                as: 'commentCreator',
+                as: 'User_NoticeCreator',
                 attributes : ['name','id','email']
             }]
         });
@@ -20,12 +20,12 @@ async function getComments(){
 };
 
 async function postComments(data){
-    let createNewComment = await Comment.create({...data,status:"accepted"})
+    let createNewComment = await User_Notice.create({...data,status:"accepted"})
 };
 
 async function deleteComments(id) {
         try{
-            await Comment.update({...body},{where:{id}})
+            await User_Notice.update({...body},{where:{id}})
         }
         catch(error){
             console.log(error)

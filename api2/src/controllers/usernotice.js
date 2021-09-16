@@ -1,4 +1,4 @@
-const ServicesComments = require ('../services/comments');
+const ServicesComments = require ('../services/usernotice');
 
 
 const getComments = async (_req,res)=>{
