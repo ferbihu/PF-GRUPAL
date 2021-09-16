@@ -8,6 +8,7 @@ import './App.css';
 //Import Pages
 import Footer from "./Components/Footer/Footer.jsx";
 import Foro from "../src/Pages/Foro";
+import ForoError from "../src/Pages/ForoError";
 import Conocenos from "../src/Pages/Conocenos/Conocenos.jsx"
 import IniciaSesion from "./Pages/IniciaSesion";
 import RegistrateLugarSeguro from "./Pages/RegistrateLugarSeguro";
@@ -19,7 +20,7 @@ import Panel from "./Pages/Panel-Admin/Panel";
 import Sities from "./Pages/Sities/Sitie";
 import ProyectoInfo from "./Pages/Proyecto-info/Proyecto-info";
 import ForoNoticias from './Pages/ForoNoticias/ForoNoticias';
-
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 function App() {
 
@@ -37,8 +38,9 @@ function App() {
       <Route exact path="/profile" component={MainProfile} />
       <Route exact path="/registrate" component={Registrate}/>
       <Route exact path="/foro" component={Foro}/>
+      <Route exact path="/foroerror" component={ForoError}/>
       <Route exact path="/foroNoticias" component={ForoNoticias}/>
-      <Route exact path="/panel" component={Panel}/>
+      <PrivateRoute exact path="/panel" component={Panel}/>
       <Route exact path="/conocenos" component={Conocenos}/>
 
       </Switch>
