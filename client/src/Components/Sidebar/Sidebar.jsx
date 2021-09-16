@@ -1,5 +1,7 @@
 //import useState hook to create menu collapse state
 import React, { useState } from "react";
+import { FaPhoneAlt } from "react-icons/fa";
+import { HiLocationMarker } from "react-icons/hi"
 
 //import react pro sidebar components
 import {
@@ -35,8 +37,9 @@ const Sidebar = ({id, name, telephone, street, number, keyword, handleMarkerClic
         <ProSidebar collapsed={menuCollapse}>
           <SidebarHeader>
           <div className="logotext">
-              <button onClick={() => handleMarkerClick(false)}>x</button>
+              <button className="btnSide" onClick={() => handleMarkerClick(false)}>x</button>
               <p>{name}</p>
+              <div className="titleLine"></div>
             </div>
             <div className="closemenu" onClick={menuIconClick}>
                 {/* changing menu collapse icon on click */}
@@ -48,11 +51,24 @@ const Sidebar = ({id, name, telephone, street, number, keyword, handleMarkerClic
             </div>
           </SidebarHeader>
           <SidebarContent>
-            <h3>{telephone}</h3>
-            <h3>{street} {number}</h3>
-            <h2>{keyword}</h2>
-            <h3> Este no es un lugar seguro? Denuncialo</h3>
-            <button>Dejar una reseña</button>
+            <br/>
+            <br/>
+            <h3 className="txt1"><FaPhoneAlt className="iconnn"/> {telephone}</h3>
+            <br/>
+            <h3 className="txt1"><HiLocationMarker className="iconnn"/>{street} {number}</h3>
+            <br/>
+            <div className="cont">
+            <h2 className="kw">PALABRA CLAVE</h2>
+            <h2 className="txt1">{keyword}</h2>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <h3 className="denunciaTit"> Este no es un lugar seguro?</h3>
+            <h3 className="denuncia">Denuncialo</h3>
+            <br/>
+            <br/>
+            <button className="btnRes">Dejar una reseña</button>
           </SidebarContent>
         </ProSidebar>
       </div>

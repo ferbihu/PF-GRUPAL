@@ -3,8 +3,9 @@ import { useSelector } from "react-redux";
 import './ForoNoticias.css';
 
 export default function Foro() {
-    
+    // eslint-disable-next-line
     const userId = useSelector((state) => state.userId);
+    // eslint-disable-next-line
     const [input, setInput] = useState({
         description: "",   
     })
