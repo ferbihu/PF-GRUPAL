@@ -1,7 +1,8 @@
 import React from "react";
 import "./Sities.css";
-import {Map} from "../../Components/Mapa/Map";
+//import {Map} from "../../Components/Mapa/Map";
 import {Link} from 'react-router-dom';
+import {Maps2} from '../../Components/Mapa/maps2'
 
 export default function Sities() {
     return (
@@ -38,9 +39,9 @@ export default function Sities() {
             <div className="app-content">
                 
                            <div>
-                #
+                
                       <div className="mapa">
-                          <Map/>
+                          <Maps2/>
                           <Link to='/registratelugarseguro'><button className="btninput">Registrá un lugar seguro</button></Link>
                       </div>
                       

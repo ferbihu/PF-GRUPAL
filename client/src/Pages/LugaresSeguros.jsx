@@ -1,7 +1,8 @@
 import React from "react";
 import {Link} from 'react-router-dom';
-import {Map} from "../Components/Mapa/Map";
+//import {Map} from "../Components/Mapa/Map";
 import './LugaresSeguros.css';
+import Maps2 from '../Components/Mapa/maps2'
 
 export default function LugaresSeguros() {
     return (
@@ -11,7 +12,7 @@ export default function LugaresSeguros() {
             <h1>LUGARES SEGUROS</h1>
             </div>
             </div>
-            <Map/>
+            <Maps2/>
             <div className="back">
             <br/>
             <Link to='/registratelugarseguro'><button className="btnainput">Registrá un lugar seguro</button></Link>
