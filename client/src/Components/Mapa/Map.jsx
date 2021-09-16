@@ -9,8 +9,9 @@ import {
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // eslint-disable-next-line
-import { connect } from 'react-redux';
+
 import { getSafeplace } from '../../actions/actions.js';
+
 import Sidebar from "../Sidebar/Sidebar.jsx";
 import pin from "./../../imgs/iconmapp.png"
 // import { Component } from "react-addons";
@@ -22,74 +23,52 @@ import PopupsSideBarWarning from "../Sidebar/PopupsSideBarWarning.jsx";
 
 export default function Maps(props) {
 
+
   const [myLatiLngi, setLatiLngi] = useState({})
   const state_popup = useSelector(state => state.popup)
   const state_popup_warning = useSelector(state => state.popup_warning)
 
 
 
-  let map;
-  let marker;
-  // eslint-disable-next-line
-  let watchID;
-  let geoLoc;
+  //ubicacion actual
 
-  function initMap() {
-    const myLatLng = { lat: -25.363, lng: 131.044 };
-    map = new window.google.maps.Map(document.getElementById("map"), {
-      zoom: 4,
-      center: myLatLng
+  function uno() {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      // guardo una version simplificada de la posicion en local storage
+      localStorage.setItem('ultimaPosicion', JSON.stringify({ lat: position.coords.latitude, lng: position.coords.longitude }));
+      console.log("adentro", position)
     });
-    marker = new window.google.maps.Marker({
-      position: myLatLng,
-      map,
-      title: "Hello Word"
-    });
-    getPosition();
   }
+  uno();
 
-  function getPosition() {
-    if (navigator.geolocation) {
-      var options = { timeout: 60000 };
-      geoLoc = navigator.geolocation;
-      watchID = geoLoc.watchPosition(showLocationOnMap, errorHandler, options)
+
+  var ultimaPosicion = localStorage.getItem('ultimaPosicion');
+  let coordinate = JSON.parse(ultimaPosicion);
+
+  if (/*false && */'geolocation' in navigator) {
+    if (ultimaPosicion) {
+
+      console.log("store", coordinate)
     } else {
-      alert("Lo sentimos, el explorador no soporta geolocalizacion");
+      alert('No tenemos tu última ubicación');
+
     }
+  } else {
+    alert('Tu navegador no soporta geolocalización');
   }
 
-  function showLocationOnMap(position) {
-    var latitud = position.coords.latitude;
-    var longitud = position.coords.longitude;
-    console.log("latitud: " + latitud + " Longitud: " + longitud);
-
-    const myLatLng = { lat: latitud, lng: longitud };
-    marker.setPosition(myLatLng);
-    map.setCenter(myLatLng);
-
-    setLatiLngi(myLatLng);
-  }
-
-  function errorHandler(err) {
-    // eslint-disable-next-line
-    if (err.code == 1) {
-      alert("Error: Acceso denegado");
-      // eslint-disable-next-line
-    } else if (err.code == 2) {
-      alert("Error: Position no existe o no se encuentra");
-    }
-  }
-
+  // eslint-disable-next-line 
+  let [state, setState] = useState([]);
+  // eslint-disable-next-line 
 
   const dispatch = useDispatch();
   // eslint-disable-next-line
-  const todo = useEffect(async () => {
-    console.log(props)
-    await initMap()
+
+  useEffect(() => {
     dispatch(getSafeplace())
   },
     // eslint-disable-next-line
-    [])
+    [state]);
 
   const allsities = useSelector((state) => state.stateSitie);
   console.log(allsities);
@@ -145,19 +124,19 @@ export default function Maps(props) {
   }
   return (
     <div>
-
       {
-        myLatiLngi.lat ?
+        bandera ?
           <div>
-            <GoogleMap defaultZoom={11} defaultCenter={myLatiLngi} />
+            <GoogleMap defaultZoom={11} defaultCenter={coordinate} />
             <Marker key={100}
-              position={myLatiLngi} icon={pin}
+              position={coordinate} icon={pin}
             >
               <InfoWindow >
                 <div id="content">
                   <div id="siteNotice"></div>
-                  <h1 id="firstHeading" class="firstHeading">Tu ubicación</h1>
-
+                  <h1 id="firstHeading" class="firstHeading">AQUI</h1>
+                  <div id="bodyContent">
+                  </div>
                 </div>
               </InfoWindow>
             </Marker>
@@ -186,11 +165,16 @@ export default function Maps(props) {
               <InfoWindow key={i}>
                 <div id="content">
                   <div id="siteNotice"></div>
-                  <div id="firstHeading">
-                    <p>{e.name}</p>
+                  <h1 id="firstHeading" class="firstHeading">{e.keyword}</h1>
+                  <div id="bodyContent">
+                    <p>
+                      {e.name}</p>
+                    <p>{e.telephone}</p>
+                    <div>
+                      <button onclick="miFunc()" href="" className="button-24">Denuncia</button>
+                      <button onclick="miFunc()" href="" className="button-25">Comentario</button>
+                    </div>
                   </div>
-                  <h1 id="bodyContent" >{e.street} {e.number}</h1>
-
                 </div>
               </InfoWindow>
             </Marker>
@@ -217,11 +201,6 @@ export default function Maps(props) {
             </Marker>
           ))
       }
-
-      {/* <Marker key={i}
-          position={statecoord} title="aqui#" icon={pin}>
-          </Marker> */}
-
     </div>
   );
 }
