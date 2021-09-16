@@ -49,6 +49,7 @@ if(/*false && */'geolocation' in navigator) {
 let [state, setState] = useState([]);
  // eslint-disable-next-line 
 
+ //todo llamado de base// 
   const dispatch = useDispatch();
 // eslint-disable-next-line
 
@@ -58,6 +59,13 @@ let [state, setState] = useState([]);
   // eslint-disable-next-line
   [state]);
 
+  let [state, setState] = useState([]);
+// eslint-disable-next-line
+  useEffect(() => {
+  dispatch(getSafeplace())
+  },
+  // eslint-disable-next-line
+  [state]);
   const allsities = useSelector((state) => state.stateSitie);
   console.log(allsities);
   const [input, setInput] = useState(false);
@@ -187,6 +195,7 @@ if(allsities.length>0){
 const WrappedMap = withScriptjs(withGoogleMap(Maps));
 
 export function Map() {
+
   // geoCode();
   return (
     <div>
