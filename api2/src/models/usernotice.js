@@ -3,7 +3,7 @@ const  { sequelize } = require('../db');
 
 
 module.exports = function (sequelize) {
-    return sequelize.define('comments', {
+    return sequelize.define('usernotice', {
         title: {
             type: DataTypes.TEXT,
             allowNull: false,
