@@ -13,7 +13,7 @@ import {
 } from "react-pro-sidebar";
 
 //import icons from react icons
-import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
+//import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 
 
 //import sidebar css from react-pro-sidebar module and our custom css 
