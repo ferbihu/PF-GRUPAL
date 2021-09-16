@@ -242,3 +242,30 @@ export function updateDataUser(id, data) {
   };
 }
 
+export function getUsers() {
+  return async function(dispatch) {
+    try {
+        const res = await axios.get(`${REACT_APP_BACK_BASE_URL}/user/all/users`)
+        return dispatch({
+            type: "GET_USERS",
+            payload: res.data
+        })
+    } catch (err) {
+        console.log(err)
+    };
+  };
+}
+
+export function getUsersByName(name) {
+  return async function(dispatch) {
+    try {
+        const res = await axios.get(`${REACT_APP_BACK_BASE_URL}/user/all/users?name=${name}`)
+        return dispatch({
+            type: "USERS_NAME",
+            payload: res.data
+        })
+    } catch (err) {
+        console.log(err)
+    };
+  };
+}

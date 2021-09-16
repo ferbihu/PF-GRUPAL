@@ -25,5 +25,18 @@ router.put('/admin/:id/:role', async (req, res) => {
     return res.status(200).send('Cambiaste de roll')
 })
 
+router.get('/all/users', async(req, res) => {
+    const {name} = req.query;
+    const users = await User.findAll()
+    if(!name) {
+        return res.status(200).send(users);
+    } else {
+        const byName = await users.filter(i => i.name.toLowerCase().includes(name.toLowerCase()))
+        byName.length ?
+        res.status(200).send(byName) :
+        res.status(404).send('Usuario no encontrado')
+    }
+});
+
 
 module.exports = router;
