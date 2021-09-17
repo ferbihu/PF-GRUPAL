@@ -3,7 +3,7 @@ import "./IniciaSesion.css";
 import GoogleLogin from "react-google-login";
 import { useDispatch } from "react-redux";
 import { renderUserName, login } from "../actions/actions";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import swal from "sweetalert";
 const validate = (input) => {
   let errors = {};
@@ -105,6 +105,9 @@ export default function IniciaSesion() {
         >
           Ingresá
         </button>
+        <h2>
+        <Link to="/registrate">No tenes cuenta? Registrate.</Link>
+        </h2>
       </form>
     </div>
   );

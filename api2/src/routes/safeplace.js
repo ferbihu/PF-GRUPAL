@@ -12,13 +12,20 @@ const {newComment,getComments} = require('../controllers/commentSafePlace');
 const router = Router();
 
 router.get('/',getSafePlaces);
-//router.post('/',checkJwt,validateBody(postSafePlaceSchema),postSafePlace);
+
 router.post('/',checkJwt,validateBody(postSafePlaceSchema),postSafePlace);
+
 router.post('/new_comment',checkJwt,newComment);
 router.get('/all_comments',getComments);
+
 router.post('/:id/:status',checkJwt,isAdminUser,changeStatusSafePlace);
+router.post('/:id/:status',checkJwt,changeStatusSafePlace);
+
 router.get('/:id/',deleteSafePlace);
+
 router.get('/admin/all_safe_place',checkJwt,isAdminUser,getAllSafePlaces);
+
+
 
 
 
