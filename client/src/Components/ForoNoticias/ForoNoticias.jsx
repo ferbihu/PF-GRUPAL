@@ -1,19 +1,41 @@
-import React from "react";
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import {getCommentNotice,postCommentNotice } from '../../actions/actions.js';
 import notamujeres from "../../imgs/notamujeres.png";
 import "./ForoNoticias.css";
 
 export default function Foro() {
-  // const user_id = useSelector((state) => state.userId);
-  // const Loggin = useSelector((state) => state.isLogged)
-  // const [input, setInput] = useState({
-  //     user_id: userId.id,
-  //     Loggin: isLogged.id,
-  //     description: "",
-  // })
-  // async function handleSubmit(e) {
-  //     e.preventDefault();
-  // dispatch(())
-  //     });
+
+
+ const fecha =  function getCurrentDate(separator='-'){
+
+    let newDate = new Date()
+    let date = newDate.getDate();
+    let month = newDate.getMonth() + 1;
+    let year = newDate.getFullYear();
+    
+    return `${year}${separator}${month<10?`0${month}`:`${month}`}${separator}${date}`
+    }
+
+  const user_id = useSelector((state) => state.userId);
+  const Loggin = useSelector((state) => state.isLogged);
+  const notice_id=1;
+  const [input, setInput] = useState({
+       userId: user_id,
+       noticeId:notice_id,
+       description:"",
+       date:fecha, 
+   })
+   async function handleSubmit(e) {
+       e.preventDefault();
+       if(Loggin){
+       }else{
+         alert("Por favor logueate!")
+       }
+
+  }
+
   return (
     <div className='proyectocontainer'>
       <div className="tituloforo"> Foro </div>
@@ -83,7 +105,7 @@ export default function Foro() {
         className="inputcomentario"
         autoComplete="off"
         type="text"
-        //  value={input.description}
+        value={input.description}
         name="description"
         placeholder="Qué te pareció la noticia?"
       />
