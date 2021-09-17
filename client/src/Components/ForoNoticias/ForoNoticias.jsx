@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState,useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import {getCommentNotice,postCommentNotice } from '../../actions/actions.js';
 import notamujeres from "../../imgs/notamujeres.png";
@@ -8,7 +7,7 @@ import "./ForoNoticias.css";
 export default function Foro() {
 
 
- const fecha =  function getCurrentDate(separator='-'){
+ function getCurrentDate(separator='-'){
 
     let newDate = new Date()
     let date = newDate.getDate();
@@ -17,19 +16,46 @@ export default function Foro() {
     
     return `${year}${separator}${month<10?`0${month}`:`${month}`}${separator}${date}`
     }
+const fecha = getCurrentDate();
+// eslint-disable-next-line 
+let [stateComment, setStateComment] = useState([]);
+// eslint-disable-next-line 
 
-  const user_id = useSelector((state) => state.userId);
+const dispatch = useDispatch();
+// eslint-disable-next-line
+
+useEffect(() => {
+  dispatch(getCommentNotice())
+},
+  // eslint-disable-next-line
+  [stateComment]);
+
+const allcomment = useSelector((state) => state.stateCommentNotice);
+console.log("todos",allcomment);
+
+  console.log("fecha",fecha)
+  const userId = useSelector((state) => state.userId);
   const Loggin = useSelector((state) => state.isLogged);
-  const notice_id=1;
+  const noticeId=1;
+
+  console.log("iduser",userId)
   const [input, setInput] = useState({
-       userId: user_id,
-       noticeId:notice_id,
        description:"",
        date:fecha, 
    })
+   function handleChange(e) {
+    setInput({
+        ...input,
+        description: e.target.value
+    })
+    console.log("comentario ingresado",input)
+}
+
    async function handleSubmit(e) {
        e.preventDefault();
+       console.log("guarda",input)
        if(Loggin){
+        dispatch(postCommentNotice({ ...input,userId,noticeId}))
        }else{
          alert("Por favor logueate!")
        }
@@ -100,6 +126,12 @@ export default function Foro() {
       </div>
       <div className="comentariosforo">
         Comentarios
+            {allcomment.map((e, i) => (
+             <div>
+                {e.date}
+                {e.description}
+             </div>
+            ))}
       </div>
       <input
         className="inputcomentario"
@@ -108,26 +140,11 @@ export default function Foro() {
         value={input.description}
         name="description"
         placeholder="Qué te pareció la noticia?"
+        onChange={(e) => handleChange(e)}
       />
-      <button className="btnenviarcomentario" type="submit">
+      <button className="btnenviarcomentario" type="submit" onClick={(e) => handleSubmit(e)}>
         Envíar
       </button>
-      <input
-        className="inputpalabra"
-        autoComplete="off"
-        type="text"
-        //  value={input.description}
-        name="description"
-        placeholder="Buscar por palabra clave"
-      />
-       <input
-        className="inputfecha"
-        autoComplete="off"
-        type="text"
-        //  value={input.date}
-        name="date"
-        placeholder="Filtrar por fecha"
-      />
       <div>
         <button className="btnmascomentarios" type="submit">
           Ver más comentarios

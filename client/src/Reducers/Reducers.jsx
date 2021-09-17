@@ -195,7 +195,7 @@ function reducers(state = initialState, action) {
     case "GET_COMMENT_NOTICE":
         return {
           ...state,
-          stateSitie: action.payload.info,
+          stateCommentNotice: action.payload.info,
   
       }
     case "POST_COMMENT_NOTICE":
