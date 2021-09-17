@@ -27,8 +27,10 @@ const initialState = {
   allSafePlacesPanel: [],
   userData: [],
   popup: false,
-  popup_warning: false
+  popup_warning: false,
+  users: []
 };
+
 function reducers(state = initialState, action) {
   switch (action.type) {
     case "GET_SAFEPLACE":
@@ -155,6 +157,34 @@ function reducers(state = initialState, action) {
         popup_warning: false,
         popup: false
       }
+      
+    case 'FILTER_SAFEPLACE_BY_ID':
+    const allSafePlace = state.allSafePlacesPanel
+    const id = state.userId
+    const filterSafePlace = allSafePlace.filter(i => i.status.includes(id))
+    return {
+      ...state,
+      isLogged: true,
+      allSafePlacesPanel: filterSafePlace
+    }
+      
+    case "UPDATE_DATA_USER":
+      return {
+        ...state,
+      }
+      
+    case "GET_USERS":
+      return {
+        ...state,
+        users: action.payload
+      } 
+
+    case "USERS_NAME":
+      return {
+        ...state,
+        users: action.payload
+      } 
+
 
     default:
       return state;
