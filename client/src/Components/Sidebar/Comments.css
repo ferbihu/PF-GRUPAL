@@ -1,0 +1,14 @@
+.commentsCont {
+    display: flex;
+    justify-content: center;
+}
+
+.conte {
+    background-color: #f179092c;
+    margin: 10px;
+    width: 205px;
+    height: 80px;
+    text-align:center;
+    border-radius: 25px;
+    color: black;
+}
