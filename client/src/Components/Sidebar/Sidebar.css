@@ -1,13 +1,15 @@
 #Sidebar {
-    width: 600px;
+    /* width: 400px; */
     height: 700px;
     justify-content: center;
     position: absolute;
     z-index: 5;
-    top: 350px;
+    top: 450px;
     font-family: Montserrat;
     margin-left: 20px;
     border-radius: 50px;
+    display: flex;
+    flex-direction: column;
 }
 
   #Sidebar .closemenu {
@@ -111,7 +113,7 @@
 
 .cont {
   background-color: #c9bcdf;
-  border-radius: 25px;
+  border-radius: 15px;
   width: 205px;
   margin-left: 32px;
 }
@@ -129,9 +131,8 @@
 }
 
 .denuncia {
-  display: flex;
-  justify-content: center;
   color: #000;
+  align-self: center;
 }
 
 .denunciaTit {
@@ -141,13 +142,17 @@
 }
 
 .btnRes {
-  background-color: #baa8dacc;
+  background-color: #f17909;
   width: 180px;
   height: 50px;
   color: #000;
-  border-radius: 35px;
+  border-radius: 15px;
   border-color: #000;
   margin-left: 45px;
+}
+.btnRes:hover {
+  background-color: #f39843d8;
+  
 }
 
 .denuncia:hover {
@@ -164,3 +169,13 @@
       overflow: hidden;
     }
   }
+
+.sidebar-align{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(243, 243, 243);
+  margin-top: 3vw;
+  margin-bottom: 3vw;
+  justify-items: center;
+}

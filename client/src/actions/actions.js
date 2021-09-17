@@ -242,6 +242,31 @@ export function updateDataUser(id, data) {
   };
 }
 
+
+export function changePopupState(payload){
+  console.log("entro a la action change popup")
+  return {
+      type: "UPDATE_POPUP_STATE",
+      payload
+  }
+}
+
+export function changePopupStateWarning(payload){
+  console.log("entro a la action change popup warning")
+  return {
+      type: "UPDATE_POPUP_STATE_WARNING",
+      payload
+  }
+}
+
+export function closePopup(payload){
+  console.log("entro a la action change popup warning")
+  return {
+      type: "CLOSE_POPUP",
+      payload
+  }
+}
+
 export function getUsers() {
   return async function(dispatch) {
     try {
@@ -269,3 +294,4 @@ export function getUsersByName(name) {
     };
   };
 }
+
