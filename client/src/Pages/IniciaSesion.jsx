@@ -107,7 +107,6 @@ export default function IniciaSesion() {
         </button>
         <h2>
           <Link to="/registrate">No tenes cuenta? Registrate.</Link>
-        <Link to="/registrate">No tenes cuenta? Registrate.</Link>
         </h2>
       </form>
     </div>
