@@ -25,7 +25,8 @@ const initialState = {
     "userid":2}],
   allSafePlacesPanel: [],
   userData: [],
-  users: []
+  users: [],
+  news: []
 };
 function reducers(state = initialState, action) {
   switch (action.type) {
@@ -146,6 +147,17 @@ function reducers(state = initialState, action) {
         ...state,
         users: action.payload
       } 
+  
+    case "GET_NEWS":
+      return {
+        ...state,
+        news: action.payload
+      }
+
+    case "POST_NEWS":
+      return {
+        ...state
+      }
 
     default:
       return state;

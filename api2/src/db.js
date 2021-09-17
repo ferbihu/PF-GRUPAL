@@ -51,6 +51,10 @@ User.hasMany(SafePlace,{as:"safePlaceUser",foreignKey:"userId"});
 //un lugar seguro pertenece a un usuario 
 SafePlace.belongsTo(User,{as:"safePlaceCreator",foreignKey:"userId"});
 
+
+Notice.belongsTo(User)
+User.hasMany(Notice)
+
 module.exports = {
     conn: sequelize,
     User,

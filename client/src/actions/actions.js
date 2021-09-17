@@ -269,3 +269,23 @@ export function getUsersByName(name) {
     };
   };
 }
+
+export function getNews() {
+  return async function(dispatch) {
+    const res = await axios.post(`${REACT_APP_BACK_BASE_URL}/newNotice/news`)
+    return dispatch({
+      type: "GET_NEWS",
+      payload: res.data
+    }) 
+  }
+}
+
+export function addNews(payload) {
+  return async function(dispatch) {
+    const res = await axios.post(`${REACT_APP_BACK_BASE_URL}/newNotice`, payload)
+    return {
+      type: "POST_NEWS",
+      res
+    }
+  }
+}
