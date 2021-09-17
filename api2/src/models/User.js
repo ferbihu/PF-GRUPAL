@@ -20,6 +20,10 @@ module.exports = function(sequelize) {
             allowNull: false,
             unique:true
         },
+        image: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
         phone:{
           type: DataTypes.STRING,
           allowNull:true  
