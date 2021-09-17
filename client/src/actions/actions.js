@@ -242,3 +242,79 @@ export function updateDataUser(id, data) {
   };
 }
 
+
+export function changePopupState(payload){
+  console.log("entro a la action change popup")
+  return {
+      type: "UPDATE_POPUP_STATE",
+      payload
+  }
+}
+
+export function changePopupStateWarning(payload){
+  console.log("entro a la action change popup warning")
+  return {
+      type: "UPDATE_POPUP_STATE_WARNING",
+      payload
+  }
+}
+
+export function closePopup(payload){
+  console.log("entro a la action change popup warning")
+  return {
+      type: "CLOSE_POPUP",
+      payload
+  }
+}
+//para el administrar usuarios
+export function getUsers() {
+  return async function(dispatch) {
+    try {
+        const res = await axios.get(`${REACT_APP_BACK_BASE_URL}/user/all/users`)
+        return dispatch({
+            type: "GET_USERS",
+            payload: res.data
+        })
+    } catch (err) {
+        console.log(err)
+    };
+  };
+}
+
+export function getUsersByName(name) {
+  return async function(dispatch) {
+    try {
+        const res = await axios.get(`${REACT_APP_BACK_BASE_URL}/user/all/users?name=${name}`)
+        return dispatch({
+            type: "USERS_NAME",
+            payload: res.data
+        })
+    } catch (err) {
+        console.log(err)
+    };
+  };
+}
+
+//CAMBIAR EL ROL A ADMIN
+export function changeRoleToAdmin(id, payload){
+  //console.log("hola action CHANGE ROL TO ADMIN")
+  console.log(id, payload, "action change rol to admin")
+  return async function (dispatch){
+    const config = {
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
+    };
+    try {
+      const response = await axios.put(`${REACT_APP_BACK_BASE_URL}/user/admin/${id}/${payload}`, {}, config)
+      
+      return dispatch ({
+        type: "CHANGE_ROL",
+        payload: response
+      })
+    } catch (error) {
+      console.log(error)
+      
+    }
+         
+}}
+
+

@@ -30,14 +30,24 @@ server.use("/delete_safe_place", require("./routes/safeplace"))
 
 server.use('/user', require('./routes/user'));
 
-server.use("/comments", require("./routes/comments"))
+server.use("/comments", require("./routes/usernotice"))
 
 server.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Credentials', 'true');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
     next();
 });
+server.use(
+    cors({
+      origin: "*", //"*"
+      credentials: true,
+      methods: ["GET", "POST", "OPTIONS", "PUT", "DELETE"],
+      allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept"],
+    })
+);
+
 
 server.use((err, req, res, next) => {
     const status = err.status || 500;

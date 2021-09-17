@@ -6,7 +6,7 @@ const clientId = process.env
 async function getSafePlaces(){
     try{
         return await SafePlace.findAll({
-            where:{status: "accepted"},
+            where:{status: "accepted" },
             include:[{
                 model:User,
                 as: 'safePlaceCreator',

@@ -3,11 +3,6 @@ import { useSelector } from "react-redux";
 import './ForoNoticias.css';
 
 export default function Foro() {
-    
-    const userId = useSelector((state) => state.userId);
-    const [input, setInput] = useState({
-        description: "",   
-    })
     return (
         <div>
             <div className='tituloforo'>

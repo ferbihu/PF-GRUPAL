@@ -16,9 +16,12 @@ import MainProfile from "./Pages/User-Profile-Page/MainProfile";
 import Registrate from "./Pages/Registro-Usuario/Registrate";
 import Nav from "./Components/NavBar/NavBar";
 import Panel from "./Pages/Panel-Admin/Panel";
-import Sities from "./Pages/Sities/Sitie";
+// import Sities from "./Pages/Sities/Sitie";
+import LugaresSeguros from "./Pages/LugaresSeguros";
 import ProyectoInfo from "./Pages/Proyecto-info/Proyecto-info";
 import ForoNoticias from './Pages/ForoNoticias/ForoNoticias';
+import Usuarios from "./Pages/Usuarios/Usuarios";
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 
 function App() {
@@ -31,15 +34,17 @@ function App() {
       <Switch>
       <Route exact path="/" component={Landing}/>
       <Route exact path="/elproyecto" component={ProyectoInfo}/> 
-      <Route exact path="/lugaresseguros" component={Sities}/>
+      <Route exact path="/lugaresseguros" component={LugaresSeguros}/>
       <Route exact path="/registratelugarseguro" component={RegistrateLugarSeguro}/>
       <Route exact path="/iniciasesion" component={IniciaSesion}/>
       <Route exact path="/profile" component={MainProfile} />
       <Route exact path="/registrate" component={Registrate}/>
       <Route exact path="/foro" component={Foro}/>
       <Route exact path="/foroNoticias" component={ForoNoticias}/>
-      <Route exact path="/panel" component={Panel}/>
+      <PrivateRoute exact path="/panel" component={Panel}/>
       <Route exact path="/conocenos" component={Conocenos}/>
+      <Route exact path="/users" component={Usuarios}/>
+
 
       </Switch>
       <Footer/>

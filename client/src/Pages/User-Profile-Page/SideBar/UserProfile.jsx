@@ -100,7 +100,8 @@ function UserProfile() {
           Math Teacher
         </Text>
       </VStack>
-      {rol === "admin" && <Link to="/panel">Panel Admin</Link>}
+      {rol === "admin" && <Link to="/panel">Panel de control</Link>}
+      {rol === "admin" && <Link to="/users">Administrar Usuarios</Link>}
     </VStack>
 
   );
