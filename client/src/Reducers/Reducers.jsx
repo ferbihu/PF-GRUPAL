@@ -24,7 +24,8 @@ const initialState = {
     "description_status":"Prueba",
     "userid":2}],
   allSafePlacesPanel: [],
-  userData: []
+  userData: [],
+  users: []
 };
 function reducers(state = initialState, action) {
   switch (action.type) {
@@ -129,11 +130,23 @@ function reducers(state = initialState, action) {
       allSafePlacesPanel: filterSafePlace
     }
       
-        case "UPDATE_DATA_USER":
-        return {
-          ...state,
-        };
+    case "UPDATE_DATA_USER":
+      return {
+        ...state,
+      }
       
+    case "GET_USERS":
+      return {
+        ...state,
+        users: action.payload
+      } 
+
+    case "USERS_NAME":
+      return {
+        ...state,
+        users: action.payload
+      } 
+
     default:
       return state;
   }
