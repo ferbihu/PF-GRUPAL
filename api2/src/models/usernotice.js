@@ -4,6 +4,11 @@ const  { sequelize } = require('../db');
 
 module.exports = function (sequelize) {
     return sequelize.define('usernotice', {
+        id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true,
+        },
         title: {
             type: DataTypes.TEXT,
             allowNull: false,
