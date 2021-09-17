@@ -3,7 +3,7 @@ import "./IniciaSesion.css";
 import GoogleLogin from "react-google-login";
 import { useDispatch } from "react-redux";
 import { renderUserName, login } from "../actions/actions";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import swal from "sweetalert";
 const validate = (input) => {
   let errors = {};
@@ -23,7 +23,7 @@ export default function IniciaSesion() {
   const [input, setInput] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
   const history = useHistory();
- 
+
   const responseGoogle = (response) => {
     const userName = response.getBasicProfile().Qe;
     const userID = response.getId();
@@ -54,13 +54,13 @@ export default function IniciaSesion() {
 
       history.push("/profile");
     } else {
-      swal("Oh oh, algo salió mal", "Inténtelo nuevamente", "warning");    
+      swal("Oh oh, algo salió mal", "Inténtelo nuevamente", "warning");
     }
   }
 
   function handleGoogleLogin(e) {
     e.preventDefault();
-    history.push("/")
+    history.push("/");
   }
 
   return (
@@ -70,14 +70,14 @@ export default function IniciaSesion() {
       <form class="login-form" onSubmit={(e) => handleSubmit(e)}>
         <br></br>
         <button onClick={(e) => handleGoogleLogin(e)}>
-        <GoogleLogin
-          clientId="58941748087-vv5lmt8hnkri961a7pdrdp9pjsj500vl.apps.googleusercontent.com"
-          buttonText="Ingresá con Google"
-          onSuccess={responseGoogle}
-          onFailure={responseGoogle}
-          cookiePolicy={"single_host_origin"}
-          className="btnGoogle"
-        ></GoogleLogin>
+          <GoogleLogin
+            clientId="58941748087-vv5lmt8hnkri961a7pdrdp9pjsj500vl.apps.googleusercontent.com"
+            buttonText="Ingresá con Google"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            cookiePolicy={"single_host_origin"}
+            className="btnGoogle"
+          ></GoogleLogin>
         </button>
         <label className="p">Email</label>
         <input
@@ -105,8 +105,10 @@ export default function IniciaSesion() {
         >
           Ingresá
         </button>
+        <h2>
+          <Link to="/registrate">No tenes cuenta? Registrate.</Link>
+        </h2>
       </form>
     </div>
   );
 }
-
