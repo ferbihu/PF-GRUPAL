@@ -1,0 +1,28 @@
+.usuario-card{
+    display: flex;
+    margin: 4vw;
+    background-color: rgb(214, 226, 233);
+
+    justify-content: space-between;
+}
+
+.name-user{
+    margin: 1vw;
+
+}
+
+.role-user{
+    margin: 1vw;
+
+}
+
+.boton-convertir{
+    margin: 1vw;
+}
+.boton-convertir2{
+    background-color: rgb(236, 236, 236);
+    border-radius: 8px;
+    padding: 0.2vw;
+    width: fit-content;
+    
+}
