@@ -1,30 +1,55 @@
+.proyectocontainer{
+    padding: 1vw 5vw 1vw 5vw;
+    background-color: #F1EEDE;
+    font-family: Montserrat;
+    display: flex;
+    flex-direction: column;
+}
 .tituloforo{
-    font-size: 2vw;
+    font-size: 3vw;
     text-align: center;
     align-self: center; 
     margin-bottom: 0.5vw;
 }
-.foroNoticiasSeguro-line{
+.foroNoticias-line{
     background: #f17a09;
-    height: 0.1vw;
-    width: 10vw;
+    height: 0.2vw;
+    width: 8vw;
+    margin-top: 0;
+    align-self: center; 
+    margin-bottom: 2vw;
+    
+}
+.imgNotamujeres{
+    width: 71vw;
+    height: auto;
     align-self: center;
+    margin-left: auto; 
+    margin-right: auto;
+ 
     
 }
 .titulonoti{
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2vw;
-    text-align:start;
-    align-self: center; 
+    font-size: 1.8vw;
+    margin-left: -350px;
+    align-self: center;
+    margin-top: 1vw; 
     margin-bottom: 0.5vw;
 }
 .rectangulonoticia {
     background-color: #FFFFFF;
     margin:auto;
     box-shadow: 0 0 1rem rgba(128, 128, 128, 0.3);
-    width: 900px; 
-    height: 600px; 
+    width: 1000px; 
+    height: 500px; 
     border-radius: 20px;
+}
+.parrafonoti{
+    text-align:justify;
+    margin-left: 2vw;
+    margin-top: 2vw;
+    margin-right: 2vw;
+ 
 }
 .btnnotianterior{ 
     border:  1px solid #FEA166;
@@ -32,7 +57,7 @@
     width: 140px;
     height: 30px; 
     border-radius:20px;
-    margin-left: 340px;
+    margin-left: 50px;
     margin-top: 20px;
     justify-content:center;
     align-items:center;
@@ -48,7 +73,7 @@
     width: 140px;
     height: 30px; 
     border-radius:20px;
-    margin-left: 400px;
+    margin-left: 725px;
     margin-top: 20px;
     justify-content:center;
     align-items:center;
@@ -57,10 +82,11 @@
     font-size: 14px;
 }
 .comentariosforo{
+    font-weight: bold;
     font-size: 2vw;
     color: #4A0E79;
     text-align:start;
-    margin-left: 100px;
+    margin-right: 800px;
     margin-top: 40px;
     align-self: center; 
     margin-bottom: 0.5vw;  
@@ -72,9 +98,9 @@
     background-color:  #FFFFFF;
     text-align:center;
     border-radius: 20px;
-    width: 750px;
+    width: 850px;
     height: 80px;
-    margin-left: 300px;
+    margin-left: 140px;
     margin-top: 10px;
     font-size: 20px;  
 }
@@ -84,13 +110,37 @@
     width: 150px;
     height: 45px; 
     border-radius:20px;
-    margin-left: 900px;
+    margin-left: 830px;
     margin-top: 15px;
     justify-content:center;
     align-items:center;
     align-content: center;
     display:fixed;
     font-size: 14px;
+}
+.inputpalabra{
+    background-color: #FFFFFF;
+    box-shadow: 0 0 1rem rgba(128, 128, 128, 0.3);
+    background-color:  #FFFFFF;
+    text-align:center;
+    border-radius: 20px;
+    width: 180px;
+    height: 30px; 
+    margin-left: 140px;
+    margin-top: 10px;
+    font-size: 12px;  
+}
+.inputfecha{
+    background-color: #FFFFFF;
+    box-shadow: 0 0 1rem rgba(128, 128, 128, 0.3);
+    background-color:  #FFFFFF;
+    text-align:center;
+    border-radius: 20px;
+    width: 180px;
+    height: 30px; 
+    margin-left: 140px;
+    margin-top: 10px;
+    font-size: 12px; 
 }
 .btnmascomentarios{
     border:  1px solid #FEA166;
@@ -99,7 +149,7 @@
     height: 30px; 
     border-radius:20px;
     margin-right: 90px;
-    margin-left: 90px;
+    margin-left: 40px;
     margin-top: 60px;
     margin-bottom: 40px;
     justify-content:center;
