@@ -1,6 +1,6 @@
 
 const {SafePlace,User} = require('../db');
-const clientId = process.env
+
 
 
 async function getSafePlaces(){
@@ -35,10 +35,12 @@ async function editSafePlaceByPK(body,id){
         throw error
     }
 };
+
+
 async function deleteSafePlace(id) {
     try{
      return await SafePlace.destroy({
-         where: { id: id }    
+         where: { id }    
     });
     }
  catch(error){
