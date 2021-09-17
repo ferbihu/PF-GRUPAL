@@ -31,8 +31,10 @@ export default function Maps(props) {
 
 
   //ubicacion actual
+var ban=false;
 
   function uno() {
+    ban=true;
     navigator.geolocation.getCurrentPosition(function (position) {
       // guardo una version simplificada de la posicion en local storage
       localStorage.setItem('ultimaPosicion', JSON.stringify({ lat: position.coords.latitude, lng: position.coords.longitude }));
@@ -125,7 +127,7 @@ export default function Maps(props) {
   return (
     <div>
       {
-        bandera ?
+        ban?
           <div>
             <GoogleMap defaultZoom={11} defaultCenter={coordinate} />
             <Marker key={100}
