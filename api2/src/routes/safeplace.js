@@ -1,6 +1,6 @@
 const {Router} = require ('express');
 const {getSafePlaces} = require ('../controllers/safeplace');
-const { postSafePlace,changeStatusSafePlace, deleteSafePlace,getAllSafePlaces,changeStatusWarnign } = require('../controllers/safeplace');
+const { postSafePlace,changeStatusSafePlace, deleteSafePlace,getAllSafePlaces } = require('../controllers/safeplace');
 const {postSafePlaceSchema} = require('../schemas/safePlace');
 const {validateBody} =require('../middlewares/validateSchema');
 const {checkJwt} = require('../middlewares/jwt');
@@ -19,7 +19,7 @@ router.post('/new_comment',checkJwt,newComment);
 router.get('/all_comments',getComments);
 
 router.post('/:id/:status',checkJwt,isAdminUser,changeStatusSafePlace);
-router.post('/:id/:status',checkJwt,changeStatusWarnign);
+router.post('/:id/:status',checkJwt,changeStatusSafePlace);
 
 router.get('/:id/',deleteSafePlace);
 

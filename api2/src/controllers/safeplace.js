@@ -23,16 +23,9 @@ const postSafePlace = async (req,res) =>{
 };
 
 const changeStatusSafePlace = async (req,res) =>{
-    //console.log(req.user)
     const {id,status} = req.params;
     const {description_status = ""} = req.body;
     const statusChange = await ServicesSafePlace.editSafePlaceByPK({status,description_status},id);
-    res.status(200).json({success:true})
-};
-
-const changeStatusWarnign = async (req,res) =>{
-    const {id,status} = req.params;
-    const statusChange = await ServicesSafePlace.editSafePlaceByPK({status},id);
     res.status(200).json({success:true})
 };
 
