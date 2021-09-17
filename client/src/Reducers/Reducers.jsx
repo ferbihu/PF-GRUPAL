@@ -157,33 +157,34 @@ function reducers(state = initialState, action) {
         popup_warning: false,
         popup: false
       }
-      
-    case 'FILTER_SAFEPLACE_BY_ID':
-    const allSafePlace = state.allSafePlacesPanel
-    const id = state.userId
-    const filterSafePlace = allSafePlace.filter(i => i.status.includes(id))
-    return {
-      ...state,
-      isLogged: true,
-      allSafePlacesPanel: filterSafePlace
-    }
-      
+
+    /* case 'FILTER_SAFEPLACE_BY_ID':
+      const allSafePlace2 = state.allSafePlacesPanel
+      const id2 = state.userId
+      const filterSafePlace2 = allSafePlace2.filter(i => i.status.includes(id2))
+      return {
+        ...state,
+        isLogged: true,
+        allSafePlacesPanel: filterSafePlace2
+      } */
+
+    // eslint-disable-next-line
     case "UPDATE_DATA_USER":
       return {
         ...state,
       }
-      
+    // eslint-disable-next-line
     case "GET_USERS":
       return {
         ...state,
         users: action.payload
-      } 
+      }
 
     case "USERS_NAME":
       return {
         ...state,
         users: action.payload
-      } 
+      }
 
 
     default:
