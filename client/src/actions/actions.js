@@ -317,4 +317,18 @@ export function changeRoleToAdmin(id, payload){
          
 }}
 
+export function showCommentsSafePlaces() {
+  return function(dispatch) {
+    const config = {
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
+    };
+    axios.get(`${REACT_APP_BACK_BASE_URL}/safe_place/all_comments`, config)
+    .then(resp => {
+      dispatch({
+        type: "GET_COMMENTS_SP",
+        payload: resp.data
+      })
+    })
+  }
+}
 

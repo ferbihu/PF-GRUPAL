@@ -2,8 +2,10 @@ const ServicesCommentSafePlace = require('../services/commentSafePlace');
 
 
 const newComment = async (req,res) =>{
+    const {comment_text} = req.body;
+    console.log(comment_text)
     try{
-        await ServicesCommentSafePlace.newComment(req.body)
+        await ServicesCommentSafePlace.newComment({comment_text})
             res.status(200).json({success:true})
     }
     catch(error){

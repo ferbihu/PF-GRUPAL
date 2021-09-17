@@ -19,6 +19,7 @@ import pin from "./../../imgs/iconmapp.png"
 // import "../Sidebar/Sidebar.css";
 
 import PopupsSideBarWarning from "../Sidebar/PopupsSideBarWarning.jsx";
+import PopupsComment from "../Sidebar/PopUpComent.jsx";
 
 
 export default function Maps(props) {
@@ -156,7 +157,7 @@ export default function Maps(props) {
 
               }
               {
-                state_popup && <PopupsSideBarWarning text="Dejá una reseña del lugar! Recordá que el comentario será publico y todos podran verlo."></PopupsSideBarWarning>
+                state_popup && <PopupsComment text="Dejá una reseña del lugar! Recordá que el comentario será publico y todos podran verlo."></PopupsComment>
               }
               {
                 state_popup_warning && <PopupsSideBarWarning text="Por favor, explicanos el motivo de la denuncia.  Si denuncias un lugar, automáticamente
