@@ -20,6 +20,7 @@ import Panel from "./Pages/Panel-Admin/Panel";
 import LugaresSeguros from "./Pages/LugaresSeguros";
 import ProyectoInfo from "./Pages/Proyecto-info/Proyecto-info";
 import ForoNoticias from './Pages/ForoNoticias/ForoNoticias';
+import Usuarios from "./Pages/Usuarios/Usuarios";
 
 
 function App() {
@@ -41,6 +42,8 @@ function App() {
       <Route exact path="/foroNoticias" component={ForoNoticias}/>
       <Route exact path="/panel" component={Panel}/>
       <Route exact path="/conocenos" component={Conocenos}/>
+      <Route exact path="/users" component={Usuarios}/>
+
 
       </Switch>
       <Footer/>

@@ -266,7 +266,7 @@ export function closePopup(payload){
       payload
   }
 }
-
+//para el administrar usuarios
 export function getUsers() {
   return async function(dispatch) {
     try {
@@ -294,4 +294,27 @@ export function getUsersByName(name) {
     };
   };
 }
+
+//CAMBIAR EL ROL A ADMIN
+export function changeRoleToAdmin(id, payload){
+  //console.log("hola action CHANGE ROL TO ADMIN")
+  console.log(id, payload, "action change rol to admin")
+  return async function (dispatch){
+    const config = {
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
+    };
+    try {
+      const response = await axios.put(`${REACT_APP_BACK_BASE_URL}/user/admin/${id}/${payload}`, {}, config)
+      
+      return dispatch ({
+        type: "CHANGE_ROL",
+        payload: response
+      })
+    } catch (error) {
+      console.log(error)
+      
+    }
+         
+}}
+
 
