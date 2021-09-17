@@ -30,6 +30,13 @@ const changeStatusSafePlace = async (req,res) =>{
     res.status(200).json({success:true})
 };
 
+const changeStatusWarnign = async (req,res) =>{
+    const {id,status} = req.params;
+    const statusChange = await ServicesSafePlace.editSafePlaceByPK({status},id);
+    res.status(200).json({success:true})
+};
+
+
 const deleteSafePlace = async (req, res)=> {
     try{
    const {id} = req.params;
@@ -44,4 +51,4 @@ const deleteSafePlace = async (req, res)=> {
 
 
 
-module.exports = {getSafePlaces,postSafePlace,changeStatusSafePlace, deleteSafePlace,getAllSafePlaces}
+module.exports = {getSafePlaces,postSafePlace,changeStatusSafePlace, deleteSafePlace,getAllSafePlaces,changeStatusWarnign}
