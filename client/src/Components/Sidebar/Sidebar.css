@@ -10,7 +10,7 @@
     border-radius: 25px;
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
+    overflow: scroll;
     flex: 1;
 }
 

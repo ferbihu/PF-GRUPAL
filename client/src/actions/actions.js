@@ -295,6 +295,18 @@ export function getUsersByName(name) {
   };
 }
 
+export function getSafePlaceById(id) {
+  return async function(dispatch) {
+    await axios.get(`${REACT_APP_BACK_BASE_URL}/safe_place/getId/` + id)
+    .then((resp) => {
+      dispatch({
+        type: "GET_BY_ID",
+        payload: resp.data
+      })
+    })
+  }
+}
+
 //CAMBIAR EL ROL A ADMIN
 export function changeRoleToAdmin(id, payload){
   //console.log("hola action CHANGE ROL TO ADMIN")

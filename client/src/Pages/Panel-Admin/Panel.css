@@ -114,3 +114,8 @@ option{
     font-size: 1vw;
     margin: 1vw;
 }
+
+.noticia {
+    display: flex;
+    justify-content: center;
+}

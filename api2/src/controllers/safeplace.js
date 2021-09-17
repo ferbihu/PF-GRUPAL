@@ -1,3 +1,4 @@
+const { SafePlace, CommentSafePlace } = require('../db');
 const ServicesSafePlace = require ('../services/safeplace');
 
 
@@ -42,6 +43,24 @@ const deleteSafePlace = async (req, res)=> {
   }
 }
 
+const getById = async (req, res, next) => {
+    try {
+        const {id} = req.params;
+        await SafePlace.findAll({
+            where: {
+                id: id
+            },
+            include: [{
+                model: CommentSafePlace,
+                as: "safePlaceComments",
+            }]
+        })
+        .then((resp) => res.send(resp))
+    } catch(err){
+        next(err)
+    }
+}
 
 
-module.exports = {getSafePlaces,postSafePlace,changeStatusSafePlace, deleteSafePlace,getAllSafePlaces,changeStatusWarnign}
+
+module.exports = {getSafePlaces,postSafePlace,changeStatusSafePlace, deleteSafePlace,getAllSafePlaces, getById}

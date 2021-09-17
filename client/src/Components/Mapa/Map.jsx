@@ -10,7 +10,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // eslint-disable-next-line
 
-import { getSafeplace } from '../../actions/actions.js';
+import { getSafeplace, getSafePlaceById } from '../../actions/actions.js';
 
 import Sidebar from "../Sidebar/Sidebar.jsx";
 import pin from "./../../imgs/iconmapp.png"
@@ -74,14 +74,15 @@ var ban=false;
     [state]);
 
   const allsities = useSelector((state) => state.stateSitie);
-  console.log(allsities);
+  console.log("CA ALLSITIES",allsities);
   const [input, setInput] = useState(false);
-  const handleMarkerClick = (e) => {
+  const handleMarkerClick = (id) => {
     if (input === false) {
       setInput(true)
     } else {
       setInput(false)
     }
+    dispatch(getSafePlaceById(id))
   }
   // eslint-disable-next-line
   const coord = { lat: -34.607914, lng: -58.370321 }
@@ -117,6 +118,7 @@ var ban=false;
       date.telephone = allsities[i].telephone;
       date.street = allsities[i].street;
       date.number = allsities[i].number;
+      date.id = allsities[i].id;
       date.coord = { lat: allsities[i].lat, lng: allsities[i].lng };
       sitios.push(date);
     }
@@ -152,14 +154,14 @@ var ban=false;
         bandera ?
           sitios.map((e, i) => (
             <Marker key={i}
-              position={e.coord} title={e.keyword} icon={pin} id={e.id} onClick={() => handleMarkerClick(e)}
+              position={e.coord} title={e.keyword} icon={pin} id={e.id} onClick={(e) => handleMarkerClick(e)}
             >
               {
-                input && <Sidebar id={e.id} name={e.name} telephone={e.telephone} street={e.street} number={e.number} keyword={e.keyword} handleMarkerClick={handleMarkerClick} />
+                input && <Sidebar id={e.id}/>
 
               }
               {
-                state_popup && <PopupsComment text="Dejá una reseña del lugar! Recordá que el comentario será publico y todos podran verlo."></PopupsComment>
+                state_popup && <PopupsComment id={e.id} text="Dejá una reseña del lugar! Recordá que el comentario será publico y todos podran verlo."></PopupsComment>
               }
               {
                 state_popup_warning && <PopupsSideBarWarning text="Por favor, explicanos el motivo de la denuncia.  Si denuncias un lugar, automáticamente
