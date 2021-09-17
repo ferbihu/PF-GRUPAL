@@ -32,6 +32,8 @@ server.use('/user', require('./routes/user'));
 
 server.use("/comments", require("./routes/usernotice"))
 
+server.use("/newNotice", require("./routes/newNotice"))
+
 server.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Credentials', 'true');

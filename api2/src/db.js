@@ -58,7 +58,9 @@ User.hasMany(CommentSafePlace,{as:"comments",foreignKey : "userId"});
 CommentSafePlace.belongsTo(User,{as:"creator",foreignKey : "userId"});
 CommentSafePlace.belongsTo(SafePlace,{as:"safePlace",foreingKey : "safePlaceId"});
 
-
+//Un usuario 'admin' puede publicar una notici
+Notice.belongsTo(User)
+User.hasMany(Notice)
 
 
 
