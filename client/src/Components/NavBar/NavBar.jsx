@@ -41,11 +41,7 @@ const Nav = () => {
 
 
                     </li>
-                    <li>
-
-                        <Link to="/registrate">Registrate</Link>
-
-                    </li>
+                   
                     {logueado === true &&
                         <li>
 
