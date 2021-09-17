@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import "./NavBar.css";
 
 const Nav = () => {
+
   const name = useSelector((state) => state.user);
   const logueado = useSelector((state) => state.isLogged);
   console.log(name);
@@ -61,3 +62,4 @@ const Nav = () => {
 };
 
 export default Nav;
+

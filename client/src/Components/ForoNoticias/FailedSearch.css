@@ -11,7 +11,7 @@
     align-self: center; 
     margin-bottom: 0.5vw;
 }
-.foroPortada-line{
+.foroNoticias-line{
     background: #f17a09;
     height: 0.2vw;
     width: 8vw;
@@ -20,7 +20,11 @@
     margin-bottom: 2vw;
     margin-left: 575px;
 }
-.btnbuscar{
+.error{
+    font-size: 40px; 
+    text-align: center;
+}
+.btnsearch{
     width: 150px;
     height: 45px; 
     border-radius:20px;
@@ -34,7 +38,7 @@
     color: #878BD9;
     font-weight: bold;
 }
-.inputbusqueda{
+.inputsearch{
     /* border:  1px solid #C4C4C4; */
     background-color: #FFFFFF;
     box-shadow: 0 0 1rem rgba(128, 128, 128, 0.3);
@@ -43,7 +47,7 @@
     border-radius: 20px;
     width: 500px;
     height: 35px;
-    margin-left: 0px;
+    margin-left: -20px;
     margin-top: 10px;
     margin-bottom: 25px;
     font-size: 20px;  

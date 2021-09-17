@@ -3,7 +3,7 @@ const { Sequelize } = require('sequelize');
 const {DB_USER, DB_PASSWORD, DB_HOST, DB_NAME} = process.env;
 
 const userModel = require('./models/User.js');
-const commentModel = require('./models/usernotice.js');
+const commentModel = require('./models/commentnotice.js');
 const safePlaceModel = require('./models/safePlace.js');
 const noticeModel = require('./models/noticias.js');
 const commentSafePlace = require('./models/commentSafePlace.js');
@@ -43,11 +43,11 @@ let sequelize =
 const User = userModel(sequelize);
 const Notice = noticeModel(sequelize);
 const SafePlace = safePlaceModel(sequelize);
-const User_Notice = commentModel(sequelize);
 const CommentSafePlace = commentSafePlace(sequelize);
+const CommentNotice = commentModel(sequelize);
 //uno a muchos, viaja el id del usuario que hizo el comentario
-User.belongsToMany(Notice, { through: User_Notice });
-Notice.belongsToMany(User, { through: User_Notice });
+User.belongsToMany(Notice, { through: CommentNotice });
+Notice.belongsToMany(User, { through: CommentNotice });
 
 User.hasMany(SafePlace,{as:"safePlaceUser",foreignKey:"userId"});
 //un lugar seguro pertenece a un usuario 
@@ -58,7 +58,9 @@ User.hasMany(CommentSafePlace,{as:"comments",foreignKey : "userId"});
 CommentSafePlace.belongsTo(User,{as:"creator",foreignKey : "userId"});
 CommentSafePlace.belongsTo(SafePlace,{as:"safePlace",foreingKey : "safePlaceId"});
 
-
+//Un usuario 'admin' puede publicar una notici
+Notice.belongsTo(User)
+User.hasMany(Notice)
 
 
 
@@ -68,6 +70,5 @@ module.exports = {
     User,
     Notice,
     SafePlace,
-    User_Notice,
-    CommentSafePlace
-} 
+    CommentNotice
+  }

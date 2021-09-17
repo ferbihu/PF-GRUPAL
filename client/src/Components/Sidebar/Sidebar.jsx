@@ -22,6 +22,7 @@ import "./Sidebar.css";
 
 import { changePopupState, changePopupStateWarning } from "../../actions/actions";
 import { useDispatch, useSelector } from "react-redux";
+import ShowCommentsPlaces from "./Comments";
 
 
 export default function Sidebar({ id, name, telephone, street, number, keyword, handleMarkerClick }) {
@@ -29,7 +30,16 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
   //create initial menuCollapse state using useState hook
   const [menuCollapse, setMenuCollapse] = useState(false)
 
+  // const [input, setInput] = useState({
+  //   comment: ""
+  // })
+  // const comments = useSelector((state) => state.comments_safeP)
+  // console.log(comments)
   const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(showCommentsSafePlaces())
+  // }, [showCommentsSafePlaces])
 
   function HandleCommentClick() {
     dispatch(changePopupState())
@@ -89,6 +99,16 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
             </div>
 
             <button className="btnRes" type="submit" disabled={state_popup2 === true || state_popup_warning2 === true} onClick={() => HandleCommentClick()}>Dejar una reseña</button>
+            {/* {
+              comments?.map((c) => {
+                return (
+                  <div>
+                    <p>{c.comment_text}</p>
+                  </div>
+                )
+              })
+            } */}
+            <ShowCommentsPlaces/>
 
           </SidebarContent>
         </ProSidebar>

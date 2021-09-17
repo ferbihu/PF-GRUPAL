@@ -28,7 +28,8 @@ const initialState = {
   userData: [],
   popup: false,
   popup_warning: false,
-  users: []
+  users: [],
+  comments_safeP: []
 };
 
 function reducers(state = initialState, action) {
@@ -184,6 +185,11 @@ function reducers(state = initialState, action) {
       return {
         ...state,
         users: action.payload
+      }
+    case "GET_COMMENTS_SP":
+      return {
+        ...state,
+        comments_safeP: action.payload
       }
 
 
