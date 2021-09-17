@@ -1,9 +1,7 @@
 const { DataTypes } = require('sequelize');
-const  { sequelize } = require('../db');
-
 
 module.exports = function (sequelize) {
-    return sequelize.define('usernotice', {
+    return sequelize.define('commentNoticie', {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,

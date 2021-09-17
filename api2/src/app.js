@@ -30,7 +30,7 @@ server.use("/delete_safe_place", require("./routes/safeplace"))
 
 server.use('/user', require('./routes/user'));
 
-server.use("/comments", require("./routes/usernotice"))
+server.use("/comments", require("./routes/commentnotice"))
 
 server.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');

@@ -3,7 +3,7 @@ const { Sequelize } = require('sequelize');
 const {DB_USER, DB_PASSWORD, DB_HOST, DB_NAME} = process.env;
 
 const userModel = require('./models/User.js');
-const commentModel = require('./models/usernotice.js');
+const commentModel = require('./models/commentnotice.js');
 const safePlaceModel = require('./models/safePlace.js');
 const noticeModel = require('./models/noticias.js');
 // const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/women4women`, {
@@ -42,10 +42,10 @@ let sequelize =
 const User = userModel(sequelize);
 const Notice = noticeModel(sequelize);
 const SafePlace = safePlaceModel(sequelize);
-const User_Notice = commentModel(sequelize);
+const CommentNotice = commentModel(sequelize);
 //uno a muchos, viaja el id del usuario que hizo el comentario
-User.belongsToMany(Notice, { through: User_Notice });
-Notice.belongsToMany(User, { through: User_Notice });
+User.belongsToMany(Notice, { through: CommentNotice });
+Notice.belongsToMany(User, { through: CommentNotice });
 
 User.hasMany(SafePlace,{as:"safePlaceUser",foreignKey:"userId"});
 //un lugar seguro pertenece a un usuario 
@@ -56,5 +56,5 @@ module.exports = {
     User,
     Notice,
     SafePlace,
-    User_Notice
-} 
+    CommentNotice
+  }
