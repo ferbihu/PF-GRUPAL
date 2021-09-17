@@ -1,16 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./ForoPortada.css";
+import "./FailedSearch.css";
 
-export default function Foro() {
+export default function FailedSearch() {
   return (
     <div classeName="proyectocontainer">
       <div className="tittleforo">Foro</div>
-      <div className="foroPortada-line"></div>
+      <div className="foroerror-line"></div>
+      <div className='error'>Lo sentimos su busqueda no produjo resultados</div>
       <div>
-      <button className='btnbuscar'>Buscar</button>
+      <button className='btnsearch'>Buscar</button>
         <input
-          className="inputbusqueda"
+          className="inputsearch"
           autoComplete="off"
           type="text"
           //  value={input.description}
@@ -18,9 +18,6 @@ export default function Foro() {
           placeholder="Noticia"
         />
       </div>
-      <Link to="./ForoNoticias">
-        <button>Noticias</button>
-      </Link>
     </div>
   );
 }
