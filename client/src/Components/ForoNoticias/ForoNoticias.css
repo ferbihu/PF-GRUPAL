@@ -36,14 +36,26 @@
     margin-top: 1vw; 
     margin-bottom: 0.5vw;
 }
-.rectangulonoticia {
+.imagen{
+    width: 71vw;
+    height: auto;
+    align-self: center;
+    margin-left: auto; 
+    margin-right: auto
+}
+.date{
+    text-align: right;
+    margin-left: auto; 
+    margin-right: 40px;
+}
+/* .rectangulonoticia {
     background-color: #FFFFFF;
     margin:auto;
     box-shadow: 0 0 1rem rgba(128, 128, 128, 0.3);
     width: 1000px; 
     height: 500px; 
     border-radius: 20px;
-}
+} */
 .parrafonoti{
     text-align:justify;
     margin-left: 2vw;

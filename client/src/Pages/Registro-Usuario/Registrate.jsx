@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link, useHistory} from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { addUser } from "../../actions/actions";
 import { connect } from "react-redux";
@@ -7,6 +8,7 @@ import "./Registrate.css";
 import swal from "sweetalert";
 
 const{ REACT_APP_BACK_BASE_URL} = process.env
+
 
 function Register({ addUser, responseGoogle }) {
   const [errors, setErrors] = useState({});
@@ -49,17 +51,21 @@ function Register({ addUser, responseGoogle }) {
       })
     );
   };
-
+  const history = useHistory();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    swal("Usuario creado", "Ya podes iniciar sesión!", "success");    
+     
     addUser(input);
+    swal("Usuario creado", "Ya podes iniciar sesión!", "success");  
+      history.push("/iniciasesion");
+    
     await axios.post(`${REACT_APP_BACK_BASE_URL}/email/welcome`, input)
     setInput({
       name: "",
       email: "",
       password: "",
     });
+   
   };
 
   return (
@@ -113,13 +119,14 @@ function Register({ addUser, responseGoogle }) {
             {errors.password && <p className="danger">{errors.password}</p>}
           </div>
           <div className="FormInput">
-            <button
+            <Link to='/iniciasesion'> 
+           <button href='/iniciasesion'
               className="reg-submit"
               onClick={handleSubmit}
-              type="submit"
             >
               Registrate
             </button>
+            </Link>
           </div>
         </form>
       </div>

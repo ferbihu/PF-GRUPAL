@@ -29,7 +29,8 @@ const initialState = {
   popup: false,
   popup_warning: false,
   users: [],
-  comments_safeP: []
+  comments_safeP: [],
+  news:[]
 };
 
 function reducers(state = initialState, action) {
@@ -191,7 +192,17 @@ function reducers(state = initialState, action) {
         ...state,
         comments_safeP: action.payload
       }
+     
+    case "POST_COMMENT_NOTICE":
+        return {
+          ...state,
+        }
 
+    case "GET_NEWS":
+      return {
+        ...state,
+        news: action.payload.info,
+      }
 
     default:
       return state;
