@@ -25,7 +25,7 @@ const ImageContainer = ({ newImage }) => {
     }, [newImage])
 
     const configureImage = (image) => {
-        return `${REACT_APP_BACK_BASE_URL}/images` + image
+        return `${REACT_APP_BACK_BASE_URL}` + image
     }
 
     return (
@@ -34,7 +34,7 @@ const ImageContainer = ({ newImage }) => {
                 images.length > 0 ? 
                 (
                     images.map(image => (
-                        <img src={configureImage(image)} key={image} alt={image} width="200" height="200"/>
+                        <img src={configureImage(image)} key={image} alt={image} width="100" height="100"/>
                     ))
                 ) :
                 <div>
