@@ -44,4 +44,4 @@ const deleteSafePlace = async (req, res)=> {
 
 
 
-module.exports = {getSafePlaces,postSafePlace,changeStatusSafePlace, deleteSafePlace,getAllSafePlaces,changeStatusWarnign}
+module.exports = {getSafePlaces,postSafePlace,changeStatusSafePlace, deleteSafePlace,getAllSafePlaces}
