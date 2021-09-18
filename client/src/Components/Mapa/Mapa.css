@@ -127,3 +127,20 @@ a{
 .button-25:active {
   opacity: .5;
 }
+
+svg {
+  display: inline-block;
+  position: absolute;
+ 
+ 
+}
+.container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 25.9%;
+  vertical-align: middle;
+  overflow: hidden;
+  height: 0px;
+  background-color: #a1a4db ;
+}
