@@ -332,7 +332,6 @@ export function showCommentsSafePlaces() {
   }
 }
 
-<<<<<<< HEAD
 //comentarios noticias
 
 export function getCommentNotice(){
@@ -363,7 +362,6 @@ export function postCommentNotice(payload,userId,noticeId){
  }
 }
 
-=======
 export async function uploadImage(image) {
   const fd = new FormData();
   fd.append('image', image);
@@ -380,4 +378,3 @@ export async function uploadImage(image) {
   }
 
 }
->>>>>>> 2b8d51e5c7513090670759e0177422bf81cd2ad0
