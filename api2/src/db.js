@@ -46,8 +46,10 @@ const SafePlace = safePlaceModel(sequelize);
 const CommentSafePlace = commentSafePlace(sequelize);
 const CommentNotice = commentModel(sequelize);
 //uno a muchos, viaja el id del usuario que hizo el comentario
-User.belongsToMany(Notice, { through: CommentNotice,foreignKey:"userId"});
-Notice.belongsToMany(User, { through: CommentNotice,foreignKey:"noticeId"});
+Notice.hasMany(CommentNotice,{as:"noticeComments",foreingKey : "noticeId"});
+User.hasMany(CommentNotice,{as:"commentsnotice",foreignKey : "userId"});
+CommentNotice.belongsTo(User,{as:"creator",foreignKey : "userId"});
+CommentNotice.belongsTo(Notice,{as:"notice",foreingKey : "noticeId"});
 
 
 User.hasMany(SafePlace,{as:"safePlaceUser",foreignKey:"userId"});
