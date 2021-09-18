@@ -30,7 +30,8 @@ const initialState = {
   popup: false,
   popup_warning: false,
   users: [],
-  comments_safeP: []
+  comments_safeP: [],
+  sidebar: []
 };
 
 function reducers(state = initialState, action) {
@@ -141,6 +142,12 @@ function reducers(state = initialState, action) {
         ...state,
       };
 
+    case "UPDATE_SIDEBAR_STATE":
+      const sidebar_state = state.sidebar === false ? true : false
+      return {
+        ...state,
+        sidebar: sidebar_state
+      }
     case "UPDATE_POPUP_STATE":
       const popup_state = state.popup === false ? true : false
       return {
