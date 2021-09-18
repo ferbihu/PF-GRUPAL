@@ -29,10 +29,13 @@ const initialState = {
   popup: false,
   popup_warning: false,
   users: [],
-  comments_safeP: []
+  comments_safeP: [],
+  userDataById :[]
 };
 
+
 function reducers(state = initialState, action) {
+  console.log(action)
   switch (action.type) {
     case "GET_SAFEPLACE":
       return {
@@ -138,6 +141,11 @@ function reducers(state = initialState, action) {
     case "UPDATE_DATA_USER":
       return {
         ...state,
+      };
+    case "USER_DATA":
+      return{
+        ...state,
+        userDataById: action.payload
       };
 
     case "UPDATE_POPUP_STATE":

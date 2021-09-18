@@ -47,7 +47,7 @@ function validate(input) {
 export default function Registrate() {
     const dispatch = useDispatch()
     const history = useHistory()
-    const userId = useSelector((state) => state.userId);
+    const userId = localStorage.getItem("userId")
 
 
     //const [sitie,setsitie] =useState ([]);

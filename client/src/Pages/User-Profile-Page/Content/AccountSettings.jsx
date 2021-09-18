@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { updateDataUser, getallsafesitie } from "../../../actions/actions";
+import { updateDataUser, getallsafesitie,getUserById } from "../../../actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import MySafePlace from "../../../Components/PlaceAprobation/MySafePlace";
@@ -26,26 +26,33 @@ export default function AccountSettings() {
   //const[phone, setPhone] = React.useState('')
   //const handleChangeName = (event) => setName(event.target.value)
   //const handleChangeLastname = (event) => setLastname(event.target.value)
-  let lugaresSeguros = useSelector((state) => state.stateSitie); //estado con todos los lugares seguros aceptados
-  let id_usuario = useSelector((state) => state.userId); // me traigo el id del usuario que esta registrado
-  console.log(id_usuario);
-  let isLogged = useSelector((state) => state.isLogged);
+
+  let lugaresSeguros = useSelector((state) => state.stateSitie) //estado con todos los lugares seguros aceptados
+  let id_usuario = localStorage.getItem("userId") // me traigo el id del usuario que esta registrado
+  let isLogged = useSelector((state) => state.isLogged)
+  const userDataById = useSelector((state) => state.userDataById);
+
+
+//console.log("SOY USER DATAID",userDataById)
   const [input, setInput] = useState({
-    name: "",
-    lastname: "",
-    country: "",
-    town: "",
-    phone: "",
+    name: userDataById?.name || "",
+    lastname:userDataById?.lastname || "",
+    country: userDataById?.country || "",
+    town: userDataById?.town || "",
+    phone: userDataById?.phone || "",
+
   });
 
   const handleInputChange = (e) => {
-    e.preventDefault();
-    console.log(e.target.value);
+    console.log("entre acaaaaaaaaaaa")
+    e.preventDefault()
+    console.log("HANDLE CHANGE INPUUUUUUT",e.target.value)
     setInput({
       ...input,
       [e.target.name]: e.target.value,
     });
   };
+
 
   const handleSelectCountry = (e) => {
     console.log(e.target.value);
@@ -66,19 +73,29 @@ export default function AccountSettings() {
   };
   // history.push('/')
 
-  let lugaresSegurosFiltrados = lugaresSeguros.filter(
-    (e) => e.userId === id_usuario
-  );
-  console.log(lugaresSegurosFiltrados);
+
+  let lugaresSegurosFiltrados = lugaresSeguros.filter(e => e.userId === id_usuario)
+  console.log("sooooy lugares filtradossssssssssssssss",lugaresSegurosFiltrados)
 
   useEffect(() => {
     dispatch(getallsafesitie());
   }, [dispatch]);
 
+
+  useEffect(()=>{
+    console.log("ESTOY EN EL USE EFECT",id_usuario)
+    dispatch(getUserById(id_usuario))
+  },[dispatch]);
+
+
+
   const handleLogout = (e) => {
     e.preventDefault();
     if (isLogged === true) {
       isLogged = false;
+      localStorage.setItem('isLogged',false)
+      localStorage.setItem('userId',null)
+      localStorage.setItem('token',null)
       history.push("/iniciasesion");
       window.location.reload();
     }
@@ -103,7 +120,7 @@ export default function AccountSettings() {
           type="text"
           name="name"
           placeholder="nombre"
-          value={input.name}
+          value={userDataById.name}
           onChange={(e) => handleInputChange(e)}
         />
       </FormControl>
@@ -114,7 +131,7 @@ export default function AccountSettings() {
           type="text"
           name="lastname"
           placeholder="apellido"
-          value={input.lastname}
+          value= {userDataById?.lastname}
           onChange={(e) => handleInputChange(e)}
         />
       </FormControl>
@@ -124,7 +141,7 @@ export default function AccountSettings() {
           focusBorderColor="brand.blue"
           type="tel"
           name="phone"
-          value={input.phone}
+          value={userDataById.phone}
           placeholder="número de telefóno"
           onChange={(e) => handleInputChange(e)}
         />
@@ -145,6 +162,7 @@ export default function AccountSettings() {
           focusBorderColor="brand.blue"
           onChange={(e) => handleSelectTown(e)}
           placeholder="Select city"
+          
         >
           <option value="palermo">Palermo</option>
           <option value="recoleta">Recoleta</option>
