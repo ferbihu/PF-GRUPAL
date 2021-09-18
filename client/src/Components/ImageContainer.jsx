@@ -1,0 +1,50 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'
+const{ REACT_APP_BACK_BASE_URL} = process.env
+
+
+const ImageContainer = ({ newImage }) => {
+    const [images, setImages] = useState([]);
+    const [fallback, setFallback] = useState("");
+    
+    const getImages = async () => {
+        try {
+            const res = await axios.get(`${REACT_APP_BACK_BASE_URL}/images`);
+            if (!res.data.files) {
+                setFallback(res.data.msg)
+            } else {
+                setImages(res.data.files);
+            }
+        } catch(err) {
+            console.log(err)
+        }
+    }
+
+    useEffect(() => {
+        getImages()
+    }, [newImage])
+
+    const configureImage = (image) => {
+        return `${REACT_APP_BACK_BASE_URL}/images` + image
+    }
+
+    return (
+        <div>
+            {
+                images.length > 0 ? 
+                (
+                    images.map(image => (
+                        <img src={configureImage(image)} key={image} alt={image} width="200" height="200"/>
+                    ))
+                ) :
+                <div>
+                    <h1>{fallback}</h1>
+                    <hr/>
+                    <h3>Upload images in the form bellow</h3>
+                </div>
+            }
+        </div>
+    )
+}
+
+export default ImageContainer;
