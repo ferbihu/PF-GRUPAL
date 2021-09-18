@@ -76,9 +76,12 @@ var ban=false;
   const allsities = useSelector((state) => state.stateSitie);
   console.log(allsities);
   const [input, setInput] = useState(false);
+  const [datos, setDatos] = useState({});
+
   const handleMarkerClick = (e) => {
     if (input === false) {
       setInput(true)
+      setDatos(e)
     } else {
       setInput(false)
     }
@@ -118,6 +121,7 @@ var ban=false;
       date.street = allsities[i].street;
       date.number = allsities[i].number;
       date.coord = { lat: allsities[i].lat, lng: allsities[i].lng };
+      date.id = allsities[i].id;
       sitios.push(date);
     }
     console.log(sitios, "aca sitios")
@@ -155,11 +159,11 @@ var ban=false;
               position={e.coord} title={e.keyword} icon={pin} id={e.id} onClick={() => handleMarkerClick(e)}
             >
               {
-                input && <Sidebar id={e.id} name={e.name} telephone={e.telephone} street={e.street} number={e.number} keyword={e.keyword} handleMarkerClick={handleMarkerClick} />
+                input && <Sidebar id={datos.id} name={datos.name} telephone={datos.telephone} street={datos.street} number={datos.number} keyword={datos.keyword} handleMarkerClick={() => handleMarkerClick(e)} />
 
               }
               {
-                state_popup && <PopupsComment text="Dejá una reseña del lugar! Recordá que el comentario será publico y todos podran verlo."></PopupsComment>
+                state_popup && <PopupsComment id={datos.id} text="Dejá una reseña del lugar! Recordá que el comentario será publico y todos podran verlo."></PopupsComment>
               }
               {
                 state_popup_warning && <PopupsSideBarWarning text="Por favor, explicanos el motivo de la denuncia.  Si denuncias un lugar, automáticamente

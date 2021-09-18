@@ -23,13 +23,14 @@ import "./Sidebar.css";
 import { changePopupState, changePopupStateWarning } from "../../actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import ShowCommentsPlaces from "./Comments";
+import PopupsComment from "./PopUpComent";
 
 
 export default function Sidebar({ id, name, telephone, street, number, keyword, handleMarkerClick }) {
 
   //create initial menuCollapse state using useState hook
   const [menuCollapse, setMenuCollapse] = useState(false)
-
+  console.log(id)
   // const [input, setInput] = useState({
   //   comment: ""
   // })
@@ -60,6 +61,7 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
     //condition checking to change state from true to false and vice versa
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
   };
+  <PopupsComment id={id} />
 
   return (
     <>
@@ -108,11 +110,13 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
                 )
               })
             } */}
-            <ShowCommentsPlaces/>
+            
+            <ShowCommentsPlaces id={id}/>
 
           </SidebarContent>
         </ProSidebar>
       </div>
     </>
+
   );
 };
