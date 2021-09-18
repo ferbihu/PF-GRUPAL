@@ -26,7 +26,7 @@ import ShowCommentsPlaces from "./Comments";
 
 
 export default function Sidebar({ id, name, telephone, street, number, keyword, handleMarkerClick }) {
-
+  console.log("aca idddd", id)
   //create initial menuCollapse state using useState hook
   const [menuCollapse, setMenuCollapse] = useState(false)
 

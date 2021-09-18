@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { closePopup } from '../../actions/actions';
 import "./PopupsSideBar.css"
 import swal from "sweetalert";
@@ -18,6 +18,11 @@ function validate(input) {
 
 
 export default function PopupsComment({ text }) {
+
+    const id = useSelector((state) => state.userId);
+    console.log(id)
+
+    
 
     const dispatch = useDispatch();
     function HandleClose() {
@@ -49,7 +54,7 @@ export default function PopupsComment({ text }) {
         const config = {
             headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
           };
-          await axios.post(`${REACT_APP_BACK_BASE_URL}/safe_place/new_comment`, input, config);
+          await axios.post(`${REACT_APP_BACK_BASE_URL}/safe_place/new_comment`, {...input, userId: id}, config);
           console.log(input)
           swal("Enviado", "Gracias por colaborar con Safety!", "success");
         setInput({

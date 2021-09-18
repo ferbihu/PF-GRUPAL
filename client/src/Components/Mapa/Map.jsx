@@ -117,6 +117,7 @@ var ban=false;
       date.telephone = allsities[i].telephone;
       date.street = allsities[i].street;
       date.number = allsities[i].number;
+      date.id = allsities[i].id;
       date.coord = { lat: allsities[i].lat, lng: allsities[i].lng };
       sitios.push(date);
     }
