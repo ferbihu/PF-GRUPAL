@@ -25,16 +25,11 @@ const CargarNoticia = () => {
         content: ""
     })
 
-    const [errors, setErrors] = useState({})
-
-    const dispatch = useDispatch();
-
     const handleInputChange = (e) => {
         setInput({
             ...input, 
             [e.target.name]: e.target.value
         })
-        setErrors(validate({...input, [e.target.name]: e.target.value}))
     }
 
     const handleSubmit = async (e) => {
