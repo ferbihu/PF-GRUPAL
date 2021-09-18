@@ -32,18 +32,15 @@ useEffect(() => {
   [stateComment]);
 
 const allcomment = useSelector((state) => state.stateCommentNotice);
-console.log("todos",allcomment);
 
-const [nuevo, setNuevo] = useState({
-})
 
-  console.log("fecha",fecha)
+//const [nuevo, setNuevo] = useState({})
+
   //const userId = useSelector((state) => state.userId);
   const Loggin = useSelector((state) => state.isLogged);
   const noticeId=1;
   const userId=1;
 
-  console.log("iduser",userId)
   const [input, setInput] = useState({
        description:"",
        date:fecha,
@@ -53,7 +50,7 @@ const [nuevo, setNuevo] = useState({
         ...input,
         description: e.target.value
     })
-    console.log("comentario ingresado",input)
+  
 }
 
    async function handleSubmit(e) {
