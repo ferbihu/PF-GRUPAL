@@ -23,6 +23,7 @@ import ForoNoticias from './Pages/ForoNoticias/ForoNoticias';
 import Usuarios from "./Pages/Usuarios/Usuarios";
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import FailedSearch from './Components/ForoNoticias/FailedSearch';
+import CargarNoticia from "./Pages/CargarNoticia";
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
       <PrivateRoute exact path="/panel" component={Panel}/>
       <Route exact path="/conocenos" component={Conocenos}/>
       <Route exact path="/users" component={Usuarios}/>
+      <Route exact path="/cargarNoticia" component={CargarNoticia}/>
 
 
       </Switch>

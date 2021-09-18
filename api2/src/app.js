@@ -3,6 +3,7 @@ const morgan = require('morgan');
 require('dotenv').config();
 const cors = require('cors');
 const server= express();
+const images = require("./routes/noticePhotos")
 
 
 
@@ -33,6 +34,11 @@ server.use('/user', require('./routes/user'));
 server.use("/comments", require("./routes/commentnotice"))
 
 server.use("/newNotice", require("./routes/newNotice"))
+
+server.use(express.static('uploads'));
+
+server.use("/images", images)
+
 
 server.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');

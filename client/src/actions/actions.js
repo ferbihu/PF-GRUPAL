@@ -332,6 +332,7 @@ export function showCommentsSafePlaces() {
   }
 }
 
+<<<<<<< HEAD
 //comentarios noticias
 
 export function getCommentNotice(){
@@ -362,3 +363,21 @@ export function postCommentNotice(payload,userId,noticeId){
  }
 }
 
+=======
+export async function uploadImage(image) {
+  const fd = new FormData();
+  fd.append('image', image);
+  const config = {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  }
+  try {
+    // eslint-disable-next-line
+    const resp = await axios.post(`${REACT_APP_BACK_BASE_URL}/images`, fd, config);
+  } catch(err) {
+    console.log(err)
+  }
+
+}
+>>>>>>> 2b8d51e5c7513090670759e0177422bf81cd2ad0

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { filterByCountry, getSafePlacePanel, filterPlacesByStatus } from '../../actions/actions';
 import "./Panel.css"
 import Card from '../../Components/Cards-Panel/Cards-Panel';
+import { Link } from 'react-router-dom';
 
 
 export default function Panel() {
@@ -40,6 +41,11 @@ export default function Panel() {
                 </div>
                 <div className="linea-panel"></div>
             </div>
+            <Link to="/cargarNoticia">
+                <h2>
+                    Cargar noticia
+                </h2>
+            </Link>
             {/* <div className="nombre">{user}</div> */}
             <div className="fondopanel">
                 <div className="filtrados-panel">
