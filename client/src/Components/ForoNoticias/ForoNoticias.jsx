@@ -34,14 +34,15 @@ const allcomment = useSelector((state) => state.stateCommentNotice);
 console.log("todos",allcomment);
 
   console.log("fecha",fecha)
-  const userId = useSelector((state) => state.userId);
+  //const userId = useSelector((state) => state.userId);
   const Loggin = useSelector((state) => state.isLogged);
   const noticeId=1;
+  const userId=1;
 
   console.log("iduser",userId)
   const [input, setInput] = useState({
        description:"",
-       date:fecha, 
+       date:fecha,
    })
    function handleChange(e) {
     setInput({
@@ -55,7 +56,8 @@ console.log("todos",allcomment);
        e.preventDefault();
        console.log("guarda",input)
        if(Loggin){
-        dispatch(postCommentNotice({ ...input,userId,noticeId}))
+        dispatch(postCommentNotice({ ...input},userId,noticeId))
+        
        }else{
          alert("Por favor logueate!")
        }
