@@ -1,4 +1,5 @@
 const initialState = {
+  stateCommentNotice:[],
   statecoord: [],
   safeplce: [],
   user: [],
@@ -191,7 +192,16 @@ function reducers(state = initialState, action) {
         ...state,
         comments_safeP: action.payload
       }
-
+    case "GET_COMMENT_NOTICE":
+        return {
+          ...state,
+          stateCommentNotice: action.payload.info,
+  
+      }
+    case "POST_COMMENT_NOTICE":
+        return {
+          ...state,
+        }
 
     default:
       return state;

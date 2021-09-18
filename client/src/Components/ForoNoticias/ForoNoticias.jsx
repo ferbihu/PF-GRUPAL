@@ -1,19 +1,69 @@
-import React from "react";
+import React, { useState,useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import {getCommentNotice,postCommentNotice } from '../../actions/actions.js';
 import notamujeres from "../../imgs/notamujeres.png";
 import "./ForoNoticias.css";
+import style from "./Comment.css";
 
 export default function Foro() {
-  // const user_id = useSelector((state) => state.userId);
-  // const Loggin = useSelector((state) => state.isLogged)
-  // const [input, setInput] = useState({
-  //     user_id: userId.id,
-  //     Loggin: isLogged.id,
-  //     description: "",
-  // })
-  // async function handleSubmit(e) {
-  //     e.preventDefault();
-  // dispatch(())
-  //     });
+
+
+ function getCurrentDate(separator='-'){
+
+    let newDate = new Date()
+    let date = newDate.getDate();
+    let month = newDate.getMonth() + 1;
+    let year = newDate.getFullYear();
+    
+    return `${year}${separator}${month<10?`0${month}`:`${month}`}${separator}${date}`
+    }
+const fecha = getCurrentDate();
+// eslint-disable-next-line 
+let [stateComment, setStateComment] = useState([]);
+// eslint-disable-next-line 
+
+const dispatch = useDispatch();
+// eslint-disable-next-line
+
+useEffect(() => {
+  dispatch(getCommentNotice())
+},
+  // eslint-disable-next-line
+  [stateComment]);
+
+const allcomment = useSelector((state) => state.stateCommentNotice);
+
+
+//const [nuevo, setNuevo] = useState({})
+
+  //const userId = useSelector((state) => state.userId);
+  const Loggin = useSelector((state) => state.isLogged);
+  const noticeId=1;
+  const userId=1;
+
+  const [input, setInput] = useState({
+       description:"",
+       date:fecha,
+   })
+   function handleChange(e) {
+    setInput({
+        ...input,
+        description: e.target.value
+    })
+  
+}
+
+   async function handleSubmit(e) {
+       e.preventDefault();
+       console.log("guarda",input)
+       if(Loggin){
+        dispatch(postCommentNotice({ ...input},userId,noticeId))
+       }else{
+         alert("Por favor logueate!")
+       }
+
+  }
+
   return (
     <div className='proyectocontainer'>
       <div className="tituloforo"> Foro </div>
@@ -79,38 +129,41 @@ export default function Foro() {
       <div className="comentariosforo">
         Comentarios
       </div>
+      <div>
+            <div className={style.sty}>
+                <svg xmlns="http://www.w3.org/2000/svg">
+                    <symbol viewBox="0 0 24 24" id="expand-more">
+                        <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/><path d="M0 0h24v24H0z" fill="none"/>
+                    </symbol>
+                    <symbol viewBox="0 0 24 24" id="close">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/><path d="M0 0h24v24H0z" fill="none"/>
+                    </symbol>
+                  </svg>
+            </div>
+            <details open>
+                <summary className="btnmascomentarios">
+                  mas comentarios
+                </summary>
+                {allcomment.map((e, i) => (
+                      <p>
+                          {e.date}
+                          {e.description}
+                      </p>
+                 ))}
+           </details>
+      </div>
       <input
         className="inputcomentario"
         autoComplete="off"
         type="text"
-        //  value={input.description}
+        value={input.description}
         name="description"
         placeholder="Qué te pareció la noticia?"
+        onChange={(e) => handleChange(e)}
       />
-      <button className="btnenviarcomentario" type="submit">
+      <button className="btnenviarcomentario" type="submit" onClick={(e) => handleSubmit(e)}>
         Envíar
       </button>
-      <input
-        className="inputpalabra"
-        autoComplete="off"
-        type="text"
-        //  value={input.description}
-        name="description"
-        placeholder="Buscar por palabra clave"
-      />
-       <input
-        className="inputfecha"
-        autoComplete="off"
-        type="text"
-        //  value={input.date}
-        name="date"
-        placeholder="Filtrar por fecha"
-      />
-      <div>
-        <button className="btnmascomentarios" type="submit">
-          Ver más comentarios
-        </button>
-      </div>
     </div>
   );
 }
