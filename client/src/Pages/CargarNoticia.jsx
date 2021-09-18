@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import { useDispatch } from "react-redux";
 import ImageContainer from "../Components/ImageContainer";
 import ImageForm from "../Components/ImageForm";
 import axios from "axios";
