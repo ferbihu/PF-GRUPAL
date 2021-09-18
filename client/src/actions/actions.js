@@ -242,7 +242,13 @@ export function updateDataUser(id, data) {
   };
 }
 
-
+export function changeSidebarState(payload){
+  console.log("entro a la action change SIDEBAR ")
+  return {
+      type: "UPDATE_SIDEBAR_STATE",
+      payload
+  }
+}
 export function changePopupState(payload){
   console.log("entro a la action change popup")
   return {
@@ -331,4 +337,5 @@ export function showCommentsSafePlaces() {
     })
   }
 }
+
 
