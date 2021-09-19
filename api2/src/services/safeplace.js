@@ -6,7 +6,7 @@ const {SafePlace,User} = require('../db');
 async function getSafePlaces(){
     try{
         return await SafePlace.findAll({
-            where:{status: "accepted" },
+            Where:{status:["accepted", "warning"]},
             include:[{
                 model:User,
                 as: 'safePlaceCreator',

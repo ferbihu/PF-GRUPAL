@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { closePopup } from '../../actions/actions';
 import "./PopupsSideBar.css"
 import swal from "sweetalert";
+import axios from "axios";
+const { REACT_APP_BACK_BASE_URL } = process.env
 
 
 function validate(input) {
@@ -14,7 +16,7 @@ function validate(input) {
 }
 
 
-export default function PopupsSideBarWarning({ text }) {
+export default function PopupsSideBarWarning({ text, id }) {
 
     const dispatch = useDispatch();
     function HandleClose() {
@@ -41,13 +43,21 @@ export default function PopupsSideBarWarning({ text }) {
         console.log(input)
     }
 
+    const status = "warning"
+
     async function HandleSubmit() {
+        console.log(id, input, status)
+        const config = {
+            headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
+        };
+        await axios.post(`${REACT_APP_BACK_BASE_URL}/safe_place/${id}/${status}`, input, config)
+        console.log(id, input, status)
         swal("Enviado", "Gracias por colaborar con Safety!", "success");
-        console.log(input)
         setInput({
-            comment: ""
+            comment_text: ""
         })
         dispatch(closePopup())
+
     }
 
     return (

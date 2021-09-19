@@ -242,7 +242,13 @@ export function updateDataUser(id, data) {
   };
 }
 
-
+export function changeSidebarState(payload){
+  console.log("entro a la action change SIDEBAR ")
+  return {
+      type: "UPDATE_SIDEBAR_STATE",
+      payload
+  }
+}
 export function changePopupState(payload){
   console.log("entro a la action change popup")
   return {
@@ -332,3 +338,65 @@ export function showCommentsSafePlaces() {
   }
 }
 
+
+
+
+//comentarios noticias
+
+export function getCommentNotice(){
+  return function(dispatch){
+    return axios
+     .get(`${REACT_APP_BACK_BASE_URL}/comments`)
+     .then((res)=>{dispatch({ 
+          type:"GET_COMMENT_NOTICE",
+          payload:{info:res.data}})
+     })
+     .catch((err) => {
+       console.log("Falla servidor local", err);
+    });
+};
+}
+
+export function postCommentNotice(payload,userId,noticeId){ 
+  return async function(dispatch){
+    const config = {
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
+    };
+    
+    const res = await axios.post(`${REACT_APP_BACK_BASE_URL}/comments` , {...payload,userId,noticeId},config)
+    return {
+      type: 'POST_COMMENT_NOTICE',
+      payload : res
+  }
+ }
+}
+
+export async function uploadImage(image) {
+  const fd = new FormData();
+  fd.append('image', image);
+  const config = {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  }
+  try {
+    // eslint-disable-next-line
+    const resp = await axios.post(`${REACT_APP_BACK_BASE_URL}/images`, fd, config);
+  } catch(err) {
+    console.log(err)
+  }
+
+}
+export function getNews(id){
+  return function(dispatch){
+    return axios
+     .get(`${REACT_APP_BACK_BASE_URL}/newNotice/news`, {id})
+     .then((res)=>{dispatch({ 
+          type:"GET_NEWS",
+          payload:{info:res.data}})
+     })
+     .catch((err) => {
+       console.log("Falla servidor local", err);
+    });
+};
+}

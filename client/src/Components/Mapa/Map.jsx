@@ -13,7 +13,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { getSafeplace } from '../../actions/actions.js';
 
 import Sidebar from "../Sidebar/Sidebar.jsx";
-import pin from "./../../imgs/iconmapp.png"
+import pin from "./../../imgs/iconmapp.png";
+import warning from "./../../imgs/warning.png";
+
 // import { Component } from "react-addons";
 // const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
 // import "../Sidebar/Sidebar.css";
@@ -28,14 +30,15 @@ export default function Maps(props) {
   //const [myLatiLngi, setLatiLngi] = useState({})
   const state_popup = useSelector(state => state.popup)
   const state_popup_warning = useSelector(state => state.popup_warning)
+  const state_sidebar = useSelector(state => state.sidebar)
 
 
 
   //ubicacion actual
-var ban=false;
+  var ban = false;
 
   function uno() {
-    ban=true;
+    ban = true;
     navigator.geolocation.getCurrentPosition(function (position) {
       // guardo una version simplificada de la posicion en local storage
       localStorage.setItem('ultimaPosicion', JSON.stringify({ lat: position.coords.latitude, lng: position.coords.longitude }));
@@ -75,10 +78,10 @@ var ban=false;
 
   const allsities = useSelector((state) => state.stateSitie);
   console.log(allsities);
+
   const [input, setInput] = useState(false);
   const [datos, setDatos] = useState({});
-
-  const handleMarkerClick = (e) => {
+  const handleMarkerClick = () => {
     if (input === false) {
       setInput(true)
       setDatos(e)
@@ -120,6 +123,8 @@ var ban=false;
       date.telephone = allsities[i].telephone;
       date.street = allsities[i].street;
       date.number = allsities[i].number;
+      date.id = allsities[i].id;
+      date.status = allsities[i].status;
       date.coord = { lat: allsities[i].lat, lng: allsities[i].lng };
       date.id = allsities[i].id;
       sitios.push(date);
@@ -132,7 +137,7 @@ var ban=false;
   return (
     <div>
       {
-        ban?
+        ban ?
           <div>
             <GoogleMap defaultZoom={11} defaultCenter={coordinate} />
             <Marker key={100}
@@ -156,7 +161,8 @@ var ban=false;
         bandera ?
           sitios.map((e, i) => (
             <Marker key={i}
-              position={e.coord} title={e.keyword} icon={pin} id={e.id} onClick={() => handleMarkerClick(e)}
+              position={e.coord} title={e.keyword} icon={e.status === "warning" ? warning : pin} id={e.id} onClick={() => handleMarkerClick(e)}
+
             >
               {
                 input && <Sidebar id={datos.id} name={datos.name} telephone={datos.telephone} street={datos.street} number={datos.number} keyword={datos.keyword} handleMarkerClick={() => handleMarkerClick(e)} />
@@ -166,7 +172,7 @@ var ban=false;
                 state_popup && <PopupsComment id={datos.id} text="Dejá una reseña del lugar! Recordá que el comentario será publico y todos podran verlo."></PopupsComment>
               }
               {
-                state_popup_warning && <PopupsSideBarWarning text="Por favor, explicanos el motivo de la denuncia.  Si denuncias un lugar, automáticamente
+                state_popup_warning && <PopupsSideBarWarning id={e.id} text="Por favor, explicanos el motivo de la denuncia.  Si denuncias un lugar, automáticamente
                 aparecerá de color amarillo en el mapa y será revisado por las administradoras de la página."></PopupsSideBarWarning>
               }
               <InfoWindow key={i}>

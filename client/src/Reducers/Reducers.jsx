@@ -1,4 +1,5 @@
 const initialState = {
+  stateCommentNotice:[],
   statecoord: [],
   safeplce: [],
   user: [],
@@ -29,7 +30,9 @@ const initialState = {
   popup: false,
   popup_warning: false,
   users: [],
-  comments_safeP: []
+  comments_safeP: [],
+  sidebar: [],
+  news:[],
 };
 
 function reducers(state = initialState, action) {
@@ -140,6 +143,12 @@ function reducers(state = initialState, action) {
         ...state,
       };
 
+    case "UPDATE_SIDEBAR_STATE":
+      const sidebar_state = state.sidebar === false ? true : false
+      return {
+        ...state,
+        sidebar: sidebar_state
+      }
     case "UPDATE_POPUP_STATE":
       const popup_state = state.popup === false ? true : false
       return {
@@ -191,7 +200,22 @@ function reducers(state = initialState, action) {
         ...state,
         comments_safeP: action.payload
       }
-
+    case "GET_COMMENT_NOTICE":
+        return {
+          ...state,
+          stateCommentNotice: action.payload.info,
+  
+      }
+    case "POST_COMMENT_NOTICE":
+        return {
+          ...state,
+        }
+        case "GET_NEWS":
+          return {
+            ...state,
+            news: action.payload.info,
+          }
+    
 
     default:
       return state;
