@@ -31,7 +31,7 @@ const Content = () => {
               color="brand.cadet"
               borderBottomWidth={1}
               _active={{ bg: 'transparent' }}
-              _selected={{ color: 'brand.dark', borderColor: 'brand.blue' }}
+              _value={{ color: 'brand.dark', borderColor: 'brand.blue' }}
             >
               {tab}
             </Tab>

@@ -174,8 +174,8 @@ var ban=false;
                       {e.name}</p>
                     <p>{e.telephone}</p>
                     <div>
-                      <button onclick="miFunc()" href="" className="button-24">Denuncia</button>
-                      <button onclick="miFunc()" href="" className="button-25">Comentario</button>
+                      <button onClick="miFunc()" href="" className="button-24">Denuncia</button>
+                      <button onClick="miFunc()" href="" className="button-25">Comentario</button>
                     </div>
                   </div>
                 </div>
@@ -195,8 +195,8 @@ var ban=false;
                         https://www.argentina.gob.ar/generos/linea-144</a>
                       {e.keyword}{e.telephone}</p>
                     <div>
-                      <button onclick="miFunc()" href="" className="button-24">Denuncia</button>
-                      <button onclick="miFunc()" href="" className="button-25">Comentario</button>
+                      <button onClick="miFunc()" href="" className="button-24">Denuncia</button>
+                      <button onClick="miFunc()" href="" className="button-25">Comentario</button>
                     </div>
                   </div>
                 </div>
