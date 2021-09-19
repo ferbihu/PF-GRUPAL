@@ -85,7 +85,9 @@ export default function AccountSettings() {
   useEffect(()=>{
     console.log("ESTOY EN EL USE EFECT",id_usuario)
     dispatch(getUserById(id_usuario))
-  },[dispatch]);
+  },
+  // eslint-disable-next-line
+  [dispatch]);
 
 
 

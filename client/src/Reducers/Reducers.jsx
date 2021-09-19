@@ -32,7 +32,7 @@ const initialState = {
   users: [],
   comments_safeP: [],
 
-  userDataById :[]
+  userDataById :[],
 
   sidebar: [],
   news:[],

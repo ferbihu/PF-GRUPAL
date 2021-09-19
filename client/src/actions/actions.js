@@ -250,6 +250,7 @@ export function getUserById(id){
     const config = {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
     };
+    // eslint-disable-next-line
     const response = axios.get(`${REACT_APP_BACK_BASE_URL}/user/${id}`,config)
     .then((response)=>{
       dispatch({
