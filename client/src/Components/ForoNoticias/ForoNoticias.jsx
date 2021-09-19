@@ -1,11 +1,10 @@
 import React, { useState,useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import {getCommentNotice,postCommentNotice } from '../../actions/actions.js';
-import notamujeres from "../../imgs/notamujeres.png";
+import {getCommentNotice,postCommentNotice, getNews } from '../../actions/actions.js';
 import "./ForoNoticias.css";
 import style from "./Comment.css";
 
-export default function Foro() {
+export default function Foro(props) {
 
 
  function getCurrentDate(separator='-'){
@@ -24,12 +23,17 @@ let [stateComment, setStateComment] = useState([]);
 
 const dispatch = useDispatch();
 // eslint-disable-next-line
-
+const getnews = useSelector ((state) => state.news)
+// eslint-disable-next-line
+const [cambio, setCambio] = useState(false)
 useEffect(() => {
   dispatch(getCommentNotice())
-},
+  dispatch(getNews(props.id));
+  setCambio(true)
+},[props.id, stateComment, dispatch])
+
   // eslint-disable-next-line
-  [stateComment]);
+  // [stateComment]);
 
 const allcomment = useSelector((state) => state.stateCommentNotice);
 
@@ -63,61 +67,21 @@ const allcomment = useSelector((state) => state.stateCommentNotice);
        }
 
   }
-
   return (
-    <div className='proyectocontainer'>
-      <div className="tituloforo"> Foro </div>
-        <div className="foroNoticias-line"></div>
-     
-      <img src={notamujeres} alt="Not found" className="imgNotamujeres" />
-      <div className="titulonoti">
-        <h2>Mujeres latinoamericanas en ciencia y tecnología</h2>
-      </div>
-      <div className="rectangulonoticia">
-        <div className="parrafonoti">
-          <p>
-            Las carreras profesionales en STEM son los empleos del futuro.
-            También han sido carreras donde las mujeres han estado
-            históricamente subrrepresentadas. Algunas de las ocupaciones STEM
-            con mayores ingresos, como la informática y la ingeniería, tienen
-            los porcentajes más bajos de mujeres trabajadoras. Para fomentar el
-            desarrollo sostenible, impulsar la innovación, el bienestar social y
-            el crecimiento inclusivo necesitamos más mujeres en STEM. Dar a las
-            mujeres igualdad de oportunidades para desarrollar y prosperar en
-            carreras STEM ayuda a reducir la brecha salarial de género, mejora
-            la seguridad económica de las mujeres, garantiza una fuerza de
-            trabajo diversa y talentosa, y evita los sesgos en estos campos y en
-            los productos y servicios elaborados. El mundo necesita más ciencia
-            y la ciencia necesita a las mujeres y a las niñas. Conoce a estas
-            siete mujeres latinoamericanas que inspiran a nuevas generaciones de
-            niñas y mujeres en ciencia.
-          </p>
-
-          <p>
-            {" "}
-            Valentina Muñoz Rabanal es una activista juvenil feminista,
-            estudiante de enseñanza media. Es programadora desde los 12 años; y
-            tricampeona regional, campeona nacional y mundial, del concurso
-            internacional de robótica First LEGO League. Electa por Ashoka como
-            una de las(os) 7 jóvenes más influyentes del país en 2020, esta
-            joven es también fundadora de la Secretaría de Diversidad de Género
-            y Sexualidad del Liceo Carmela Carvajal (Sedigesex); y presidenta de
-            la Asociación de Mujeres Jóvenes por las Ideas (AMUJI Chile).
-          </p>
-          <p>
-            Investigadora del programa para la Conservación de los Murciélagos
-            de Bolivia y de la Red Latinoamérica para la Conservación de
-            Murciégalos, Barboza es la primera científica boliviana en ganar la
-            beca del programa de la Unesco y la Fundación L’Oreal para jóvenes
-            científicas (2012). Redescubrió en Bolivia el murciélago Nariz de
-            Espada que se creía extinto desde hacía 72 años. Su investigación
-            coadyuvó a ampliar el conocimiento sobre los servicios ambientales
-            que los murciélagos le ofrecen a las poblaciones humanas en
-            diferentes hábitats.
-          </p>
-        </div>
-      </div>
-
+    <div className='container'>
+      <div className='tituloforo'>Foro</div>
+      <div className='.foroNoticias-line'></div>
+        {
+            getnews.length>0 ?
+            <div className=''>
+               <img className='imagen' src= { getnews[0].image}   alt="no se encuentra la imagen" />
+               <div> { getnews[0].title}</div>
+               <p className='date'> { getnews[0].date}</p> 
+               <div className='rectangulonoticia'></div>
+               <p className='parrafonoti'> { getnews[0].content}</p>
+                </div> : <p className='loading'>Loading..</p>
+        }
+ 
       <div>
         <button className="btnnotianterior" type="submit">
           Entrada anterior
