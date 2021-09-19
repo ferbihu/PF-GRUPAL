@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { changeRoleToAdmin } from '../../actions/actions';
 import { useState, useEffect } from 'react';
 import { getUsers } from '../../actions/actions'
+import swal from "sweetalert";
 
 
 export default function CardsUsers({ name, role, id }) {
@@ -16,7 +17,9 @@ export default function CardsUsers({ name, role, id }) {
 
     function HandleInputChange(id) {
         console.log(statusUser + " estadoviejo")
+        console.log(name)
         dispatch(changeRoleToAdmin(id, role))
+        swal("Rol cambiado", name + " ahora es admin", "success");
         setStatusUser(statusUser += 1)
         console.log(statusUser + " estadonuevo")
 
