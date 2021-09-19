@@ -387,4 +387,16 @@ export async function uploadImage(image) {
   }
 
 }
-
+export function getNews(id){
+  return function(dispatch){
+    return axios
+     .get(`${REACT_APP_BACK_BASE_URL}/newNotice/news`, {id})
+     .then((res)=>{dispatch({ 
+          type:"GET_NEWS",
+          payload:{info:res.data}})
+     })
+     .catch((err) => {
+       console.log("Falla servidor local", err);
+    });
+};
+}
