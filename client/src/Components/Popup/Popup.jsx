@@ -5,6 +5,7 @@ import "./Popup.css"
 import { useDispatch, useSelector } from "react-redux";
 import { rejectedStatus, getSafePlacePanel } from "../../actions/actions"
 import axios from "axios";
+import swal from "sweetalert";
 
 const { REACT_APP_BACK_BASE_URL } = process.env
 
@@ -36,9 +37,10 @@ function Popup(props) {
         let payload = input.description_status
         dispatch(rejectedStatus(id, payload))
         //dispatch(getSafePlacePanel())
-        console.log(estadoOriginal + "estado primero")
+        //console.log(estadoOriginal + "estado primero")
         setEstadoOriginal(estadoOriginal += 3)
-        console.log(estadoOriginal + "estado segundo")
+        //console.log(estadoOriginal + "estado segundo")
+        swal("Lugar rechazado", "El lugar ya no se verá en el mapa", "success");
 
 
         await axios.post(`${REACT_APP_BACK_BASE_URL}/email/rejected`, user)
