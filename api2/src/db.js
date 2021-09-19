@@ -73,6 +73,7 @@ module.exports = {
     User,
     Notice,
     SafePlace,
-    CommentSafePlace,
     CommentNotice,
+    CommentSafePlace,
+
   }
