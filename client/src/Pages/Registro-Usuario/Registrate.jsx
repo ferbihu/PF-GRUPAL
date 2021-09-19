@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../actions/actions";
 import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./Registrate.css";
 import swal from "sweetalert";
@@ -17,6 +18,7 @@ function Register({ addUser, responseGoogle }) {
   });
         //eslint-disable-next-line
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const validate = (input) => {
     let pattern = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
@@ -52,16 +54,19 @@ function Register({ addUser, responseGoogle }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    swal("Usuario creado", "Ya podes iniciar sesión!", "success");    
+     
     addUser(input);
+    swal("Usuario creado", "Ya podes iniciar sesión!", "success");  
+      history.push("/iniciasesion");
+    
     await axios.post(`${REACT_APP_BACK_BASE_URL}/email/welcome`, input)
     setInput({
       name: "",
       email: "",
       password: "",
     });
+   
   };
-
   return (
     <div className="fondo-registrate">
       <h2 className="txtRegistrate">Registrate</h2>
