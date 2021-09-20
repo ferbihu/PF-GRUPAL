@@ -1,11 +1,11 @@
 import React, { useState,useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import {getCommentNotice,postCommentNotice, getNews } from '../../actions/actions.js';
+import {postCommentNotice, getNewsById } from '../../actions/actions.js';
 import "./ForoNoticias.css";
 import style from "./Comment.css";
 
 export default function Foro(props) {
-
+// const {id} = props.match.params;
 
  function getCurrentDate(separator='-'){
 
@@ -18,22 +18,29 @@ export default function Foro(props) {
     }
 const fecha = getCurrentDate();
 // eslint-disable-next-line 
-let [stateComment, setStateComment] = useState([]);
+// let [stateComment, setStateComment] = useState([]);
 // eslint-disable-next-line 
 
 const dispatch = useDispatch();
-// eslint-disable-next-line
-const getnews = useSelector ((state) => state.news)
+
 // eslint-disable-next-line
 const [cambio, setCambio] = useState(false)
-useEffect(() => {
-  dispatch(getCommentNotice())
-  dispatch(getNews(props.id));
-  setCambio(true)
-},[props.id, stateComment, dispatch])
 
+useEffect(() => {
+  // dispatch(getCommentNotice())
+  const newsId=async()=>{
+  await dispatch(getNewsById(props.id));
+  setCambio(true)
+  }
+  newsId()
+  // eslint-disable-next-line
+},[])
+// },[props.id, stateComment, dispatch])
+// console.log(id)
   // eslint-disable-next-line
   // [stateComment]);
+// eslint-disable-next-line
+const getnews = useSelector ((state) => state.news_by_id)
 
 const allcomment = useSelector((state) => state.stateCommentNotice);
 
