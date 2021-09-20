@@ -4,6 +4,7 @@ const{ REACT_APP_BACK_BASE_URL} = process.env
 
 
 const ImageContainer = ({ newImage }) => {
+    // eslint-disable-next-line
     const [images, setImages] = useState([]);
     const [fallback, setFallback] = useState("");
     
@@ -23,7 +24,7 @@ const ImageContainer = ({ newImage }) => {
     useEffect(() => {
         getImages()
     }, [newImage])
-
+    // eslint-disable-next-line
     const configureImage = (image) => {
         return `${REACT_APP_BACK_BASE_URL}` + image
     }
