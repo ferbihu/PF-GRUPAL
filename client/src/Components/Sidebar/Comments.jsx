@@ -3,15 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { showCommentsSafePlaces } from "../../actions/actions";
 import "./Comments.css"
 
-export default function ShowCommentsPlaces(id) {
+export default function ShowCommentsPlaces({id}) {
 
   console.log(id)
     const comments = useSelector((state) => state.comments_safeP)
-    console.log(comments)
-    
+    console.log("cmSP",comments)
+    const filterId = comments.filter((c) => c.safePlaceId === id)
+    console.log(filterId)
+
+
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(showCommentsSafePlaces())
+        dispatch(showCommentsSafePlaces(id))
       }, 
       // eslint-disable-next-line
       [showCommentsSafePlaces])
@@ -20,10 +23,10 @@ export default function ShowCommentsPlaces(id) {
         <div>
             {
             
-                comments?.map((c) => {
+                filterId?.map((c) => {
                     return (
-                      <div key={c.id} className="commentsCont">
-                        <p key={c.id} className="conte">{c.comment_text}</p>
+                      <div key={c.id} value={c.id} className="commentsCont">
+                        <p key={c.id} value={c.id} className="conte">{c.comment_text}</p>
                       </div>
                     )
                   })
