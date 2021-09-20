@@ -4,7 +4,7 @@ const initialState = {
   safeplce: [],
   user: [],
   role: [],
-  isLogged: false,
+  isLogged: localStorage.getItem("isLogged"),
   userId: null,
   filtered_safePlaces: [],
   stateSitie: [{
@@ -78,9 +78,10 @@ function reducers(state = initialState, action) {
         user: state.user = []
       }
     case "LOGIN":
+
       return {
         ...state,
-        isLogged: true,
+
         userId: action.payload.userId,
 
         userData: action.dataUser,
