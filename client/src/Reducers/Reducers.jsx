@@ -1,4 +1,5 @@
 const initialState = {
+  statenewsid:[],
   stateCommentNotice:[],
   statecoord: [],
   safeplce: [],
@@ -224,7 +225,7 @@ function reducers(state = initialState, action) {
         case "GET_NEWS":
           return {
             ...state,
-            news: action.payload.info,
+            statenewsid: action.payload.info,
           }
     
 

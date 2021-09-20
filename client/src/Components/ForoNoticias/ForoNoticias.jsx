@@ -1,11 +1,13 @@
 import React, { useState,useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import {postCommentNotice, getNewsById } from '../../actions/actions.js';
+import {getCommentNotice,getNews,postCommentNotice } from '../../actions/actions.js';
+import notamujeres from "../../imgs/notamujeres.png";
 import "./ForoNoticias.css";
 import style from "./Comment.css";
 
 export default function Foro(props) {
-// const {id} = props.match.params;
+
+const id=2;
 
  function getCurrentDate(separator='-'){
 
@@ -18,35 +20,32 @@ export default function Foro(props) {
     }
 const fecha = getCurrentDate();
 // eslint-disable-next-line 
-// let [stateComment, setStateComment] = useState([]);
+let [stateComment, setStateComment] = useState([]);
+// eslint-disable-next-line 
+let [stateNewId, setStateNew] = useState([]);
 // eslint-disable-next-line 
 
 const dispatch = useDispatch();
-
 // eslint-disable-next-line
-const [cambio, setCambio] = useState(false)
 
 useEffect(() => {
-  // dispatch(getCommentNotice())
-  const newsId=async()=>{
-  await dispatch(getNewsById(props.id));
-  setCambio(true)
-  }
-  newsId()
+  dispatch(getCommentNotice())
+},
   // eslint-disable-next-line
-},[])
-// },[props.id, stateComment, dispatch])
-// console.log(id)
-  // eslint-disable-next-line
-  // [stateComment]);
-// eslint-disable-next-line
-const getnews = useSelector ((state) => state.news_by_id)
+  [stateComment]);
 
 const allcomment = useSelector((state) => state.stateCommentNotice);
 
+useEffect(() => {
+  dispatch(getNews(id))
+},
+  // eslint-disable-next-line
+  [stateNewId]);
 
-//const [nuevo, setNuevo] = useState({})
+  const newid = useSelector((state) => state.statenewsid);
 
+  console.log("noticiaid",newid)
+  //const [nuevo, setNuevo] = useState({})
   //const userId = useSelector((state) => state.userId);
   const Loggin = useSelector((state) => state.isLogged);
   const noticeId=1;
@@ -74,21 +73,12 @@ const allcomment = useSelector((state) => state.stateCommentNotice);
        }
 
   }
+
   return (
     <div className='container'>
       <div className='tituloforo'>Foro</div>
       <div className='.foroNoticias-line'></div>
-        {
-            getnews.length>0 ?
-            <div className=''>
-               <img className='imagen' src= { getnews[0].image}   alt="no se encuentra la imagen" />
-               <div> { getnews[0].title}</div>
-               <p className='date'> { getnews[0].date}</p> 
-               <div className='rectangulonoticia'></div>
-               <p className='parrafonoti'> { getnews[0].content}</p>
-                </div> : <p className='loading'>Loading..</p>
-        }
- 
+
       <div>
         <button className="btnnotianterior" type="submit">
           Entrada anterior

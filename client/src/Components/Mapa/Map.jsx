@@ -81,7 +81,7 @@ export default function Maps(props) {
 
   const [input, setInput] = useState(false);
   const [datos, setDatos] = useState({});
-  const handleMarkerClick = () => {
+  const handleMarkerClick = (e) => {
     if (input === false) {
       setInput(true)
       setDatos(e)
