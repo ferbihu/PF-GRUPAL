@@ -30,7 +30,6 @@ export default function Maps(props) {
   //const [myLatiLngi, setLatiLngi] = useState({})
   const state_popup = useSelector(state => state.popup)
   const state_popup_warning = useSelector(state => state.popup_warning)
-  const state_sidebar = useSelector(state => state.sidebar)
 
 
 
@@ -81,7 +80,7 @@ export default function Maps(props) {
 
   const [input, setInput] = useState(false);
   const [datos, setDatos] = useState({});
-  const handleMarkerClick = () => {
+  const handleMarkerClick = (e) => {
     if (input === false) {
       setInput(true)
       setDatos(e)
