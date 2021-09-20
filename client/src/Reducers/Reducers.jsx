@@ -36,7 +36,7 @@ const initialState = {
 
   sidebar: [],
   news:[],
-
+  statenewsid:[],
 };
 
 
@@ -226,7 +226,11 @@ function reducers(state = initialState, action) {
             ...state,
             news: action.payload.info,
           }
-    
+          case "GET_NEWS_BY_ID":
+          return {
+            ...state,
+            statenewsid: action.payload.info,
+          }
 
     default:
       return state;
