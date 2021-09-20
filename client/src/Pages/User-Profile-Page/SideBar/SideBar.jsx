@@ -5,6 +5,7 @@ import UserProfile from './UserProfile';
 function Sidebar() {
   return (
     <Box
+      mt="150px"
       as="aside"
       flex={1}
       mr={{ base: 0, md: 5 }}
