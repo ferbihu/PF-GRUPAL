@@ -25,6 +25,7 @@ import { Link } from "react-router-dom";
 function UserProfile() {
   const rol = useSelector((state) => state.role)
   const [profile, setProfile] = useState(null);
+  const userDataById = useSelector((state) => state.userDataById);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const profileImage = useRef(null);
@@ -94,10 +95,10 @@ function UserProfile() {
       </Modal>
       <VStack spacing={1}>
         <Heading as="h3" fontSize="xl" color="brand.dark">
-          Tina Casay
+        {userDataById? userDataById.name:""}
         </Heading>
         <Text color="brand.gray" fontSize="sm">
-          Math Teacher
+         
         </Text>
       </VStack>
       {rol === "admin" && <Link to="/panel">Panel de control</Link>}

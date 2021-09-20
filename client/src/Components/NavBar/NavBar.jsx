@@ -9,10 +9,10 @@ import logo from "../../imgs/ola22.png"
 const Nav = () => {
 
   const name = useSelector((state) => state.user);
-  const logueado = useSelector((state) => state.isLogged);
+  const logueado = localStorage.getItem("isLogged")
   console.log(name);
 
-  if (logueado === true) {
+  if (logueado === "true") {
     return (
       <div className="container-nav">
         <div className="logo">

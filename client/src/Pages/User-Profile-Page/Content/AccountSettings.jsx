@@ -66,10 +66,10 @@ export default function AccountSettings() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (input.name && input.lastname) {
+    //if (input.name && input.lastname) {
       dispatch(updateDataUser(id_usuario, input));
       alert("Se han actualizados sus datos");
-    }
+    //}
   };
   // history.push('/')
 
@@ -96,7 +96,7 @@ export default function AccountSettings() {
     if (isLogged === true) {
       isLogged = false;
       localStorage.setItem('isLogged',false)
-      localStorage.setItem('userId',null)
+      localStorage.setItem('userId',0)
       localStorage.setItem('token',null)
       history.push("/iniciasesion");
       window.location.reload();
@@ -122,7 +122,7 @@ export default function AccountSettings() {
           type="text"
           name="name"
           placeholder="nombre"
-          value={userDataById.name}
+          value={input.name}
           onChange={(e) => handleInputChange(e)}
         />
       </FormControl>
@@ -133,7 +133,7 @@ export default function AccountSettings() {
           type="text"
           name="lastname"
           placeholder="apellido"
-          value= {userDataById?.lastname}
+          value= {input.lastname}
           onChange={(e) => handleInputChange(e)}
         />
       </FormControl>
@@ -143,7 +143,7 @@ export default function AccountSettings() {
           focusBorderColor="brand.blue"
           type="tel"
           name="phone"
-          value={userDataById.phone}
+          value={input.phone}
           placeholder="número de telefóno"
           onChange={(e) => handleInputChange(e)}
         />

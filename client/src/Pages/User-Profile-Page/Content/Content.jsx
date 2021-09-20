@@ -7,6 +7,7 @@ const Content = () => {
 
   return (
     <Box
+      mt="150px"
       as="main"
       flex={2}
       d="flex"

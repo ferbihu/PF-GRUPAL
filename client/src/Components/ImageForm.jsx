@@ -3,6 +3,7 @@ import { uploadImage } from '../actions/actions';
 
 const ImageForm = ({handleNewImage}) => {
     const [image, setImage] = useState("");
+    console.log(image)
     const [preview, setPreview] = useState(false);
 
     const handleImageUpload = (e) => {
@@ -17,6 +18,7 @@ const ImageForm = ({handleNewImage}) => {
 
     const handleSubmit = () => {
         uploadImage(image);
+        localStorage.setItem("image", image.name)
         setPreview(false);
         setImage("");
         handleNewImage();
