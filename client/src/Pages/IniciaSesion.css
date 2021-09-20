@@ -132,10 +132,11 @@ body {
   margin-top: 5px;
 }
 
-.back {
+.back-iniciasesion {
   background-color: #F1EEDE;
   display: flex;
   flex-direction: column;
+  padding-top: 10vw;
 }
 
 .line-iniciasesion{

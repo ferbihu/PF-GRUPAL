@@ -1,14 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './Footer.css';
+import logo from "../../imgs/ola22.png"
 
 export default function Footer() {
     return (
         <footer>
 
             <div className="logo">
-                <h3 className="footer-logo">Safety</h3>
-                <h5 className="safety-footer">Safety, 2021</h5>
+                <img src={logo} alt="" className="footer-logo" />
+                <h5 className="safety-footer">Ola Violeta, 2021</h5>
             </div>
 
             <ul className="footer-ul">

@@ -13,7 +13,7 @@ export default function LugaresSeguros() {
                     Lugares Seguros
                 </div>
                 <div className="lugares-line2"></div>
-                <div className="subtitulo">
+                <div className="subtitulo-mapa">
                     Todos los lugares seguros registrados en la página aparecerán sobre el mapa el ícono <img src={icono} alt="casa" className="imagen-casa" />
                 </div>
                 <div className="subtitulo2">Clickealo para saber más sobre el lugar!</div>

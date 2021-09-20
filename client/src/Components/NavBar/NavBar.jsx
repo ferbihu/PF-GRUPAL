@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 // import { GoogleLogout } from "react-google-login"
 //import { logOutGoogle } from "../../actions/actions";
 import "./NavBar.css";
+import logo from "../../imgs/ola22.png"
 
 const Nav = () => {
 
@@ -15,15 +16,17 @@ const Nav = () => {
     return (
       <div className="container-nav">
         <div className="logo">
-          <Link to="/">S.</Link>
+          <Link to="/"><img className="icono-ola" src={logo} alt="logo" /></Link>
         </div>
         <ul className="ul-nav">
           <li>
-            <Link to="/conocenos">Conocenos</Link>
+            <Link to="/conocenos">Sobre el proyecto</Link>
+            <div className="nav-line"></div>
           </li>
 
           <li>
             <Link to="/foro">Foro</Link>
+            <div className="foro-line"></div>
           </li>
           <li>
             <Link to="/lugaresseguros">Lugares Seguros</Link>
@@ -31,6 +34,8 @@ const Nav = () => {
           </li>
           <li>
             <Link to="/profile">Mi cuenta</Link>
+            <div className="nav-line"></div>
+
           </li>
         </ul>
       </div>
@@ -39,20 +44,22 @@ const Nav = () => {
     return (
       <div className="container-nav">
         <div className="logo">
-          <Link to="/">S.</Link>
+          <Link to="/"><img className="icono-ola" src={logo} alt="logo" /></Link>
         </div>
-        <ul>
+        <ul className="ul-nav">
           <li>
             <Link to="/elproyecto">Sobre el proyecto</Link>
+            <div className="nav-line"></div>
           </li>
           <li>
             <Link to="/foro">Foro</Link>
+            <div className="foro-line"></div>
           </li>
           <li>
             <Link to="/lugaresseguros">Lugares Seguros</Link>
             <div className="nav-line"></div>
           </li>
-          <li>
+          <li className="iniciasesion">
             <Link to="/iniciasesion">Iniciar Sesión</Link>
           </li>
         </ul>

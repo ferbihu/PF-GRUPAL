@@ -1,9 +1,10 @@
 .proyecto-container{
-    padding: 1vw 5vw 1vw 5vw;
+    padding: 10vw 5vw 1vw 5vw;
     background-color: #F1EEDE;
     font-family: Montserrat;
     display: flex;
     flex-direction: column;
+
 }
 .titulo{
     font-size: 3vw;
