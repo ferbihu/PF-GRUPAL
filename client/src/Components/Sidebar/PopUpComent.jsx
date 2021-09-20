@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { closePopup } from '../../actions/actions';
 import "./PopupsSideBar.css"
 import swal from "sweetalert";
@@ -17,8 +17,8 @@ function validate(input) {
 }
 
 
-export default function PopupsComment({ text }) {
-
+export default function PopupsComment({ text, id }) {
+    console.log("pop", id)
     const dispatch = useDispatch();
     function HandleClose() {
         dispatch(closePopup())
@@ -31,6 +31,11 @@ export default function PopupsComment({ text }) {
     console.log(input)
     const [errors, setErrors] = useState({})
     console.log(input)
+
+    const idUser = useSelector((state) => state.userId)
+    console.log(idUser)
+    const aplace = useSelector((state) => state.comments_safeP)
+    console.log(aplace)
 
     function HandleChange(e) {
         setInput({
@@ -49,7 +54,7 @@ export default function PopupsComment({ text }) {
         const config = {
             headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
           };
-          await axios.post(`${REACT_APP_BACK_BASE_URL}/safe_place/new_comment`, input, config);
+          await axios.post(`${REACT_APP_BACK_BASE_URL}/safe_place/new_comment`, {...input, userId: idUser, safePlaceId: id}, config);
           console.log(input)
           swal("Enviado", "Gracias por colaborar con Safety!", "success");
         setInput({
@@ -57,7 +62,6 @@ export default function PopupsComment({ text }) {
         })
         dispatch(closePopup())
     }
-
     return (
         <div className="fondo-popup">
             <div className="popup-container-map">

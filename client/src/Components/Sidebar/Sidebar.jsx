@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { HiLocationMarker } from "react-icons/hi"
+import { Link } from "react-router-dom";
 
 
 
@@ -23,13 +24,14 @@ import "./Sidebar.css";
 import { changePopupState, changePopupStateWarning } from "../../actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import ShowCommentsPlaces from "./Comments";
+import PopupsComment from "./PopUpComent";
 
 
 export default function Sidebar({ id, name, telephone, street, number, keyword, handleMarkerClick }) {
 
   //create initial menuCollapse state using useState hook
   const [menuCollapse, setMenuCollapse] = useState(false)
-
+  console.log(id)
   // const [input, setInput] = useState({
   //   comment: ""
   // })
@@ -52,6 +54,7 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
 
   const state_popup_warning2 = useSelector(state => state.popup_warning)
   const state_popup2 = useSelector(state => state.popup)
+  const islogged = useSelector(state => state.isLogged)
 
 
 
@@ -60,6 +63,7 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
     //condition checking to change state from true to false and vice versa
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
   };
+  <PopupsComment id={id} />
 
   return (
     <>
@@ -92,13 +96,14 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
               <h2 className="kw">PALABRA CLAVE</h2>
               <h2 className="txt1">{keyword}</h2>
             </div>
-
-            <div className="sidebar-align">
+            {islogged === true ? <div className="sidebar-align">
               <h3 className="denunciaTit"> Este no es un lugar seguro?</h3>
               <button className="denuncia" type="submit" disabled={state_popup2 === true || state_popup_warning2 === true} onClick={() => HandleWarningClick()} >Denuncialo</button>
-            </div>
+            </div> : <div className="denunciar"><Link to="/iniciasesion">  Iniciá sesión para denunciar el lugar</Link></div>}
 
-            <button className="btnRes" type="submit" disabled={state_popup2 === true || state_popup_warning2 === true} onClick={() => HandleCommentClick()}>Dejar una reseña</button>
+            {islogged === true ? <button className="btnRes" type="submit" disabled={state_popup2 === true || state_popup_warning2 === true} onClick={() => HandleCommentClick()}>Dejar una reseña</button>
+              : <div className="comentario"><Link to="/iniciasesion">Iniciá sesión para dejar tu reseña!</Link></div>}
+
             {/* {
               comments?.map((c) => {
                 return (
@@ -108,11 +113,13 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
                 )
               })
             } */}
-            <ShowCommentsPlaces/>
+            
+            <ShowCommentsPlaces id={id}/>
 
           </SidebarContent>
         </ProSidebar>
       </div>
     </>
+
   );
 };

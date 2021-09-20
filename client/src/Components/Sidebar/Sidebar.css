@@ -181,3 +181,32 @@
   margin-bottom: 3vw;
   justify-items: center;
 }
+
+.denunciar{
+  
+  justify-content: center;
+  padding: 1vw;
+  text-align: center;
+  font-style: italic;
+  font-weight: 500;
+  color: #000;
+  
+}
+.comentario {
+  
+  
+    justify-content: center;
+    padding: 1vw;
+    text-align: center;
+    background-color: #f17909;
+    font-weight: 500;
+    color: #000;
+    margin: 1vw;
+    border-radius: 10px;
+    
+  
+}
+
+a.comentario:hover{
+  background-color: #e79f5b;
+}
