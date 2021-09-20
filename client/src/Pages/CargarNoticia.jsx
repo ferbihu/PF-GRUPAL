@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import ImageContainer from "../Components/ImageContainer";
 import ImageForm from "../Components/ImageForm";
 import axios from "axios";
+import "./CargarNoticia.css";
 const{ REACT_APP_BACK_BASE_URL} = process.env
 
 
@@ -47,7 +48,7 @@ const CargarNoticia = () => {
     return (
         <div>
             <h1>Cargar noticia</h1>
-            <form>
+            <form className="back">
                 <input name="title" value={input.title} onChange={handleInputChange} placeholder="Título"></input>
                 {/* <p>{errors.title}</p> */}
                 <textarea name="content" value={input.content} onChange={handleInputChange} placeholder="Contenido"></textarea>
