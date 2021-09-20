@@ -78,7 +78,17 @@ useEffect(() => {
     <div className='container'>
       <div className='tituloforo'>Foro</div>
       <div className='.foroNoticias-line'></div>
-
+      {
+            getnews.length>0 ?
+            <div className=''>
+               <img className='imagen' src= { getnews[0].image}   alt="no se encuentra la imagen" />
+               <div> { getnews[0].title}</div>
+               <p className='date'> { getnews[0].date}</p> 
+               <div className='rectangulonoticia'></div>
+               <p className='parrafonoti'> { getnews[0].content}</p>
+                </div> : <p className='loading'>Loading..</p>
+        }
+ 
       <div>
         <button className="btnnotianterior" type="submit">
           Entrada anterior
