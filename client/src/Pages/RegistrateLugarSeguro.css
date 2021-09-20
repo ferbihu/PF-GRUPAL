@@ -6,6 +6,8 @@
    background-color: #F1EEDE;
    display: flex;
    flex-direction: column;
+   padding-top: 10vw;
+   height: 160vh;
 }
 .title{
     font-size: 2vw;

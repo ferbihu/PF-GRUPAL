@@ -1,6 +1,7 @@
 import React from "react";
 import mujeres from "../../imgs/1280px-Dibujo_mujeres_juntas.svg.png"
-import "./Header.css"
+import "./Header.css";
+import Fade from 'react-reveal/Fade';
 // import Panel from "../../Pages/Panel-Admin/Panel";
 // import { Link } from "react-router-dom";
 // import { useSelector } from "react-redux";
@@ -12,10 +13,11 @@ const Header = () => {
 
     return (
         <div className="conteinerImg">
-
-            <h1 className="textS">Safety</h1>
-
-            <img src={mujeres} alt="Not found" className="imgMujeres" />
+            <Fade left duration={2000}>
+                <div className="titulo-header">Ola Violeta</div>
+                <img src={mujeres} alt="Not found" className="imgMujeres" />
+                <div className="subtitulo">Un espacio virtual pensado por y para mujeres.</div>
+            </Fade>
         </div>
     )
 }

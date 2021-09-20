@@ -69,7 +69,7 @@ export default function IniciaSesion() {
   }
 
   return (
-    <div className="back">
+    <div className="back-iniciasesion">
       <h2 className="txtLog">Inicia sesión</h2>
       <br />
       <form class="login-form" onSubmit={(e) => handleSubmit(e)}>
