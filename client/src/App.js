@@ -42,7 +42,7 @@ function App() {
       <Route exact path="/profile" component={MainProfile} />
       <Route exact path="/registrate" component={Registrate}/>
       <Route exact path="/foro" component={Foro}/>
-      <Route exact path="/foroNoticias" component={ForoNoticias}/>
+      <Route exact path="/foroNoticias/:id" component={ForoNoticias}/>
       <Route exact path="/foroerror" component={FailedSearch}/>
       <PrivateRoute exact path="/panel" component={Panel}/>
       <Route exact path="/conocenos" component={Conocenos}/>
