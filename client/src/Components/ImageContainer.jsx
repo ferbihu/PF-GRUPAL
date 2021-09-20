@@ -31,12 +31,12 @@ const ImageContainer = ({ newImage }) => {
     return (
         <div>
             {
-                images.length > 0 ? 
-                (
-                    images.map(image => (
-                        <img src={configureImage(image)} key={image} alt={image} width="100" height="100"/>
-                    ))
-                ) :
+                // images.length > 0 ? 
+                // (
+                //     images.map(image => (
+                //         <img src={configureImage(image)} key={image} alt={image} width="100" height="100"/>
+                //     ))
+                // ) :
                 <div>
                     <h1>{fallback}</h1>
                     <hr/>

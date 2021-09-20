@@ -8,30 +8,28 @@ router.get('/news', async(req, res) => {
 })
 
 router.post('/', async(req, res) => {
-    let {
-        id,
-        title,
-        image,
-        content,
-        date,
-        status
-    } = req.body;
+    let {id, title, content, image} = req.body;
+    console.log(title, content, image, id)
+
+    let fecha = await new Date();
+    let date = await fecha.getDate()
 
     const newNews = await Notice.create({
         title,
         image,
         content,
         date,
-        status
+        status: "accepted"
     });
 
-    const createNews = await User.findAll({
-        where: {
-            id
-        }
-    });
+    // const createNews = await User.findAll({
+    //     where: {
+    //         id
+    //     }
+    // });
+    // console.log(createNews)
 
-    newNews.addUser(createNews)
+    await newNews.setUser(id)
     return res.status(200).send('Noticia publicada con exito')
 }); 
 
