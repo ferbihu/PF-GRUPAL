@@ -360,9 +360,6 @@ export function showCommentsSafePlaces() {
   }
 }
 
-
-
-
 //comentarios noticias
 
 export function getCommentNotice(){
@@ -409,10 +406,11 @@ export async function uploadImage(image) {
   }
 
 }
+
 export function getNews(id){
   return function(dispatch){
     return axios
-     .get(`${REACT_APP_BACK_BASE_URL}/newNotice/news`, {id})
+     .get(`${REACT_APP_BACK_BASE_URL}/noticeById/${id}`)
      .then((res)=>{dispatch({ 
           type:"GET_NEWS",
           payload:{info:res.data}})

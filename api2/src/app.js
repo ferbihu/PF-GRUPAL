@@ -35,6 +35,8 @@ server.use("/comments", require("./routes/commentnotice"))
 
 server.use("/newNotice", require("./routes/newNotice"))
 
+server.use("/noticeById", require("./routes/news"))
+
 server.use(express.static('uploads'));
 
 server.use("/images", images)
