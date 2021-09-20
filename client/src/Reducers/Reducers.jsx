@@ -35,8 +35,8 @@ const initialState = {
   userDataById: [],
 
   sidebar: [],
-  news: [],
-
+  news:[],
+  statenewsid:[]
 };
 
 
@@ -221,15 +221,19 @@ function reducers(state = initialState, action) {
 
       }
     case "POST_COMMENT_NOTICE":
-      return {
-        ...state,
-      }
-    case "GET_NEWS":
-      return {
-        ...state,
-        news: action.payload.info,
-      }
-
+        return {
+          ...state,
+        }
+        case "GET_NEWS":
+          return {
+            ...state,
+            news: action.payload.info,
+          }
+          case "GET_NEWS_BY_ID":
+          return {
+            ...state,
+            statenewsid: action.payload.info,
+          }
 
     default:
       return state;

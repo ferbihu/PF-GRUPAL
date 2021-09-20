@@ -409,12 +409,25 @@ export async function uploadImage(image) {
   }
 
 }
-export function getNews(id){
+export function getNews(){
   return function(dispatch){
     return axios
-     .get(`${REACT_APP_BACK_BASE_URL}/newNotice/news`, {id})
+     .get(`${REACT_APP_BACK_BASE_URL}/newNotice/news`)
      .then((res)=>{dispatch({ 
           type:"GET_NEWS",
+          payload:{info:res.data}})
+     })
+     .catch((err) => {
+       console.log(err);
+    });
+};
+}
+export function getNewsById(id){
+  return function(dispatch){
+    return axios
+     .get(`${REACT_APP_BACK_BASE_URL}/newsById/${id}`)
+     .then((res)=>{dispatch({ 
+          type:"GET_NEWS_BY_ID",
           payload:{info:res.data}})
      })
      .catch((err) => {
