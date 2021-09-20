@@ -1,5 +1,5 @@
 const initialState = {
-  stateCommentNotice:[],
+  stateCommentNotice: [],
   statecoord: [],
   safeplce: [],
   user: [],
@@ -32,21 +32,23 @@ const initialState = {
   users: [],
   comments_safeP: [],
 
-  userDataById :[],
+  userDataById: [],
 
   sidebar: [],
-  news:[],
+  news: [],
 
 };
 
 
 function reducers(state = initialState, action) {
-  console.log(action)
   switch (action.type) {
     case "GET_SAFEPLACE":
+      console.log("---->", action.payload.info)
+      let lugares_filtrados = action.payload.info.filter(e => e.status === "warning" || e.status === "accepted")
+      console.log("---> lugares filtrados", lugares_filtrados)
       return {
         ...state,
-        stateSitie: action.payload.info,
+        stateSitie: lugares_filtrados
 
       }
 
@@ -149,7 +151,7 @@ function reducers(state = initialState, action) {
         ...state,
       };
     case "USER_DATA":
-      return{
+      return {
         ...state,
         userDataById: action.payload
       };
@@ -212,21 +214,21 @@ function reducers(state = initialState, action) {
         comments_safeP: action.payload
       }
     case "GET_COMMENT_NOTICE":
-        return {
-          ...state,
-          stateCommentNotice: action.payload.info,
-  
+      return {
+        ...state,
+        stateCommentNotice: action.payload.info,
+
       }
     case "POST_COMMENT_NOTICE":
-        return {
-          ...state,
-        }
-        case "GET_NEWS":
-          return {
-            ...state,
-            news: action.payload.info,
-          }
-    
+      return {
+        ...state,
+      }
+    case "GET_NEWS":
+      return {
+        ...state,
+        news: action.payload.info,
+      }
+
 
     default:
       return state;
