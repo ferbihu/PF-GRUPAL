@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { useSelector } from "react-redux";
 import ImageContainer from "../Components/ImageContainer";
 import ImageForm from "../Components/ImageForm";
 import axios from "axios";
@@ -18,12 +19,20 @@ export function validate(input) {
 
 const CargarNoticia = () => {
 
-    const [newImage, setNewImage] = useState([]);
+    // let fecha = new Date();
+    // let date = fecha.getDate()
+    // console.log(fecha)
+    // console.log(date);
 
+    const [newImage, setNewImage] = useState([]);
+    console.log(newImage)
     const [input, setInput] = useState({
         title: "",
-        content: ""
+        content: "",
+        image: "",
     })
+    const user = useSelector((state => state.userId))
+    console.log(user)
 
     const handleInputChange = (e) => {
         setInput({
@@ -34,6 +43,8 @@ const CargarNoticia = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        let image2 = await localStorage.getItem("image")
+        setInput({...input, image: image2.toString(), id: user})
             await axios.post(`${REACT_APP_BACK_BASE_URL}/newNotice`, input);
             alert("La noticia fue creada correctamente!");
             setInput({
