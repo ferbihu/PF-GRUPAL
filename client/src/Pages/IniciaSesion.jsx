@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./IniciaSesion.css";
 import GoogleLogin from "react-google-login";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { renderUserName, login } from "../actions/actions";
 import { Link, useHistory } from "react-router-dom";
 import swal from "sweetalert";
@@ -23,6 +23,10 @@ export default function IniciaSesion() {
   const [input, setInput] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
   const history = useHistory();
+
+  const isLogged = useSelector((state)=>state.isLogged)
+  if(isLogged === true) history.push("/profile");
+
 
   const responseGoogle = (response) => {
     const userName = response.getBasicProfile().Qe;
@@ -51,8 +55,9 @@ export default function IniciaSesion() {
     e.preventDefault();
     if (!errors.email && !errors.password) {
       dispatch(login(input));
+      
 
-      history.push("/profile");
+      
     } else {
       swal("Oh oh, algo salió mal", "Inténtelo nuevamente", "warning");
     }
@@ -64,7 +69,7 @@ export default function IniciaSesion() {
   }
 
   return (
-    <div className="back">
+    <div className="back-iniciasesion">
       <h2 className="txtLog">Inicia sesión</h2>
       <br />
       <form class="login-form" onSubmit={(e) => handleSubmit(e)}>

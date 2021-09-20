@@ -30,7 +30,6 @@ export default function Maps(props) {
   //const [myLatiLngi, setLatiLngi] = useState({})
   const state_popup = useSelector(state => state.popup)
   const state_popup_warning = useSelector(state => state.popup_warning)
-  const state_sidebar = useSelector(state => state.sidebar)
 
 
 
@@ -80,9 +79,11 @@ export default function Maps(props) {
   console.log(allsities);
 
   const [input, setInput] = useState(false);
-  const handleMarkerClick = () => {
+  const [datos, setDatos] = useState({});
+  const handleMarkerClick = (e) => {
     if (input === false) {
       setInput(true)
+      setDatos(e)
     } else {
       setInput(false)
     }
@@ -124,6 +125,7 @@ export default function Maps(props) {
       date.id = allsities[i].id;
       date.status = allsities[i].status;
       date.coord = { lat: allsities[i].lat, lng: allsities[i].lng };
+      date.id = allsities[i].id;
       sitios.push(date);
     }
     console.log(sitios, "aca sitios")
@@ -162,11 +164,11 @@ export default function Maps(props) {
 
             >
               {
-                state_sidebar && <Sidebar id={e.id} name={e.name} telephone={e.telephone} street={e.street} number={e.number} keyword={e.keyword} handleMarkerClick={handleMarkerClick} />
+                input && <Sidebar id={datos.id} name={datos.name} telephone={datos.telephone} street={datos.street} number={datos.number} keyword={datos.keyword} handleMarkerClick={() => handleMarkerClick(e)} />
 
               }
               {
-                state_popup && <PopupsComment text="Dejá una reseña del lugar! Recordá que el comentario será publico y todos podran verlo."></PopupsComment>
+                state_popup && <PopupsComment id={datos.id} text="Dejá una reseña del lugar! Recordá que el comentario será publico y todos podran verlo."></PopupsComment>
               }
               {
                 state_popup_warning && <PopupsSideBarWarning id={e.id} text="Por favor, explicanos el motivo de la denuncia.  Si denuncias un lugar, automáticamente
@@ -181,8 +183,8 @@ export default function Maps(props) {
                       {e.name}</p>
                     <p>{e.telephone}</p>
                     <div>
-                      <button onclick="miFunc()" href="" className="button-24">Denuncia</button>
-                      <button onclick="miFunc()" href="" className="button-25">Comentario</button>
+                      <button onClick="miFunc()" href="" className="button-24">Denuncia</button>
+                      <button onClick="miFunc()" href="" className="button-25">Comentario</button>
                     </div>
                   </div>
                 </div>
@@ -202,8 +204,8 @@ export default function Maps(props) {
                         https://www.argentina.gob.ar/generos/linea-144</a>
                       {e.keyword}{e.telephone}</p>
                     <div>
-                      <button onclick="miFunc()" href="" className="button-24">Denuncia</button>
-                      <button onclick="miFunc()" href="" className="button-25">Comentario</button>
+                      <button onClick="miFunc()" href="" className="button-24">Denuncia</button>
+                      <button onClick="miFunc()" href="" className="button-25">Comentario</button>
                     </div>
                   </div>
                 </div>

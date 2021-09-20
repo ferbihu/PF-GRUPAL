@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { showCommentsSafePlaces } from "../../actions/actions";
 import "./Comments.css"
 
-export default function ShowCommentsPlaces() {
+export default function ShowCommentsPlaces(id) {
+
+  console.log(id)
     const comments = useSelector((state) => state.comments_safeP)
     console.log(comments)
     

@@ -83,6 +83,8 @@ export function login({ email, password }) {
       alert("Loggeado correctamente,userId,token,guardados")  
       //aca guardamos el token obtenido de backend
       localStorage.setItem('token',res.data.id_token)
+      localStorage.setItem('userId',res.data.userId)
+      localStorage.setItem('isLogged',true)
       return dispatch({
         type:'LOGIN',
 
@@ -240,7 +242,27 @@ export function updateDataUser(id, data) {
       })
     );
   };
-}
+};
+
+export function getUserById(id){
+  console.log("ESTOY EN ACTION",id)
+  return function(dispatch){
+    const config = {
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
+    };
+    // eslint-disable-next-line
+    const response = axios.get(`${REACT_APP_BACK_BASE_URL}/user/${id}`,config)
+    .then((response)=>{
+      dispatch({
+        type :"USER_DATA",
+        payload :response.data
+      })
+    }
+    ).catch((err)=>{
+      console.log(err)
+    })
+  }
+};
 
 export function changeSidebarState(payload){
   console.log("entro a la action change SIDEBAR ")

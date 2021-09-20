@@ -15,7 +15,7 @@ export default function ProyectoInfo() {
 
             <div className="info-container">
                 <div className="parrafo-conocenos">
-                    <span className="span-conocenos">Safety</span> es una plataforma de geolocalización desarrollada con el fin de implicar al conjunto de
+                    <span className="span-conocenos">Ola Violeta</span> es una plataforma de geolocalización desarrollada con el fin de implicar al conjunto de
                     la sociedad en la <span className="violeta">lucha contra la violencia de género</span> y promover información sobre cómo actuar
                     ante un caso de acoso o violencia contra las mujeres.
                 </div>
@@ -65,7 +65,7 @@ export default function ProyectoInfo() {
                                 con un protocolo que tu local y toda aquella persona que trabaje allí debera seguir en situaciones de emergencia.
                             </p>
                             <p>Una vez completada la declaración jurada, las administradoras de la página decidirán si el lugar se aprueba o no. En ambos casos, recibirás un mail con la información correspondiente.
-                                Si el lugar es aprobado, se verá en el mapa de Safety.
+                                Si el lugar es aprobado, se verá en el mapa de Ola Violeta.
                             </p>
                         </div>
 

@@ -9,6 +9,7 @@ import axios from 'axios';
 import "./Cards-Panel.css";
 import Popup from '../Popup/Popup';
 import { getSafePlacePanel } from '../../actions/actions'
+import swal from "sweetalert";
 const { REACT_APP_BACK_BASE_URL } = process.env
 
 
@@ -37,6 +38,7 @@ export default function Card({ name, country, street, number, town, email, telep
         //dispatch(getSafePlacePanel())
         setstatusOriginal(statusOriginal += 2)
         console.log(statusOriginal + " estadonuevo")
+        swal("Lugar aceptado", name + " ahora se verá en el mapa", "success");
         await axios.post(`${REACT_APP_BACK_BASE_URL}/email/accepted`, user)
 
 
