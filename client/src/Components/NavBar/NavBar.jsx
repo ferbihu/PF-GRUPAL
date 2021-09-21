@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 // import { GoogleLogout } from "react-google-login"
@@ -9,15 +9,9 @@ import logo from "../../imgs/ola22.png"
 const Nav = () => {
 
   const name = useSelector((state) => state.userId);
-  const logueado = localStorage.getItem("isLogged")
-  console.log(name);
 
-  // const dispatch = useDispatch();
 
-  useEffect(() => {
-  }, [logueado])
-
-  if (logueado === "true") {
+  if (name) {
     return (
       <div className="container-nav">
         <div className="logo">
@@ -44,8 +38,8 @@ const Nav = () => {
           </li>
         </ul>
       </div>
-    );
-  } else if (logueado === "false") {
+    )
+  } else {
     return (
       <div className="container-nav">
         <div className="logo">
