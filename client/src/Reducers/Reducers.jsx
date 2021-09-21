@@ -37,7 +37,6 @@ const initialState = {
   sidebar: [],
   news:[],
   statenewsid:[],
-  healtNews: []
 };
 
 
@@ -180,7 +179,7 @@ function reducers(state = initialState, action) {
       return {
         ...state,
         popup_warning: false,
-        popup: false
+        popup: false 
       }
 
     /* case 'FILTER_SAFEPLACE_BY_ID':
