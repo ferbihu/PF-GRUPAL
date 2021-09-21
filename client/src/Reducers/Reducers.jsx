@@ -36,7 +36,8 @@ const initialState = {
 
   sidebar: [],
   news:[],
-  statenewsid:[]
+  statenewsid:[],
+  healtNews: []
 };
 
 
@@ -235,6 +236,17 @@ function reducers(state = initialState, action) {
             statenewsid: action.payload.info,
           }
 
+            case "GET_HEALTH":
+              return {
+                ...state,
+                healtNews: action.payload
+              }
+
+              case "HEALT_BY_NAME":
+                return {
+                  ...state,
+                  healtNews: action.payload
+                }
     default:
       return state;
   }
