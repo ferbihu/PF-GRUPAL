@@ -7,6 +7,8 @@ const commentModel = require('./models/commentnotice.js');
 const safePlaceModel = require('./models/safePlace.js');
 const noticeModel = require('./models/noticias.js');
 const commentSafePlace = require('./models/commentSafePlace.js');
+const healthProfession = require('./models/HealthProfessions.js');
+
 // const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/women4women`, {
 //     logging: false,
 //     native: false,
@@ -45,6 +47,7 @@ const Notice = noticeModel(sequelize);
 const SafePlace = safePlaceModel(sequelize);
 const CommentSafePlace = commentSafePlace(sequelize);
 const CommentNotice = commentModel(sequelize);
+const HealthProfession = healthProfession(sequelize)
 //uno a muchos, viaja el id del usuario que hizo el comentario
 Notice.hasMany(CommentNotice,{as:"noticeComments",foreingKey : "noticeId"});
 User.hasMany(CommentNotice,{as:"commentsnotice",foreignKey : "userId"});
@@ -65,6 +68,16 @@ CommentSafePlace.belongsTo(SafePlace,{as:"safePlace",foreingKey : "safePlaceId"}
 Notice.belongsTo(User)
 User.hasMany(Notice)
 
+HealthProfession.hasMany(User, {foreignKey: "userId"}) //una profesión tiene muchos usuarios--->tutorial
+User.belongsTo(HealthProfession, { foreignKey:"userId"}); //un usuario pertenece a una profesión--->comments
+
+/*
+User.hasMany(HealthProfessions) //un usuario tiene
+ HealthProfessions.belongsTo(User)
+ */
+
+
+
 
 
 
@@ -75,5 +88,6 @@ module.exports = {
     SafePlace,
     CommentNotice,
     CommentSafePlace,
+    HealthProfession
 
   }
