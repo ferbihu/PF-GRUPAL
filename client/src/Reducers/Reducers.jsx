@@ -37,7 +37,8 @@ const initialState = {
   sidebar: [],
   news:[],
   statenewsid:[],
-  logeado: false,
+  logeado: localStorage.getItem("isLogged"),
+  token: ""
 };
 
 
@@ -89,7 +90,7 @@ function reducers(state = initialState, action) {
 
         role: action.payload2.role,
       
-        logeado: true,
+        logeado:localStorage.setItem("isLogged", true),
 
       }
 
@@ -237,6 +238,13 @@ function reducers(state = initialState, action) {
             ...state,
             statenewsid: action.payload.info,
           }
+    case "IS_LOGGED":
+      return {
+        ...state,
+        token: localStorage.getItem('token'),
+        userId: localStorage.getItem('userId'),
+        logeado: localStorage.getItem('isLogged')
+      }
 
     default:
       return state;

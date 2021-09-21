@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { uploadImage } from '../actions/actions';
 
 const ImageForm = ({handleNewImage}) => {
     const [image, setImage] = useState("");
     console.log(image)
     const [preview, setPreview] = useState(false);
+
+    useEffect(() => {
+    }, [image])
 
     const handleImageUpload = (e) => {
         setImage(e.target.files[0]);
@@ -17,11 +20,11 @@ const ImageForm = ({handleNewImage}) => {
     }
 
     const handleSubmit = () => {
+        localStorage.setItem("image", image?.name)
         uploadImage(image);
-        localStorage.setItem("image", image.name)
         setPreview(false);
         setImage("");
-        handleNewImage();
+        handleNewImage(); 
     } 
 
     return (
