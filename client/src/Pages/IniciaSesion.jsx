@@ -23,10 +23,7 @@ export default function IniciaSesion() {
   const [input, setInput] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
   const history = useHistory();
-
-  const isLogged = useSelector((state)=>state.isLogged)
-  if(isLogged === true) history.push("/profile");
-
+  const rolead = useSelector((state) => state.role)
 
   const responseGoogle = (response) => {
     const userName = response.getBasicProfile().Qe;
@@ -54,10 +51,12 @@ export default function IniciaSesion() {
   function handleSubmit(e) {
     e.preventDefault();
     if (!errors.email && !errors.password) {
+      swal("Iniciaste sesión correctamente", "Gracias", "success");    
       dispatch(login(input));
-      
-
-      
+      if (rolead === "admin") {
+        localStorage.setItem("isAdmin", true)
+      }
+      history.push("/")
     } else {
       swal("Oh oh, algo salió mal", "Inténtelo nuevamente", "warning");
     }
