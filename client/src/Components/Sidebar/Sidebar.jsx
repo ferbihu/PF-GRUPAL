@@ -96,12 +96,12 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
               <h2 className="kw">PALABRA CLAVE</h2>
               <h2 className="txt1">{keyword}</h2>
             </div>
-            {logeado === true ? <div className="sidebar-align">
+            {logeado === "true" ? <div className="sidebar-align">
               <h3 className="denunciaTit"> Este no es un lugar seguro?</h3>
               <button className="denuncia" type="submit" disabled={state_popup2 === true || state_popup_warning2 === true} onClick={() => HandleWarningClick()} >Denuncialo</button>
             </div> : <div className="denunciar"><Link to="/iniciasesion">  Iniciá sesión para denunciar el lugar</Link></div>}
 
-            {logeado === true ? <button className="btnRes" type="submit" disabled={state_popup2 === true || state_popup_warning2 === true} onClick={() => HandleCommentClick()}>Dejar una reseña</button>
+            {logeado === "true" ? <button className="btnRes" type="submit" disabled={state_popup2 === true || state_popup_warning2 === true} onClick={() => HandleCommentClick()}>Dejar una reseña</button>
               : <div className="comentario"><Link to="/iniciasesion">Iniciá sesión para dejar tu reseña!</Link></div>}
 
             {/* {
