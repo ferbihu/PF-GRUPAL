@@ -39,6 +39,8 @@ server.use(express.static('uploads'));
 
 server.use("/images", images)
 
+server.use('/newsById',require ('./routes/news'))
+
 
 server.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
