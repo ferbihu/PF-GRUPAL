@@ -4,7 +4,7 @@ const initialState = {
   safeplce: [],
   user: [],
   role: [],
-  isLogged: localStorage.getItem("isLogged"),
+  // isLogged: localStorage.getItem("isLogged"),
   userId: null,
   filtered_safePlaces: [],
   stateSitie: [{
@@ -36,7 +36,8 @@ const initialState = {
 
   sidebar: [],
   news:[],
-  statenewsid:[]
+  statenewsid:[],
+  logeado: false,
 };
 
 
@@ -86,7 +87,9 @@ function reducers(state = initialState, action) {
 
         userData: action.dataUser,
 
-        role: action.payload2.role
+        role: action.payload2.role,
+      
+        logeado: true,
 
       }
 
