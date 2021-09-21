@@ -47,7 +47,6 @@ useEffect(() => {
   [stateNewId]);
 
   const getnews = useSelector((state) => state.statenewsid);
-
   console.log("noticiaid",getnews)
   //const [nuevo, setNuevo] = useState({})
   //const userId = useSelector((state) => state.userId);
@@ -79,7 +78,7 @@ useEffect(() => {
   }
 
   return (
-    <div className='proyectocontainer'>
+    <div className='pc'>
       <div className='tituloforo'>Foro</div>
       <div className='.foroNoticias-line'></div>
       {

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import ImageContainer from "../Components/ImageContainer";
 import ImageForm from "../Components/ImageForm";
 import axios from "axios";
@@ -19,37 +19,35 @@ export function validate(input) {
 
 const CargarNoticia = () => {
 
-    // let fecha = new Date();
-    // let date = fecha.getDate()
-    // console.log(fecha)
-    // console.log(date);
-
     const [newImage, setNewImage] = useState([]);
     console.log(newImage)
     const [input, setInput] = useState({
         title: "",
         content: "",
-        image: "",
     })
+
+    useEffect(() => {
+    }, [input])
     // eslint-disable-next-line
     const [errors, setErrors] = useState({})
     // const user = useSelector((state => state.userId))
     // console.log(user)
-
+    
     const handleInputChange = (e) => {
         setInput({
             ...input, 
             [e.target.name]: e.target.value
         })
     }
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let image2 = await localStorage.getItem("image")
-        let user = await localStorage.getItem("userId")
+        let image2 = localStorage.getItem("image")
+        let id = localStorage.getItem("userId")
+        console.log(image2)
+        // await setInput({...input, image: image2.toString(), id: user})
         if (!errors.title && !errors.content && image2) {
-            setInput({...input, image: image2.toString(), id: user})
-                await axios.post(`${REACT_APP_BACK_BASE_URL}/newNotice`, input);
+                await axios.post(`${REACT_APP_BACK_BASE_URL}/newNotice`, {input, image2, id});
                 swal("La noticia se creó correctamente", "Gracias", "success");    
                 setInput({
                     title: "",

@@ -5,6 +5,7 @@ import React,{ useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {getNews} from '../../actions/actions';
 import CarruselCards from './CarruselCards';
+const{ REACT_APP_BACK_BASE_URL} = process.env
 const responsive = {
     superLargeDesktop: {
         // the naming can be any, depends on you.
@@ -30,6 +31,7 @@ const responsive = {
 
 function CarruselPortada({ type, link, validate }) {
   const allNews = useSelector((state) => state.news);
+  console.log(allNews)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -61,12 +63,13 @@ function CarruselPortada({ type, link, validate }) {
                    <div>
                     {allNews &&
           allNews.map((i) => {
+              console.log(i.image)
             return (
             <div key={i.id}>
              <Link  to={"/ForoNoticias/" + i.id}>
                <CarruselCards
                   title={i.title}
-                  image={i.image}
+                  image={`${REACT_APP_BACK_BASE_URL}/` + i.image}
                   date={i.date}
                   key={i.id}
                ></CarruselCards>
