@@ -80,7 +80,6 @@ export function login({ email, password }) {
   //console.log(user);
   return axios.post(`${REACT_APP_BACK_BASE_URL}/auth/login`, user)
     .then(res => {
-      alert("Loggeado correctamente,userId,token,guardados")  
       //aca guardamos el token obtenido de backend
       localStorage.setItem('token',res.data.id_token)
       localStorage.setItem('userId',res.data.userId)
