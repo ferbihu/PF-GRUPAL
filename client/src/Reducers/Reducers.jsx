@@ -37,6 +37,7 @@ const initialState = {
   sidebar: [],
   news:[],
   statenewsid:[],
+  logeado: false,
 };
 
 
