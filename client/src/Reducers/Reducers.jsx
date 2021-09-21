@@ -183,7 +183,7 @@ function reducers(state = initialState, action) {
       return {
         ...state,
         popup_warning: false,
-        popup: false
+        popup: false 
       }
 
     /* case 'FILTER_SAFEPLACE_BY_ID':
@@ -246,6 +246,17 @@ function reducers(state = initialState, action) {
         logeado: localStorage.getItem('isLogged')
       }
 
+            case "GET_HEALTH":
+              return {
+                ...state,
+                healtNews: action.payload
+              }
+
+              case "HEALT_BY_NAME":
+                return {
+                  ...state,
+                  healtNews: action.payload
+                }
     default:
       return state;
   }

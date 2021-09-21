@@ -435,8 +435,41 @@ export function getNewsById(id){
 };
 }
 
-export function isLoggedIn() {
-  return {
-    type: "IS_LOGGED"
-  }
-}
+export function getHealth() {
+  return async function(dispatch) {
+    const res = await axios.post(`${REACT_APP_BACK_BASE_URL}/rutagetSalud`)
+    return dispatch({
+      type: 'GET_HEALTH',
+      payload: res.data
+    });
+  };
+};
+
+export function getHealthByName(name) {
+  return async function(dispatch) {
+    try {
+      const res = await axios.post(`${REACT_APP_BACK_BASE_URL}/rutagetSaludPorProfesion?name=${name}`)
+    return dispatch({
+      type: 'HEALT_BY_NAME',
+      payload: res.data
+    })
+    } catch (err) {
+      console.log(err);
+    }
+    
+  };
+};
+
+export function postHealth(payload) {
+  return async function(dispatch) {
+    const config = {
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
+    };
+    const res = await axios.post(`${REACT_APP_BACK_BASE_URL}/rutaSalud`, config, payload)
+    return {
+      type: 'POST_HEALTH',
+      res
+    };
+  };
+};   
+
