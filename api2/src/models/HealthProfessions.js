@@ -11,9 +11,13 @@ module.exports = function(sequelize) {
             type: DataTypes.STRING,
             allowNull:false
         },
+        profession: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         enrollment: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: false
         },
         zone:{
           type: DataTypes.STRING,

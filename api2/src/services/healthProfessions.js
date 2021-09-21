@@ -40,9 +40,10 @@ async function getProfessions() {
 async function getAllProfessions(){
   try{
       return await HealthProfession.findAll({
-          Where:{name: "name"},
+  
           include:[{
               model:User,
+              attributes : ['name','id','email']
               
           }]
       });
