@@ -15,7 +15,9 @@ function Health() {
     useEffect(() => {
         dispatch(getHealth());
         setLoading(true)
-    }, []);
+    }, 
+    // eslint-disable-next-line
+    []);
 
     return(
         <div>
