@@ -15,12 +15,12 @@ export function validate(input) {
     if (!input.content) {
         errors.content = "Se requiere un contenido"
     }
+    return errors;
 }
 
 const CargarNoticia = () => {
-
+   
     const [newImage, setNewImage] = useState([]);
-    console.log(newImage)
     const [input, setInput] = useState({
         title: "",
         content: "",
@@ -30,22 +30,29 @@ const CargarNoticia = () => {
     }, [input])
     // eslint-disable-next-line
     const [errors, setErrors] = useState({})
-    // const user = useSelector((state => state.userId))
-    // console.log(user)
+
     
     const handleInputChange = (e) => {
         setInput({
             ...input, 
             [e.target.name]: e.target.value
         })
-    }
+        setErrors(validate({
+            ...input,
+            [e.target.name]: e.target.value
+        }));
+    };
+
     
     const handleSubmit = async (e) => {
         e.preventDefault();
         let image2 = localStorage.getItem("image")
         let id = localStorage.getItem("userId")
-        console.log(image2)
-        // await setInput({...input, image: image2.toString(), id: user})
+        setErrors(validate({
+            ...input,
+            [e.target.name]: e.target.value
+        }));
+        
         if (!errors.title && !errors.content && image2) {
                 await axios.post(`${REACT_APP_BACK_BASE_URL}/newNotice`, {input, image2, id});
                 swal("La noticia se creó correctamente", "Gracias", "success");    
