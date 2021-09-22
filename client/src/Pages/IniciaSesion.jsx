@@ -29,7 +29,6 @@ export default function IniciaSesion() {
   const [errors, setErrors] = useState({});
   const history = useHistory();
 
-  const rolead = useSelector((state) => state.role)
 
 
   function handleChange(e) {
