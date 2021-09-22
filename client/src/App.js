@@ -54,7 +54,6 @@ function App() {
       <Route exact path="/salud" component={MujeresEnSaludd}/>
       <Route exact path="/formsalud" component={FormularioSalud}/>
 
-
       </Switch>
       <Footer/>
     </div>
