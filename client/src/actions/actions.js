@@ -30,6 +30,8 @@ export function addUser({ name, email, password }) {
     }
    }
   }
+
+  
   export function getSafeplace(){
     return function(dispatch){
       return axios
@@ -77,7 +79,6 @@ export function logOutGoogle(payload) {
 export function login({ email, password }) {
   return function(dispatch){
   const user = {  email, password };
-  //console.log(user);
   return axios.post(`${REACT_APP_BACK_BASE_URL}/auth/login`, user)
     .then(res => {
       //aca guardamos el token obtenido de backend
@@ -95,13 +96,13 @@ export function login({ email, password }) {
       })
     })
     .catch(err => {
-        alert("Usuario o password invalido")
       console.error(err)
     })
   }
 }
+
+
 export const getallsafesitie = ()=>{
- 
   return function(dispatch){
         return axios
          .get(`${REACT_APP_BACK_BASE_URL}/safe_place`)
@@ -164,7 +165,6 @@ export function filterPlacesByStatus(payload){
 
 //GET TODOS LOS LUGARES SEGUROS (ACCEPTED-PENDING-WARNING-REJECTED)
 export function getSafePlacePanel(){
-  console.log("------------------- >entro a get safe places panel")
   return async function(dispatch){
     const config = {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
@@ -189,7 +189,7 @@ export function acceptedStatus(id){
       return dispatch ({
         type: "ACCEPTED_STATUS",
         payload: response,
-      }, alert("aceptado"))
+      })
       
     } catch (error) {
       console.log(error)
@@ -200,7 +200,6 @@ export function acceptedStatus(id){
 
 //CAMBIA STATUS A REJECTED
 export function rejectedStatus(id, payload){
-  //console.log("hola action rejected")
   return async function (dispatch){
     const config = {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
@@ -213,10 +212,10 @@ export function rejectedStatus(id, payload){
       })
     } catch (error) {
       console.log(error)
-      
-    }
-         
+    }      
 }}
+
+
 export function filterSafePlacesById(payload, userId){
   return async function (dispatch){
     const json = await axios.get(`${REACT_APP_BACK_BASE_URL}/safe_place/admin/all_safe_place`,  {...payload,userId});
@@ -233,7 +232,6 @@ export function updateDataUser(id, data) {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
     };
     const updateData = { id, data };
-    console.log(updateData)
     axios.patch(`${REACT_APP_BACK_BASE_URL}/user/${id}`, updateData,config).then((res) =>
       dispatch({
         type: "UPDATE_DATA_USER",
@@ -244,7 +242,6 @@ export function updateDataUser(id, data) {
 };
 
 export function getUserById(id){
-  console.log("ESTOY EN ACTION",id)
   return function(dispatch){
     const config = {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
@@ -264,14 +261,12 @@ export function getUserById(id){
 };
 
 export function changeSidebarState(payload){
-  console.log("entro a la action change SIDEBAR ")
   return {
       type: "UPDATE_SIDEBAR_STATE",
       payload
   }
 }
 export function changePopupState(payload){
-  console.log("entro a la action change popup")
   return {
       type: "UPDATE_POPUP_STATE",
       payload
@@ -279,7 +274,6 @@ export function changePopupState(payload){
 }
 
 export function changePopupStateWarning(payload){
-  console.log("entro a la action change popup warning")
   return {
       type: "UPDATE_POPUP_STATE_WARNING",
       payload
@@ -287,13 +281,12 @@ export function changePopupStateWarning(payload){
 }
 
 export function closePopup(payload){
-  console.log("entro a la action change popup warning")
   return {
       type: "CLOSE_POPUP",
       payload
   }
 }
-//para el administrar usuarios
+
 export function getUsers() {
   return async function(dispatch) {
     try {
@@ -324,7 +317,7 @@ export function getUsersByName(name) {
 
 //CAMBIAR EL ROL A ADMIN
 export function changeRoleToAdmin(id, payload){
-  //console.log("hola action CHANGE ROL TO ADMIN")
+  
   console.log(id, payload, "action change rol to admin")
   return async function (dispatch){
     const config = {
@@ -364,10 +357,10 @@ export function showCommentsSafePlaces() {
 
 //comentarios noticias
 
-export function getCommentNotice(){
+export function getCommentNotice(id){
   return function(dispatch){
     return axios
-     .get(`${REACT_APP_BACK_BASE_URL}/comments`)
+     .get(`${REACT_APP_BACK_BASE_URL}/comments/${id}`)
      .then((res)=>{dispatch({ 
           type:"GET_COMMENT_NOTICE",
           payload:{info:res.data}})
@@ -481,12 +474,4 @@ export function byEspecialidades(payload) {
     })
   };
 };
-// export function getProfession(){
-//   return async function(dispatch){
-//     const info = await axios.get(`${REACT_APP_BACK_BASE_URL}/profession`);
-//   return dispatch({
-//     type: 'GET_PROFESSION',
-//     payload: info.data
-//   });
-//  }
-// }
+

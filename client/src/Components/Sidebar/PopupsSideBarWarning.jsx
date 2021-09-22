@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { closePopup } from '../../actions/actions';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { closePopup, getSafeplace } from '../../actions/actions';
 import "./PopupsSideBar.css"
 import swal from "sweetalert";
 import axios from "axios";
@@ -16,9 +16,11 @@ function validate(input) {
 }
 
 
-export default function PopupsSideBarWarning({ text, id }) {
+export default function PopupsSideBarWarning({ text, id, cambiarEstado }) {
 
     const dispatch = useDispatch();
+
+
     function HandleClose() {
         dispatch(closePopup())
 
@@ -28,7 +30,7 @@ export default function PopupsSideBarWarning({ text, id }) {
 
     })
     const [errors, setErrors] = useState({})
-    console.log(input)
+
 
     function HandleChange(e) {
         setInput({
@@ -40,25 +42,29 @@ export default function PopupsSideBarWarning({ text, id }) {
             [e.target.name]: e.target.value
         }))
 
-        console.log(input)
     }
 
     const status = "warning"
 
     async function HandleSubmit() {
-        console.log(id, input, status)
+
         const config = {
             headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
         };
         await axios.post(`${REACT_APP_BACK_BASE_URL}/safe_place/${id}/${status}`, input, config)
         console.log(id, input, status)
+        cambiarEstado()
+
         swal("Enviado", "Gracias por colaborar con Safety!", "success");
         setInput({
             comment_text: ""
         })
         dispatch(closePopup())
 
+
     }
+
+
 
     return (
         <div className="fondo-popup">

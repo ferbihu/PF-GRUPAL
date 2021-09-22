@@ -15,6 +15,7 @@ import { getSafeplace } from '../../actions/actions.js';
 import Sidebar from "../Sidebar/Sidebar.jsx";
 import pin from "./../../imgs/iconmapp.png";
 import warning from "./../../imgs/warning.png";
+// import mark from "../../imgs/marker."
 
 // import { Component } from "react-addons";
 // const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
@@ -31,7 +32,12 @@ export default function Maps(props) {
   const state_popup = useSelector(state => state.popup)
   const state_popup_warning = useSelector(state => state.popup_warning)
 
+  let [estado1, setEstado1] = useState(1)
 
+  function cambiarEstado() {
+    setEstado1(estado1 += 1)
+    console.log("cambio el estado a ", estado1)
+  }
 
   //ubicacion actual
   var ban = false;
@@ -70,10 +76,16 @@ export default function Maps(props) {
   // eslint-disable-next-line
 
   useEffect(() => {
+
     dispatch(getSafeplace())
   },
     // eslint-disable-next-line
-    [state]);
+    [estado1]);
+
+  useEffect(() => {
+    dispatch(getSafeplace())
+  }, []);
+
 
   const allsities = useSelector((state) => state.stateSitie);
   console.log(allsities);
@@ -128,7 +140,7 @@ export default function Maps(props) {
       date.id = allsities[i].id;
       sitios.push(date);
     }
-    console.log(sitios, "aca sitios")
+
 
   } else {
     console.log("no hizo dispacht")
@@ -145,7 +157,7 @@ export default function Maps(props) {
               <InfoWindow >
                 <div id="content">
                   <div id="siteNotice"></div>
-                  <h1 id="firstHeading" class="firstHeading">AQUI</h1>
+                  <h1 id="firstHeading" class="firstHeading">Tu ubicación</h1>
                   <div id="bodyContent">
                   </div>
                 </div>
@@ -160,7 +172,7 @@ export default function Maps(props) {
         bandera ?
           sitios.map((e, i) => (
             <Marker key={i}
-              position={e.coord} title={e.keyword} icon={e.status === "warning" ? warning : pin} id={e.id} onClick={() => handleMarkerClick(e)}
+              position={e.coord} title={e.keyword} icon={e.status == "accepted" ? pin : warning} id={e.id} onClick={() => handleMarkerClick(e)}
 
             >
               {
@@ -171,10 +183,10 @@ export default function Maps(props) {
                 state_popup && <PopupsComment id={datos.id} text="Dejá una reseña del lugar! Recordá que el comentario será publico y todos podran verlo."></PopupsComment>
               }
               {
-                state_popup_warning && <PopupsSideBarWarning id={e.id} text="Por favor, explicanos el motivo de la denuncia.  Si denuncias un lugar, automáticamente
+                state_popup_warning && <PopupsSideBarWarning id={e.id} cambiarEstado={() => cambiarEstado()} text="Por favor, explicanos el motivo de la denuncia.  Si denuncias un lugar, automáticamente
                 aparecerá de color amarillo en el mapa y será revisado por las administradoras de la página."></PopupsSideBarWarning>
               }
-              <InfoWindow key={i}>
+              {/* <InfoWindow key={i}>
                 <div id="content">
                   <div id="siteNotice"></div>
                   <h1 id="firstHeading" class="firstHeading">{e.keyword}</h1>
@@ -188,7 +200,7 @@ export default function Maps(props) {
                     </div>
                   </div>
                 </div>
-              </InfoWindow>
+              </InfoWindow> */}
             </Marker>
           )) : har.map((e, i) => (
             <Marker key={i}

@@ -1,13 +1,15 @@
 const ServicesCommentNotice = require ('../services/commentnotice');
 
 
-const getComments = async (_req,res)=>{
-    res.json(await ServicesCommentNotice.getComments());
+const getComments = async (req,res)=>{
+    const {id} = req.params;
+    res.json(await ServicesCommentNotice.getComments(id));
 
 };
 
 
 const postComments = async (req,res) =>{
+
     try{
         await ServicesCommentNotice.postComments(req.body)
             res.status(200).json({success:true})

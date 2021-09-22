@@ -8,7 +8,7 @@ import CarruselCards from './CarruselCards';
 const{ REACT_APP_BACK_BASE_URL} = process.env
 const responsive = {
     superLargeDesktop: {
-        // the naming can be any, depends on you.
+     
         breakpoint: { max: 4000, min: 3000 },
         items: 5
     },

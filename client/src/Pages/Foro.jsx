@@ -1,5 +1,5 @@
 import React from "react";
-import CarruselPortada from "../Components/Carrusel/CarruselPortada";
+import Carrusel from "../Components/Carrusel/Carrusel";
 import ForoPortada from '../Components/ForoPortada/ForoPortada';
 export default function Foro() {
     return (
@@ -9,7 +9,7 @@ export default function Foro() {
       <div className="foroPortada-line"></div>
      
             <ForoPortada></ForoPortada>
-            <CarruselPortada></CarruselPortada>
+           <Carrusel></Carrusel>
             </div>
         </div>
     )

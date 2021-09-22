@@ -4,17 +4,14 @@ import {getCommentNotice,getNewsById,postCommentNotice } from '../../actions/act
 import {useParams} from 'react-router-dom';
 import "./ForoNoticias.css";
 import style from "./Comment.css";
-const{ REACT_APP_BACK_BASE_URL} = process.env
+
 
 
 export default function Foro(props) {
   // eslint-disable-next-line 
   const {id} = useParams();
-
- // const idnews = props.match.params.id
+  const idUser = useSelector((state) => state.userId)
   
-console.log("idnotice",id)
-
  function getCurrentDate(separator='-'){
 
     let newDate = new Date()
@@ -23,10 +20,11 @@ console.log("idnotice",id)
     let year = newDate.getFullYear();
     
     return `${year}${separator}${month<10?`0${month}`:`${month}`}${separator}${date}`
-    }
+  
+  }
 const fecha = getCurrentDate();
 // eslint-disable-next-line 
-let [stateComment, setStateComment] = useState([]);
+let [stateComment, setStateComment] = useState(1);
 // eslint-disable-next-line 
 let [stateNewId, setStateNew] = useState([]);
 // eslint-disable-next-line 
@@ -34,8 +32,9 @@ let [stateNewId, setStateNew] = useState([]);
 const dispatch = useDispatch();
 // eslint-disable-next-line
 
+
 useEffect(() => {
-  dispatch(getCommentNotice())
+  dispatch(getCommentNotice(id))
 },
   // eslint-disable-next-line
   [stateComment]);
@@ -49,12 +48,8 @@ useEffect(() => {
   [stateNewId]);
 
   const getnews = useSelector((state) => state.statenewsid);
-  console.log("noticiaid",getnews)
-  //const [nuevo, setNuevo] = useState({})
-  //const userId = useSelector((state) => state.userId);
-  const Loggin = useSelector((state) => state.isLogged);
-  const noticeId=1;
-  const userId=1;
+  const Loggin = localStorage.getItem("isLogged")
+
 
   const [input, setInput] = useState({
        description:"",
@@ -67,12 +62,19 @@ useEffect(() => {
     })
   
 }
-
    async function handleSubmit(e) {
        e.preventDefault();
        console.log("guarda",input)
-       if(Loggin){
-        dispatch(postCommentNotice({ ...input},userId,noticeId))
+       if(Loggin==="true"){
+        dispatch(postCommentNotice({ ...input},idUser,id))
+        setInput({
+          ...input,
+          description:""
+         })
+         setStateComment({
+          stateComment:2
+         })
+
        }else{
          alert("Por favor logueate!")
        }
@@ -86,7 +88,7 @@ useEffect(() => {
       {
             getnews.length>0 ?
             <div>
-               <img   className='imgNotamujeres' src= { `${REACT_APP_BACK_BASE_URL}/` + getnews[0].image}   alt="no se encuentra la imagen" />
+               <img className='imgNotamujeres' src= { `http://localhost:3001/${getnews[0].image}` }   alt="no se encuentra la imagen" />
                <div className='tittleydate'>
                <div className='titulonoti'> { getnews[0].title}</div>
                <p className='date'> { getnews[0].date}</p>   
@@ -98,12 +100,6 @@ useEffect(() => {
         }
  
       <div>
-        <button className="btnnotianterior" type="submit">
-          Entrada anterior
-        </button>
-        <button className="btnnotisiguiente" type="submit">
-          Entrada siguiente
-        </button>
       </div>
       <div className="comentariosforo">
         Comentarios

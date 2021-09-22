@@ -12,33 +12,20 @@ function SearchBarHealt() {
    const [name, setName] = useState('');
    // eslint-disable-next-line
    const [loading, setLoading] = useState(false);
-
    const allHealth = useSelector((state) => state.healtNews);
    // eslint-disable-next-line
    const especialidad = useSelector((state) => state.filterEspecialidad)
    console.log(especialidad)
-// eslint-disable-next-line
-//    const [input,setInput] = useState({
-//     profession: "",
-// })
+
      
   useEffect(() => {
     dispatch(getHealth());
   }, [dispatch]);
 
-    //  function handleSubmit(e) {
-    //      e.preventDefault()
-    //      dispatch(getHealthByName(name))
-    //  };
-    // function handleSelect(value){
-    //     setInput({
-    //         ...input,
-    //         profession: [...input.genres,value]
-    //     })
-    // }
+ 
 
     function handleEspecialidad(e) {
-        dispatch(byEspecialidades(e.target.value))
+     dispatch(byEspecialidades(e.target.value))
     };
    function render(props){
      return(
