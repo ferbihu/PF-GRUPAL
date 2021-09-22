@@ -1,16 +1,16 @@
 .pageregistro{
-    font-family: 'Montserrat', sans-serif;
-    justify-content: center;
-    text-align: center;
-    margin-top: 0px;
+   padding: 20vw 5vw 1vw 5vw;
+   font-family: 'Montserrat';
+   justify-content: center;
+   text-align: center;
+   margin-top: 0px;
    background-color: #F1EEDE;
    display: flex;
    flex-direction: column;
-   padding-top: 10vw;
    height: 160vh;
 }
 .title{
-    font-size: 2vw;
+    font-size: 3vw;
     align-self: center; 
     margin-bottom: 0.5vw;
 }
@@ -19,7 +19,6 @@
     height: 0.1vw;
     width: 24vw;
     align-self: center;
-    
 }
 .primerparrafo{
     margin-top: 20px;
@@ -38,7 +37,7 @@
     margin:auto;
     box-shadow: 0 0 1rem rgba(128, 128, 128, 0.3);
     width: 700px; 
-    height: 900px; 
+    height: fit-content;
     border-radius: 20px;
 }
 ::placeholder { color: #BBBABA; }
@@ -162,6 +161,7 @@
     height: 52px; 
     border-radius:20px;
     margin-top: 20px;
+    margin-bottom: 40px;
     justify-content:center;
     align-items:center;
     align-content: center;
@@ -175,12 +175,12 @@
     .caja img {
     border:2px solid black;
     }
-    .info {
+    .infoh {
     font-family: Montserrat;
     font-size: 12px;
     text-align: center;
-    width: 105px;
-    height:145px;
+    width: 110px;
+    height:176px;
     position: absolute; 
     top: 5%;
     left: 10%;
@@ -194,7 +194,7 @@
     -webkit-transition:all ease .8s ;
     transition:all ease .8s;
     }
-    .caja:hover .info {
+    .caja:hover .infoh {
     filter: alpha(opacity=80);
     opacity: .8; 
     }
@@ -225,3 +225,35 @@
         font-size: 18px;
         margin-left:200px;
     }
+.errorname{
+    font-size: 15px; 
+    color: red;
+}    
+.errornumber{
+    font-size: 15px;  
+    color: red;
+}
+.errorstreet{
+    font-size: 15px;  
+    color: red;
+}
+.errorpost{
+    font-size: 15px;  
+    color: red;  
+}
+.erroremail{
+    font-size: 15px;  
+    color: red;
+}
+.errorteleph{
+    font-size: 15px;  
+    color: red;
+}
+.errorkeyw{
+    font-size: 15px;  
+    color: red;
+}
+.errorrelation{
+    font-size: 15px;  
+    color: red;
+}
