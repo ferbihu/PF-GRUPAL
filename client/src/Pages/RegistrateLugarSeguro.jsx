@@ -50,7 +50,6 @@ export default function Registrate() {
     const userId = localStorage.getItem("userId")
 
 
-    //const [sitie,setsitie] =useState ([]);
     const [errors, setErrors] = useState({});
     const [input, setInput] = useState({
         name: "",
@@ -72,15 +71,7 @@ export default function Registrate() {
             if (p2) return p2.toUpperCase();
             return p1.toLowerCase();
         });
-    }
-    // const traductor=useEffect(()=>{
-    //     var street=camelize(input.street)
-    //     var town=camelize(input.town)
-    //     var country=camelize(input.country)
-    //     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${input.number}+${street}+${town}+${country}+View,+CA&key=AIzaSyDclWfFnp7AQpJjZQj7E9fsD7j6M9vPhTk`)
-    //     .then(resp => resp.json())
-    //     .then((json)=>setsitie(json));
-    //      },[sitie])        
+    };
 
     function handleChange(e) {
         setInput({
@@ -91,13 +82,11 @@ export default function Registrate() {
             ...input,
             [e.target.name]: e.target.value
         }));
+    };
 
 
-        console.log(input)
-    }
     async function handleSubmit(e) {
         e.preventDefault();
-        console.log(input)
         setErrors(validate({
             ...input,
             [e.target.name]: e.target.value
@@ -109,7 +98,7 @@ export default function Registrate() {
 
         const lat = data.results[0].geometry.location.lat;
         const lng = data.results[0].geometry.location.lng;
-        console.log("info", data)
+       
 
         dispatch(postAprobation({ ...input, lat, lng }, userId))
         await axios.post(`${REACT_APP_BACK_BASE_URL}/email/registroSafePlace`, input)
@@ -135,11 +124,7 @@ export default function Registrate() {
         dispatch(byCountrys(e.target.value));
 
 
-        // var lat=parseFloat(sitie.results[0].geometry.location.lat)
-        // var lng=parseFloat(sitie.results[0].geometry.location.lng)
 
-        //console.log("conversion",lng);
-        //console.log("conversion",lat); 
         let lat = 0;
         let lng = 0;
         setInput({ ...input, lat: lat, lng: lng, country: e.target.value })

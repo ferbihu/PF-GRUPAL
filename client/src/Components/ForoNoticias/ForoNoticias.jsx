@@ -11,7 +11,7 @@ export default function Foro(props) {
   // eslint-disable-next-line 
   const {id} = useParams();
 
- // const idnews = props.match.params.id
+ 
   
 console.log("idnotice",id)
 
@@ -49,9 +49,6 @@ useEffect(() => {
   [stateNewId]);
 
   const getnews = useSelector((state) => state.statenewsid);
-  console.log("noticiaid",getnews)
-  //const [nuevo, setNuevo] = useState({})
-  //const userId = useSelector((state) => state.userId);
   const Loggin = useSelector((state) => state.isLogged);
   const noticeId=1;
   const userId=1;
