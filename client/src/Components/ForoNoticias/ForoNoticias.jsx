@@ -4,12 +4,14 @@ import {getCommentNotice,getNewsById,postCommentNotice } from '../../actions/act
 import {useParams} from 'react-router-dom';
 import "./ForoNoticias.css";
 import style from "./Comment.css";
+const{ REACT_APP_BACK_BASE_URL} = process.env
+
 
 export default function Foro(props) {
   // eslint-disable-next-line 
   const {id} = useParams();
 
- // const idnews = props.match.params.id
+ 
   
 console.log("idnotice",id)
 
@@ -47,9 +49,6 @@ useEffect(() => {
   [stateNewId]);
 
   const getnews = useSelector((state) => state.statenewsid);
-  console.log("noticiaid",getnews)
-  //const [nuevo, setNuevo] = useState({})
-  //const userId = useSelector((state) => state.userId);
   const Loggin = useSelector((state) => state.isLogged);
   const noticeId=1;
   const userId=1;
@@ -84,7 +83,7 @@ useEffect(() => {
       {
             getnews.length>0 ?
             <div>
-               <img   className='imgNotamujeres' src= { getnews[0].image}   alt="no se encuentra la imagen" />
+               <img   className='imgNotamujeres' src= { `${REACT_APP_BACK_BASE_URL}/` + getnews[0].image}   alt="no se encuentra la imagen" />
                <div className='tittleydate'>
                <div className='titulonoti'> { getnews[0].title}</div>
                <p className='date'> { getnews[0].date}</p>   

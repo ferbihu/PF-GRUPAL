@@ -9,6 +9,11 @@ import "./Landing.css";
 
 
 export default function Landing() {
+    // const logead = localStorage.getItem("isLogged")
+    // if (logead) {
+
+    // }
+    // localStorage.setItem("isLogged", false)
     return (
         <div>
             <Header></Header>

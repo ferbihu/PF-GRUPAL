@@ -41,6 +41,8 @@ server.use("/images", images)
 
 server.use('/newsById',require ('./routes/news'))
 
+server.use("/profession", require('./routes/healthProfessions'))
+
 
 server.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');

@@ -25,7 +25,7 @@ const Nav = () => {
         </div>
         <ul className="ul-nav">
           <li>
-            <Link to="/conocenos">Sobre el proyecto</Link>
+            <Link to="/elproyecto">Sobre el proyecto</Link>
             <div className="nav-line"></div>
           </li>
 
@@ -62,6 +62,10 @@ const Nav = () => {
           </li>
           <li>
             <Link to="/lugaresseguros">Lugares Seguros</Link>
+            <div className="nav-line"></div>
+          </li>
+          <li>
+            <Link to="/salud">Mujeres en Salud</Link>
             <div className="nav-line"></div>
           </li>
           <li className="iniciasesion">

@@ -23,6 +23,9 @@ import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import FailedSearch from './Components/ForoNoticias/FailedSearch';
 import CargarNoticia from "./Pages/CargarNoticia";
 import AccountSettings from "./Pages/User-Profile-Page/Content/AccountSettings";
+import MujeresEnSalud from './Pages/Salud/MujeresEnSalud';
+import FormularioSalud from './Pages/Salud/FormularioSalud';
+
 
 
 function App() {
@@ -46,6 +49,8 @@ function App() {
       <Route exact path="/conocenos" component={Conocenos}/>
       <Route exact path="/users" component={Usuarios}/>
       <Route exact path="/cargarNoticia" component={CargarNoticia}/>
+      <Route exact path="/salud" component={MujeresEnSalud}/>
+      <Route exact path="/formsalud" component={FormularioSalud}/>
 
 
       </Switch>
