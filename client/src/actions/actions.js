@@ -357,10 +357,10 @@ export function showCommentsSafePlaces() {
 
 //comentarios noticias
 
-export function getCommentNotice(){
+export function getCommentNotice(id){
   return function(dispatch){
     return axios
-     .get(`${REACT_APP_BACK_BASE_URL}/comments`)
+     .get(`${REACT_APP_BACK_BASE_URL}/comments/${id}`)
      .then((res)=>{dispatch({ 
           type:"GET_COMMENT_NOTICE",
           payload:{info:res.data}})

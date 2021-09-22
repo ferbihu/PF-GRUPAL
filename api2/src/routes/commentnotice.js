@@ -7,7 +7,7 @@ const {isAdminUser} = require('../middlewares/user');
 
 const router = Router();
 
-router.get('/',getComments);
+router.get('/:id/',getComments);
 router.post('/',checkJwt,validateBody(postCommentnoticeSchema),postComments);
 router.post('/:id/:status',checkJwt,isAdminUser,changeStatusComments);
 
