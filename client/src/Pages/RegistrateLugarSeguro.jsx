@@ -101,8 +101,8 @@ export default function Registrate() {
        
 
         dispatch(postAprobation({ ...input, lat, lng }, userId))
-        await axios.post(`${REACT_APP_BACK_BASE_URL}/email/registroSafePlace`, input)
         swal("Tu lugar fue registrado", "Verficá tu mail para continuar", "success");    
+        await axios.post(`${REACT_APP_BACK_BASE_URL}/email/registroSafePlace`, input)
         setInput({
             name: "",
             country: "",
