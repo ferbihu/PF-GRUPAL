@@ -20,7 +20,15 @@ router.put('/admin/:id/:role', async (req, res) => {
                 id: id
             }}
         )
-    } 
+    } else if(role === 'admin') {
+        await User.update({
+            role: 'regular'
+        }, {
+            where: {
+                id: id
+            }
+        })
+    }
     return res.status(200).send('Cambiaste de roll')
 })
 
