@@ -8,16 +8,17 @@ router.get('/news', async(req, res) => {
 })
 
 router.post('/', async(req, res) => {
-    let {id, title, content, image} = req.body;
-    console.log(title, content, image, id)
-
+    // let {id, title, content, image} = req.body;
+    // console.log(title, content, image, id)
+    let {input, image2, id} = req.body;
+    console.log(input.title,input.content, image2)
     let fecha = await new Date();
     let date = await fecha.getDate()
 
     const newNews = await Notice.create({
-        title,
-        image,
-        content,
+        title: input.title,
+        image: image2,
+        content: input.content,
         date,
         status: "accepted"
     });

@@ -1,16 +1,15 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
 
 const PrivateRoute = ({component: Component, ...rest}) => {
 
-   const rol = useSelector (state =>state.role)
+   const rol = localStorage.getItem("isAdmin")
 
  
     return (
         
-        (rol === 'admin') ? 
+        (rol === 'true') ? 
     
          <Route {...rest} render={props => (
              
