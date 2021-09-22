@@ -4,6 +4,8 @@ import {getCommentNotice,getNewsById,postCommentNotice } from '../../actions/act
 import {useParams} from 'react-router-dom';
 import "./ForoNoticias.css";
 import style from "./Comment.css";
+const{ REACT_APP_BACK_BASE_URL} = process.env
+
 
 export default function Foro(props) {
   // eslint-disable-next-line 
@@ -84,7 +86,7 @@ useEffect(() => {
       {
             getnews.length>0 ?
             <div>
-               <img   className='imgNotamujeres' src= { getnews[0].image}   alt="no se encuentra la imagen" />
+               <img   className='imgNotamujeres' src= { `${REACT_APP_BACK_BASE_URL}/` + getnews[0].image}   alt="no se encuentra la imagen" />
                <div className='tittleydate'>
                <div className='titulonoti'> { getnews[0].title}</div>
                <p className='date'> { getnews[0].date}</p>   
