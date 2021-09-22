@@ -247,17 +247,26 @@ function reducers(state = initialState, action) {
         logeado: localStorage.getItem('isLogged')
       }
 
-            case "GET_HEALTH":
+    case "GET_HEALTH":
               return {
                 ...state,
                 healtNews: action.payload
               }
 
-              case "HEALT_BY_NAME":
+    case "HEALT_BY_NAME":
                 return {
                   ...state,
                   healtNews: action.payload
                 }
+   case 'BY_ESPECIALIDAD':
+      const allHealth = state.healtNews;
+      const healthFilter = action.payload === 'All' ? allHealth :
+      allHealth.filter(i => i.status === action.payload)
+      return {
+          ...state,
+          characters: healthFilter
+      } 
+
     default:
       return state;
   }

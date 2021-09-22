@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getHealth } from '../../actions/actions.jsx';
+import { getHealth } from '../../actions/actions';
 import HealtCard from './HealtCard.jsx';
 import SearchBarHealt from './SerachBarHealt.jsx';
 
