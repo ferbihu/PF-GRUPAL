@@ -27,8 +27,9 @@ import MujeresEnSaludd from './Pages/Salud/MujeresEnSalud';
 //import FormularioSalud from './Pages/Salud/FormularioSalud';
 
 
+//import MujeresEnSalud from './Components/Mujeres_en_Salud/MujeresEnSalud'
+//import FormularioSalud from './Components/Mujeres_en_Salud/FormSalud';
 
-import FormularioSalud from './Components/Mujeres_en_Salud/FormSalud';
 
 import AccountSettings from "./Pages/User-Profile-Page/Content/AccountSettings";
 

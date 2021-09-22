@@ -82,11 +82,13 @@ export default function Maps(props) {
     // eslint-disable-next-line
     [estado1]);
 
+
   useEffect(() => {
     dispatch(getSafeplace())
   },
     // eslint-disable-next-line 
     []);
+
 
 
   const allsities = useSelector((state) => state.stateSitie);
@@ -188,21 +190,7 @@ export default function Maps(props) {
                 state_popup_warning && <PopupsSideBarWarning id={e.id} cambiarEstado={() => cambiarEstado()} text="Por favor, explicanos el motivo de la denuncia.  Si denuncias un lugar, automáticamente
                 aparecerá de color amarillo en el mapa y será revisado por las administradoras de la página."></PopupsSideBarWarning>
               }
-              {/* <InfoWindow key={i}>
-                <div id="content">
-                  <div id="siteNotice"></div>
-                  <h1 id="firstHeading" class="firstHeading">{e.keyword}</h1>
-                  <div id="bodyContent">
-                    <p>
-                      {e.name}</p>
-                    <p>{e.telephone}</p>
-                    <div>
-                      <button onClick="miFunc()" href="" className="button-24">Denuncia</button>
-                      <button onClick="miFunc()" href="" className="button-25">Comentario</button>
-                    </div>
-                  </div>
-                </div>
-              </InfoWindow> */}
+
             </Marker>
           )) : har.map((e, i) => (
             <Marker key={i}
