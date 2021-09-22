@@ -1,0 +1,139 @@
+.pcform{
+    padding: 10vw 5vw 1vw 5vw;
+   font-family: 'Montserrat', sans-serif;
+   justify-content: center;
+   text-align: center;
+   margin-top: 0px;
+   background-color: #F1EEDE;
+   display: flex;
+   flex-direction: column;
+   height: 160vh;
+}
+.titulo-form{
+    font-size: 3vw;
+    text-align: center;
+    align-self: center; 
+    margin-bottom: 0.5vw;
+
+}
+.form-line{
+    background: #f17a09;
+    height: 0.2vw;
+    width: 44vw;
+    margin-top: 0;
+    align-self: center; 
+    margin-bottom: 2vw;
+}
+.rectangulosalud {
+    background-color: #FFFFFF;
+    margin:auto;
+    box-shadow: 0 0 1rem rgba(128, 128, 128, 0.3);
+    width: 600px; 
+    height: fit-content; 
+    border-radius: 20px;
+    align-items: center;
+} 
+::placeholder { color: #BBBABA; }
+.saludname{
+    border: 1px solid #C4C4C4;
+    background-color:  #FFFFFF;
+    transition: 250ms;
+    text-align: center;
+    border-radius: 20px;
+    width: 364px;
+    height: 52px;
+    margin-top: 40px;
+    font-size: 20px; 
+    align-items: center;
+} 
+.saludlastname{
+    border: 1px solid #C4C4C4;
+    background-color:  #FFFFFF;
+    transition: 250ms;
+    text-align: center;
+    border-radius: 20px;
+    width: 364px;
+    height: 52px;
+    margin-top: 20px;
+    font-size: 20px;   
+}
+.saludespecialidad{
+    border: 1px solid #C4C4C4;
+    background-color:  #FFFFFF;
+    transition: 250ms;
+    text-align: center;
+    border-radius: 20px;
+    width: 364px;
+    height: 52px;
+    margin-top: 20px;
+    font-size: 20px;   
+}
+.saludmatricula{
+    border: 1px solid #C4C4C4;
+    background-color:  #FFFFFF;
+    transition: 250ms;
+    text-align: center;
+    border-radius: 20px;
+    width: 364px;
+    height: 52px;
+    margin-top: 20px;
+    font-size: 20px;   
+}
+.saludzona{
+    border: 1px solid #C4C4C4;
+    background-color:  #FFFFFF;
+    transition: 250ms;
+    text-align: center;
+    border-radius: 20px;
+    width: 364px;
+    height: 52px;
+    margin-top: 20px;
+    font-size: 20px;   
+}
+.saludred{
+    border: 1px solid #C4C4C4;
+    background-color:  #FFFFFF;
+    transition: 250ms;
+    text-align: center;
+    border-radius: 20px;
+    width: 364px;
+    height: 52px;
+    margin-top: 20px;
+    font-size: 20px;   
+}
+.saludemail{
+    border: 1px solid #C4C4C4;
+    background-color:  #FFFFFF;
+    transition: 250ms;
+    text-align: center;
+    border-radius: 20px;
+    width: 364px;
+    height: 52px;
+    margin-top: 20px;
+    font-size: 20px;   
+}
+.saludtrabajo{
+    border: 1px solid #C4C4C4;
+    background-color:  #FFFFFF;
+    transition: 250ms;
+    text-align: center;
+    border-radius: 20px;
+    width: 364px;
+    height: 52px;
+    margin-top: 20px;
+    font-size: 20px;   
+}
+.btnsalud{
+    border:  1px solid #FEA166;
+    background-color: #FEA166;
+    width: 364px;
+    height: 52px; 
+    border-radius:20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content:center;
+    align-items:center;
+    align-content: center;
+    display:fixed;
+    font-size: 25px;
+}
