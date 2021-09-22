@@ -13,7 +13,6 @@ export default function Foro() {
           className="inputbusqueda"
           autoComplete="off"
           type="text"
-          //  value={input.description}
           name="description"
           placeholder="Noticia"
         />

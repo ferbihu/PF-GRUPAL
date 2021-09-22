@@ -11,9 +11,6 @@ export default function Foro(props) {
   // eslint-disable-next-line 
   const {id} = useParams();
 
- 
-  
-console.log("idnotice",id)
 
  function getCurrentDate(separator='-'){
 
@@ -23,7 +20,8 @@ console.log("idnotice",id)
     let year = newDate.getFullYear();
     
     return `${year}${separator}${month<10?`0${month}`:`${month}`}${separator}${date}`
-    }
+  
+  }
 const fecha = getCurrentDate();
 // eslint-disable-next-line 
 let [stateComment, setStateComment] = useState([]);
@@ -67,7 +65,6 @@ useEffect(() => {
 
    async function handleSubmit(e) {
        e.preventDefault();
-       console.log("guarda",input)
        if(Loggin){
         dispatch(postCommentNotice({ ...input},userId,noticeId))
        }else{

@@ -12,7 +12,6 @@ router.patch('/:id',checkJwt,updateUserData);
 router.put('/admin/:id/:role', async (req, res) => {
     const {id} = req.params
     const {role} = req.params
-    console.log(id, role)
     if(role === 'regular') {
         await User.update({
             role: 'admin'

@@ -72,12 +72,11 @@ export default function AccountSettings() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //if (input.name && input.lastname) {
+
       dispatch(updateDataUser(id_usuario, input));
       alert("Se han actualizados sus datos");
-    //}
   };
-  // history.push('/')
+
 
 
   let lugaresSegurosFiltrados = lugaresSeguros.filter(e => e.userId === id_usuario)
@@ -110,11 +109,6 @@ export default function AccountSettings() {
     }
   };
 
-  /* const handleDelete = (e) => {
-    e.preventDefault();
-    dispatch(deleteSafePlace(lugaresSegurosFiltrados.id))
-
-  } */
 
   return (
     <Grid

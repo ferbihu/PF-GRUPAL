@@ -7,7 +7,7 @@ const ImageContainer = ({ newImage }) => {
     // eslint-disable-next-line
     const [images, setImages] = useState([]);
     const [fallback, setFallback] = useState("");
-    console.log(fallback)
+    
     const getImages = async () => {
         try {
             const res = await axios.get(`${REACT_APP_BACK_BASE_URL}/images`);
@@ -25,19 +25,10 @@ const ImageContainer = ({ newImage }) => {
         getImages()
     }, [newImage])
     // eslint-disable-next-line
-    // const configureImage = (image) => {
-    //     return `${REACT_APP_BACK_BASE_URL}` + image
-    // }
-
+  
     return (
         <div>
-{/* 
-                // images.length > 0 ? 
-                // (
-                //     images.map(image => (
-                //         <img src={configureImage(image)} key={image} alt={image} width="100" height="100"/>
-                //     ))
-                // ) : */}
+
                 <div>
                     <h1>{fallback}</h1>
                     <hr/>
