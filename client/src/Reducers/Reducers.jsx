@@ -40,15 +40,15 @@ const initialState = {
   logeado: localStorage.getItem("isLogged"),
   token: "",
   healtNews:[],
+  allHealtNews:[],
+  filterEspecialidad:[],
 };
 
 
 function reducers(state = initialState, action) {
   switch (action.type) {
     case "GET_SAFEPLACE":
-      console.log("---->", action.payload.info)
       let lugares_filtrados = action.payload.info.filter(e => e.status === "warning" || e.status === "accepted")
-      console.log("---> lugares filtrados", lugares_filtrados)
       return {
         ...state,
         stateSitie: lugares_filtrados
@@ -81,7 +81,7 @@ function reducers(state = initialState, action) {
         user: state.user = []
       }
     case "LOGIN":
-
+      
       return {
         ...state,
 
@@ -89,7 +89,7 @@ function reducers(state = initialState, action) {
 
         userData: action.dataUser,
 
-        role: action.payload2.role,
+        role: action.payload2,
       
         logeado:localStorage.setItem("isLogged", true),
 
@@ -250,7 +250,8 @@ function reducers(state = initialState, action) {
     case "GET_HEALTH":
               return {
                 ...state,
-                healtNews: action.payload
+                healtNews: action.payload,
+                allHealtNews:action.payload
               }
 
     case "HEALT_BY_NAME":
@@ -258,13 +259,15 @@ function reducers(state = initialState, action) {
                   ...state,
                   healtNews: action.payload
                 }
-   case 'BY_ESPECIALIDAD':
-      const allHealth = state.healtNews;
-      const healthFilter = action.payload === 'All' ? allHealth :
-      allHealth.filter(i => i.status === action.payload)
+
+    case 'POST_HEALTH':
       return {
+        ...state,
+      }            
+   case 'BY_ESPECIALIDAD':
+        return {
           ...state,
-          characters: healthFilter
+          filterEspecialidad: state.allHealtNews.filter(e => e.profession === action.payload)
       } 
 
     default:

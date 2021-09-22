@@ -1,10 +1,10 @@
 import React from "react";
-import MujeresEnSalud from '../../Components/Mujeres_en_Salud/MujeresEnSalud';
+import SearchBarHealt from '../../Components/Mujeres_en_Salud/SerachBarHealt';
 
 export default function MujeresEnSaludd(){
     return(
         <div>
-            <MujeresEnSalud></MujeresEnSalud>
+            <SearchBarHealt></SearchBarHealt>
         </div>
     )
 }
