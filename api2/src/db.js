@@ -68,16 +68,8 @@ CommentSafePlace.belongsTo(SafePlace,{as:"safePlace",foreingKey : "safePlaceId"}
 Notice.belongsTo(User)
 User.hasMany(Notice)
 
-HealthProfession.belongsToMany(User, { through: 'healthProfession_user' }) //una profesión tiene muchos usuarios
-User.belongsToMany(HealthProfession, { through: 'healthProfession_user' }); //un usuario pertenece a una profesión
-
-/*
-User.hasMany(HealthProfessions) //un usuario tiene
- HealthProfessions.belongsTo(User)
- */
-
-
-
+HealthProfession.belongsToMany(User, { through: 'healthProfession_user' }) 
+User.belongsToMany(HealthProfession, { through: 'healthProfession_user' }); 
 
 
 

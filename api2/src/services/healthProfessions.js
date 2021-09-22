@@ -17,28 +17,6 @@ async function addProfession(data,userId) {
   }
 }
 
-/* 
-async function getProfessions() {
- // let {name} = req.query;
- console.log(query, 'este es el query')
-  try {
-    if(name) {
-      const professions = await HealthProfession.findAll({
-        where: {
-          name: {
-            [Op.like]: `%${name}%`,
-          },
-          include: [User],
-        },
-      });
-         resizeBy.sen(200).json(professions)
-    }
-    
-  } catch (error) {
-    console.log(error);
-    throw error;
-  }
-} */
 
 async function getAllProfessions(){
   try{
