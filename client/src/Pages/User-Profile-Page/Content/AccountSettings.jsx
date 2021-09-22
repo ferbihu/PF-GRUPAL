@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
-import { getallsafesitie, deleteSafePlace } from "../../../actions/actions";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import "./AccountSetting.css"
 import imgUser from "../../../imgUser/avatar.png"
 
 export default function AccountSettings() {
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
   const history = useHistory();
 
   const name = useSelector((state) => state.userId)
@@ -15,7 +14,7 @@ export default function AccountSettings() {
   }, [name])
 
  
-  let id_usuario = localStorage.getItem("userId") // me traigo el id del usuario que esta registrado
+  //let id_usuario = localStorage.getItem("userId") // me traigo el id del usuario que esta registrado
   let isLogged = localStorage.getItem("isLogged")
   let isAdmin = localStorage.getItem("isAdmin")
   const userDataById = useSelector((state) => state.userDataById);
