@@ -10,8 +10,12 @@
     border-radius: 25px;
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
+    overflow: auto !important; 
     flex: 1;
+}
+
+.contenedorsidebar {
+  overflow-y: auto;
 }
 
   #Sidebar .closemenu {
