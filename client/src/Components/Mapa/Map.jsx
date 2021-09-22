@@ -9,26 +9,17 @@ import {
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // eslint-disable-next-line
-
 import { getSafeplace } from '../../actions/actions.js';
-
 import Sidebar from "../Sidebar/Sidebar.jsx";
-import pin from "./../../imgs/iconmapp.png";
+import pin from "./../../imgs/ms-icon-50x50.png";
 import warning from "./../../imgs/warning.png";
-// import mark from "../../imgs/marker."
-
-// import { Component } from "react-addons";
-// const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
-// import "../Sidebar/Sidebar.css";
-
+import ubi from "../../imgs/ms-icon-60x60.png"
 import PopupsSideBarWarning from "../Sidebar/PopupsSideBarWarning.jsx";
 import PopupsComment from "../Sidebar/PopUpComent.jsx";
 
 
 export default function Maps(props) {
 
-
-  //const [myLatiLngi, setLatiLngi] = useState({})
   const state_popup = useSelector(state => state.popup)
   const state_popup_warning = useSelector(state => state.popup_warning)
 
@@ -36,7 +27,6 @@ export default function Maps(props) {
 
   function cambiarEstado() {
     setEstado1(estado1 += 1)
-    console.log("cambio el estado a ", estado1)
   }
 
   //ubicacion actual
@@ -47,7 +37,6 @@ export default function Maps(props) {
     navigator.geolocation.getCurrentPosition(function (position) {
       // guardo una version simplificada de la posicion en local storage
       localStorage.setItem('ultimaPosicion', JSON.stringify({ lat: position.coords.latitude, lng: position.coords.longitude }));
-      console.log("adentro", position)
     });
   }
   uno();
@@ -57,17 +46,11 @@ export default function Maps(props) {
   let coordinate = JSON.parse(ultimaPosicion);
 
   if (/*false && */'geolocation' in navigator) {
-    if (ultimaPosicion) {
-
-      console.log("store", coordinate)
-    } else {
-      alert('No tenemos tu última ubicación');
-
-    }
+    if (!ultimaPosicion) {
+      alert('No tenemos tu última ubicación');}
   } else {
     alert('Tu navegador no soporta geolocalización');
   }
-
   // eslint-disable-next-line 
   let [state, setState] = useState([]);
   // eslint-disable-next-line 
@@ -84,11 +67,12 @@ export default function Maps(props) {
 
   useEffect(() => {
     dispatch(getSafeplace())
+     // eslint-disable-next-line
   }, []);
 
 
   const allsities = useSelector((state) => state.stateSitie);
-  console.log(allsities);
+
 
   const [input, setInput] = useState(false);
   const [datos, setDatos] = useState({});
@@ -152,16 +136,8 @@ export default function Maps(props) {
           <div>
             <GoogleMap defaultZoom={11} defaultCenter={coordinate} />
             <Marker key={100}
-              position={coordinate} icon={pin}
+              position={coordinate} icon={ubi}
             >
-              <InfoWindow >
-                <div id="content">
-                  <div id="siteNotice"></div>
-                  <h1 id="firstHeading" class="firstHeading">Tu ubicación</h1>
-                  <div id="bodyContent">
-                  </div>
-                </div>
-              </InfoWindow>
             </Marker>
           </div> :
           <div>
@@ -172,7 +148,7 @@ export default function Maps(props) {
         bandera ?
           sitios.map((e, i) => (
             <Marker key={i}
-              position={e.coord} title={e.keyword} icon={e.status == "accepted" ? pin : warning} id={e.id} onClick={() => handleMarkerClick(e)}
+              position={e.coord} title={e.keyword} icon={e.status === "accepted" ? pin : warning} id={e.id} onClick={() => handleMarkerClick(e)}
 
             >
               {
@@ -186,21 +162,6 @@ export default function Maps(props) {
                 state_popup_warning && <PopupsSideBarWarning id={e.id} cambiarEstado={() => cambiarEstado()} text="Por favor, explicanos el motivo de la denuncia.  Si denuncias un lugar, automáticamente
                 aparecerá de color amarillo en el mapa y será revisado por las administradoras de la página."></PopupsSideBarWarning>
               }
-              {/* <InfoWindow key={i}>
-                <div id="content">
-                  <div id="siteNotice"></div>
-                  <h1 id="firstHeading" class="firstHeading">{e.keyword}</h1>
-                  <div id="bodyContent">
-                    <p>
-                      {e.name}</p>
-                    <p>{e.telephone}</p>
-                    <div>
-                      <button onClick="miFunc()" href="" className="button-24">Denuncia</button>
-                      <button onClick="miFunc()" href="" className="button-25">Comentario</button>
-                    </div>
-                  </div>
-                </div>
-              </InfoWindow> */}
             </Marker>
           )) : har.map((e, i) => (
             <Marker key={i}
@@ -231,7 +192,6 @@ export default function Maps(props) {
 const WrappedMap = withScriptjs(withGoogleMap(Maps));
 
 export function Map() {
-  // geoCode();
   return (
     <div>
       <WrappedMap

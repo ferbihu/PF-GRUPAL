@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { closePopup, getSafeplace } from '../../actions/actions';
+import React, {useState } from "react";
+import { useDispatch} from "react-redux";
+import { closePopup} from '../../actions/actions';
 import "./PopupsSideBar.css"
 import swal from "sweetalert";
 import axios from "axios";
