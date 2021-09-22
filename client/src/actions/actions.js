@@ -96,7 +96,6 @@ export function login({ email, password }) {
       })
     })
     .catch(err => {
-        alert("Usuario o password invalido")
       console.error(err)
     })
   }
@@ -190,7 +189,7 @@ export function acceptedStatus(id){
       return dispatch ({
         type: "ACCEPTED_STATUS",
         payload: response,
-      }, alert("aceptado"))
+      })
       
     } catch (error) {
       console.log(error)
@@ -466,4 +465,9 @@ export function postHealth(payload) {
     };
   };
 };   
-
+export function byEspecialidades(payload) {
+  return {
+      type: 'BY_ESPECIALIDAD',
+      payload
+  };
+};
