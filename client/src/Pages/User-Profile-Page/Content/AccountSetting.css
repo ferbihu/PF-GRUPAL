@@ -5,6 +5,7 @@
 .imgUsername {
     width: 300px;
     height: 300px;
+    z-index: 5%;
 }
 
 .contenedorinfouser {
@@ -12,7 +13,7 @@
     margin:auto;
     box-shadow: 0 0 1rem rgba(128, 128, 128, 0.3);
     width: 700px; 
-    height: 900px; 
+    height: 400px; 
     border-radius: 20px;
 }
 
@@ -22,6 +23,41 @@
     width: 300px; 
     height: 100px; 
     border-radius: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+    margin-top: -210px;
+    font-size: 45px;
+    margin-left: 75px;
+}
+
+.mail {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 190px;
+    font-size: 20px;
+}
+
+
+.btn1 {
+    background-color: #FEA166;
+    color: rgb(0, 0, 0);
+    transition: 250ms;
+    box-shadow: #494441b2;
+    border-radius: 20px;
+    width: 180px;
+    height: 40px;
+    font-family: Montserrat;
+    font-size:17px;
+    font-weight: bold;
+    border-color: transparent;
+    margin-top: 30px;
+    margin-left: 150px;
     display: flex;
     justify-content: center;
 }

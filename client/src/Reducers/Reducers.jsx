@@ -48,9 +48,7 @@ const initialState = {
 function reducers(state = initialState, action) {
   switch (action.type) {
     case "GET_SAFEPLACE":
-      console.log("---->", action.payload.info)
       let lugares_filtrados = action.payload.info.filter(e => e.status === "warning" || e.status === "accepted")
-      console.log("---> lugares filtrados", lugares_filtrados)
       return {
         ...state,
         stateSitie: lugares_filtrados
@@ -83,7 +81,7 @@ function reducers(state = initialState, action) {
         user: state.user = []
       }
     case "LOGIN":
-
+      
       return {
         ...state,
 
@@ -91,7 +89,7 @@ function reducers(state = initialState, action) {
 
         userData: action.dataUser,
 
-        role: action.payload2.role,
+        role: action.payload2,
       
         logeado:localStorage.setItem("isLogged", true),
 

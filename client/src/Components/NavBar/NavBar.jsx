@@ -2,14 +2,16 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 import logo from "../../imgs/ola22.png"
+import { useSelector } from "react-redux";
 
 const Nav = () => {
 
   
   const logueado = localStorage.getItem("isLogged")
+  const log = useSelector((state) => state.userId)
   
   useEffect(() => {
-  }, [logueado])
+  }, [log])
 
   if (logueado === "true") {
     return (
