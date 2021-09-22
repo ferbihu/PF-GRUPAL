@@ -38,6 +38,10 @@ const Nav = () => {
             <div className="nav-line"></div>
           </li>
           <li>
+            <Link to="/salud">Mujeres en Salud</Link>
+            <div className="nav-line"></div>
+          </li>
+          <li>
             <Link to="/profile">Mi cuenta</Link>
             <div className="nav-line"></div>
 
