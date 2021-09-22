@@ -19,7 +19,7 @@ export default function CardsUsers({ name, role, id }) {
         console.log(statusUser + " estadoviejo")
         console.log(name)
         dispatch(changeRoleToAdmin(id, role))
-        swal("Rol cambiado", name + " ahora es admin", "success");
+        swal("Rol cambiado", name + " ahora es " + role, "success");
         setStatusUser(statusUser += 1)
         console.log(statusUser + " estadonuevo")
 
@@ -42,6 +42,7 @@ export default function CardsUsers({ name, role, id }) {
             <div className="role-user">Rol: {role}</div>
             <div className="boton-convertir">
                 {role === "regular" && <button className="boton-convertir2" onClick={() => HandleInputChange(id)}>Convertir en admin</button>}
+                {role === "admin" && <button className="boton-convertir2" onClick={() => HandleInputChange(id)}>Convertir en usuario regular</button>}
             </div>
 
 

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { useDispatch, } from "react-redux";
+
+import { useDispatch } from "react-redux";
+
 import { closePopup } from '../../actions/actions';
 import "./PopupsSideBar.css"
 import swal from "sweetalert";

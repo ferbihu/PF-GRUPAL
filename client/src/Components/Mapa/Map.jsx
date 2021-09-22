@@ -82,9 +82,13 @@ export default function Maps(props) {
     // eslint-disable-next-line
     [estado1]);
 
-  // useEffect(() => {
-  //   dispatch(getSafeplace())
-  // }, []);
+
+  useEffect(() => {
+    dispatch(getSafeplace())
+  },
+    // eslint-disable-next-line 
+    []);
+
 
 
   const allsities = useSelector((state) => state.stateSitie);
