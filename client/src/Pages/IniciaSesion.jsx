@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./IniciaSesion.css";
 import GoogleLogin from "react-google-login";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { renderUserName, login } from "../actions/actions";
 import { Link, useHistory } from "react-router-dom";
 import swal from "sweetalert";
@@ -22,12 +22,12 @@ const validate = (input) => {
 };
 
 export default function IniciaSesion() {
+
   const dispatch = useDispatch();
   const [input, setInput] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
   const history = useHistory();
-  const rolead = useSelector((state) => state.role)
-
+  
   const responseGoogle = (response) => {
     const userName = response.getBasicProfile().Qe;
     const userID = response.getId();
@@ -55,10 +55,7 @@ export default function IniciaSesion() {
     e.preventDefault();
     if (!errors.email && !errors.password) {
       swal("Iniciaste sesión correctamente", "Gracias", "success");    
-      dispatch(login(input));
-      if (rolead === "admin") {
-        localStorage.setItem("isAdmin", true)
-      }
+      dispatch(login(input))
       history.push("/")
     } else {
       swal("Oh oh, algo salió mal", "Inténtelo nuevamente", "warning");

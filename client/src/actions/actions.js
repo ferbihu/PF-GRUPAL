@@ -85,13 +85,14 @@ export function login({ email, password }) {
       localStorage.setItem('token',res.data.id_token)
       localStorage.setItem('userId',res.data.userId)
       localStorage.setItem('isLogged',true)
+      console.log(res.data.role)
       return dispatch({
         type:'LOGIN',
 
         payload:{userId:res.data.userId},
         dataUser: user,
 
-        payload2:{userId:res.data.userId, role:res.data.role}
+        payload2:res.data.role
 
       })
     })

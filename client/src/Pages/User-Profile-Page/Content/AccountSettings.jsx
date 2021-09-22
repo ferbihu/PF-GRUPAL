@@ -1,26 +1,35 @@
 import React, { useEffect } from "react";
-import { getallsafesitie, deleteSafePlace } from "../../../actions/actions";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import "./AccountSetting.css"
 import imgUser from "../../../imgUser/avatar.png"
+import { getUserById } from "../../../actions/actions";
 
 export default function AccountSettings() {
-  const dispatch = useDispatch();
   const history = useHistory();
 
   const name = useSelector((state) => state.userId)
-
+  const rolllll = useSelector((state) => state.role)
+  console.log("ACA",rolllll)
   useEffect(() => {
   }, [name])
-
+  if (rolllll === "admin") {
+    localStorage.setItem("isAdmin", true)
+  }
  
-  let id_usuario = localStorage.getItem("userId") // me traigo el id del usuario que esta registrado
   let isLogged = localStorage.getItem("isLogged")
   let isAdmin = localStorage.getItem("isAdmin")
+  let id_usuario = localStorage.getItem("userId") 
   const userDataById = useSelector((state) => state.userDataById);
   console.log(userDataById)
 
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(getUserById(id_usuario))
+  },
+  // eslint-disable-next-line
+  [dispatch]);
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -40,9 +49,10 @@ export default function AccountSettings() {
     <div className="contenedorProfile">
       <div className="contenedorinfouser">
         <img src={imgUser} className="imgUsername" alt="Not found"/>
-        <h1>Hola {userDataById?.name}!</h1>
+        <h1 className="name">Hola {userDataById?.name}!</h1>
+        <h2 className="mail">Email: {userDataById?.email}</h2>
         <Link to="/panel">
-          <h2>Panel de administrador</h2>
+          <h2 className="btn1">Panel de administrador</h2>
         </Link>
         <Link to="/users">
           <h2>Administrar usuarios</h2>
@@ -53,7 +63,11 @@ export default function AccountSettings() {
     <div className="contenedorProfile">
       <div className="contenedorinfouser">
         <img src={imgUser} className="imgUsername" alt="Not found"/>
-        <h1>Hola {userDataById?.name}!</h1>
+        <h1 className="name">Hola {userDataById?.name}!</h1>
+        <h2 className="mail">Email: {userDataById?.email}</h2>
+        <Link to="registratelugarseguro">
+        <button>Registrá un lugar seguro</button>
+        </Link>
         <button onClick={handleLogout}>Cerrar sesión</button>
       </div>
     </div>
