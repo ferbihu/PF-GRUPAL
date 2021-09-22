@@ -15,7 +15,7 @@ function Health() {
     useEffect(() => {
         dispatch(getHealth());
         setLoading(true)
-    }, []);
+    }, [dispatch]);
 
     return(
         <div>

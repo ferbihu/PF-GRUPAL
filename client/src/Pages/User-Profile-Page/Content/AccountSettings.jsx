@@ -23,7 +23,50 @@ export default function AccountSettings() {
   const userDataById = useSelector((state) => state.userDataById);
   console.log(userDataById)
 
+
+
+//console.log("SOY USER DATAID",userDataById)
+  const [input, setInput] = useState({
+    name: userDataById?.name || "",
+    lastname:userDataById?.lastname || "",
+    country: userDataById?.country || "",
+    town: userDataById?.town || "",
+    phone: userDataById?.phone || "",
+
+  });
+
+  const handleInputChange = (e) => {
+    console.log("entre acaaaaaaaaaaa")
+    e.preventDefault()
+    console.log("HANDLE CHANGE INPUUUUUUT",e.target.value)
+    setInput({
+      ...input,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+
+  const handleSelectCountry = (e) => {
+    console.log(e.target.value);
+    setInput({ ...input, country: e.target.value });
+  };
+
+  const handleSelectTown = (e) => {
+    console.log(e.target.value);
+    setInput({ ...input, town: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+      dispatch(updateDataUser(id_usuario, input));
+      alert("Se han actualizados sus datos");
+  };
+
+
+
   let lugaresSegurosFiltrados = lugaresSeguros.filter(e => e.userId !== id_usuario)
+
 
   useEffect(() => {
     dispatch(getallsafesitie());
@@ -53,12 +96,12 @@ export default function AccountSettings() {
   };
 
 
+
   const handleDelete = (e) => {
     e.preventDefault();
     dispatch(deleteSafePlace(lugaresSegurosFiltrados.id))
 
   } 
-
 
   return (
     isAdmin === "true" ? 
