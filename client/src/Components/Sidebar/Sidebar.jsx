@@ -1,4 +1,4 @@
-//import useState hook to create menu collapse state
+
 import React, { useState } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { HiLocationMarker } from "react-icons/hi"
@@ -6,18 +6,13 @@ import { Link } from "react-router-dom";
 
 
 
-//import react pro sidebar components
+
 import {
   ProSidebar,
   SidebarHeader,
   SidebarContent,
 } from "react-pro-sidebar";
-
-//import icons from react icons
-//import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
-
-
-//import sidebar css from react-pro-sidebar module and our custom css 
+ 
 import "react-pro-sidebar/dist/css/styles.css";
 import "./Sidebar.css";
 
@@ -29,19 +24,11 @@ import PopupsComment from "./PopUpComent";
 
 export default function Sidebar({ id, name, telephone, street, number, keyword, handleMarkerClick }) {
 
-  //create initial menuCollapse state using useState hook
+ 
   const [menuCollapse, setMenuCollapse] = useState(false)
-  console.log(id)
-  // const [input, setInput] = useState({
-  //   comment: ""
-  // })
-  // const comments = useSelector((state) => state.comments_safeP)
-  // console.log(comments)
+  
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(showCommentsSafePlaces())
-  // }, [showCommentsSafePlaces])
 
   function HandleCommentClick() {
     dispatch(changePopupState())
@@ -78,11 +65,7 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
             </div>
             <div className="closemenu" onClick={menuIconClick}>
               {/* changing menu collapse icon on click */}
-              {/* {menuCollapse ? (
-                <FiArrowRightCircle />
-              ) : (
-                <FiArrowLeftCircle />
-              )} */}
+            
             </div>
           </SidebarHeader>
           <SidebarContent>
@@ -104,15 +87,7 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
             {logeado === "true" ? <button className="btnRes" type="submit" disabled={state_popup2 === true || state_popup_warning2 === true} onClick={() => HandleCommentClick()}>Dejar una reseña</button>
               : <div className="comentario"><Link to="/iniciasesion">Iniciá sesión para dejar tu reseña!</Link></div>}
 
-            {/* {
-              comments?.map((c) => {
-                return (
-                  <div>
-                    <p>{c.comment_text}</p>
-                  </div>
-                )
-              })
-            } */}
+         
 
             <ShowCommentsPlaces id={id} />
 

@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const { CommentNotice} = require('../db');
+
 
 const postCommentnoticeSchema = Joi.object({
     description:Joi.string().required(),

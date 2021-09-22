@@ -12,8 +12,6 @@ export default function Panel() {
 
     const dispatch = useDispatch();
 
-    console.log(window.location)
-
     useEffect(() => {
         dispatch(getSafePlacePanel())
     }, [dispatch]);
@@ -28,7 +26,6 @@ export default function Panel() {
 
     async function handleClick(e) {
         e.preventDefault();
-        console.log(e.target.value)
         dispatch(filterPlacesByStatus(e.target.value))
     }
 
@@ -46,7 +43,6 @@ export default function Panel() {
                     Cargar noticia
                 </h2>
             </Link>
-            {/* <div className="nombre">{user}</div> */}
             <div className="fondopanel">
                 <div className="filtrados-panel">
                     <button className="Pendientes" value="pending" onClick={(e) => handleClick(e)}>Pendientes</button>

@@ -27,19 +27,14 @@ function Popup(props) {
             ...input,
             [e.target.name]: e.target.value
         })
-
-        console.log(input)
     }
 
     async function rejectedStatusHandler() {
-        console.log(input.description_status, props.id)
+    
         let id = props.id;
         let payload = input.description_status
         dispatch(rejectedStatus(id, payload))
-        //dispatch(getSafePlacePanel())
-        //console.log(estadoOriginal + "estado primero")
         setEstadoOriginal(estadoOriginal += 3)
-        //console.log(estadoOriginal + "estado segundo")
         swal("Lugar rechazado", "El lugar ya no se verá en el mapa", "success");
 
 

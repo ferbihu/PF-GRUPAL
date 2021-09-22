@@ -28,7 +28,7 @@ export default function PopupsSideBarWarning({ text, id }) {
 
     })
     const [errors, setErrors] = useState({})
-    console.log(input)
+    
 
     function HandleChange(e) {
         setInput({
@@ -40,18 +40,17 @@ export default function PopupsSideBarWarning({ text, id }) {
             [e.target.name]: e.target.value
         }))
 
-        console.log(input)
     }
 
     const status = "warning"
 
     async function HandleSubmit() {
-        console.log(id, input, status)
+        
         const config = {
             headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
         };
         await axios.post(`${REACT_APP_BACK_BASE_URL}/safe_place/${id}/${status}`, input, config)
-        console.log(id, input, status)
+       
         swal("Enviado", "Gracias por colaborar con Safety!", "success");
         setInput({
             comment_text: ""

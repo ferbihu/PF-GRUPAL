@@ -129,7 +129,7 @@ export default function Maps(props) {
       date.id = allsities[i].id;
       sitios.push(date);
     }
-    console.log(sitios, "aca sitios")
+   
 
   } else {
     console.log("no hizo dispacht")

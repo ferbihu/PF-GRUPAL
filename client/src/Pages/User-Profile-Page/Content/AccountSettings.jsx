@@ -24,7 +24,6 @@ export default function AccountSettings() {
   console.log(userDataById)
 
   let lugaresSegurosFiltrados = lugaresSeguros.filter(e => e.userId !== id_usuario)
-  console.log("sooooy lugares filtradossssssssssssssss",lugaresSegurosFiltrados)
 
   useEffect(() => {
     dispatch(getallsafesitie());
@@ -53,11 +52,13 @@ export default function AccountSettings() {
     }
   };
 
+
   const handleDelete = (e) => {
     e.preventDefault();
     dispatch(deleteSafePlace(lugaresSegurosFiltrados.id))
 
   } 
+
 
   return (
     isAdmin === "true" ? 
