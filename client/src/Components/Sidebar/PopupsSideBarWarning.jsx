@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 
 import { useDispatch } from "react-redux";
 
 import { closePopup } from '../../actions/actions';
+=======
+import React, {useState } from "react";
+import { useDispatch} from "react-redux";
+import { closePopup} from '../../actions/actions';
+>>>>>>> marker
 import "./PopupsSideBar.css"
 import swal from "sweetalert";
 import axios from "axios";
