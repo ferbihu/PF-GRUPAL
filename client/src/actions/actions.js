@@ -437,7 +437,7 @@ export function getNewsById(id){
 
 export function getHealth() {
   return async function(dispatch) {
-    const res = await axios.post(`${REACT_APP_BACK_BASE_URL}/profession/get_profession`)
+    const res = await axios.get(`${REACT_APP_BACK_BASE_URL}/profession/get_profession`)
     return dispatch({
       type: 'GET_HEALTH',
       payload: res.data
@@ -448,7 +448,7 @@ export function getHealth() {
 export function getHealthByName(name) {
   return async function(dispatch) {
     try {
-      const res = await axios.post(`${REACT_APP_BACK_BASE_URL}/profession/get_profession/${name}`)
+      const res = await axios.get(`${REACT_APP_BACK_BASE_URL}/profession/get_profession/${name}`)
     return dispatch({
       type: 'HEALT_BY_NAME',
       payload: res.data
@@ -474,8 +474,19 @@ export function postHealth(payload,userId) {
 };   
 
 export function byEspecialidades(payload) {
-  return {
+  return function(dispatch) {
+    dispatch({
       type: 'BY_ESPECIALIDAD',
       payload
+    })
   };
 };
+// export function getProfession(){
+//   return async function(dispatch){
+//     const info = await axios.get(`${REACT_APP_BACK_BASE_URL}/profession`);
+//   return dispatch({
+//     type: 'GET_PROFESSION',
+//     payload: info.data
+//   });
+//  }
+// }

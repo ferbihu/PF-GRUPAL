@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 //import { useHistory } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import './FormSalud.css';
-import { postHealth } from '../../actions/actions';
+import { postHealth, byEspecialidades } from '../../actions/actions';
 import swal from "sweetalert";
 //import axios from "axios";
 //const { REACT_APP_BACK_BASE_URL } = process.env
@@ -61,6 +61,10 @@ export default function FormMujeres() {
         [e.target.name]: e.target.value
     }));
   }
+  function handleProfession(e) {
+    setInput({ ...input, profession: e.target.value })
+    dispatch(byEspecialidades(e.target.value))
+};
 
    function handleSubmit(e) {
     e.preventDefault();
@@ -110,17 +114,21 @@ export default function FormMujeres() {
                         {errors.lastname && (
                         <p className='errorname'>{errors.lastname}</p>
                         )}
-                        <input className='saludespecialidad'
-                        autoComplete='off'
-                        type="text"
-                        value={input.profession}
-                        name="profession"
-                        placeholder="Especialidad"   
-                        onChange={e => handleChange(e)}        
-                        />
-                        {errors.profession && (
-                        <p className='errorname'>{errors.profession}</p>
-                       )}
+                          <div>
+             <select className='selectsalud' onChange={e => handleProfession(e)}>
+                        <option value="All">Especialidad</option>
+                        <option value="cardiología">Cardiología</option>
+                        <option value="cirugía">Cirugía</option>
+                        <option value="clinica">Clinica Médica</option>
+                        <option value="dermatología">Dermatología</option>
+                        <option value="flebología">Flebología</option>
+                        <option value="ginecología">Ginecología y Obstetricía</option>
+                        <option value="nutrición">Nutrición</option>
+                        <option value="oftalmología">Oftalmología</option>
+                        <option value="pediatría">Pediatría</option>
+                        <option value="psiquiatría">Psiquiatría</option>
+                        {input.profession}</select>
+                </div>
                         <input className='saludmatricula'
                         autoComplete='off'
                         type="text"

@@ -41,6 +41,8 @@ const initialState = {
   token: "",
   healtNews:[],
   allHealtNews:[],
+  filterEspecialidad:[],
+  profession:"",
 };
 
 
@@ -265,13 +267,11 @@ function reducers(state = initialState, action) {
         ...state,
       }            
    case 'BY_ESPECIALIDAD':
-      const allHealth = state.healtNews;
-      const healthFilter = action.payload === 'All' ? allHealth :
-      allHealth.filter(i => i.state === action.payload)
-      return {
+        return {
           ...state,
-          characters: healthFilter
+          filterEspecialidad: state.allHealtNews.filter(e => e.profession === action.payload)
       } 
+
 
     default:
       return state;

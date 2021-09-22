@@ -1,18 +1,19 @@
 import React from 'react';
+import './HealtCard.css';
 
 function HealtCard({ name, lastname, profession, enrollment, zone, email, socialmedia, prepaidSocialWork, id }) {
 
     return(
-        <div>
-            <h1>{name}</h1>
-            <h3>{lastname}</h3>
-            <h3>{profession}</h3>
-            <h3>{enrollment}</h3>
-            <h3>{zone}</h3>
-            <h3>{email}</h3>
-            <h3>{socialmedia}</h3>
-            <h3>{prepaidSocialWork}</h3>
-        </div>
+        <div className='card-style'>
+            <div className='salud-name'>{name} {lastname}</div>
+            <div className='linea-card'></div>
+            <div className='profession-card'>{profession}</div>
+            <div className='matricula-card'>Matricula: {enrollment}</div>
+            <div className='matricula-card'>Zona: {zone}</div>
+            <div className='matricula-card'>Email: {email}</div>
+            <div className='matricula-card'>Red Social: {socialmedia}</div>
+            <div className='matricula-card'>Forma de trabajo: {prepaidSocialWork}</div>
+         </div>
     )
 };
 

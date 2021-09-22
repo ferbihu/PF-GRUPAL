@@ -1,0 +1,55 @@
+.fondocardsalud{
+    width: 10vw;
+    background-color: aquamarine;    
+}
+
+.card-style {
+    background-color: rgb(252, 242, 231);
+    margin: 0.9vw;
+    border-radius: 20px;
+    width: 20vw;
+    border: gray;
+    display: flex;
+    flex-direction: column;
+    
+    text-align: center;
+    height: fit-content;
+    padding: 2vw;
+    box-shadow: 1px 1px 8px rgb(201, 201, 201);
+    line-height: 2vw;
+    flex-wrap: wrap;   
+    
+}
+
+.span-card {
+    font-weight: 900;
+}
+.status-card {
+    background-color: rgb(243, 233, 142);
+    border-radius: 15px;
+    text-transform: uppercase;
+    margin-bottom: 1vw;
+    font-size: 1vw;
+    
+}
+.linea-card{
+    height: 0.1vw;
+    width: 6vw;
+    background-color: rgb(255, 204, 127);
+    align-self: center;
+    margin-top: 0.2vw;
+    
+}
+.salud-name{
+    font-size: 1.5vw;
+    text-align: center;
+}
+.profession-card{
+    margin-top: 5px;
+    font-size: 1.2vw;
+    text-align: center;
+}
+
+.matricula-card{
+    font-size: 1vw;
+}
