@@ -471,4 +471,9 @@ export function postHealth(payload) {
     };
   };
 };   
-
+export function byEspecialidades(payload) {
+  return {
+      type: 'BY_ESPECIALIDAD',
+      payload
+  };
+};

@@ -49,9 +49,8 @@ function App() {
       <Route exact path="/conocenos" component={Conocenos}/>
       <Route exact path="/users" component={Usuarios}/>
       <Route exact path="/cargarNoticia" component={CargarNoticia}/>
-      <Route exact path="/salud" component={MujeresEnSalud}/>
+      <Route exact path="/salud" component={MujeresEnSaludd}/>
       <Route exact path="/formsalud" component={FormularioSalud}/>
-
 
       </Switch>
       <Footer/>
