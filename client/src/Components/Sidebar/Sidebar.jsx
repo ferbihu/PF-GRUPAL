@@ -54,6 +54,7 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
 
   return (
     <>
+    <div className="contenedorsidebar">
       <div id="Sidebar">
         {/* collapsed props to change menu size using menucollapse state */}
         <ProSidebar collapsed={menuCollapse}>
@@ -93,6 +94,7 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
 
           </SidebarContent>
         </ProSidebar>
+      </div>
       </div>
     </>
 
