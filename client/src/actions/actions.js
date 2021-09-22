@@ -430,7 +430,7 @@ export function getNewsById(id){
 
 export function getHealth() {
   return async function(dispatch) {
-    const res = await axios.post(`${REACT_APP_BACK_BASE_URL}/rutagetSalud`)
+    const res = await axios.get(`${REACT_APP_BACK_BASE_URL}/profession/get_profession`)
     return dispatch({
       type: 'GET_HEALTH',
       payload: res.data
@@ -441,7 +441,7 @@ export function getHealth() {
 export function getHealthByName(name) {
   return async function(dispatch) {
     try {
-      const res = await axios.post(`${REACT_APP_BACK_BASE_URL}/rutagetSaludPorProfesion?name=${name}`)
+      const res = await axios.get(`${REACT_APP_BACK_BASE_URL}/profession/get_profession/${name}`)
     return dispatch({
       type: 'HEALT_BY_NAME',
       payload: res.data
@@ -453,21 +453,25 @@ export function getHealthByName(name) {
   };
 };
 
-export function postHealth(payload) {
+export function postHealth(payload,userId) {
   return async function(dispatch) {
     const config = {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
     };
-    const res = await axios.post(`${REACT_APP_BACK_BASE_URL}/rutaSalud`, config, payload)
+    const res = await axios.post(`${REACT_APP_BACK_BASE_URL}/profession` ,{...payload, userId} , config)
     return {
       type: 'POST_HEALTH',
       res
     };
   };
 };   
+
 export function byEspecialidades(payload) {
-  return {
+  return function(dispatch) {
+    dispatch({
       type: 'BY_ESPECIALIDAD',
       payload
+    })
   };
 };
+

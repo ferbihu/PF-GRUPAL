@@ -40,6 +40,8 @@ const initialState = {
   logeado: localStorage.getItem("isLogged"),
   token: "",
   healtNews:[],
+  allHealtNews:[],
+  filterEspecialidad:[],
 };
 
 
@@ -250,7 +252,8 @@ function reducers(state = initialState, action) {
     case "GET_HEALTH":
               return {
                 ...state,
-                healtNews: action.payload
+                healtNews: action.payload,
+                allHealtNews:action.payload
               }
 
     case "HEALT_BY_NAME":
@@ -258,13 +261,15 @@ function reducers(state = initialState, action) {
                   ...state,
                   healtNews: action.payload
                 }
-   case 'BY_ESPECIALIDAD':
-      const allHealth = state.healtNews;
-      const healthFilter = action.payload === 'All' ? allHealth :
-      allHealth.filter(i => i.status === action.payload)
+
+    case 'POST_HEALTH':
       return {
+        ...state,
+      }            
+   case 'BY_ESPECIALIDAD':
+        return {
           ...state,
-          characters: healthFilter
+          filterEspecialidad: state.allHealtNews.filter(e => e.profession === action.payload)
       } 
 
     default:

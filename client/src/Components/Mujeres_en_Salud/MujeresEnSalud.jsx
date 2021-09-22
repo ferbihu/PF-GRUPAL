@@ -15,11 +15,12 @@ function Health() {
     useEffect(() => {
         dispatch(getHealth());
         setLoading(true)
-    }, [dispatch]);
+        // eslint-disable-next-line
+    }, []);
+    
 
     return(
         <div>
-            <Link to='/postHealt'>Posteá</Link>
             <SearchBarHealt></SearchBarHealt>
             <div>
                 {
@@ -28,17 +29,20 @@ function Health() {
                         {
                             allHealth?.map(i => {
                                 return(
-                                    <div>
+                                    <div key={i.id}>
+                                          <Link  to={"/salud/" + i.id}>
                                         <HealtCard
-                                            key={i.id}
                                             name={i.name}
-                                            lastName={i.lastName}
-                                            matricula={i.matricula}
-                                            zona={i.zona}
+                                            lastname={i.lastname}
+                                            profession={i.profession}
+                                            enrollment={i.enrollment}
+                                            zona={i.zone}
                                             email={i.email}
-                                            redes={i.email}
-                                            contacto={i.contacto}
+                                            socialmedia={i.socialmedia}
+                                            prepaidSocialWork={i.prepaidSocialWork}
+                                            key={i.id}
                                         ></HealtCard>
+                                        </Link>
                                     </div>
                                 )
                             })
