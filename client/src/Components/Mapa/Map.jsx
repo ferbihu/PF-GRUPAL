@@ -15,6 +15,7 @@ import { getSafeplace } from '../../actions/actions.js';
 import Sidebar from "../Sidebar/Sidebar.jsx";
 import pin from "./../../imgs/iconmapp.png";
 import warning from "./../../imgs/warning.png";
+// import mark from "../../imgs/marker."
 
 // import { Component } from "react-addons";
 // const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
