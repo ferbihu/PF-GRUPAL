@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./IniciaSesion.css";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import {login } from "../actions/actions";
 
 import { Link, useHistory } from "react-router-dom";
