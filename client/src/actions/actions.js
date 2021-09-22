@@ -68,12 +68,12 @@ export function byTown(payload) {
     }
 }
 
-export function logOutGoogle(payload) {
-  return {
-    type: "LOG_OUT_GOOGLE",
-    payload
-  }
-}
+// export function logOutGoogle(payload) {
+//   return {
+//     type: "LOG_OUT_GOOGLE",
+//     payload
+//   }
+// }
 
 
 export function login({ email, password }) {
