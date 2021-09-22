@@ -24,6 +24,7 @@ import { Link } from "react-router-dom";
 
 function UserProfile() {
   const rol = useSelector((state) => state.role)
+  console.log(rol)
   const [profile, setProfile] = useState(null);
   const userDataById = useSelector((state) => state.userDataById);
 
@@ -46,6 +47,12 @@ function UserProfile() {
 
     onOpen();
   };
+
+  if (rol === "admin") {
+    localStorage.setItem("isAdmin", true)
+  }
+
+  let isAdmin = localStorage.getItem("isAdmin")
 
   return (
     <VStack spacing={3} py={5} borderBottomWidth={1} borderColor="brand.light">
@@ -101,8 +108,8 @@ function UserProfile() {
          
         </Text>
       </VStack>
-      {rol === "admin" && <Link to="/panel">Panel de control</Link>}
-      {rol === "admin" && <Link to="/users">Administrar Usuarios</Link>}
+      {isAdmin === "true" && <Link to="/panel">Panel de control</Link>}
+      {isAdmin === "true" && <Link to="/users">Administrar Usuarios</Link>}
     </VStack>
 
   );

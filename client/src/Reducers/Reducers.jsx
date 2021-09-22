@@ -4,7 +4,7 @@ const initialState = {
   safeplce: [],
   user: [],
   role: [],
-  isLogged: localStorage.getItem("isLogged"),
+  // isLogged: localStorage.getItem("isLogged"),
   userId: null,
   filtered_safePlaces: [],
   stateSitie: [{
@@ -35,8 +35,10 @@ const initialState = {
   userDataById: [],
 
   sidebar: [],
-  news: [],
-
+  news:[],
+  statenewsid:[],
+  logeado: localStorage.getItem("isLogged"),
+  token: ""
 };
 
 
@@ -86,7 +88,9 @@ function reducers(state = initialState, action) {
 
         userData: action.dataUser,
 
-        role: action.payload2.role
+        role: action.payload2.role,
+      
+        logeado:localStorage.setItem("isLogged", true),
 
       }
 
@@ -179,7 +183,7 @@ function reducers(state = initialState, action) {
       return {
         ...state,
         popup_warning: false,
-        popup: false
+        popup: false 
       }
 
     /* case 'FILTER_SAFEPLACE_BY_ID':
@@ -221,16 +225,38 @@ function reducers(state = initialState, action) {
 
       }
     case "POST_COMMENT_NOTICE":
+        return {
+          ...state,
+        }
+        case "GET_NEWS":
+          return {
+            ...state,
+            news: action.payload.info,
+          }
+          case "GET_NEWS_BY_ID":
+          return {
+            ...state,
+            statenewsid: action.payload.info,
+          }
+    case "IS_LOGGED":
       return {
         ...state,
-      }
-    case "GET_NEWS":
-      return {
-        ...state,
-        news: action.payload.info,
+        token: localStorage.getItem('token'),
+        userId: localStorage.getItem('userId'),
+        logeado: localStorage.getItem('isLogged')
       }
 
+            case "GET_HEALTH":
+              return {
+                ...state,
+                healtNews: action.payload
+              }
 
+              case "HEALT_BY_NAME":
+                return {
+                  ...state,
+                  healtNews: action.payload
+                }
     default:
       return state;
   }

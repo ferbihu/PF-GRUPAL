@@ -17,6 +17,12 @@ import {
 export default function AccountSettings() {
   const dispatch = useDispatch();
   const history = useHistory();
+
+  const name = useSelector((state) => state.userId)
+
+  useEffect(() => {
+  }, [name])
+
   // const id = useSelector((state)=> state.userId);
   //const [isLogged, setIsLogged] = useState(true);
   // const [errors, setErrors] = useState({});
@@ -29,7 +35,7 @@ export default function AccountSettings() {
 
   let lugaresSeguros = useSelector((state) => state.stateSitie) //estado con todos los lugares seguros aceptados
   let id_usuario = localStorage.getItem("userId") // me traigo el id del usuario que esta registrado
-  let isLogged = useSelector((state) => state.isLogged)
+  let isLogged = localStorage.getItem("isLogged")
   const userDataById = useSelector((state) => state.userDataById);
 
 
@@ -93,11 +99,12 @@ export default function AccountSettings() {
 
   const handleLogout = (e) => {
     e.preventDefault();
-    if (isLogged === true) {
-      isLogged = false;
+    if (isLogged === "true") {
+      isLogged = "false";
       localStorage.setItem('isLogged',false)
       localStorage.setItem('userId',0)
       localStorage.setItem('token',null)
+      localStorage.setItem('isAdmin', false)
       history.push("/iniciasesion");
       window.location.reload();
     }

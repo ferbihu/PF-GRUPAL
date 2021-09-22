@@ -80,7 +80,6 @@ export function login({ email, password }) {
   //console.log(user);
   return axios.post(`${REACT_APP_BACK_BASE_URL}/auth/login`, user)
     .then(res => {
-      alert("Loggeado correctamente,userId,token,guardados")  
       //aca guardamos el token obtenido de backend
       localStorage.setItem('token',res.data.id_token)
       localStorage.setItem('userId',res.data.userId)
@@ -409,12 +408,25 @@ export async function uploadImage(image) {
   }
 
 }
-export function getNews(id){
+export function getNews(){
   return function(dispatch){
     return axios
-     .get(`${REACT_APP_BACK_BASE_URL}/newNotice/news`, {id})
+     .get(`${REACT_APP_BACK_BASE_URL}/newNotice/news`)
      .then((res)=>{dispatch({ 
           type:"GET_NEWS",
+          payload:{info:res.data}})
+     })
+     .catch((err) => {
+       console.log(err);
+    });
+};
+}
+export function getNewsById(id){
+  return function(dispatch){
+    return axios
+     .get(`${REACT_APP_BACK_BASE_URL}/newsById/${id}`)
+     .then((res)=>{dispatch({ 
+          type:"GET_NEWS_BY_ID",
           payload:{info:res.data}})
      })
      .catch((err) => {
@@ -422,3 +434,42 @@ export function getNews(id){
     });
 };
 }
+
+export function getHealth() {
+  return async function(dispatch) {
+    const res = await axios.post(`${REACT_APP_BACK_BASE_URL}/rutagetSalud`)
+    return dispatch({
+      type: 'GET_HEALTH',
+      payload: res.data
+    });
+  };
+};
+
+export function getHealthByName(name) {
+  return async function(dispatch) {
+    try {
+      const res = await axios.post(`${REACT_APP_BACK_BASE_URL}/rutagetSaludPorProfesion?name=${name}`)
+    return dispatch({
+      type: 'HEALT_BY_NAME',
+      payload: res.data
+    })
+    } catch (err) {
+      console.log(err);
+    }
+    
+  };
+};
+
+export function postHealth(payload) {
+  return async function(dispatch) {
+    const config = {
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, 'Content-Type': 'application/json' }
+    };
+    const res = await axios.post(`${REACT_APP_BACK_BASE_URL}/rutaSalud`, config, payload)
+    return {
+      type: 'POST_HEALTH',
+      res
+    };
+  };
+};   
+

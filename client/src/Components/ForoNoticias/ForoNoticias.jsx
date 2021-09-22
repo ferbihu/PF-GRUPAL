@@ -1,11 +1,19 @@
 import React, { useState,useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import {getCommentNotice,postCommentNotice, getNews } from '../../actions/actions.js';
+import {getCommentNotice,getNewsById,postCommentNotice } from '../../actions/actions.js';
+import {useParams} from 'react-router-dom';
 import "./ForoNoticias.css";
 import style from "./Comment.css";
+const{ REACT_APP_BACK_BASE_URL} = process.env
+
 
 export default function Foro(props) {
+  // eslint-disable-next-line 
+  const {id} = useParams();
 
+ // const idnews = props.match.params.id
+  
+console.log("idnotice",id)
 
  function getCurrentDate(separator='-'){
 
@@ -20,26 +28,29 @@ const fecha = getCurrentDate();
 // eslint-disable-next-line 
 let [stateComment, setStateComment] = useState([]);
 // eslint-disable-next-line 
+let [stateNewId, setStateNew] = useState([]);
+// eslint-disable-next-line 
 
 const dispatch = useDispatch();
 // eslint-disable-next-line
-const getnews = useSelector ((state) => state.news)
-// eslint-disable-next-line
-const [cambio, setCambio] = useState(false)
+
 useEffect(() => {
   dispatch(getCommentNotice())
-  dispatch(getNews(props.id));
-  setCambio(true)
-},[props.id, stateComment, dispatch])
-
+},
   // eslint-disable-next-line
-  // [stateComment]);
+  [stateComment]);
 
 const allcomment = useSelector((state) => state.stateCommentNotice);
 
+useEffect(() => {
+  dispatch(getNewsById(id))
+},
+  // eslint-disable-next-line
+  [stateNewId]);
 
-//const [nuevo, setNuevo] = useState({})
-
+  const getnews = useSelector((state) => state.statenewsid);
+  console.log("noticiaid",getnews)
+  //const [nuevo, setNuevo] = useState({})
   //const userId = useSelector((state) => state.userId);
   const Loggin = useSelector((state) => state.isLogged);
   const noticeId=1;
@@ -67,18 +78,22 @@ const allcomment = useSelector((state) => state.stateCommentNotice);
        }
 
   }
+
   return (
-    <div className='container'>
+    <div className='pc'>
       <div className='tituloforo'>Foro</div>
       <div className='.foroNoticias-line'></div>
-        {
+      {
             getnews.length>0 ?
-            <div className=''>
-               <img className='imagen' src= { getnews[0].image}   alt="no se encuentra la imagen" />
-               <div> { getnews[0].title}</div>
-               <p className='date'> { getnews[0].date}</p> 
-               <div className='rectangulonoticia'></div>
+            <div>
+               <img   className='imgNotamujeres' src= { `${REACT_APP_BACK_BASE_URL}/` + getnews[0].image}   alt="no se encuentra la imagen" />
+               <div className='tittleydate'>
+               <div className='titulonoti'> { getnews[0].title}</div>
+               <p className='date'> { getnews[0].date}</p>   
+              </div>
+               <div className='rectangulonoticia'>
                <p className='parrafonoti'> { getnews[0].content}</p>
+               </div>
                 </div> : <p className='loading'>Loading..</p>
         }
  
@@ -104,17 +119,7 @@ const allcomment = useSelector((state) => state.stateCommentNotice);
                     </symbol>
                   </svg>
             </div>
-            <details open>
-                <summary className="btnmascomentarios">
-                  mas comentarios
-                </summary>
-                {allcomment.map((e, i) => (
-                      <p>
-                          {e.date}
-                          {e.description}
-                      </p>
-                 ))}
-           </details>
+          
       </div>
       <input
         className="inputcomentario"
@@ -128,6 +133,17 @@ const allcomment = useSelector((state) => state.stateCommentNotice);
       <button className="btnenviarcomentario" type="submit" onClick={(e) => handleSubmit(e)}>
         Envíar
       </button>
+      <div open>
+                <summary className="btnmascomentarios">
+                  mas comentarios
+                </summary>
+                {allcomment.map((e, i) => (
+                      <p>
+                          {e.date}
+                          {e.description}
+                      </p>
+                 ))}
+           </div>
     </div>
   );
 }
