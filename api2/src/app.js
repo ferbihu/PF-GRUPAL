@@ -39,8 +39,9 @@ server.use(express.static('uploads'));
 
 server.use("/images", images)
 
-server.use("/profession", require('./routes/healthProfessions'))
+server.use('/newsById',require ('./routes/news'))
 
+server.use("/profession", require('./routes/healthProfessions'))
 
 
 server.use((req, res, next) => {

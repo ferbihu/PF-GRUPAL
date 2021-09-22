@@ -24,7 +24,7 @@ function validate(input) {
         errors.street = 'Se requiere una calle';
     }
     else if (!input.number) {
-        errors.direction = 'Se requiere un número';
+        errors.number = 'Se requiere un número';
     }
     else if (!input.postcode) {
         errors.postcode = 'Se requiere un código postal';
@@ -154,7 +154,7 @@ export default function Registrate() {
     return (
         <div className='pageregistro'>
             <a href="/lugaresseguros" className="btnvolver">VOLVER</a>
-            <div className='title'><h1>Registro de lugar seguro</h1></div>
+            <div className='title'>Registro de lugar seguro</div>
             <div className="postlugarSeguro-line"></div>
             <div className='primerparrafo'> <p>Completá el formulario y registrá tu comercio, empresa o entidad.</p> </div>
             <div className='segundoparrafo' >
@@ -171,7 +171,7 @@ export default function Registrate() {
                         onChange={(e) => handleChange(e)}
                     />
                     {errors.name && (
-                        <p className='error'>{errors.name}</p>
+                        <p className='errorname'>{errors.name}</p>
                     )}
                     <select className='formcountry' onChange={e => handleFilterCountrys(e)}>
                         <option value="All">País del lugar seguro</option>
@@ -191,7 +191,7 @@ export default function Registrate() {
                         onChange={(e) => handleChange(e)}
                     />
                     {errors.street && (
-                        <p className='error'>{errors.street}</p>
+                        <p className='errorstreet'>{errors.street}</p>
                     )}
                     <input className='formnumber'
                         autoComplete='off'
@@ -202,7 +202,7 @@ export default function Registrate() {
                         onChange={(e) => handleChange(e)}
                     />
                     {errors.number && (
-                        <p className='error'>{errors.number}</p>
+                        <p className='errornumber'>{errors.number}</p>
                     )}
                     <input className='formpostcode'
                         autoComplete='off'
@@ -213,7 +213,7 @@ export default function Registrate() {
                         onChange={(e) => handleChange(e)}
                     />
                     {errors.postcode && (
-                        <p className='error'>{errors.postcode}</p>
+                        <p className='errorpost'>{errors.postcode}</p>
                     )}
                     <input className='formmail'
                         autoComplete='off'
@@ -224,7 +224,7 @@ export default function Registrate() {
                         onChange={(e) => handleChange(e)}
                     />
                     {errors.mail && (
-                        <p className='error'>{errors.mail}</p>
+                        <p className='erroremail'>{errors.mail}</p>
                     )}
                     <input className='formtelephone'
                         autoComplete='off'
@@ -235,7 +235,7 @@ export default function Registrate() {
                         onChange={(e) => handleChange(e)}
                     />
                     {errors.telephone && (
-                        <p className='error'>{errors.telephone}</p>
+                        <p className='errorteleph'>{errors.telephone}</p>
                     )}
                     <input className='formkeyword'
                         autoComplete='off'
@@ -246,10 +246,10 @@ export default function Registrate() {
                         onChange={(e) => handleChange(e)}
                     />
                     {errors.keyword && (
-                        <p className='error'>{errors.keyword}</p>
+                        <p className='errorkeyw'>{errors.keyword}</p>
                     )}
                     {/* eslint-disable-next-line */}
-                    <div className="caja"><a href='#' className='cuadradito'>?</a><span className="info">La palabra clave la utilizarán para pedir ayuda cuando recurran al lugar. Elegí algo representativo de tu establecimiento.</span></div>
+                    <div className="caja"><a href='#' className='cuadradito'>?</a><span className="infoh">La palabra clave la utilizarán para pedir ayuda cuando recurran al lugar. Elegí algo representativo de tu establecimiento.</span></div>
                     <input className='formrelation'
                         autoComplete='off'
                         type="text"
@@ -259,7 +259,7 @@ export default function Registrate() {
                         onChange={(e) => handleChange(e)}
                     />
                     {errors.relation && (
-                        <p className='error'>{errors.relation}</p>
+                        <p className='errorrelation'>{errors.relation}</p>
                     )}
 
                     <button className="btninput" type='submit' onClick={(e) => handleSubmit(e)}>Registrar</button>
