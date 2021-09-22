@@ -3,6 +3,7 @@ const express = require("express");
 const router = require("express").Router();
 router.use(express.json());
 const { GMAIL } = process.env;
+const path = require('path')
 
 
 router.post("/welcome", async (req, res, next) => {
@@ -15,8 +16,8 @@ router.post("/welcome", async (req, res, next) => {
             text: "Hola! Nos alegra que te hayas incorporado a la comunidad Safety. A continuación te enviamos un PDF con información sobre nuestro sitio. Podes ponerte en contacto con nosotras escribiendonos a women4women@gmail.com en caso de necesitar ayuda con algo.",
             html: `<p>Hola! Nos alegra que te hayas incorporado a la comunidad Safety. A continuación te enviamos un PDF con información sobre nuestro sitio. Podes ponerte en contacto con nosotras escribiendonos a women4women@gmail.com en caso de necesitar ayuda con algo.</p>`,
             attachments: [{
-                filename: 'Bienvenida.pdf',
-                path: '/home/mora/Escritorio/PF-GRUPAL/api2/src/pdfs/MailingBienvenida.pdf',
+                filename: 'MailingBienvenida.pdf',
+                path :`${process.cwd()}/src/pdfs/MailingBienvenida.pdf`,
                 contentType: 'application/pdf'
             }],
         })
@@ -25,6 +26,10 @@ router.post("/welcome", async (req, res, next) => {
         console.log(err.message);
     }
 })
+
+
+
+
 
 router.post("/registroSafePlace", async (req, res, next) => {
     try{   
@@ -37,8 +42,8 @@ router.post("/registroSafePlace", async (req, res, next) => {
             text: "Hola! Muchas gracias por sumarte a nuestra plataforma. Por favor, luego de leer el protocolo adjuntado en este mail como PDF, completá el siguiente formulario que corresponde a una declaración jurada acá: https://forms.gle/f1mdwyQz4CgM5FcNA. Vamos a revisar tu solicitud y te vamos a enviar un mail para avisarte si fue aceptado, y ya aparece en nuestro mapa! Saludos, equipo Safety.",
             html: `<p>Hola! Muchas gracias por sumarte a nuestra plataforma. Por favor, luego de leer el protocolo adjuntado en este mail como PDF, completá el siguiente formulario que corresponde a una declaración jurada acá: https://forms.gle/f1mdwyQz4CgM5FcNA. Vamos a revisar tu solicitud y te vamos a enviar un mail para avisarte si fue aceptado, y ya aparece en nuestro mapa! Saludos, equipo Safety.</p>`,
             attachments: [{
-                filename: 'Protocolo.pdf',
-                path: '/home/mora/Escritorio/PF-GRUPAL/api2/src/pdfs/MailingProtocolo.pdf',
+                filename: 'MailingProtocolo.pdf',
+                path: `${process.cwd()}/src/pdfs/MailingProtocolo.pdf`,
                 contentType: 'application/pdf'
             }],
         })
