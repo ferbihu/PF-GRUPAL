@@ -38,7 +38,8 @@ const initialState = {
   news:[],
   statenewsid:[],
   logeado: localStorage.getItem("isLogged"),
-  token: ""
+  token: "",
+  healtNews:[],
 };
 
 
