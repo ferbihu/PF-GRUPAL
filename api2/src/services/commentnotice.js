@@ -1,9 +1,9 @@
 const {CommentNotice} = require('../db');
 
-async function getComments(){
+async function getComments(id){
     try{
         return await CommentNotice.findAll({
-            where:{status: "accepted"}
+            where:{status: "accepted",noticeId:id}
         });
     }
     catch(error){
