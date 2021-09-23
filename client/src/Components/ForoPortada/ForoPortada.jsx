@@ -3,66 +3,71 @@ import { Link } from 'react-router-dom';
 import React,{ useEffect,useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {getNews} from '../../actions/actions';
+import SearchCard from "../Carrusel/SearchCard";
 
 export default function Foro() {
-
-  const allNoti = useSelector((state) => state.news);
-  console.log(allNoti)
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getNews());
-  }, [dispatch]);
 
   const [inputSearch, setInputSearch] = useState({
     title:""
 })
+  
+  function handleChange(e) {
+    setInputSearch({
+        ...inputSearch,
+        title: e.target.value
+    })
+  }
+    const allNoticias = useSelector((state) => state.news);
 
-const [idnot, setIdnot] = useState(0)
+    console.log(allNoticias)
+    const dispatch = useDispatch();
+  
+    useEffect(() => {
+      dispatch(getNews());
+    }, [dispatch]);
+  
 
-function handleChange(e) {
-  setInputSearch({
-      ...inputSearch,
-      title: e.target.value
-  })
+  const [idnoticias, setIdnoticias] = useState(0)
+  
+  let arrayfilter=[];
 
-}
+   allNoticias.map((nuevo)=>{
 
-function handleSubmit(e) {
-
- allNoti.map((nuevo)=>{
-   console.log(nuevo.title)
-   console.log(inputSearch)
-       if(nuevo.title.includes(inputSearch.title)){
-
-      setIdnot({
-          idnot:nuevo.id
-      })
-         console.log("noticia esta",idnot)
-       }else{
-         alert("Noticia no encontrada")
-       }
-  })
-
-}
-
+         if(nuevo.title.includes(inputSearch.title)){
+          arrayfilter.push(nuevo);
+         }
+    })
+  
+console.log(arrayfilter)
+ 
   
   return (
     <div classeName="proyectocontainer">
       <div className="tittleforo">Foro</div>
       <div className="foroPortada-line"></div>
-      <div>
-         <button className='btnbuscar' type="submit" onClick={(e) => handleSubmit(e)}>Buscar</button>
-         <Link to={"/foronoticias/" + idnot}>IR</Link>
+        <div>
         <input
           className="inputbusqueda"
           autoComplete="off"
           type="text"
           name="description"
           placeholder="Noticia"
-          value={inputSearch.description}
+          value={inputSearch.title}
           onChange={(e) => handleChange(e)}
         />
+        {
+          arrayfilter?
+                  <Link to={"/searchnews/"+inputSearch.title}>
+        <button className='btnbuscar' type="submit">Buscar
+        </button>
+        </Link>
+          :
+          <Link to={"/failedsearch"}>
+          <button className='btnbuscar' type="submit">Buscar
+          </button>
+          </Link>
+        }
+
       </div>
     </div>
   );
