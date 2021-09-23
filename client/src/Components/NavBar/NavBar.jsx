@@ -13,7 +13,7 @@ const Nav = () => {
   useEffect(() => {
   }, [log])
 
-  if (logueado === "true") {
+  if (log) {
     return (
       <div className="container-nav">
         <div className="logo">
@@ -45,7 +45,7 @@ const Nav = () => {
         </ul>
       </div>
     );
-  } else if (logueado === "false") {
+  } else if (!log) {
     return (
       <div className="container-nav">
         <div className="logo">
