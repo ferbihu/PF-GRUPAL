@@ -2,8 +2,8 @@
 .fondo-panel-principal {
     background-color: #F1EEDE;
     font-family: Montserrat;
-    min-height: 40vw;
-    padding-top: 10vw;
+    height: 87vw;
+    padding-top: 3vw;
 }
 .fondopanel{
     margin: 5vw;
@@ -23,12 +23,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    overflow-y: scroll;
+    max-height: 60vw;
 }
 
 .filtrados-panel {
     display: flex;
     justify-content: space-evenly;
-    margin: 1vw 20vw 1vw 20vw;
+    padding: 1.5vw;
+    
 }
 .titular {
  display: flex;
@@ -44,18 +47,19 @@
 
 
 }
-.linea-panel{
+.linea-panel-control{
     height: 0.1vw;
     background-color: orange;
     width: 21vw;
     align-self: center;
+    margin-bottom: 5vw;
     
 }
 button {
     
         border: none;
         border-radius: 10px;
-        width: 7vw;
+        width: 8vw;
         padding: 0.5vw;
         cursor: pointer;
         font-family: 'Montserrat', sans-serif;
@@ -68,6 +72,7 @@ button {
 .Pendientes{
     background-color: rgb(255, 255, 255);
     box-shadow: 0px 0px 8px rgba(158, 78, 224, 0.959);
+    font-size: 1vw;
 }
 .Pendientes:hover {
     background-color:rgba(174, 123, 216, 0.705);
@@ -77,6 +82,7 @@ button {
 .Denunciados{
     background-color: rgb(255, 255, 255);
     box-shadow: 0px 0px 8px rgba(252, 0, 0, 0.664);
+    font-size: 1vw;
 }
 .Denunciados:hover {
 
@@ -86,6 +92,7 @@ button {
 .Aceptados{
     background-color: rgb(255, 255, 255);
     box-shadow: 0px 0px 8px rgba(129, 172, 12, 0.664);
+    font-size: 1vw;
 }
 .Aceptados:hover { 
     background-color: rgba(161, 197, 62, 0.534);
@@ -94,6 +101,8 @@ button {
 .Rechazados{
     background-color: rgb(255, 255, 255);
     box-shadow: 0px 0px 8px rgba(78, 3, 6, 0.664);
+    font-size: 1vw;
+    
 }
 
 .Rechazados:hover {
@@ -115,4 +124,16 @@ option{
     padding: 0.5vw;
     font-size: 1vw;
     margin: 1vw;
+}
+
+.cargar-noticia{
+    font-size: 1.5vw;
+    background-color: orange;
+    padding: 0.5vw;
+    border-radius: 15px;
+    
+}
+
+.cargar-noticia:hover{
+    background-color: rgb(252, 228, 183);
 }

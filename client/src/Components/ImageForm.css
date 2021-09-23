@@ -1,0 +1,36 @@
+.previsualizacion-img{
+    height: 20vw;
+    
+    object-fit: contain;
+    
+}
+
+.cargar-imagen-fondo{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.botones-cargar{
+    padding: 1vw;
+    justify-content: center;
+    display: flex;
+    
+}
+.botones-cargar button{
+    margin: 1vw;
+    align-items: center;
+    background-color: rgba(247, 165, 43, 0.815);
+    width: fit-content;
+    padding: 0.8vw;
+    
+    
+}
+
+.botones-cargar button:hover{
+    
+    background-color: rgba(238, 188, 113, 0.815);
+    
+    
+}

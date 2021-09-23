@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { uploadImage } from '../actions/actions';
+import "../Components/ImageForm.css"
 
-const ImageForm = ({handleNewImage}) => {
+const ImageForm = ({ handleNewImage }) => {
     const [image, setImage] = useState("");
     console.log(image)
     const [preview, setPreview] = useState(false);
@@ -24,23 +25,25 @@ const ImageForm = ({handleNewImage}) => {
         uploadImage(image);
         setPreview(false);
         setImage("");
-        handleNewImage(); 
-    } 
+        handleNewImage();
+    }
 
     return (
         <div>
             {
                 preview ?
-                <div>
-                    <button onClick={clearImage}>x</button>
-                    <h5>Image Preview</h5>
-                    <img src={URL.createObjectURL(image)} alt="Preview of upload"/>
-                    <button onClick={handleSubmit}>Upload</button>
-                </div> 
-                :
-                <div>
-                    <input type="file" onChange={handleImageUpload} accept="png jpg jpeg" />
-                </div>
+                    <div className="cargar-imagen-fondo">
+
+                        <img className="previsualizacion-img" src={URL.createObjectURL(image)} alt="Preview of upload" />
+                        <div className="botones-cargar">
+                            <button onClick={handleSubmit}>Subir imagen</button>
+                            <button onClick={clearImage}>Elegir otra imagen</button>
+                        </div>
+                    </div>
+                    :
+                    <div>
+                        <input type="file" onChange={handleImageUpload} accept="png jpg jpeg" />
+                    </div>
             }
         </div>
     )
