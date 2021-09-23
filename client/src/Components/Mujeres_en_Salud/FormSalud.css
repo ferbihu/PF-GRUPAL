@@ -57,9 +57,22 @@
     margin-top: 20px;
     font-size: 20px;   
 }
+.selectsaludform{
+    border: 1px solid #C4C4C4;
+    background-color:  #FFFFFF;
+    transition: 250ms;
+    text-align-last: center;
+    border-radius: 20px;
+    width: 400px;
+    height: 52px;
+    margin-top: 40px;
+    font-size: 20px; 
+    color: #a09e9e;
+}
 .saludespecialidad{
     border: 1px solid #C4C4C4;
     background-color:  #FFFFFF;
+    color: #BBBABA;
     transition: 250ms;
     text-align: center;
     border-radius: 20px;
