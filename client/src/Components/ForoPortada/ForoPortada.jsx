@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import React,{ useEffect,useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {getNews} from '../../actions/actions';
-import SearchCard from "../Carrusel/SearchCard";
+
 
 export default function Foro() {
 
@@ -18,29 +18,20 @@ export default function Foro() {
     })
   }
     const allNoticias = useSelector((state) => state.news);
-
-    console.log(allNoticias)
     const dispatch = useDispatch();
   
     useEffect(() => {
       dispatch(getNews());
     }, [dispatch]);
-  
 
-  const [idnoticias, setIdnoticias] = useState(0)
-  
-  let arrayfilter=[];
-
+  let arrayfil=[];
+ // eslint-disable-next-line
    allNoticias.map((nuevo)=>{
 
          if(nuevo.title.includes(inputSearch.title)){
-          arrayfilter.push(nuevo);
+          arrayfil.push(nuevo);
          }
     })
-  
-console.log(arrayfilter)
- 
-  
   return (
     <div classeName="proyectocontainer">
       <div className="tittleforo">Foro</div>
@@ -56,7 +47,7 @@ console.log(arrayfilter)
           onChange={(e) => handleChange(e)}
         />
         {
-          arrayfilter?
+          arrayfil.length>0 ?
                   <Link to={"/searchnews/"+inputSearch.title}>
         <button className='btnbuscar' type="submit">Buscar
         </button>
@@ -67,7 +58,6 @@ console.log(arrayfilter)
           </button>
           </Link>
         }
-
       </div>
     </div>
   );
