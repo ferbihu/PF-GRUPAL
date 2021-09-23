@@ -46,10 +46,15 @@ ul{
 .foro-line{
     background: #f17a09;
         height: 2px;
-        width: 3vw;
+        width: 4.5vw;
         margin-top: 10px;
 }
-
+.micuenta-line{
+    background: #f17a09;
+        height: 2px;
+        width: 5.5vw;
+        margin-top: 10px;
+}
 .iniciasesion{
     background-color: #f5b880;
     padding: 0.5vw;
