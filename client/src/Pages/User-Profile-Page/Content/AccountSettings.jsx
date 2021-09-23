@@ -13,7 +13,6 @@ export default function AccountSettings() {
 
   const name = useSelector((state) => state.userId)
   const rolllll = useSelector((state) => state.role)
-  console.log("ACA",rolllll)
   useEffect(() => {
   }, [name])
   if (rolllll === "admin") {
@@ -56,10 +55,10 @@ export default function AccountSettings() {
         <h1 className="name">Hola {userDataById?.name}!</h1>
         <h2 className="mail">Email: {userDataById?.email}</h2>
         <Link to="/panel">
-          <h2 className="btn1">Panel de administrador</h2>
+          <button className="btn1">Panel de administrador</button>
         </Link>
         <Link to="/users">
-          <h2>Administrar usuarios</h2>
+          <button className="btn2">Administrar usuarios</button>
         </Link>
         <button onClick={handleLogout}>Cerrar sesión</button>
       </div>

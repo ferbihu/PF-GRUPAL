@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { HiLocationMarker } from "react-icons/hi"
 import { Link } from "react-router-dom";
@@ -9,7 +9,8 @@ import "./Sidebar.css";
 
 import { changePopupState, changePopupStateWarning } from "../../actions/actions";
 import { useDispatch, useSelector } from "react-redux";
-import ShowCommentsPlaces from "./Comments";
+// import ShowCommentsPlaces from "./Comments";
+import { showCommentsSafePlaces } from "../../actions/actions";
 import PopupsComment from "./PopUpComent";
 
 
@@ -30,6 +31,16 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
 
   }
 
+  const comments = useSelector((state) => state.comments_safeP)
+  const filterId = comments.filter((c) => c.safePlaceId === id)
+
+  useEffect(() => {
+      dispatch(showCommentsSafePlaces(id))
+    }, 
+    // eslint-disable-next-line
+    [showCommentsSafePlaces])
+
+
   const state_popup_warning2 = useSelector(state => state.popup_warning)
   const state_popup2 = useSelector(state => state.popup)
   const logeado = useSelector(state => state.logeado)
@@ -46,8 +57,7 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
   return (
     <>
     <div>
-      <div>
-        {/* collapsed props to change menu size using menucollapse state */}
+      <div className="scroll-side">
         <div  className="contenedorsidebar" collapsed={menuCollapse}>
             <div className="logotext">
               <button className="btnSide" onClick={() => handleMarkerClick(false)}>x</button>
@@ -85,7 +95,20 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
             <button className="btnRes" type="submit" disabled={state_popup2 === true || state_popup_warning2 === true} onClick={() => HandleCommentClick()}>Dejar una reseña</button>
             </div>
               : <div className="comentario"><Link to="/iniciasesion">Iniciá sesión para dejar tu reseña!</Link></div>}
-            <ShowCommentsPlaces id={id}/>
+                      <div>
+            {
+            
+                filterId?.map((c) => {
+                    return (
+                      <div>
+                      <div key={c.id} value={c.id} className="commentsCont">
+                        <p key={c.id} value={c.id} className="conte">{c.comment_text}</p>
+                      </div>
+                      </div>
+                    )
+                  })
+            }
+        </div>
         </div>
       </div>
       </div>
