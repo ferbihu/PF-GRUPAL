@@ -47,7 +47,8 @@ export default function Maps(props) {
 
   if (/*false && */'geolocation' in navigator) {
     if (!ultimaPosicion) {
-      alert('No tenemos tu última ubicación');}
+      alert('No tenemos tu última ubicación');
+    }
   } else {
     alert('Tu navegador no soporta geolocalización');
   }
@@ -69,7 +70,7 @@ export default function Maps(props) {
   useEffect(() => {
     // eslint-disable-next-line
     dispatch(getSafeplace())
-// eslint-disable-next-line
+    // eslint-disable-next-line
   }, []);
 
 
@@ -156,7 +157,7 @@ export default function Maps(props) {
 
               }
               {
-                state_popup && <PopupsComment id={datos.id} text="Dejá una reseña del lugar! Recordá que el comentario será publico y todos podran verlo."></PopupsComment>
+                state_popup && <PopupsComment setInput={() => setInput()} id={datos.id} text="Dejá una reseña del lugar! Recordá que el comentario será publico y todos podran verlo."></PopupsComment>
               }
               {
                 state_popup_warning && <PopupsSideBarWarning id={e.id} cambiarEstado={() => cambiarEstado()} text="Por favor, explicanos el motivo de la denuncia.  Si denuncias un lugar, automáticamente
