@@ -22,12 +22,17 @@ import Usuarios from "./Pages/Usuarios/Usuarios";
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import FailedSearch from './Components/ForoNoticias/FailedSearch';
 import CargarNoticia from "./Pages/CargarNoticia";
+
 import MujeresEnSaludd from './Pages/Salud/MujeresEnSalud';
-import FormularioSalud from './Pages/Salud/FormularioSalud';
+//import FormularioSalud from './Pages/Salud/FormularioSalud';
+
+
 
 
 // import MujeresEnSalud from './Components/Mujeres_en_Salud/MujeresEnSalud'
 // import FormularioSalud from './Components/Mujeres_en_Salud/FormSalud';
+
+
 
 import AccountSettings from "./Pages/User-Profile-Page/Content/AccountSettings";
 

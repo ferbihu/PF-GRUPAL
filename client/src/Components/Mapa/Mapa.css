@@ -1,14 +1,29 @@
-.box{
-    padding: 8vw;
+.container-lugares-landing{
+    
     background-color: #a1a4db;
+    
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    padding-left: 25vw;
+    padding-top: 8vw;
+    padding-right: 25vw;
+}
+
+.texto-lugares-landing{
+   
+   padding-top: 5vw;
+   display: flex;
+   flex-direction: column;
+   margin: 5vw;
 }
 .lugaresseguros{
     font-family: "Montserrat";
     font-size: 3.5vw;
     color: #4A0E79;  
+    width: 25vw;
+    align-self: center;
+    text-align: center;
+    
    /*  background-color: darkgreen; */
     
 }
@@ -21,7 +36,7 @@ a{
     justify-content: center;
 }
 .imgMapa{
-    width: 70vw;
+    width: 30vw;
     height: auto;
     border-radius: 30px; 
      
@@ -32,18 +47,23 @@ a{
     font-size: 1.5vw;
     font-family: "Montserrat";
     justify-content: center;
-    text-align: justify;
     font-weight: bold;
-    margin-bottom: 3vw;
+    width: 20vw;
+    text-align: center;
+    align-self: center;
+    
+    align-self: center;
+    
     
 }
 
 .lugaresseguros-line{
         background: #f17a09;
-        height: 4px;
-        width: 36vw;
+        height: 0.2vw;
+        width: 20vw;
         margin-top: 0.2rem;
-        margin-bottom: 3vw;
+        margin-bottom: 1vw;
+        align-self: center;
         
     
 }

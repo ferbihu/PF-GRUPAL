@@ -1,8 +1,11 @@
 .fondoWhatsapp{
     background-color: #a1a4db;
-    padding: 3vw;
+    padding-top: 10vw;
+    padding-bottom: 10vw;
     display: flex;
     justify-content: center;
+
+    
     
 }
 
