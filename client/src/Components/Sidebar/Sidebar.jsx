@@ -3,15 +3,6 @@ import React, { useState } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { HiLocationMarker } from "react-icons/hi"
 import { Link } from "react-router-dom";
-
-
-
-
-import {
-  ProSidebar,
-  SidebarHeader,
-  SidebarContent,
-} from "react-pro-sidebar";
  
 import "react-pro-sidebar/dist/css/styles.css";
 import "./Sidebar.css";
@@ -54,46 +45,48 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
 
   return (
     <>
-    <div className="contenedorsidebar">
-      <div id="Sidebar">
+    <div>
+      <div>
         {/* collapsed props to change menu size using menucollapse state */}
-        <ProSidebar collapsed={menuCollapse}>
-          <SidebarHeader>
+        <div  className="contenedorsidebar" collapsed={menuCollapse}>
             <div className="logotext">
               <button className="btnSide" onClick={() => handleMarkerClick(false)}>x</button>
-              <p>{name}</p>
+              <p className="princip">{name}</p>
               <div className="titleLine"></div>
             </div>
             <div className="closemenu" onClick={menuIconClick}>
               {/* changing menu collapse icon on click */}
             
             </div>
-          </SidebarHeader>
-          <SidebarContent>
             <br />
             <br />
-            <h3 className="txt1"><FaPhoneAlt className="iconnn" /> {telephone}</h3>
-            <br />
-            <h3 className="txt1"><HiLocationMarker className="iconnn" />{street} {number}</h3>
-            <br />
-            <div className="cont">
-              <h2 className="kw">PALABRA CLAVE</h2>
-              <h2 className="txt1">{keyword}</h2>
+            <div className="txtyicon">
+            <FaPhoneAlt className="icono"/> 
+            <h3 className="txt1">{telephone}</h3>
             </div>
-            {logeado === "true" ? <div className="sidebar-align">
+            <br />
+            <div className="txtyicon2">
+            <HiLocationMarker  className="icono"/>
+            <h3 className="txt1">{street} {number}</h3>
+            </div>
+            <div className="cont">
+              <h2 className="kw">Palabra clave:</h2>
+              <h2 className="keyword">{keyword}</h2>
+            </div>
+            {logeado === "true" ? 
+              <div className="cont-denuncia">
+              <div className="sidebar-align">
               <h3 className="denunciaTit"> Este no es un lugar seguro?</h3>
               <button className="denuncia" type="submit" disabled={state_popup2 === true || state_popup_warning2 === true} onClick={() => HandleWarningClick()} >Denuncialo</button>
-            </div> : <div className="denunciar"><Link to="/iniciasesion">  Iniciá sesión para denunciar el lugar</Link></div>}
+            </div></div> : <div className="denuncia"><Link to="/iniciasesion">  Iniciá sesión para denunciar el lugar</Link></div>}
 
-            {logeado === "true" ? <button className="btnRes" type="submit" disabled={state_popup2 === true || state_popup_warning2 === true} onClick={() => HandleCommentClick()}>Dejar una reseña</button>
+            {logeado === "true" ? 
+            <div className="cont-res">
+            <button className="btnRes" type="submit" disabled={state_popup2 === true || state_popup_warning2 === true} onClick={() => HandleCommentClick()}>Dejar una reseña</button>
+            </div>
               : <div className="comentario"><Link to="/iniciasesion">Iniciá sesión para dejar tu reseña!</Link></div>}
-
-         
-
-            <ShowCommentsPlaces id={id} />
-
-          </SidebarContent>
-        </ProSidebar>
+            <ShowCommentsPlaces id={id}/>
+        </div>
       </div>
       </div>
     </>

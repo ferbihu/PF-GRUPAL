@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterByCountry, getSafePlacePanel, filterPlacesByStatus } from '../../actions/actions';
+import { getSafePlacePanel, filterPlacesByStatus } from '../../actions/actions';
 import "./Panel.css"
 import Card from '../../Components/Cards-Panel/Cards-Panel';
 import { Link } from 'react-router-dom';
@@ -17,12 +17,6 @@ export default function Panel() {
     }, [dispatch]);
 
     const lugaresSeguros = useSelector((state) => state.filtered_safePlaces)
-
-
-
-    function handleFilterCountry(e) {
-        dispatch(filterByCountry(e.target.value))
-    }
 
     async function handleClick(e) {
         e.preventDefault();
@@ -49,17 +43,6 @@ export default function Panel() {
                     <button className="Denunciados" value="warning" onClick={(e) => handleClick(e)}>Denunciados</button>
                     <button className="Aceptados" value="accepted" onClick={(e) => handleClick(e)}>Aceptados</button>
                     <button className="Rechazados" value="rejected" onClick={(e) => handleClick(e)}>Rechazados</button>
-
-                    <select onChange={e => handleFilterCountry(e)}>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Peru</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Venezuela">Venezuela</option>
-                    </select>
                 </div>
                 <div className="cards-panel">
                     {lugaresSeguros.map(e => (

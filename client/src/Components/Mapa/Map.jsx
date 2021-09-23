@@ -70,10 +70,9 @@ export default function Maps(props) {
     // eslint-disable-next-line
     dispatch(getSafeplace())
 
-  },
-    // eslint-disable-next-line 
-    []);
-
+  }, 
+  // eslint-disable-next-line 
+  []);
 
 
 
