@@ -13,7 +13,6 @@ export default function FailedSearch() {
           className="inputsearch"
           autoComplete="off"
           type="text"
-          //  value={input.description}
           name="description"
           placeholder="Noticia"
         />

@@ -2,8 +2,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Landing from './Pages/Landing';
-import { ChakraProvider } from '@chakra-ui/react';
-import { theme } from './Pages/User-Profile-Page/helpers/index';
 import './App.css';
 //Import Pages
 import Footer from "./Components/Footer/Footer.jsx";
@@ -12,7 +10,7 @@ import Conocenos from "../src/Pages/Conocenos/Conocenos.jsx"
 import IniciaSesion from "./Pages/IniciaSesion";
 import RegistrateLugarSeguro from "./Pages/RegistrateLugarSeguro";
 // import LugaresSeguros from "./Pages/LugaresSeguros";
-import MainProfile from "./Pages/User-Profile-Page/MainProfile";
+// import MainProfile from "./Pages/User-Profile-Page/MainProfile";
 import Registrate from "./Pages/Registro-Usuario/Registrate";
 import Nav from "./Components/NavBar/NavBar";
 import Panel from "./Pages/Panel-Admin/Panel";
@@ -28,12 +26,17 @@ import MujeresEnSaludd from './Pages/Salud/MujeresEnSalud';
 import FormularioSalud from './Pages/Salud/FormularioSalud';
 
 
+import MujeresEnSalud from './Components/Mujeres_en_Salud/MujeresEnSalud'
+import FormularioSalud from './Components/Mujeres_en_Salud/FormSalud';
+
+import AccountSettings from "./Pages/User-Profile-Page/Content/AccountSettings";
+
+
 
 function App() {
 
   return (
     <BrowserRouter>
-     <ChakraProvider theme={theme}>
     <div className="App">
       <Nav/>
       <Switch>
@@ -42,9 +45,9 @@ function App() {
       <Route exact path="/lugaresseguros" component={LugaresSeguros}/>
       <Route exact path="/registratelugarseguro" component={RegistrateLugarSeguro}/>
       <Route exact path="/iniciasesion" component={IniciaSesion}/>
-      <Route exact path="/profile" component={MainProfile} />
       <Route exact path="/registrate" component={Registrate}/>
       <Route exact path="/foro" component={Foro}/>
+      <Route exact path="/profile" component={AccountSettings}/>
       <Route exact path="/foroNoticias/:id" component={ForoNoticias}/>
       <Route exact path="/foroerror" component={FailedSearch}/>
       <PrivateRoute exact path="/panel" component={Panel}/>
@@ -54,11 +57,9 @@ function App() {
       <Route exact path="/salud" component={MujeresEnSaludd}/>
       <Route exact path="/formsalud" component={FormularioSalud}/>
 
-
       </Switch>
       <Footer/>
     </div>
-    </ChakraProvider>
     </BrowserRouter>
   );
 }

@@ -22,22 +22,14 @@ export default function Card({ name, country, street, number, town, email, telep
     const [buttonPopup, setButtonPopup] = useState(false)
 
 
-    // const lugaresSeguros = useSelector((state) => state.filtered_safePlaces)
-
     let [statusOriginal, setstatusOriginal] = useState(1)
 
-
-    //const lugaresSeguros = useSelector((state) => state.filtered_safePlaces)
 
     const user = useSelector((state) => state.userData)
 
     const acceptedStatusHandler = async () => {
-        console.log("entro al accepted handler" + id + statusOriginal)
-        console.log(statusOriginal + " estado original")
         dispatch(acceptedStatus(id))
-        //dispatch(getSafePlacePanel())
         setstatusOriginal(statusOriginal += 2)
-        console.log(statusOriginal + " estadonuevo")
         swal("Lugar aceptado", name + " ahora se verá en el mapa", "success");
         await axios.post(`${REACT_APP_BACK_BASE_URL}/email/accepted`, user)
 

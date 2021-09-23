@@ -12,19 +12,26 @@ function SearchBarHealt() {
    const [name, setName] = useState('');
    // eslint-disable-next-line
    const [loading, setLoading] = useState(false);
-
    const allHealth = useSelector((state) => state.healtNews);
    // eslint-disable-next-line
    const especialidad = useSelector((state) => state.filterEspecialidad)
    console.log(especialidad)
+<<<<<<< HEAD
+=======
+
+>>>>>>> d5d7c607db4ff99f31d07246dd431498661b47de
      
   useEffect(() => {
     dispatch(getHealth());
   }, [dispatch]);
 
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> d5d7c607db4ff99f31d07246dd431498661b47de
 
     function handleEspecialidad(e) {
-        dispatch(byEspecialidades(e.target.value))
+     dispatch(byEspecialidades(e.target.value))
     };
    function render(props){
      return(

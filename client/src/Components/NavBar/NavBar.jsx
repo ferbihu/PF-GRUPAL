@@ -1,19 +1,13 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-// import { GoogleLogout } from "react-google-login"
-//import { logOutGoogle } from "../../actions/actions";
 import "./NavBar.css";
 import logo from "../../imgs/ola22.png"
 
 const Nav = () => {
 
-  const name = useSelector((state) => state.userId);
+  
   const logueado = localStorage.getItem("isLogged")
-  console.log(name);
-
-  // const dispatch = useDispatch();
-
+  
   useEffect(() => {
   }, [logueado])
 

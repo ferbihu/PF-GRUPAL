@@ -42,7 +42,6 @@ const initialState = {
   healtNews:[],
   allHealtNews:[],
   filterEspecialidad:[],
-  profession:"",
 };
 
 
@@ -262,6 +261,7 @@ function reducers(state = initialState, action) {
                   ...state,
                   healtNews: action.payload
                 }
+
     case 'POST_HEALTH':
       return {
         ...state,
@@ -271,7 +271,6 @@ function reducers(state = initialState, action) {
           ...state,
           filterEspecialidad: state.allHealtNews.filter(e => e.profession === action.payload)
       } 
-
 
     default:
       return state;

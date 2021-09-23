@@ -4,8 +4,6 @@ import { useDispatch } from "react-redux";
 import './FormSalud.css';
 import { postHealth, byEspecialidades } from '../../actions/actions';
 import swal from "sweetalert";
-//import axios from "axios";
-//const { REACT_APP_BACK_BASE_URL } = process.env
 
 
 function validate(input) {
@@ -86,6 +84,7 @@ export default function FormMujeres() {
         })
 
     }
+
     return (
             <div className='pcform'>
                   <div className='titulo-form'>Registro de Mujeres en Salud</div>
@@ -185,6 +184,7 @@ export default function FormMujeres() {
                         <p className='errorname'>{errors.prepaidSocialWork}</p>
                        )}
                          <button className="btnsalud" type='submit' onClick={(e) => handleSubmit(e)}>Registrar</button> 
+             
               </form>
               </div>
             </div>  
