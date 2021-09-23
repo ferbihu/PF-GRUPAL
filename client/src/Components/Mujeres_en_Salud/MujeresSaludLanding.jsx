@@ -21,7 +21,7 @@ export default function MujeresSalud() {
                         </div>
                     </div>
                     <div className="imagen-lugares-landing">
-                        <Link to="/lugaresseguros">
+                        <Link to="/salud">
                             <img src={mujer} alt="Not found" className="imgMapa" />
                         </Link>
                     </div>

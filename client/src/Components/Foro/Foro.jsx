@@ -10,7 +10,7 @@ export default function Foro() {
             <div className="container-lugares-landing">
                 <Fade bottom>
                     <div className="imagen-lugares-landing">
-                        <Link to="/lugaresseguros">
+                        <Link to="/foro">
                             <img src={noticia} alt="Not found" className="imgMapa" />
                         </Link>
                     </div>
