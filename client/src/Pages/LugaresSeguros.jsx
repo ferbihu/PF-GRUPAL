@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Map } from "../Components/Mapa/Map";
 import './LugaresSeguros.css';
 
-import icono from "../imgs/iconmapp.png"
+import icono from "../imgs/ms-icon-50x50.png"
 
 export default function LugaresSeguros() {
     return (
@@ -14,7 +14,7 @@ export default function LugaresSeguros() {
                 </div>
                 <div className="lugares-line2"></div>
                 <div className="subtitulo-mapa">
-                    Todos los lugares seguros registrados en la página aparecerán sobre el mapa el ícono <img src={icono} alt="casa" className="imagen-casa" />
+                    Todos los lugares seguros registrados en la página aparecerán sobre el mapa con el ícono <img src={icono} alt="casa" className="imagen-casa" />
                 </div>
                 <div className="subtitulo2">Clickealo para saber más sobre el lugar!</div>
             </div>
