@@ -45,7 +45,7 @@ const Nav = () => {
         </ul>
       </div>
     );
-  } else if (logueado === "false") {
+  } else {
     return (
       <div className="container-nav">
         <div className="logo">
