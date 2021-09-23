@@ -57,7 +57,7 @@ const Nav = () => {
             <div className="nav-line"></div>
           </li>
           <li>
-            <Link to="/foro">Foro</Link>
+            <Link to="/foro">Noticias</Link>
             <div className="foro-line"></div>
           </li>
           <li>
