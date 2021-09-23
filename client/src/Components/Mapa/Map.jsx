@@ -67,16 +67,10 @@ export default function Maps(props) {
 
 
   useEffect(() => {
+    // eslint-disable-next-line
     dispatch(getSafeplace())
-<<<<<<< HEAD
-  },
-    // eslint-disable-next-line 
-    []);
-
-=======
-     // eslint-disable-next-line
+// eslint-disable-next-line
   }, []);
->>>>>>> marker
 
 
   const allsities = useSelector((state) => state.stateSitie);
@@ -170,10 +164,6 @@ export default function Maps(props) {
                 state_popup_warning && <PopupsSideBarWarning id={e.id} cambiarEstado={() => cambiarEstado()} text="Por favor, explicanos el motivo de la denuncia.  Si denuncias un lugar, automáticamente
                 aparecerá de color amarillo en el mapa y será revisado por las administradoras de la página."></PopupsSideBarWarning>
               }
-<<<<<<< HEAD
-
-=======
->>>>>>> marker
             </Marker>
           )) : har.map((e, i) => (
             <Marker key={i}
