@@ -16,7 +16,6 @@
   font-family: Montserrat;
   display: flex;
   justify-content: center;
-  margin-top: 0px;
   font-size: 35px;
 }
 
@@ -27,7 +26,8 @@ body {
 }
   
 .regis-form {
-  margin: auto;
+  margin-left: -20px;
+  justify-content: center;
   background: rgb(255, 255, 255);
   box-shadow: 0 0 1rem rgba(128, 128, 128, 0.3);
   width: 450px;
