@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
+
 import { useSelector, useDispatch } from "react-redux";
+
 import { Link, useHistory } from "react-router-dom";
 import "./AccountSetting.css"
 import imgUser from "../../../imgUser/avatar.png"
 import { getUserById } from "../../../actions/actions";
 
 export default function AccountSettings() {
+
   const history = useHistory();
 
   const name = useSelector((state) => state.userId)
@@ -17,6 +20,7 @@ export default function AccountSettings() {
     localStorage.setItem("isAdmin", true)
   }
  
+
   let isLogged = localStorage.getItem("isLogged")
   let isAdmin = localStorage.getItem("isAdmin")
   let id_usuario = localStorage.getItem("userId") 
