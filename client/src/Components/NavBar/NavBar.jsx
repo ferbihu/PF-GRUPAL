@@ -6,10 +6,10 @@ import { useSelector } from "react-redux";
 
 const Nav = () => {
 
-  
+
   const logueado = localStorage.getItem("isLogged")
   const log = useSelector((state) => state.userId)
-  
+
   useEffect(() => {
   }, [log])
 
@@ -26,7 +26,7 @@ const Nav = () => {
           </li>
 
           <li>
-            <Link to="/foro">Foro</Link>
+            <Link to="/foro">Noticias</Link>
             <div className="foro-line"></div>
           </li>
           <li>
@@ -39,7 +39,7 @@ const Nav = () => {
           </li>
           <li>
             <Link to="/profile">Mi cuenta</Link>
-            <div className="nav-line"></div>
+            <div className="micuenta-line"></div>
 
           </li>
         </ul>

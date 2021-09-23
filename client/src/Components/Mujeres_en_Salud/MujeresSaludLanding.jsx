@@ -1,30 +1,29 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import './Foro.css';
 import Fade from 'react-reveal/Fade';
-import noticia from "../../imgs/noticia.png"
+import mujer from "../../imgs/mujer.png"
 
-export default function Foro() {
+export default function MujeresSalud() {
     return (
         <>
             <div className="container-lugares-landing">
                 <Fade bottom>
-                    <div className="imagen-lugares-landing">
-                        <Link to="/lugaresseguros">
-                            <img src={noticia} alt="Not found" className="imgMapa" />
-                        </Link>
-                    </div>
 
                     <div className="texto-lugares-landing">
                         <div className="lugaresseguros">
 
-                            NOTICIAS Y ENTREVISTAS
+                            MUJERES EN SALUD
                         </div>
                         <div className="lugaresseguros-line"></div>
 
                         <div className="texto-mapa">
-                            Charlamos sobre educación, tecnología, salud y más!
+                            Conocé a profesionales de la salud de todo el país
                         </div>
+                    </div>
+                    <div className="imagen-lugares-landing">
+                        <Link to="/lugaresseguros">
+                            <img src={mujer} alt="Not found" className="imgMapa" />
+                        </Link>
                     </div>
 
 
