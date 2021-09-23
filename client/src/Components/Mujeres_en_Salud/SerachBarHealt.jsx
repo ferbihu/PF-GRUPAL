@@ -31,7 +31,7 @@ function SearchBarHealt() {
    function render(props){
      return(
     
-         <div>
+         <div className='home-salud'> 
             {
              props &&
                         props?.map(i => {
@@ -59,20 +59,22 @@ function SearchBarHealt() {
         <div className='pcsalud'>
         <div className='titulo-salud'>Mujeres en Salud</div>
         <div className='search-line'></div>
+      
         <Link to= '/formsalud'><button className='btnregistrosalud'>Registrate como profesional</button></Link>
         <div>
          <select className='selectsalud'onChange={handleEspecialidad} >
                     <option value="All">Especialidad</option>
-                    <option value="cardiología">Cardiología</option>
-                    <option value="cirugía">Cirugía</option>
-                    <option value="clinica">Clinica Médica</option>
-                    <option value="dermatología">Dermatología</option>
-                    <option value="flebología">Flebología</option>
-                    <option value="ginecología">Ginecología y Obstetricía</option>
-                    <option value="nutrición">Nutrición</option>
-                    <option value="oftalmología">Oftalmología</option>
-                    <option value="pediatría">Pediatría</option>
-                    <option value="psiquiatría">Psiquiatría</option>
+                    <option value="Cardiología">Cardiología</option>
+                    <option value="Cirugía">Cirugía</option>
+                    <option value="Clinica">Clinica Médica</option>
+                    <option value="Dermatología">Dermatología</option>
+                    <option value="Flebología">Flebología</option>
+                    <option value="Ginecología">Ginecología y Obstetricía</option>
+                    <option value="Nutrición">Nutrición</option>
+                    <option value="Oftalmología">Oftalmología</option>
+                    <option value="Pediatría">Pediatría</option>
+                    <option value="Psiquiatría">Psiquiatría</option>
+                    <option value="Traumatología">Traumatología</option>
          </select>
          </div>
        <div>

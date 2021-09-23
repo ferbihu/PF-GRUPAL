@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-//import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import './FormSalud.css';
 import { postHealth, byEspecialidades } from '../../actions/actions';
@@ -37,6 +37,7 @@ function validate(input) {
 export default function FormMujeres() {
   const dispatch = useDispatch()
   const userId = localStorage.getItem("userId")
+  const history = useHistory();
 
     const [errors, setErrors] = useState({});
     const [input, setInput] = useState({
@@ -72,6 +73,7 @@ export default function FormMujeres() {
     }));
     dispatch(postHealth( input, userId))
         swal("Tu lugar fue registrado", "Verficá tu mail para continuar", "success");    
+        history.push("/salud");
         setInput({
           name: "",
           lastname: "",
@@ -114,18 +116,19 @@ export default function FormMujeres() {
                         <p className='errorname'>{errors.lastname}</p>
                         )}
                           <div>
-             <select className='selectsalud' onChange={e => handleProfession(e)}>
+             <select className='selectsaludform' onChange={e => handleProfession(e)}>
                         <option value="All">Especialidad</option>
-                        <option value="cardiología">Cardiología</option>
-                        <option value="cirugía">Cirugía</option>
-                        <option value="clinica">Clinica Médica</option>
-                        <option value="dermatología">Dermatología</option>
-                        <option value="flebología">Flebología</option>
-                        <option value="ginecología">Ginecología y Obstetricía</option>
-                        <option value="nutrición">Nutrición</option>
-                        <option value="oftalmología">Oftalmología</option>
-                        <option value="pediatría">Pediatría</option>
-                        <option value="psiquiatría">Psiquiatría</option>
+                        <option value="Cardiología">Cardiología</option>
+                        <option value="Cirugía">Cirugía</option>
+                        <option value="Clinica">Clinica Médica</option>
+                        <option value="Dermatología">Dermatología</option>
+                        <option value="Flebología">Flebología</option>
+                        <option value="Ginecología">Ginecología y Obstetricía</option>
+                        <option value="Nutrición">Nutrición</option>
+                        <option value="Oftalmología">Oftalmología</option>
+                        <option value="Pediatría">Pediatría</option>
+                        <option value="Psiquiatría">Psiquiatría</option>
+                        <option value="Traumatología">Traumatología</option>
                         {input.profession}</select>
                 </div>
                         <input className='saludmatricula'
