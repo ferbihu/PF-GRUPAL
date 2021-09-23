@@ -27,9 +27,9 @@ function Register({ addUser, responseGoogle }) {
       errors.name = "Name is required";
     }
     if (!input.email) {
-      errors.email = "email is required";
+      errors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(input.email)) {
-      errors.email = "email is invalid";
+      errors.email = "Email is invalid";
     }
     if (!input.password) {
       errors.password = "Password is required";

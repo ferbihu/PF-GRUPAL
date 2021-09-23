@@ -51,7 +51,9 @@ export default function AccountSettings() {
     isAdmin === "true" ? 
     <div className="contenedorProfile">
       <div className="contenedorinfouser">
+        <div>
         <img src={imgUser} className="imgUsername" alt="Not found"/>
+        </div>
         <h1 className="name">Hola {userDataById?.name}!</h1>
         <h2 className="mail">Email: {userDataById?.email}</h2>
         <Link to="/panel">
@@ -60,18 +62,18 @@ export default function AccountSettings() {
         <Link to="/users">
           <button className="btn2">Administrar usuarios</button>
         </Link>
-        <button onClick={handleLogout}>Cerrar sesión</button>
+        <button className="btn-logout" onClick={handleLogout}>Cerrar sesión</button>
       </div>
     </div> :
     <div className="contenedorProfile">
       <div className="contenedorinfouser">
         <img src={imgUser} className="imgUsername" alt="Not found"/>
-        <h1 className="name">Hola {userDataById?.name}!</h1>
+        <h1 className="name2">Hola {userDataById?.name}!</h1>
         <h2 className="mail">Email: {userDataById?.email}</h2>
         <Link to="registratelugarseguro">
-        <button>Registrá un lugar seguro</button>
+        <button className="btn3">Registrá un lugar seguro</button>
         </Link>
-        <button onClick={handleLogout}>Cerrar sesión</button>
+        <button className="btn2-logout" onClick={handleLogout}>Cerrar sesión</button>
       </div>
     </div>
   );
