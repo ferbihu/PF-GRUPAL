@@ -13,6 +13,7 @@ function SearchBarHealt() {
    // eslint-disable-next-line
    const [loading, setLoading] = useState(false);
    const allHealth = useSelector((state) => state.healtNews);
+   console.log(allHealth)
    // eslint-disable-next-line
    const especialidad = useSelector((state) => state.filterEspecialidad)
    console.log(especialidad)

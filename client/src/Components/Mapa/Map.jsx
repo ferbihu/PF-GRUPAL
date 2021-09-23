@@ -84,7 +84,9 @@ export default function Maps(props) {
 
   useEffect(() => {
     dispatch(getSafeplace())
-  }, []);
+  }, 
+  // eslint-disable-next-line 
+  []);
 
 
   const allsities = useSelector((state) => state.stateSitie);
@@ -172,7 +174,7 @@ export default function Maps(props) {
         bandera ?
           sitios.map((e, i) => (
             <Marker key={i}
-              position={e.coord} title={e.keyword} icon={e.status == "accepted" ? pin : warning} id={e.id} onClick={() => handleMarkerClick(e)}
+              position={e.coord} title={e.keyword} icon={e.status === "accepted" ? pin : warning} id={e.id} onClick={() => handleMarkerClick(e)}
 
             >
               {
