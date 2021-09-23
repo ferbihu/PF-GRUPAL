@@ -15,22 +15,24 @@ function validate(input) {
       errors.lastname = 'Se requiere un apellido';
   }
   else if (!input.profession) {
-      errors.profession = 'Se requiere una ciudad';
+      errors.profession = 'Se requiere una profesión';
   }
   else if (!input.enrollment) {
-      errors.enrollment = 'Se requiere una calle';
+      errors.enrollment = 'Se requiere una matricula';
   }
   else if (!input.zone) {
-      errors.zone = 'Se requiere un número';
+      errors.zone = 'Se requiere una zona';
   }
   else if (!input.socialmedia) {
-      errors.socialmedia = 'Se requiere un código postal';
+      errors.socialmedia = 'Se requiere una red social';
   }
   else if (!input.email) {
-      errors.email = 'Se requiere un mail';
-  }
+      errors.email = 'Se requiere un email';
+    } else if (!/\S+@\S+\.\S+/.test(input.email)) {
+      errors.email = "email is invalid";
+    }
   else if (!input.prepaidSocialWork) {
-      errors.prepaidSocialWork = 'Se requiere un teléfono';
+      errors.prepaidSocialWork = 'Se requiere una prepaga/obra social';
   }
   return errors;
 };
@@ -72,7 +74,7 @@ export default function FormMujeres() {
         [e.target.name]:e.target.value
     }));
     dispatch(postHealth( input, userId))
-        swal("Tu lugar fue registrado", "Verficá tu mail para continuar", "success");    
+        swal("Tu profesión fue registrada", "Verficá tu mail para continuar", "success");    
         history.push("/salud");
         setInput({
           name: "",
@@ -117,19 +119,21 @@ export default function FormMujeres() {
                         )}
                           <div>
              <select className='selectsaludform' onChange={e => handleProfession(e)}>
-                        <option value="All">Especialidad</option>
-                        <option value="Cardiología">Cardiología</option>
-                        <option value="Cirugía">Cirugía</option>
-                        <option value="Clinica">Clinica Médica</option>
-                        <option value="Dermatología">Dermatología</option>
-                        <option value="Flebología">Flebología</option>
-                        <option value="Ginecología">Ginecología y Obstetricía</option>
-                        <option value="Nutrición">Nutrición</option>
-                        <option value="Oftalmología">Oftalmología</option>
-                        <option value="Pediatría">Pediatría</option>
-                        <option value="Psiquiatría">Psiquiatría</option>
-                        <option value="Traumatología">Traumatología</option>
-                        {input.profession}</select>
+             <option value="All">Especialidad</option>
+             <option value="All">Especialidad</option>
+                    <option value="Cardióloga">Cardióloga</option>
+                    <option value="Cirujana">Cirujana</option>
+                    <option value="Clinica Médica">Clinica Médica</option>
+                    <option value="Dermatóloga">Dermatóloga</option>
+                    <option value="Flebóloga">Flebóloga</option>
+                    <option value="Ginecóloga">Ginecóloga y Obstetra</option>
+                    <option value="Nutricionista">Nutricionista</option>
+                    <option value="Oftalmóloga">Oftalmóloga</option>
+                    <option value="Pediatra">Pediatra</option>
+                    <option value="Psicóloga">Psicóloga</option>
+                    <option value="Psiquiatra">Psiquiatra</option>
+                    <option value="Traumatóloga">Traumatóloga</option>
+              {input.profession}</select>
                 </div>
                         <input className='saludmatricula'
                         autoComplete='off'
@@ -166,10 +170,10 @@ export default function FormMujeres() {
                        )}
                         <input className='saludemail'
                         autoComplete='off'
-                        type="text"
+                        type="email"
                         value={input.email}
                         name="email"
-                        placeholder="Email"
+                        placeholder="nombre@example.com"
                         onChange={e => handleChange(e)}
                         />
                         {errors.email && (
@@ -186,7 +190,7 @@ export default function FormMujeres() {
                        {errors.prepaidSocialWork && (
                         <p className='errorname'>{errors.prepaidSocialWork}</p>
                        )}
-                         <button className="btnsalud" type='submit' onClick={(e) => handleSubmit(e)}>Registrar</button> 
+                         <button className="btnsalud" type='submit' disabled={!input.name || !input.lastname || !input.profession || !input.enrollment || !input.zone || !input.socialmedia || !input.email || !input.prepaidSocialWork } onClick={(e) => handleSubmit(e)}>Registrar</button> 
              
               </form>
               </div>
