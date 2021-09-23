@@ -74,8 +74,6 @@ export default function Maps(props) {
 
 
   const allsities = useSelector((state) => state.stateSitie);
-
-
   const [input, setInput] = useState(false);
   const [datos, setDatos] = useState({});
   const handleMarkerClick = (e) => {

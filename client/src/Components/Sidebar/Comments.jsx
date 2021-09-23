@@ -5,12 +5,8 @@ import "./Comments.css"
 
 export default function ShowCommentsPlaces({id}) {
 
-  console.log(id)
     const comments = useSelector((state) => state.comments_safeP)
-    console.log("cmSP",comments)
     const filterId = comments.filter((c) => c.safePlaceId === id)
-    console.log(filterId)
-
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -25,8 +21,10 @@ export default function ShowCommentsPlaces({id}) {
             
                 filterId?.map((c) => {
                     return (
+                      <div>
                       <div key={c.id} value={c.id} className="commentsCont">
                         <p key={c.id} value={c.id} className="conte">{c.comment_text}</p>
+                      </div>
                       </div>
                     )
                   })

@@ -5,6 +5,7 @@ import Foro from '../Components/Foro/Foro';
 import Header from '../Components/Header/Header';
 import Mapa from '../Components/Mapa/Mapa';
 import WhatsApp from '../Components/WhatsApp/WhatsApp';
+import MujeresSalud from '../Components/Mujeres_en_Salud/MujeresSaludLanding';
 import "./Landing.css";
 
 
@@ -21,6 +22,7 @@ export default function Landing() {
             <div >
                 <Mapa></Mapa>
                 <Foro></Foro>
+                <MujeresSalud></MujeresSalud>
                 <WhatsApp></WhatsApp>
             </div>
         </div>

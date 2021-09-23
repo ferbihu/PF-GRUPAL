@@ -1,43 +1,40 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import './Foro.css';
+import Fade from 'react-reveal/Fade';
+import noticia from "../../imgs/noticia.png"
 
 export default function Foro() {
     return (
-        <div className='fondoForo'>
+        <>
+            <div className="container-lugares-landing">
+                <Fade bottom>
+                    <div className="imagen-lugares-landing">
+                        <Link to="/foro">
+                            <img src={noticia} alt="Not found" className="imgMapa" />
+                        </Link>
+                    </div>
 
-            <div >
-                <h2 className='tituloForo'>FORO</h2>
-                <div className="foro-line"></div>
+                    <div className="texto-lugares-landing">
+                        <div className="lugaresseguros">
+
+                            NOTICIAS Y ENTREVISTAS
+                        </div>
+                        <div className="lugaresseguros-line"></div>
+
+                        <div className="texto-mapa">
+                            Charlamos sobre educación, tecnología, salud y más!
+                        </div>
+                    </div>
+
+
+
+
+
+                </Fade>
             </div>
 
-            <div className='parrafoForo1'>
-
-                Charlamos sobre salud, educación sexual, eventos y más!
-
-            </div>
-            <div className='parrafoForo2'>
-
-                Podés ser parte de una de las comunidades de mujeres más activas.
-
-            </div>
-            <div className='parrafoForo3'>
-
-                ¡Nos encantaría conocerte!
-
-            </div>
-
-
-            <Link to='/foro' className="link-foro">
-
-                INGRESÁ AL FORO
-
-            </Link>
-
-
-
-
-        </div>
+        </>
 
     )
 
