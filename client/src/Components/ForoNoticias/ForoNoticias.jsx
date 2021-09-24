@@ -10,7 +10,7 @@ const{ REACT_APP_BACK_BASE_URL} = process.env
 export default function Foro(props) {
   // eslint-disable-next-line 
   const {id} = useParams();
-  const idUser = useSelector((state) => state.userId)
+  const idUser = localStorage.getItem("userId")
   
  function getCurrentDate(separator='-'){
 
@@ -64,7 +64,6 @@ useEffect(() => {
 }
    async function handleSubmit(e) {
        e.preventDefault();
-       console.log("guarda",input)
        if(Loggin==="true"){
         dispatch(postCommentNotice({ ...input},idUser,id))
         setInput({
