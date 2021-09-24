@@ -17,14 +17,14 @@
 .container-desarrolladoras {
     display: flex;
     flex-direction: column;
-    padding: 2vw 5vw 5vw 5vw;
+    padding: 4vw 5vw 0vw 5vw;
     background-color: #F1EEDE;
     font-family: 'Montserrat', sans-serif;
 }
 
 
 .foto-conocenos{
-    height: 7.5vw;
+    height: 14vw;
     padding-right: 2vw;
 }
 
@@ -47,6 +47,7 @@
  align-self: center;
  background-color: cornsilk;
  border-radius: 20px;
+ width: 500px;
 }
 .perfil:hover{
     background-color: rgb(243, 224, 182);
@@ -74,7 +75,7 @@
 
 .conocenos-line2{
     background: #f17a09;
-    height: 4px;
+    height: 0.2vw;
     width: 16vw;
     margin-top: 0;
     align-self: center; 

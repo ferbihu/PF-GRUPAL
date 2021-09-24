@@ -2,7 +2,13 @@ import React from "react";
 import "./Conocenos.css"
 
 import linkedin from "../../imgs/linkedin.png"
-import avatar from "../../imgs/avatar.png"
+import Agus from "../../imgs/Agus.png"
+import Any from "../../imgs/Any.png"
+import Caro from "../../imgs/Caro.png"
+import Fer from "../../imgs/Fer.png"
+import Flor from "../../imgs/Flor.png"
+import Mor from "../../imgs/Mor.png"
+import Vero from "../../imgs/Vero.png" 
 import github from "../../imgs/github.png"
 
 
@@ -19,7 +25,7 @@ export default function Conocenos() {
             <div className="integrantes">
 
                 <div className="perfil">
-                    <img src={avatar} alt="avatar" className="foto-conocenos" />
+                    <img src={Any} alt="avatar" className="foto-conocenos" />
                     <div className="nombre">
                         <h3>Anyel Lopez</h3>
                         <div className="iconos">
@@ -31,7 +37,7 @@ export default function Conocenos() {
                     </div>
                 </div>
                 <div className="perfil">
-                    <img src={avatar} alt="avatar" className="foto-conocenos" />
+                    <img src={Agus} alt="avatar" className="foto-conocenos" />
                     <div className="nombre">
                         <h3>Agustina Martinez</h3>
                         <div className="iconos">
@@ -42,7 +48,7 @@ export default function Conocenos() {
                         </div>
                     </div>
                 </div><div className="perfil">
-                    <img src={avatar} alt="avatar" className="foto-conocenos" />
+                    <img src={Caro} alt="avatar" className="foto-conocenos" />
                     <div className="nombre">
                         <h3>Carolina Altamiranda</h3>
                         <div className="iconos">
@@ -53,7 +59,7 @@ export default function Conocenos() {
                         </div>
                     </div>
                 </div><div className="perfil">
-                    <img src={avatar} alt="avatar" className="foto-conocenos" />
+                    <img src={Fer} alt="avatar" className="foto-conocenos" />
                     <div className="nombre">
                         <h3>Fernanda Bihurriet</h3>
                         <div className="iconos">
@@ -64,7 +70,7 @@ export default function Conocenos() {
                         </div>
                     </div>
                 </div><div className="perfil">
-                    <img src={avatar} alt="avatar" className="foto-conocenos" />
+                    <img src={Flor} alt="avatar" className="foto-conocenos" />
                     <div className="nombre">
                         <h3>Florencia Ferrari</h3>
                         <div className="iconos">
@@ -75,7 +81,7 @@ export default function Conocenos() {
                         </div>
                     </div>
                 </div><div className="perfil">
-                    <img src={avatar} alt="avatar" className="foto-conocenos" />
+                    <img src={Mor} alt="avatar" className="foto-conocenos" />
                     <div className="nombre">
                         <h3>Mora Bessone</h3>
                         <div className="iconos">
@@ -86,7 +92,7 @@ export default function Conocenos() {
                         </div>
                     </div>
                 </div><div className="perfil">
-                    <img src={avatar} alt="avatar" className="foto-conocenos" />
+                    <img src={Vero} alt="avatar" className="foto-conocenos" />
                     <div className="nombre">
                         <h3>Verónica Cardozo</h3>
                         <div className="iconos">
