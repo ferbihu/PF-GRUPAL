@@ -9,10 +9,12 @@ const { REACT_APP_BACK_BASE_URL } = process.env
 
 export default function Foro(props) {
   // eslint-disable-next-line 
-  const { id } = useParams();
-  const idUser = useSelector((state) => state.userId)
 
-  function getCurrentDate(separator = '-') {
+  const {id} = useParams();
+  const idUser = localStorage.getItem("userId")
+  
+ function getCurrentDate(separator='-'){
+
 
     let newDate = new Date()
     let date = newDate.getDate();
@@ -61,23 +63,24 @@ export default function Foro(props) {
       description: e.target.value
     })
 
-  }
-  async function handleSubmit(e) {
-    e.preventDefault();
-    console.log("guarda", input)
-    if (Loggin === "true") {
-      dispatch(postCommentNotice({ ...input }, idUser, id))
-      setInput({
-        ...input,
-        description: ""
-      })
-      setStateComment({
-        stateComment: 2
-      })
+  
+}
+   async function handleSubmit(e) {
+       e.preventDefault();
+       if(Loggin==="true"){
+        dispatch(postCommentNotice({ ...input},idUser,id))
+        setInput({
+          ...input,
+          description:""
+         })
+         setStateComment({
+          stateComment:2
+         })
 
-    } else {
-      alert("Por favor logueate!")
-    }
+       }else{
+         alert("Por favor logueate!")
+       }
+
 
   }
 
