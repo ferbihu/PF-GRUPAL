@@ -86,8 +86,8 @@ export default function Foro(props) {
 
   return (
     <div className='pc'>
-      <div className='tituloforo'>Foro</div>
-      <div className='.foroNoticias-line'></div>
+      <div className='tituloforo'>Noticia</div>
+      <div className='foroNoticias-line'></div>
       {
         getnews.length > 0 ?
           <div>
