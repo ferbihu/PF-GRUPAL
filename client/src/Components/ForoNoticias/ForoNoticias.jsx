@@ -87,11 +87,14 @@ export default function Foro(props) {
   return (
     <div className='pc'>
       <div className='tituloforo'>Noticia</div>
-      <div className='foroNoticias-line'></div>
+      <div className='lineaaa'></div>
       {
         getnews.length > 0 ?
           <div>
-            <img className='imgNotamujeres' src={`${REACT_APP_BACK_BASE_URL}/` + getnews[0].image} alt="no se encuentra la imagen" />
+            <div className="padreImg">
+            {/* eslint-disable-next-line */}
+            <img className='imgNotamujeres' src={`${REACT_APP_BACK_BASE_URL}/` + getnews[0].image} className="img-detail" alt="no se encuentra la imagen" />
+            </div>
             <div className='tittleydate'>
               <div className='titulonoti'> {getnews[0].title}</div>
               <p className='date'> {getnews[0].date}</p>

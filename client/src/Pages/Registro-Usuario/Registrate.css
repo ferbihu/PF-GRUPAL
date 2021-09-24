@@ -1,9 +1,13 @@
+
+
 .fondo-registrate{
   background-color: #F1EEDE;
   font-family: Montserrat;
   display: flex;
   flex-direction: column;
   padding-top: 10vw;
+  justify-content: center;
+  padding-bottom: 5vw;
 }
 .line-registrate{
   background: #f17a09;
@@ -11,12 +15,15 @@
     width: 11vw;
     align-self: center;
     margin-bottom: 2vw;
+    margin-left: 40px;
+
 }
+
 .txtRegistrate {
   font-family: Montserrat;
-  display: flex;
-  justify-content: center;
   font-size: 35px;
+  align-self: center;
+  margin-left: 40px;
 }
 
 body {
@@ -26,13 +33,16 @@ body {
 }
   
 .regis-form {
-  margin-left: -20px;
   justify-content: center;
   background: rgb(255, 255, 255);
   box-shadow: 0 0 1rem rgba(128, 128, 128, 0.3);
   width: 450px;
   height: 480px;
   border-radius: 20px;
+}
+
+.card {
+  align-self: center;
 }
 
 .p3 {
