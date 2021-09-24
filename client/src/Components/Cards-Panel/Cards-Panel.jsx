@@ -25,7 +25,8 @@ export default function Card({ name, country, street, number, town, email, telep
     let [statusOriginal, setstatusOriginal] = useState(1)
 
 
-    const user = useSelector((state) => state.userData)
+    const user = useSelector((state) => state.userDataById)
+    console.log(user)
 
     const acceptedStatusHandler = async () => {
         dispatch(acceptedStatus(id))

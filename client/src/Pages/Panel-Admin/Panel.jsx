@@ -30,12 +30,13 @@ export default function Panel() {
                 <div className="titulo-panel">
                     Panel de control
                 </div>
-                <div className="linea-panel"></div>
+                <div className="linea-panel-control"></div>
             </div>
             <Link to="/cargarNoticia">
-                <h2>
+                <div className="cargar-noticia">
                     Cargar noticia
-                </h2>
+                </div>
+
             </Link>
             <div className="fondopanel">
                 <div className="filtrados-panel">

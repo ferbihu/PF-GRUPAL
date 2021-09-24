@@ -1,0 +1,8 @@
+.fondo-carrusel{
+    
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5vw 2vw 1vw 2vw;
+    justify-content: space-around;
+    
+}

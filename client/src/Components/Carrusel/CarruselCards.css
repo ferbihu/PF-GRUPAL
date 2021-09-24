@@ -1,8 +1,8 @@
 .body {
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    min-height: 80vh;
+    
+    margin: 3vw;
   }
 .titlecards{
     font-size:1.5vw;
@@ -10,23 +10,14 @@
     color: #878BD9;
     font-weight: bold;
 }
-/* .card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: 1000px;
-    margin: 50px 0;
-    
-  } */
+
   .card{
-    background-color: #FEA166;
-    margin:auto;
+    background-color: #ffffff;
     box-shadow: 0 0 1rem rgba(128, 128, 128, 0.3);
     width: 400px;
     height: 360px; 
-    border-radius: 20px;
-    margin-top: 40px;
+    border-radius: 10px;
+    
 }
   .img{
     border-radius:10px;

@@ -43,7 +43,7 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
 
   const state_popup_warning2 = useSelector(state => state.popup_warning)
   const state_popup2 = useSelector(state => state.popup)
-  const logeado = useSelector(state => state.logeado)
+  const logeado = localStorage.getItem("isLogged")
 
 
 
@@ -96,8 +96,8 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
             </div>
               : <div className="comentario"><Link to="/iniciasesion">Iniciá sesión para dejar tu reseña!</Link></div>}
                       <div>
+                        <div className="comm-scrll">
             {
-            
                 filterId?.map((c) => {
                     return (
                       <div>
@@ -107,7 +107,8 @@ export default function Sidebar({ id, name, telephone, street, number, keyword, 
                       </div>
                     )
                   })
-            }
+                }
+                </div>
         </div>
         </div>
       </div>

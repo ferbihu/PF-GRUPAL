@@ -250,6 +250,7 @@ export default function Registrate() {
                         <p className='errorrelation'>{errors.relation}</p>
                     )}
 
+
                     <button className="btninput" type='submit' disabled={!input.name || !input.country || !input.town  || !input.street || !input.number || !input.postcode || !input.email || !input.keyword || !input.relation } onClick={(e) => handleSubmit(e)}>Registrar</button>
                 </form>
             </div>
