@@ -29,7 +29,7 @@ function validate(input) {
   else if (!input.email) {
       errors.email = 'Se requiere un email';
     } else if (!/\S+@\S+\.\S+/.test(input.email)) {
-      errors.email = "email is invalid";
+      errors.email = "email es inválido";
     }
   else if (!input.prepaidSocialWork) {
       errors.prepaidSocialWork = 'Se requiere una prepaga/obra social';
@@ -175,7 +175,7 @@ export default function FormMujeres() {
                         name="email"
                         placeholder="nombre@example.com"
                         onChange={e => handleChange(e)}
-                        />
+                        pattern=".+@globex\.com" size="30" required/>
                         {errors.email && (
                         <p className='errorname'>{errors.email}</p>
                        )}

@@ -30,7 +30,9 @@ function validate(input) {
         errors.postcode = 'Se requiere un código postal';
     }
     else if (!input.email) {
-        errors.email = 'Se requiere un mail';
+        errors.email = 'Se requiere un email';
+    } else if (!/\S+@\S+\.\S+/.test(input.email)) {
+        errors.email = "email es inválido";
     }
     else if (!input.telephone) {
         errors.telephone = 'Se requiere un teléfono';
@@ -203,6 +205,7 @@ export default function Registrate() {
                     <input className='formmail'
                         autoComplete='off'
                         type="email"
+                        pattern=".+@globex\.com" size="30" required
                         value={input.email}
                         name="email"
                         placeholder="nombre@example.com"
@@ -247,7 +250,8 @@ export default function Registrate() {
                         <p className='errorrelation'>{errors.relation}</p>
                     )}
 
-                    <button className="btninput" type='submit' disabled={!input.name || !input.country || !input.town  || !input.postcode || !input.street || !input.email || !input.relation  || !input.number || !input.keyword } onClick={(e) => handleSubmit(e)}>Registrar</button>
+
+                    <button className="btninput" type='submit' disabled={!input.name || !input.country || !input.town  || !input.street || !input.number || !input.postcode || !input.email || !input.keyword || !input.relation } onClick={(e) => handleSubmit(e)}>Registrar</button>
                 </form>
             </div>
         </div>
