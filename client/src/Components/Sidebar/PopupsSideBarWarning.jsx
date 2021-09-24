@@ -56,7 +56,7 @@ export default function PopupsSideBarWarning({ text, id, cambiarEstado }) {
         console.log(id, input, status)
         cambiarEstado()
 
-        swal("Enviado", "Gracias por colaborar con Safety!", "success");
+        swal("Enviado", "Gracias por colaborar con Ola Violeta!", "success");
         setInput({
             comment_text: ""
         })

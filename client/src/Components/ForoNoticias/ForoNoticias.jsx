@@ -146,6 +146,7 @@ export default function Foro(props) {
                     </symbol>
                  </svg>
              </div>
+             <div className="styleContCom">
              <details open>
                 <summary className="btnmascomentarios">
                     Mas comentarios
@@ -157,14 +158,16 @@ export default function Foro(props) {
       <div className="message-box">
                                         {/* eslint-disable-next-line */} 
                                            
-                    <div className="fecha">{e.date}</div>
+                    <div className="inputfecha">{e.date}</div>
                     <div className="message-content">
                     <div className="otro">{e.description}</div>
+                    <div className="lineaCom"></div>
               </div>
         </div>
         </div> 
             ))}
               </details>
+              </div>
     </div>
 
       </div>
