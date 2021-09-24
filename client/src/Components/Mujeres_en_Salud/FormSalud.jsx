@@ -120,7 +120,6 @@ export default function FormMujeres() {
                           <div>
              <select className='selectsaludform' onChange={e => handleProfession(e)}>
              <option value="All">Especialidad</option>
-             <option value="All">Especialidad</option>
                     <option value="Cardióloga">Cardióloga</option>
                     <option value="Cirujana">Cirujana</option>
                     <option value="Clinica Médica">Clinica Médica</option>

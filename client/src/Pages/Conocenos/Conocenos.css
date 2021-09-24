@@ -28,7 +28,7 @@
     padding-right: 2vw;
 }
 
-.icono {
+.iconosnuestros {
     height: 2vw;
     padding-left: 1vw;
 }
@@ -47,7 +47,7 @@
  align-self: center;
  background-color: cornsilk;
  border-radius: 20px;
- width: 500px;
+ width: 550px;
 }
 .perfil:hover{
     background-color: rgb(243, 224, 182);
