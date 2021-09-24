@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./IniciaSesion.css";
 
-import { useDispatch} from "react-redux";
+import { useDispatch,useSelector} from "react-redux";
 import {login } from "../actions/actions";
 
 import { Link, useHistory } from "react-router-dom";
@@ -28,7 +28,20 @@ export default function IniciaSesion() {
   const [input, setInput] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
   const history = useHistory();
+  const logginError = useSelector((state)=>state.logginError);
+  const userId = useSelector((state)=>state.userId);
+  
+  if(userId){
+    history.push("/")
+  }
 
+  if(logginError){
+    swal("Oh oh, algo salió mal", "Tu usuario o contraseña son incorrectos", "warning");
+    dispatch({
+      type:'LOGGIN_ERROR',
+      payload: {error: false}
+    })
+  }
 
 
   function handleChange(e) {
@@ -47,9 +60,9 @@ export default function IniciaSesion() {
   function handleSubmit(e) {
     e.preventDefault();
     if (!errors.email && !errors.password) {
-      swal("Iniciaste sesión correctamente", "Gracias", "success");    
       dispatch(login(input))
-      history.push("/")
+      swal("Iniciaste sesión correctamente", "Gracias", "success");    
+     
     } else {
       swal("Oh oh, algo salió mal", "Inténtelo nuevamente", "warning");
     }
@@ -88,8 +101,9 @@ export default function IniciaSesion() {
         >
           Ingresá
         </button>
+       
         <h2>
-          <Link to="/registrate">No tenes cuenta? Registrate.</Link>
+          <Link className="registro-user" to="/registrate">No tenes cuenta? Registrate.</Link>
         </h2>
       </form>
     </div>

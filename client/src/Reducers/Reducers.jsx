@@ -4,7 +4,6 @@ const initialState = {
   safeplce: [],
   user: [],
   role: [],
-  // isLogged: localStorage.getItem("isLogged"),
   userId: null,
   filtered_safePlaces: [],
   stateSitie: [{
@@ -42,6 +41,7 @@ const initialState = {
   healtNews:[],
   allHealtNews:[],
   filterEspecialidad:[],
+  logginError : false
 };
 
 
@@ -102,13 +102,6 @@ function reducers(state = initialState, action) {
         stateSitie: action.payload.info,          //allRecipes
 
       };
-    /* case "FILTER_BY_COUNTRY":
-      let lugares = state.stateSitie;
-      let statusFiltered = lugares.filter(e => e.country.includes(action.payload))
-      return {
-        ...state,
-        filtered_safePlaces: statusFiltered
-      }; */
     case "FILTER_BY_STATUS":
       let lugares = state.allSafePlacesPanel
       let statusFiltered = lugares.filter(e => e.status.includes(action.payload))
@@ -187,16 +180,6 @@ function reducers(state = initialState, action) {
         popup: false 
       }
 
-    /* case 'FILTER_SAFEPLACE_BY_ID':
-      const allSafePlace2 = state.allSafePlacesPanel
-      const id2 = state.userId
-      const filterSafePlace2 = allSafePlace2.filter(i => i.status.includes(id2))
-      return {
-        ...state,
-        isLogged: true,
-        allSafePlacesPanel: filterSafePlace2
-      } */
-
     // eslint-disable-next-line
     case "UPDATE_DATA_USER":
       return {
@@ -246,6 +229,11 @@ function reducers(state = initialState, action) {
         userId: localStorage.getItem('userId'),
         logeado: localStorage.getItem('isLogged')
       }
+      case "LOGGIN_ERROR":
+        return {
+          ...state,
+          logginError: action.payload.error
+        }
 
     case "GET_HEALTH":
               return {
