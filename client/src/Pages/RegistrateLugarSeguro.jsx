@@ -100,10 +100,10 @@ export default function Registrate() {
 
         const lat = data.results[0].geometry.location.lat;
         const lng = data.results[0].geometry.location.lng;
-       
+
 
         dispatch(postAprobation({ ...input, lat, lng }, userId))
-        swal("Tu lugar fue registrado", "Verficá tu mail para continuar", "success");    
+        swal("Tu lugar fue registrado", "Verficá tu mail para continuar", "success");
         history.push('/lugaresseguros')
         await axios.post(`${REACT_APP_BACK_BASE_URL}/email/registroSafePlace`, input)
         setInput({
@@ -139,7 +139,7 @@ export default function Registrate() {
     };
 
     return (
-        <div className='pageregistro'>
+        <div className='pageregistro99'>
             <a href="/lugaresseguros" className="btnvolver">VOLVER</a>
             <div className='title'>Registro de lugar seguro</div>
             <div className="postlugarSeguro-line"></div>
@@ -251,7 +251,7 @@ export default function Registrate() {
                     )}
 
 
-                    <button className="btninput" type='submit' disabled={!input.name || !input.country || !input.town  || !input.street || !input.number || !input.postcode || !input.email || !input.keyword || !input.relation } onClick={(e) => handleSubmit(e)}>Registrar</button>
+                    <button className="btninput" type='submit' disabled={!input.name || !input.country || !input.town || !input.street || !input.number || !input.postcode || !input.email || !input.keyword || !input.relation} onClick={(e) => handleSubmit(e)}>Registrar</button>
                 </form>
             </div>
         </div>
