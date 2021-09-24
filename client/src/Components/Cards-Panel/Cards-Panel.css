@@ -14,7 +14,7 @@
     border: gray;
     display: flex;
     flex-direction: column;
-    
+    min-height: 24vw;
     text-align: center;
     height: fit-content;
     padding: 2vw;
@@ -60,4 +60,5 @@
     background-color: rgb(248, 110, 110);
     margin: 0.1vw 1vw 0.1vw 1vw;
     width: auto;
+    
 }
