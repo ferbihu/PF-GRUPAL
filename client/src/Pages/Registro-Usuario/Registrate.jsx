@@ -54,7 +54,7 @@ function Register({ addUser, responseGoogle }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-     
+     if(errors.name || errors.password || errors.email || input.name === ""|| input.email === ""|| input.password === "")return ;
     addUser(input);
     swal("Usuario creado", "Ya podes iniciar sesión!", "success");  
       history.push("/iniciasesion");
