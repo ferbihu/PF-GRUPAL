@@ -36,7 +36,7 @@ for(var i=0;i<allNews.length;i++){
          {/* eslint-disable-next-line */}
         <img src={`${REACT_APP_BACK_BASE_URL}/` + imagenes[0]} alt="travel image" className="image"/>
          {/* eslint-disable-next-line */} 
-        <a>{titulo[0]}</a>
+         <div className="centrado">{titulo[0]}</div>
         </Link>
       </div>
       <div>
@@ -44,7 +44,7 @@ for(var i=0;i<allNews.length;i++){
         {/* eslint-disable-next-line */}
         <img src={`${REACT_APP_BACK_BASE_URL}/` + imagenes[1]} alt="travel image" className="image"/>
          {/* eslint-disable-next-line */} 
-        <a>{titulo[1]}</a>
+         <div className="centrado">{titulo[1]}</div>
         </Link>
       </div>
       <div>
@@ -52,7 +52,7 @@ for(var i=0;i<allNews.length;i++){
         {/* eslint-disable-next-line */}
         <img src={`${REACT_APP_BACK_BASE_URL}/` + imagenes[2]} alt="travel image" className="image"/>
          {/* eslint-disable-next-line */} 
-        <a>{titulo[2]}</a>
+         <div className="centrado">{titulo[2]}</div>
         </Link>
       </div>
       <div>
@@ -60,7 +60,7 @@ for(var i=0;i<allNews.length;i++){
          {/* eslint-disable-next-line */}
          <img src={`${REACT_APP_BACK_BASE_URL}/` + imagenes[3]} alt="travel image" className="image"/>
          {/* eslint-disable-next-line */} 
-        <a>{titulo[3]}</a>
+         <div className="centrado">{titulo[3]}</div>
         </Link>
       </div>
     </Slider>
