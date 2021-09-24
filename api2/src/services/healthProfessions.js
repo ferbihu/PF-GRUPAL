@@ -4,7 +4,6 @@ const { HealthProfession, User } = require("../db");
 async function addProfession(data,userId) {
   try {
     const user = await User.findByPk(userId)
-    console.log(user)
     if(!user) return ({error: true ,msj:"Usuario no existente en la base de datos"})
     const healthProfession = await HealthProfession.create(data)
   
