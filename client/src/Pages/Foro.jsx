@@ -6,8 +6,6 @@ export default function Foro() {
     return (
         <div>
             <div classeName="proyectocontainer">
-
-
                 <ForoPortada></ForoPortada>
                 <Carrusel></Carrusel>
                 <CarruselPortada></CarruselPortada>
