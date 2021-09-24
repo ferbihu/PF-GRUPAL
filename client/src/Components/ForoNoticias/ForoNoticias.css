@@ -1,23 +1,25 @@
 .pc{
-    padding: 50vw 5vw 1vw 5vw;
+    padding: 10vw 5vw 1vw 5vw;
     background-color: #F1EEDE;
     font-family: Montserrat;
     display: flex;
     flex-direction: column;
-    /* margin-top: 150px; */
+    
 }
 .tituloforo{
     font-size: 3vw;
     text-align: center;
     align-self: center; 
     margin-bottom: 0.5vw;
+    margin:auto;
 
 }
 .foroNoticias-line{
     background: #f17a09;
     height: 0.2vw;
-    width: 8vw;
-    margin-top: 0;
+    width: 25vw;
+    margin: auto;
+    margin-right: 35vw;
     align-self: center; 
     margin-bottom: 2vw;
 }
@@ -25,78 +27,54 @@
     width: 76vw;
     height: auto;
     align-self: center;
-    margin-left: auto; 
-    margin-right: auto;
+    margin: auto;
+    display:block;
     margin-top: 40px;    
 }
 .titulonoti{
-    font-size: 2vw;
+    font-size: 2.5vw;
     align-self: center;
- 
     margin-bottom: 0.5vw;
     margin-left: 6.5vw;
     font-weight: bold;
+    margin-top: 1vw;  
 }
 .date{
-    margin-left: 950px;
+    margin: auto;
+    margin-left: 75vw;;
 }
 .tittleydate{
-    margin-top: 1vw;  
+    margin-top: 1vw; 
+     
 }
 .rectangulonoticia {
     background-color: #FFFFFF;
     margin:auto;
     box-shadow: 0 0 1rem rgba(128, 128, 128, 0.3);
-    width: 1000px; 
+    width: 76vw; 
     height: fit-content; 
     border-radius: 20px;
 }
 .parrafonoti{
     text-align:justify;
-    margin-left: 2vw;
+    margin-left: 1.4vw;
     margin-top: 2vw;
-    margin-right: 2vw;
+    margin-right: 1.4vw;
+    padding-top: 1.4vw;
+    padding-bottom: 1.4vw;
  
-}
-.btnnotianterior{ 
-    border:  1px solid #FEA166;
-    background-color: #FEA166;
-    width: 140px;
-    height: 30px; 
-    border-radius:20px;
-    margin-left: 50px;
-    margin-top: 20px;
-    justify-content:center;
-    align-items:center;
-    align-content: center;
-    display:fixed;
-    font-size: 14px;
-   
-
-}
-.btnnotisiguiente{
-    border:  1px solid #FEA166;
-    background-color: #FEA166;
-    width: 140px;
-    height: 30px; 
-    border-radius:20px;
-    margin-left: 725px;
-    margin-top: 20px;
-    justify-content:center;
-    align-items:center;
-    align-content: center;
-    display:fixed;
-    font-size: 14px;
 }
 .comentariosforo{
     font-weight: bold;
     font-size: 2vw;
     color: #4A0E79;
     text-align:start;
-    margin-right: 800px;
+    margin: auto;
+    margin-left: 100px;
     margin-top: 40px;
     align-self: center; 
-    margin-bottom: 0.5vw;  
+    margin-bottom: 0.5vw;
+      
 } 
 .inputcomentario{
     /* border:  1px solid #C4C4C4; */
@@ -105,9 +83,9 @@
     background-color:  #FFFFFF;
     text-align:center;
     border-radius: 20px;
-    width: 850px;
+    width: 76vw; 
     height: 80px;
-    margin-left: 140px;
+    margin:auto;
     margin-top: 10px;
     font-size: 20px;  
 }
@@ -117,13 +95,14 @@
     width: 150px;
     height: 45px; 
     border-radius:20px;
-    margin-left: 830px;
+    margin:auto;
+    margin-right: 100px;
     margin-top: 15px;
     justify-content:center;
     align-items:center;
     align-content: center;
     display:fixed;
-    font-size: 14px;
+    font-size: 20px;
 }
 .inputpalabra{
     background-color: #FFFFFF;
@@ -156,5 +135,8 @@
     height: 30px; 
     border-radius:20px;
     display:fixed;
-    font-size: 14px;
+    font-size: 16px;
+    margin: auto;
+    margin-left: 99px;
+    margin-top: 25px;
 }
