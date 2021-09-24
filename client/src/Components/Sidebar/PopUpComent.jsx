@@ -55,7 +55,7 @@ export default function PopupsComment({ text, id, setInput }) {
         };
         await axios.post(`${REACT_APP_BACK_BASE_URL}/safe_place/new_comment`, { ...input2, userId: idUser, safePlaceId: id }, config);
 
-        swal("Enviado", "Gracias por colaborar con Safety!", "success");
+        swal("Enviado", "Gracias por colaborar con Ola Violeta!", "success");
         setInput2({
             comment_text: ""
         })
