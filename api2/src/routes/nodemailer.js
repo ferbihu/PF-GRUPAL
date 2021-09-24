@@ -3,7 +3,6 @@ const express = require("express");
 const router = require("express").Router();
 router.use(express.json());
 const { GMAIL } = process.env;
-const path = require('path')
 
 
 router.post("/welcome", async (req, res, next) => {

@@ -12,7 +12,6 @@ exports.isAdminUser = async (req,res,next) => {
 
 
 exports.definedUserRole = async(req,res,next) => {
-    //console.log(adminEmails)
     const  {email}  = req.body;
     console.log(email)
     if(adminEmails.includes(email)){

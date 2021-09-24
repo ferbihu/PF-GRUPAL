@@ -6,7 +6,6 @@ const addHealthProfessions = async (req, res) => {
     try {
         const { name, lastname, profession, enrollment, prepaidSocialWork, zone, email, socialmedia, userId } = req.body;
         const resultOne = { name, lastname, profession, enrollment, prepaidSocialWork, zone, email, socialmedia, userId  };
-        console.log(resultOne)
         const resultFinal = await serviceHealthProfession.addProfession(resultOne,userId)
         if(resultFinal.error)return res.status(400).json(resultFinal.msj)
         res.status(200).json({success:true})
@@ -21,7 +20,6 @@ const addHealthProfessions = async (req, res) => {
 
 const getProfessions = async (req, res) => {
    const prof = await serviceHealthProfession.getAllProfessions();
-   console.log(prof)
    res.status(200).json(prof)
 }
 

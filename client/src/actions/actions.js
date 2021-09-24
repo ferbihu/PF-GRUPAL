@@ -68,12 +68,6 @@ export function byTown(payload) {
     }
 }
 
-// export function logOutGoogle(payload) {
-//   return {
-//     type: "LOG_OUT_GOOGLE",
-//     payload
-//   }
-// }
 
 
 export function login({ email, password }) {
@@ -85,7 +79,6 @@ export function login({ email, password }) {
       localStorage.setItem('token',res.data.id_token)
       localStorage.setItem('userId',res.data.userId)
       localStorage.setItem('isLogged',true)
-      console.log(res.data.role)
       return dispatch({
         type:'LOGIN',
 
@@ -98,9 +91,14 @@ export function login({ email, password }) {
     })
     .catch(err => {
       console.error(err)
+      return dispatch({
+        type:'LOGGIN_ERROR',
+        payload: {error: true}
+      })
     })
   }
 }
+
 
 
 export const getallsafesitie = ()=>{

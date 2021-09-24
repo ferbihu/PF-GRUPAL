@@ -1,5 +1,5 @@
 const {Router} = require ('express');
-const {User, Notice} = require('../db.js');
+const { Notice} = require('../db.js');
 const router = Router();
 
 router.get('/news', async(req, res) => {
@@ -8,10 +8,7 @@ router.get('/news', async(req, res) => {
 })
 
 router.post('/', async(req, res) => {
-    // let {id, title, content, image} = req.body;
-    // console.log(title, content, image, id)
     let {input, image2, id} = req.body;
-    console.log(input.title,input.content, image2)
     let fecha = await new Date();
     let date = await fecha.getDate()
 
@@ -22,13 +19,6 @@ router.post('/', async(req, res) => {
         date,
         status: "accepted"
     });
-
-    // const createNews = await User.findAll({
-    //     where: {
-    //         id
-    //     }
-    // });
-    // console.log(createNews)
 
     await newNews.setUser(id)
     return res.status(200).send('Noticia publicada con exito')

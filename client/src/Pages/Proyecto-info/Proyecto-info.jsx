@@ -93,17 +93,6 @@ export default function ProyectoInfo() {
 
                     </div>
                 </Toggle>
-                <Toggle title="¿Puedo borrar mi lugar seguro del mapa?">
-                    <div className="question">
-
-                        <div className="answer">
-                            <p>Luego de iniciar sesión, ingresá a "Mi cuenta" para poder ver todos los lugares seguros que hayas registrado.
-                                Para borrarlo del mapa, elegí la opción "Eliminar lugar"
-                            </p>
-                        </div>
-
-                    </div>
-                </Toggle>
             </AnimateSharedLayout>
 
         </div>
