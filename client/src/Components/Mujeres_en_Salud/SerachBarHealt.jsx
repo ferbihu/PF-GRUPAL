@@ -64,17 +64,18 @@ function SearchBarHealt() {
         <div>
          <select className='selectsalud'onChange={handleEspecialidad} >
                     <option value="All">Especialidad</option>
-                    <option value="Cardiología">Cardiología</option>
-                    <option value="Cirugía">Cirugía</option>
-                    <option value="Clinica">Clinica Médica</option>
-                    <option value="Dermatología">Dermatología</option>
-                    <option value="Flebología">Flebología</option>
-                    <option value="Ginecología">Ginecología y Obstetricía</option>
-                    <option value="Nutrición">Nutrición</option>
-                    <option value="Oftalmología">Oftalmología</option>
-                    <option value="Pediatría">Pediatría</option>
-                    <option value="Psiquiatría">Psiquiatría</option>
-                    <option value="Traumatología">Traumatología</option>
+                    <option value="Cardióloga">Cardióloga</option>
+                    <option value="Cirujana">Cirujana</option>
+                    <option value="Clinica Médica">Clinica Médica</option>
+                    <option value="Dermatóloga">Dermatóloga</option>
+                    <option value="Flebóloga">Flebóloga</option>
+                    <option value="Ginecóloga">Ginecóloga y Obstetra</option>
+                    <option value="Nutricionista">Nutricionista</option>
+                    <option value="Oftalmóloga">Oftalmóloga</option>
+                    <option value="Pediatra">Pediatra</option>
+                    <option value="Psicóloga">Psicóloga</option>
+                    <option value="Psiquiatra">Psiquiatra</option>
+                    <option value="Traumatóloga">Traumatóloga</option>
          </select>
          </div>
        <div>
