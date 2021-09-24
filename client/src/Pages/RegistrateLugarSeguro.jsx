@@ -102,6 +102,7 @@ export default function Registrate() {
 
         dispatch(postAprobation({ ...input, lat, lng }, userId))
         swal("Tu lugar fue registrado", "Verficá tu mail para continuar", "success");    
+        history.push('/lugaresseguros')
         await axios.post(`${REACT_APP_BACK_BASE_URL}/email/registroSafePlace`, input)
         setInput({
             name: "",
@@ -117,7 +118,6 @@ export default function Registrate() {
             keyword: "",
             relation: "",
         })
-        history.push('/')
     }
     const handleFilterCountrys = (e) => {
         setInput({ ...input, country: e.target.value })
@@ -247,7 +247,7 @@ export default function Registrate() {
                         <p className='errorrelation'>{errors.relation}</p>
                     )}
 
-                    <button className="btninput" type='submit' onClick={(e) => handleSubmit(e)}>Registrar</button>
+                    <button className="btninput" type='submit' disabled={!input.name || !input.country || !input.town  || !input.postcode || !input.street || !input.email || !input.relation  || !input.number || !input.keyword } onClick={(e) => handleSubmit(e)}>Registrar</button>
                 </form>
             </div>
         </div>
