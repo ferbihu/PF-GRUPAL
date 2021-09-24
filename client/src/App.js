@@ -9,12 +9,9 @@ import Foro from "../src/Pages/Foro";
 import Conocenos from "../src/Pages/Conocenos/Conocenos.jsx"
 import IniciaSesion from "./Pages/IniciaSesion";
 import RegistrateLugarSeguro from "./Pages/RegistrateLugarSeguro";
-// import LugaresSeguros from "./Pages/LugaresSeguros";
-// import MainProfile from "./Pages/User-Profile-Page/MainProfile";
 import Registrate from "./Pages/Registro-Usuario/Registrate";
 import Nav from "./Components/NavBar/NavBar";
 import Panel from "./Pages/Panel-Admin/Panel";
-// import Sities from "./Pages/Sities/Sitie";
 import LugaresSeguros from "./Pages/LugaresSeguros";
 import ProyectoInfo from "./Pages/Proyecto-info/Proyecto-info";
 import ForoNoticias from './Pages/ForoNoticias/ForoNoticias';

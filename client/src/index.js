@@ -5,12 +5,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from 'react-router-dom'
 import Store from "./Store/Store.jsx"
 import reportWebVitals from './reportWebVitals';
-// import axios from "axios";
-// import dotenv from "dotenv";
 
-// dotenv.config();
-
-// axios.defaults.baseURl = process.env.REACT_APP_API || 'http://localhost:3001';
 
 ReactDOM.render(
   <React.StrictMode>

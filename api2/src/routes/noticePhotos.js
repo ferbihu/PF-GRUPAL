@@ -33,7 +33,6 @@ router.get('/', (req, res) => {
   
 router.post('/', uploads.single('image'), (req, res) => {
     const image = req.file.path;
-    console.log(image)
     res.json({msg: 'Image successfully created'});
 });
 

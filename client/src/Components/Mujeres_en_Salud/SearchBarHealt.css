@@ -42,7 +42,7 @@
     height: 52px; 
     border-radius:20px;
     margin-top: 20px;
-    margin-left: 40px;
+    margin: auto;
     align-content: center;
     display:flex;
     flex-wrap: wrap;

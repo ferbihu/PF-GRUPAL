@@ -1,9 +1,7 @@
-/* rutas del usuario*/
 const {Router} = require('express');
 const {check}= require('express-validator');
 const {validateInput}= require('../middlewares/validateInput');
 const {login,createNewUser}= require('../controllers/auth');
-//const {validateJwt }= require('../middlewares/validateJwt');
 const {definedUserRole} = require('../middlewares/user')
 
 
@@ -30,7 +28,6 @@ router.post(
     ],
     login) ;
 
-// router.get('/renew',validateJwt, validateToken);
 
 
 
