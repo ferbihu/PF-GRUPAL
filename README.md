@@ -42,3 +42,26 @@ $ npm install
 $ npm run dev
 ```
 
+`Variables de entorno usadas`
+
+```sh
+
+PORT="yourPort"
+DB_NAME="yourDBName"
+DB_USER="yourDBUser"
+DB_PORT="yourPort"
+HOST="localhost"
+DB_HOST = "localhost"
+DB_PASSWORD= "yourPassword"
+REACT_APP_API_KEY="yourAPI_KEY"
+
+AUTH0_CLIENT_ID=yourClientID
+AUTH0_DOMAIN=yourAuthDomain
+AUTH0_CLIENT_SECRET=yourClientSecret
+AUTH0_USER_DATA_BASE_NAME=yourUserDataBaseName
+AUTH0_AUDIENCE = yourAuthAudience
+
+GMAIL= yourNameProject@gmail.com
+GMAIL_PASS=yourpassword-nameProject
+```
+
