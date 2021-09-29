@@ -44,7 +44,7 @@ $ npm run dev
 
 `Variables de entorno usadas`
 
-```sh
+```
 
 PORT="yourPort"
 DB_NAME="yourDBName"
