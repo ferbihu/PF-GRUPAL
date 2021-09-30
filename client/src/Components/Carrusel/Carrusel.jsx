@@ -7,7 +7,7 @@ import { getNews } from '../../actions/actions';
 import Slider from 'infinite-react-carousel';
 
 
-const { REACT_APP_BACK_BASE_URL } = process.env
+const { REACT_APP_AMAZON_S3 } = process.env
 
 const Carrusel = () => {
 
@@ -34,7 +34,7 @@ const Carrusel = () => {
       <div className='slider'>
         <Link to={"/foronoticias/" + idnoticia[0]}>
           {/* eslint-disable-next-line */}
-          <img src={`${REACT_APP_BACK_BASE_URL}/` + imagenes[0]} alt="travel image" className="image" />
+          <img src={`${REACT_APP_AMAZON_S3}/` + imagenes[0]} alt="travel image" className="image" />
           {/* eslint-disable-next-line */}
 
         </Link>
@@ -42,7 +42,7 @@ const Carrusel = () => {
       <div>
         <Link to={"/foronoticias/" + idnoticia[1]}>
           {/* eslint-disable-next-line */}
-          <img src={`${REACT_APP_BACK_BASE_URL}/` + imagenes[1]} alt="travel image" className="image" />
+          <img src={`${REACT_APP_AMAZON_S3}/` + imagenes[1]} alt="travel image" className="image" />
           {/* eslint-disable-next-line */}
 
         </Link>
@@ -50,7 +50,7 @@ const Carrusel = () => {
       <div>
         <Link to={"/foronoticias/" + idnoticia[2]}>
           {/* eslint-disable-next-line */}
-          <img src={`${REACT_APP_BACK_BASE_URL}/` + imagenes[2]} alt="travel image" className="image" />
+          <img src={`${REACT_APP_AMAZON_S3}/` + imagenes[2]} alt="travel image" className="image" />
           {/* eslint-disable-next-line */}
 
         </Link>
@@ -58,7 +58,7 @@ const Carrusel = () => {
       <div>
         <Link to={"/foronoticias/" + idnoticia[3]}>
           {/* eslint-disable-next-line */}
-          <img src={`${REACT_APP_BACK_BASE_URL}/` + imagenes[3]} alt="travel image" className="image" />
+          <img src={`${REACT_APP_AMAZON_S3}/` + imagenes[3]} alt="travel image" className="image" />
           {/* eslint-disable-next-line */}
 
         </Link>

@@ -5,7 +5,7 @@ import { getNews } from '../../actions/actions';
 import CarruselCards from './CarruselCards';
 import { useParams } from 'react-router-dom';
 import "./SearchCard.css"
-const { REACT_APP_BACK_BASE_URL } = process.env
+const { REACT_APP_AMAZON_S3} = process.env
 
 
 function SearchCard(props) {
@@ -35,7 +35,7 @@ function SearchCard(props) {
                             <Link to={"/ForoNoticias/" + i.id}>
                                 <CarruselCards
                                     title={i.title}
-                                    image={`${REACT_APP_BACK_BASE_URL}/` + i.image}
+                                    image={`${REACT_APP_AMAZON_S3}/` + i.image}
                                     date={i.date}
                                     key={i.id}
                                 ></CarruselCards>
