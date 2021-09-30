@@ -4,7 +4,7 @@ import { getCommentNotice, getNewsById, postCommentNotice } from '../../actions/
 import { useParams } from 'react-router-dom';
 import "./ForoNoticias.css";
 import style from "./Comment.module.css"
-const { REACT_APP_BACK_BASE_URL } = process.env
+const { REACT_APP_AMAZON_S3 } = process.env
 
 
 export default function Foro(props) {
@@ -93,7 +93,7 @@ export default function Foro(props) {
           <div>
             <div className="padreImg">
             {/* eslint-disable-next-line */}
-            <img className='imgNotamujeres' src={`${REACT_APP_BACK_BASE_URL}/` + getnews[0].image} className="img-detail" alt="no se encuentra la imagen" />
+            <img className='imgNotamujeres' src={`${REACT_APP_AMAZON_S3}/` + getnews[0].image} className="img-detail" alt="no se encuentra la imagen" />
             </div>
             <div className='tittleydate'>
               <div className='titulonoti'> {getnews[0].title}</div>
