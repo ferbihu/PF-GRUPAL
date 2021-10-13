@@ -45,7 +45,13 @@ $ npm run dev
 `Variables de entorno usadas`
 
 ```
+Front-End 
+REACT_APP_API_KEY="yourAPI_KEY"
+REACT_APP_BACK_BASE_URL = http://localhost:3001
+REACT_APP_AMAZON_S3 = https://olavioleta.s3.sa-east-1.amazonaws.com
 
+
+Back-End
 PORT="yourPort"
 DB_NAME="yourDBName"
 DB_USER="yourDBUser"
@@ -53,7 +59,6 @@ DB_PORT="yourPort"
 HOST="localhost"
 DB_HOST = "localhost"
 DB_PASSWORD= "yourPassword"
-REACT_APP_API_KEY="yourAPI_KEY"
 
 AUTH0_CLIENT_ID=yourClientID
 AUTH0_DOMAIN=yourAuthDomain
