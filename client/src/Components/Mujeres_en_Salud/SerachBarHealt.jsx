@@ -16,12 +16,18 @@ function SearchBarHealt() {
    console.log(allHealth)
    // eslint-disable-next-line
    const especialidad = useSelector((state) => state.filterEspecialidad)
-   console.log(especialidad)
+   // eslint-disable-next-line
+  let [estado, setEstado] = useState(1)
 
-     
   useEffect(() => {
     dispatch(getHealth());
-  }, [dispatch]);
+    // eslint-disable-next-line
+  }, [estado]);
+
+  useEffect(() => {
+    dispatch(getHealth());
+    // eslint-disable-next-line
+  }, []);
 
  
 
